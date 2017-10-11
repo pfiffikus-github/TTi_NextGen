@@ -37,7 +37,6 @@ namespace WindowsFormsApp3
                 checkBox2.ForeColor = Color.Black;
                 numericUpDown1.ForeColor = Color.Black;
                 numericUpDown2.ForeColor = Color.Black;
-
             }
 
         }

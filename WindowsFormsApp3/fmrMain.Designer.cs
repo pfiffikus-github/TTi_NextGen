@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("1  STOP");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1  STOP");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130");
             System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("9  TOOL CALL 38 Z S0");
             System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("10 * - TOOL 38 MESSTASTER");
             System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("NH9_0.t", new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode16,
-            treeNode17});
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("T       NAME             L           R           DL       DR       R2          PL" +
-        "C ");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
-        "0000000");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
-        "0000000");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("HY3_0.t", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
-            treeNode3});
+            treeNode3,
+            treeNode4,
+            treeNode16,
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("T       NAME             L           R           DL       DR       R2          PL" +
+        "C ");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+        "0000000");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+        "0000000");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("HY3_0.t", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6,
+            treeNode7});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrMain));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -152,6 +152,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.treeView1);
             this.splitContainer1.Panel1.Controls.Add(this.menuStrip3);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1MinSize = 300;
             // 
             // splitContainer1.Panel2
             // 
@@ -163,8 +164,9 @@
             this.splitContainer1.Panel2.Controls.Add(this.treeView2);
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Size = new System.Drawing.Size(830, 479);
-            this.splitContainer1.SplitterDistance = 394;
+            this.splitContainer1.Panel2MinSize = 300;
+            this.splitContainer1.Size = new System.Drawing.Size(709, 361);
+            this.splitContainer1.SplitterDistance = 350;
             this.splitContainer1.TabIndex = 0;
             // 
             // richTextBox1
@@ -173,9 +175,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(3, 390);
+            this.richTextBox1.Location = new System.Drawing.Point(3, 272);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(388, 86);
+            this.richTextBox1.Size = new System.Drawing.Size(344, 86);
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "NH9_0.t erfolgreich geladen\n54564\n564\n654\n654\n654\n654\n6546\n354\n654\n45";
             // 
@@ -184,7 +186,7 @@
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(59, 365);
+            this.checkBox1.Location = new System.Drawing.Point(59, 247);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(71, 17);
             this.checkBox1.TabIndex = 6;
@@ -196,7 +198,7 @@
             // 
             this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.numericUpDown1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 362);
+            this.numericUpDown1.Location = new System.Drawing.Point(3, 244);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(50, 20);
             this.numericUpDown1.TabIndex = 5;
@@ -207,7 +209,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(241, 361);
+            this.button1.Location = new System.Drawing.Point(197, 243);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 23);
             this.button1.TabIndex = 4;
@@ -224,14 +226,14 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 53);
             this.treeView1.Name = "treeView1";
-            treeNode9.Name = "Knoten1";
-            treeNode9.Text = "1  STOP";
-            treeNode10.Name = "Knoten3";
-            treeNode10.Text = "2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen";
-            treeNode11.Name = "Knoten4";
-            treeNode11.Text = "7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160";
-            treeNode12.Name = "Knoten5";
-            treeNode12.Text = "8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130";
+            treeNode1.Name = "Knoten1";
+            treeNode1.Text = "1  STOP";
+            treeNode2.Name = "Knoten3";
+            treeNode2.Text = "2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen";
+            treeNode3.Name = "Knoten4";
+            treeNode3.Text = "7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160";
+            treeNode4.Name = "Knoten5";
+            treeNode4.Text = "8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130";
             treeNode16.Name = "Knoten6";
             treeNode16.Text = "9  TOOL CALL 38 Z S0";
             treeNode17.Name = "Knoten7";
@@ -240,7 +242,7 @@
             treeNode18.Text = "NH9_0.t";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode18});
-            this.treeView1.Size = new System.Drawing.Size(388, 302);
+            this.treeView1.Size = new System.Drawing.Size(344, 184);
             this.treeView1.TabIndex = 3;
             // 
             // contextLeft
@@ -332,52 +334,52 @@
             // 
             this.öffnenToolStripMenuItem.Image = global::WindowsFormsApp3.Properties.Resources.folder_Open_32xLG;
             this.öffnenToolStripMenuItem.Name = "öffnenToolStripMenuItem";
-            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.öffnenToolStripMenuItem.Text = "Öffnen";
             // 
             // aktuelisierenToolStripMenuItem
             // 
             this.aktuelisierenToolStripMenuItem.Name = "aktuelisierenToolStripMenuItem";
-            this.aktuelisierenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aktuelisierenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.aktuelisierenToolStripMenuItem.Text = "Aktualisieren";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
             // 
             // schließenToolStripMenuItem
             // 
             this.schließenToolStripMenuItem.Name = "schließenToolStripMenuItem";
-            this.schließenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.schließenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.schließenToolStripMenuItem.Text = "Schließen";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
             // 
             // pfadÖffnenToolStripMenuItem2
             // 
             this.pfadÖffnenToolStripMenuItem2.Name = "pfadÖffnenToolStripMenuItem2";
-            this.pfadÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.pfadÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(148, 22);
             this.pfadÖffnenToolStripMenuItem2.Text = "Pfad öffnen";
             // 
             // dateiÖffnenToolStripMenuItem2
             // 
             this.dateiÖffnenToolStripMenuItem2.Name = "dateiÖffnenToolStripMenuItem2";
-            this.dateiÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.dateiÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(148, 22);
             this.dateiÖffnenToolStripMenuItem2.Text = "Datei öffnen";
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(145, 6);
             // 
             // eigenschaftenToolStripMenuItem
             // 
             this.eigenschaftenToolStripMenuItem.Name = "eigenschaftenToolStripMenuItem";
-            this.eigenschaftenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.eigenschaftenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.eigenschaftenToolStripMenuItem.Text = "Eigenschaften";
             // 
             // ansichtToolStripMenuItem
@@ -428,7 +430,7 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(393, 50);
+            this.label1.Size = new System.Drawing.Size(349, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Werkzeugliste\r\n\r\nNH9_0g.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -439,16 +441,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.Location = new System.Drawing.Point(3, 390);
+            this.richTextBox2.Location = new System.Drawing.Point(3, 272);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(426, 86);
+            this.richTextBox2.Size = new System.Drawing.Size(349, 86);
             this.richTextBox2.TabIndex = 9;
             this.richTextBox2.Text = "HY3_0.t erfolgreich geladen\n";
             // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(279, 361);
+            this.button4.Location = new System.Drawing.Point(202, 243);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 23);
             this.button4.TabIndex = 8;
@@ -460,7 +462,7 @@
             this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox2.AutoSize = true;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox2.Location = new System.Drawing.Point(59, 365);
+            this.checkBox2.Location = new System.Drawing.Point(59, 247);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(71, 17);
             this.checkBox2.TabIndex = 7;
@@ -472,7 +474,7 @@
             // 
             this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.numericUpDown2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.numericUpDown2.Location = new System.Drawing.Point(3, 362);
+            this.numericUpDown2.Location = new System.Drawing.Point(3, 244);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(50, 20);
             this.numericUpDown2.TabIndex = 6;
@@ -487,20 +489,20 @@
             this.treeView2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView2.Location = new System.Drawing.Point(3, 53);
             this.treeView2.Name = "treeView2";
-            treeNode1.Name = "Knoten1";
-            treeNode1.Text = "T       NAME             L           R           DL       DR       R2          PL" +
+            treeNode5.Name = "Knoten1";
+            treeNode5.Text = "T       NAME             L           R           DL       DR       R2          PL" +
     "C ";
-            treeNode2.Name = "Knoten2";
-            treeNode2.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            treeNode6.Name = "Knoten2";
+            treeNode6.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
     "0000000";
-            treeNode3.Name = "Knoten4";
-            treeNode3.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            treeNode7.Name = "Knoten4";
+            treeNode7.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
     "0000000";
-            treeNode4.Name = "Knoten0";
-            treeNode4.Text = "HY3_0.t";
+            treeNode8.Name = "Knoten0";
+            treeNode8.Text = "HY3_0.t";
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
-            this.treeView2.Size = new System.Drawing.Size(426, 302);
+            treeNode8});
+            this.treeView2.Size = new System.Drawing.Size(349, 184);
             this.treeView2.TabIndex = 4;
             // 
             // contextRight
@@ -634,7 +636,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(425, 50);
+            this.label2.Size = new System.Drawing.Size(348, 50);
             this.label2.TabIndex = 1;
             this.label2.Text = "CNC-Programm\r\n\r\nHY3_0.t";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -647,9 +649,9 @@
             this.toolStripStatusLabel2,
             this.toolStripProgressBar1,
             this.timeStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 482);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 364);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(830, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(709, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -746,7 +748,7 @@
             // 
             this.timeStatus.ForeColor = System.Drawing.Color.DimGray;
             this.timeStatus.Name = "timeStatus";
-            this.timeStatus.Size = new System.Drawing.Size(385, 17);
+            this.timeStatus.Size = new System.Drawing.Size(295, 17);
             this.timeStatus.Spring = true;
             this.timeStatus.Text = "D/T";
             this.timeStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -768,9 +770,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(830, 504);
+            this.ClientSize = new System.Drawing.Size(709, 386);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(650, 425);
             this.Name = "fmrMain";
             this.Text = "frmMain";
             this.Load += new System.EventHandler(this.fmrMain_Load);
