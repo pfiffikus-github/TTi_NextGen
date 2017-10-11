@@ -8,3 +8,13 @@ C:\Users\mht\source\repos\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFor
 C:\Users\mht\source\repos\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.exe
 C:\Users\mht\source\repos\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.pdb
 C:\Users\mht\source\repos\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.fmrMain.resources
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\WindowsFormsApp3.exe.config
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\WindowsFormsApp3.exe
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\WindowsFormsApp3.pdb
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.csprojResolveAssemblyReference.cache
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.fmrMain.resources
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.Properties.Resources.resources
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.csproj.GenerateResource.Cache
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.csproj.CoreCompileInputs.cache
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.exe
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.pdb

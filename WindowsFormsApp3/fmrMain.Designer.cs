@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("1  STOP");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("9  TOOL CALL 38 Z S0");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("10 * - TOOL 38 MESSTASTER");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("NH9_0.t", new System.Windows.Forms.TreeNode[] {
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16,
-            treeNode17});
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("T       NAME             L           R           DL       DR       R2          PL" +
-        "C ");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
-        "0000000");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
-        "0000000");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("HY3_0.t", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1  STOP");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("9  TOOL CALL 38 Z S0");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("10 * - TOOL 38 MESSTASTER");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("NH9_0.t", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
-            treeNode3});
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("T       NAME             L           R           DL       DR       R2          PL" +
+        "C ");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+        "0000000");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+        "0000000");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("HY3_0.t", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrMain));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -224,22 +224,22 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 53);
             this.treeView1.Name = "treeView1";
-            treeNode12.Name = "Knoten1";
-            treeNode12.Text = "1  STOP";
-            treeNode13.Name = "Knoten3";
-            treeNode13.Text = "2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen";
-            treeNode14.Name = "Knoten4";
-            treeNode14.Text = "7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160";
-            treeNode15.Name = "Knoten5";
-            treeNode15.Text = "8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130";
-            treeNode16.Name = "Knoten6";
-            treeNode16.Text = "9  TOOL CALL 38 Z S0";
-            treeNode17.Name = "Knoten7";
-            treeNode17.Text = "10 * - TOOL 38 MESSTASTER";
-            treeNode18.Name = "Knoten0";
-            treeNode18.Text = "NH9_0.t";
+            treeNode1.Name = "Knoten1";
+            treeNode1.Text = "1  STOP";
+            treeNode2.Name = "Knoten3";
+            treeNode2.Text = "2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen";
+            treeNode3.Name = "Knoten4";
+            treeNode3.Text = "7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160";
+            treeNode4.Name = "Knoten5";
+            treeNode4.Text = "8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130";
+            treeNode5.Name = "Knoten6";
+            treeNode5.Text = "9  TOOL CALL 38 Z S0";
+            treeNode6.Name = "Knoten7";
+            treeNode6.Text = "10 * - TOOL 38 MESSTASTER";
+            treeNode7.Name = "Knoten0";
+            treeNode7.Text = "NH9_0.t";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode18});
+            treeNode7});
             this.treeView1.Size = new System.Drawing.Size(388, 302);
             this.treeView1.TabIndex = 3;
             // 
@@ -466,7 +466,7 @@
             this.checkBox2.TabIndex = 7;
             this.checkBox2.Text = "Synchron";
             this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckStateChanged += new System.EventHandler(this.checkBox2_CheckStateChanged);
+            this.checkBox2.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
             // 
             // numericUpDown2
             // 
@@ -487,19 +487,19 @@
             this.treeView2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView2.Location = new System.Drawing.Point(3, 53);
             this.treeView2.Name = "treeView2";
-            treeNode1.Name = "Knoten1";
-            treeNode1.Text = "T       NAME             L           R           DL       DR       R2          PL" +
+            treeNode8.Name = "Knoten1";
+            treeNode8.Text = "T       NAME             L           R           DL       DR       R2          PL" +
     "C ";
-            treeNode2.Name = "Knoten2";
-            treeNode2.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            treeNode9.Name = "Knoten2";
+            treeNode9.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
     "0000000";
-            treeNode3.Name = "Knoten4";
-            treeNode3.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            treeNode10.Name = "Knoten4";
+            treeNode10.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
     "0000000";
-            treeNode4.Name = "Knoten0";
-            treeNode4.Text = "HY3_0.t";
+            treeNode11.Name = "Knoten0";
+            treeNode11.Text = "HY3_0.t";
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode11});
             this.treeView2.Size = new System.Drawing.Size(426, 302);
             this.treeView2.TabIndex = 4;
             // 

@@ -20,13 +20,9 @@ namespace WindowsFormsApp3
 
         private void checkBox1_CheckStateChanged(object sender, EventArgs e)
         {
-            checkBox2.CheckState = checkBox1.CheckState;
-
-        }
-
-        private void checkBox2_CheckStateChanged(object sender, EventArgs e)
-        {
-            checkBox1.CheckState = checkBox2.CheckState;
+            CheckBox cb = (CheckBox)sender;
+            checkBox1.CheckState = cb.CheckState;
+            checkBox2.CheckState = cb.CheckState;
         }
 
         private void timerMainFrm_Tick(object sender, EventArgs e)
