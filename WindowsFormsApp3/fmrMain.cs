@@ -23,11 +23,28 @@ namespace WindowsFormsApp3
             CheckBox cb = (CheckBox)sender;
             checkBox1.CheckState = cb.CheckState;
             checkBox2.CheckState = cb.CheckState;
+
+            if (cb.CheckState == CheckState.Checked)
+            {
+                checkBox1.ForeColor = Color.OrangeRed;
+                checkBox2.ForeColor = Color.OrangeRed;
+                numericUpDown1.ForeColor = Color.OrangeRed;
+                numericUpDown2.ForeColor = Color.OrangeRed;
+            }
+            else
+            {
+                checkBox1.ForeColor = Color.Black;
+                checkBox2.ForeColor = Color.Black;
+                numericUpDown1.ForeColor = Color.Black;
+                numericUpDown2.ForeColor = Color.Black;
+
+            }
+
         }
 
         private void timerMainFrm_Tick(object sender, EventArgs e)
         {
-            timeStatus.Text = DateTime.Now.ToString();
+            timeStatus.Text = DateTime.Now.ToString("dd.MM.yyyy hh:mm");
 
             Ping isPing = new Ping();
 
@@ -39,6 +56,7 @@ namespace WindowsFormsApp3
                     toolStripStatusLabel2.ForeColor = Color.Green;
                     toolStripDropDownButton1.ForeColor = Color.Green;
                     toolStripStatusLabel2.Text = "= online (127.0.0.1)";
+                    timerMainFrm.Interval = 10000;
                 }
 
             }
@@ -49,13 +67,14 @@ namespace WindowsFormsApp3
                 toolStripStatusLabel2.Text = "= offline (127.0.0.1)";
             }
 
-            timerMainFrm.Interval = 5000;
+            
 
         }
 
         private void fmrMain_Load(object sender, EventArgs e)
         {
             toolStripMenuItem8.CheckState = CheckState.Unchecked;
+            checkBox1.CheckState = CheckState.Checked;
 
         }
 
