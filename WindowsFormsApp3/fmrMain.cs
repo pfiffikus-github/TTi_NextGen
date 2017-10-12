@@ -56,6 +56,7 @@ namespace WindowsFormsApp3
                     toolStripDropDownButton1.ForeColor = Color.Green;
                     toolStripStatusLabel2.Text = "= online (127.0.0.1)";
                     timerMainFrm.Interval = 10000;
+
                 }
 
             }
