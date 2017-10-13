@@ -11,21 +11,41 @@ using System.Net.NetworkInformation;
 
 namespace WindowsFormsApp3
 {
-    public partial class fmrMain : Form
+    public partial class frmMain : Form
     {
-        public fmrMain()
+        public frmMain()
         {
             InitializeComponent();
         }
 
+        //private void syncCheckBox_CheckStateChanged(object sender, EventArgs e)
+        //{
+        //    CheckBox cb = (CheckBox)sender;
+        //    checkBox1.CheckState = cb.CheckState;
+        //    checkBox2.CheckState = cb.CheckState;
+
+        //    if (cb.CheckState == CheckState.Checked)
+        //    {
+        //        checkBox1.ForeColor = Color.OrangeRed;
+        //        checkBox2.ForeColor = Color.OrangeRed;
+        //        numericUpDown1.ForeColor = Color.OrangeRed;
+        //        numericUpDown2.ForeColor = Color.OrangeRed;
+        //    }
+        //    else
+        //    {
+        //        checkBox1.ForeColor = Color.Black;
+        //        checkBox2.ForeColor = Color.Black;
+        //        numericUpDown1.ForeColor = Color.Black;
+        //        numericUpDown2.ForeColor = Color.Black;
+        //    }
+        //}
+
         private void checkBox1_CheckStateChanged(object sender, EventArgs e)
         {
-            CheckBox cb = (CheckBox)sender;
-            checkBox1.CheckState = cb.CheckState;
-            checkBox2.CheckState = cb.CheckState;
-
-            if (cb.CheckState == CheckState.Checked)
+            checkBox2.CheckState = checkBox1.CheckState;
+            if (checkBox1.CheckState == CheckState.Checked)
             {
+                numericUpDown1.Value = numericUpDown2.Value;
                 checkBox1.ForeColor = Color.OrangeRed;
                 checkBox2.ForeColor = Color.OrangeRed;
                 numericUpDown1.ForeColor = Color.OrangeRed;
@@ -38,8 +58,33 @@ namespace WindowsFormsApp3
                 numericUpDown1.ForeColor = Color.Black;
                 numericUpDown2.ForeColor = Color.Black;
             }
-
         }
+
+        private void checkBox2_CheckStateChanged(object sender, EventArgs e)
+        {
+            checkBox1.CheckState = checkBox2.CheckState;
+            if (checkBox2.CheckState == CheckState.Checked)
+            {
+                numericUpDown2.Value = numericUpDown1.Value;
+                checkBox1.ForeColor = Color.OrangeRed;
+                checkBox2.ForeColor = Color.OrangeRed;
+                numericUpDown1.ForeColor = Color.OrangeRed;
+                numericUpDown2.ForeColor = Color.OrangeRed;
+            }
+            else
+            {
+                checkBox1.ForeColor = Color.Black;
+                checkBox2.ForeColor = Color.Black;
+                numericUpDown1.ForeColor = Color.Black;
+                numericUpDown2.ForeColor = Color.Black;
+            }
+        }
+
+
+
+
+
+
 
         private void timerMainFrm_Tick(object sender, EventArgs e)
         {
@@ -65,9 +110,10 @@ namespace WindowsFormsApp3
                 toolStripStatusLabel2.ForeColor = Color.Red;
                 toolStripDropDownButton1.ForeColor = Color.Red;
                 toolStripStatusLabel2.Text = "= offline (127.0.0.1)";
+
             }
 
-            
+
 
         }
 
@@ -97,5 +143,29 @@ namespace WindowsFormsApp3
             Close();
 
         }
+
+        private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.CheckState == CheckState.Checked)
+            {
+                numericUpDown2.Value = numericUpDown1.Value;
+            }
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.CheckState == CheckState.Checked)
+            {
+                numericUpDown1.Value = numericUpDown2.Value;
+            }
+        }
+
+
     }
 }

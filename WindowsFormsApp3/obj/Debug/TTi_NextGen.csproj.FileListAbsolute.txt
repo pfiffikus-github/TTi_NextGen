@@ -1,0 +1,10 @@
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\WindowsFormsApp3.exe.config
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\WindowsFormsApp3.exe
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\WindowsFormsApp3.pdb
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.Properties.Resources.resources
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.csproj.GenerateResource.Cache
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.csproj.CoreCompileInputs.cache
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.exe
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.pdb
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.csprojResolveAssemblyReference.cache
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.frmMain.resources

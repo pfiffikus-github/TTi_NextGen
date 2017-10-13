@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp3
 {
-    partial class fmrMain
+    partial class frmMain
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1  STOP");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("1  STOP");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130");
             System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("9  TOOL CALL 38 Z S0");
             System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("10 * - TOOL 38 MESSTASTER");
             System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("NH9_0.t", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15,
             treeNode16,
             treeNode17});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("T       NAME             L           R           DL       DR       R2          PL" +
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("T       NAME             L           R           DL       DR       R2          PL" +
         "C ");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
         "0000000");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
         "0000000");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("HY3_0.t", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7});
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrMain));
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("HY3_0.t", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -70,6 +70,8 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.öffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktuelisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speichernUnterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.schließenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -77,6 +79,8 @@
             this.dateiÖffnenToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.eigenschaftenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ansichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doppelteWerkzeugeMarkierenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,6 +112,7 @@
             this.contextMachine = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.protokolleAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -203,6 +208,7 @@
             this.numericUpDown1.Size = new System.Drawing.Size(50, 20);
             this.numericUpDown1.TabIndex = 5;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // button1
             // 
@@ -226,14 +232,14 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 53);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Knoten1";
-            treeNode1.Text = "1  STOP";
-            treeNode2.Name = "Knoten3";
-            treeNode2.Text = "2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen";
-            treeNode3.Name = "Knoten4";
-            treeNode3.Text = "7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160";
-            treeNode4.Name = "Knoten5";
-            treeNode4.Text = "8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130";
+            treeNode12.Name = "Knoten1";
+            treeNode12.Text = "1  STOP";
+            treeNode13.Name = "Knoten3";
+            treeNode13.Text = "2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen";
+            treeNode14.Name = "Knoten4";
+            treeNode14.Text = "7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160";
+            treeNode15.Name = "Knoten5";
+            treeNode15.Text = "8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130";
             treeNode16.Name = "Knoten6";
             treeNode16.Text = "9  TOOL CALL 38 Z S0";
             treeNode17.Name = "Knoten7";
@@ -318,13 +324,17 @@
             this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.öffnenToolStripMenuItem,
             this.aktuelisierenToolStripMenuItem,
+            this.speichernToolStripMenuItem,
+            this.speichernUnterToolStripMenuItem,
             this.toolStripSeparator1,
             this.schließenToolStripMenuItem,
             this.toolStripSeparator2,
             this.pfadÖffnenToolStripMenuItem2,
             this.dateiÖffnenToolStripMenuItem2,
             this.toolStripSeparator7,
-            this.eigenschaftenToolStripMenuItem});
+            this.eigenschaftenToolStripMenuItem,
+            this.toolStripSeparator8,
+            this.beendenToolStripMenuItem});
             this.toolStripMenuItem4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(46, 20);
@@ -334,53 +344,79 @@
             // 
             this.öffnenToolStripMenuItem.Image = global::WindowsFormsApp3.Properties.Resources.folder_Open_32xLG;
             this.öffnenToolStripMenuItem.Name = "öffnenToolStripMenuItem";
-            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.öffnenToolStripMenuItem.Text = "Öffnen";
             // 
             // aktuelisierenToolStripMenuItem
             // 
             this.aktuelisierenToolStripMenuItem.Name = "aktuelisierenToolStripMenuItem";
-            this.aktuelisierenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.aktuelisierenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.aktuelisierenToolStripMenuItem.Text = "Aktualisieren";
+            // 
+            // speichernToolStripMenuItem
+            // 
+            this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
+            this.speichernToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.speichernToolStripMenuItem.Text = "Speichern";
+            // 
+            // speichernUnterToolStripMenuItem
+            // 
+            this.speichernUnterToolStripMenuItem.Name = "speichernUnterToolStripMenuItem";
+            this.speichernUnterToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.speichernUnterToolStripMenuItem.Text = "Speichern unter";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
             // 
             // schließenToolStripMenuItem
             // 
             this.schließenToolStripMenuItem.Name = "schließenToolStripMenuItem";
-            this.schließenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.schließenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.schließenToolStripMenuItem.Text = "Schließen";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(154, 6);
             // 
             // pfadÖffnenToolStripMenuItem2
             // 
+            this.pfadÖffnenToolStripMenuItem2.Enabled = false;
             this.pfadÖffnenToolStripMenuItem2.Name = "pfadÖffnenToolStripMenuItem2";
-            this.pfadÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(148, 22);
+            this.pfadÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(157, 22);
             this.pfadÖffnenToolStripMenuItem2.Text = "Pfad öffnen";
             // 
             // dateiÖffnenToolStripMenuItem2
             // 
+            this.dateiÖffnenToolStripMenuItem2.Enabled = false;
             this.dateiÖffnenToolStripMenuItem2.Name = "dateiÖffnenToolStripMenuItem2";
-            this.dateiÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(148, 22);
+            this.dateiÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(157, 22);
             this.dateiÖffnenToolStripMenuItem2.Text = "Datei öffnen";
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(154, 6);
             // 
             // eigenschaftenToolStripMenuItem
             // 
             this.eigenschaftenToolStripMenuItem.Name = "eigenschaftenToolStripMenuItem";
-            this.eigenschaftenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.eigenschaftenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.eigenschaftenToolStripMenuItem.Text = "Eigenschaften";
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(154, 6);
+            // 
+            // beendenToolStripMenuItem
+            // 
+            this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.beendenToolStripMenuItem.Text = "Beenden";
+            this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
             // ansichtToolStripMenuItem
             // 
@@ -468,7 +504,7 @@
             this.checkBox2.TabIndex = 7;
             this.checkBox2.Text = "Synchron";
             this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
+            this.checkBox2.CheckStateChanged += new System.EventHandler(this.checkBox2_CheckStateChanged);
             // 
             // numericUpDown2
             // 
@@ -479,6 +515,7 @@
             this.numericUpDown2.Size = new System.Drawing.Size(50, 20);
             this.numericUpDown2.TabIndex = 6;
             this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // treeView2
             // 
@@ -489,19 +526,19 @@
             this.treeView2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView2.Location = new System.Drawing.Point(3, 53);
             this.treeView2.Name = "treeView2";
-            treeNode5.Name = "Knoten1";
-            treeNode5.Text = "T       NAME             L           R           DL       DR       R2          PL" +
+            treeNode1.Name = "Knoten1";
+            treeNode1.Text = "T       NAME             L           R           DL       DR       R2          PL" +
     "C ";
-            treeNode6.Name = "Knoten2";
-            treeNode6.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            treeNode2.Name = "Knoten2";
+            treeNode2.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
     "0000000";
-            treeNode7.Name = "Knoten4";
-            treeNode7.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            treeNode3.Name = "Knoten4";
+            treeNode3.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
     "0000000";
-            treeNode8.Name = "Knoten0";
-            treeNode8.Text = "HY3_0.t";
+            treeNode4.Name = "Knoten0";
+            treeNode4.Text = "HY3_0.t";
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8});
+            treeNode4});
             this.treeView2.Size = new System.Drawing.Size(349, 184);
             this.treeView2.TabIndex = 4;
             // 
@@ -660,15 +697,16 @@
             this.contextMachine.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem5,
             this.toolStripMenuItem8,
+            this.protokolleAnzeigenToolStripMenuItem,
             this.backupsToolStripMenuItem,
             this.toolStripMenuItem9});
             this.contextMachine.Name = "contextMachine";
-            this.contextMachine.Size = new System.Drawing.Size(179, 92);
+            this.contextMachine.Size = new System.Drawing.Size(161, 114);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(178, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem5.Text = "Konfigurieren";
             // 
             // toolStripMenuItem8
@@ -677,20 +715,26 @@
             this.toolStripMenuItem8.CheckOnClick = true;
             this.toolStripMenuItem8.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(178, 22);
-            this.toolStripMenuItem8.Text = "Protokolle anzeigen";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem8.Text = "Verlauf anzeigen";
             this.toolStripMenuItem8.CheckStateChanged += new System.EventHandler(this.toolStripMenuItem8_CheckStateChanged);
+            // 
+            // protokolleAnzeigenToolStripMenuItem
+            // 
+            this.protokolleAnzeigenToolStripMenuItem.Name = "protokolleAnzeigenToolStripMenuItem";
+            this.protokolleAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.protokolleAnzeigenToolStripMenuItem.Text = "Protokolle";
             // 
             // backupsToolStripMenuItem
             // 
             this.backupsToolStripMenuItem.Name = "backupsToolStripMenuItem";
-            this.backupsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.backupsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.backupsToolStripMenuItem.Text = "Backups";
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(178, 22);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem9.Text = "Info";
             // 
             // toolStripDropDownButton1
@@ -765,7 +809,7 @@
             this.pfadÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.pfadÖffnenToolStripMenuItem.Text = "Pfad öffnen";
             // 
-            // fmrMain
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -774,7 +818,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
             this.MinimumSize = new System.Drawing.Size(650, 425);
-            this.Name = "fmrMain";
+            this.Name = "frmMain";
             this.Text = "frmMain";
             this.Load += new System.EventHandler(this.fmrMain_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -868,6 +912,11 @@
         private System.Windows.Forms.ToolStripMenuItem werkzeugeImCNCProgrammSuchenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem extrasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem speichernToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem speichernUnterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem protokolleAnzeigenToolStripMenuItem;
     }
 }
 
