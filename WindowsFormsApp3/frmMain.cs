@@ -18,28 +18,6 @@ namespace WindowsFormsApp3
             InitializeComponent();
         }
 
-        //private void syncCheckBox_CheckStateChanged(object sender, EventArgs e)
-        //{
-        //    CheckBox cb = (CheckBox)sender;
-        //    checkBox1.CheckState = cb.CheckState;
-        //    checkBox2.CheckState = cb.CheckState;
-
-        //    if (cb.CheckState == CheckState.Checked)
-        //    {
-        //        checkBox1.ForeColor = Color.OrangeRed;
-        //        checkBox2.ForeColor = Color.OrangeRed;
-        //        numericUpDown1.ForeColor = Color.OrangeRed;
-        //        numericUpDown2.ForeColor = Color.OrangeRed;
-        //    }
-        //    else
-        //    {
-        //        checkBox1.ForeColor = Color.Black;
-        //        checkBox2.ForeColor = Color.Black;
-        //        numericUpDown1.ForeColor = Color.Black;
-        //        numericUpDown2.ForeColor = Color.Black;
-        //    }
-        //}
-
         private void checkBox1_CheckStateChanged(object sender, EventArgs e)
         {
             checkBox2.CheckState = checkBox1.CheckState;
@@ -79,13 +57,7 @@ namespace WindowsFormsApp3
                 numericUpDown2.ForeColor = Color.Black;
             }
         }
-
-
-
-
-
-
-
+        
         private void timerMainFrm_Tick(object sender, EventArgs e)
         {
             timeStatus.Text = DateTime.Now.ToString("dd.MM.yyyy hh:mm");
@@ -166,6 +138,13 @@ namespace WindowsFormsApp3
             }
         }
 
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            Form settings = new frmConfig();
 
+            settings.Show();
+
+
+                }
     }
 }

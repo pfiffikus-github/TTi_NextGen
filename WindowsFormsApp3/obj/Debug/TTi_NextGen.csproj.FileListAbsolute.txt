@@ -8,3 +8,4 @@ C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp
 C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.pdb
 C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.csprojResolveAssemblyReference.cache
 C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.frmMain.resources
+C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.frmConfig.resources
