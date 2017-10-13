@@ -805,7 +805,6 @@
             // 
             // öffnenToolStripMenuItem
             // 
-            this.öffnenToolStripMenuItem.Image = global::WindowsFormsApp3.Properties.Resources.folder_Open_32xLG;
             this.öffnenToolStripMenuItem.Name = "öffnenToolStripMenuItem";
             this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.öffnenToolStripMenuItem.Text = "Öffnen";
