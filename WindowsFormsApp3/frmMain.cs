@@ -57,7 +57,7 @@ namespace WindowsFormsApp3
                 numericUpDown2.ForeColor = Color.Black;
             }
         }
-        
+
         private void timerMainFrm_Tick(object sender, EventArgs e)
         {
             timeStatus.Text = DateTime.Now.ToString("dd.MM.yyyy hh:mm");
@@ -145,6 +145,6 @@ namespace WindowsFormsApp3
             settings.Show();
 
 
-                }
+        }
     }
 }

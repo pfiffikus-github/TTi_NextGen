@@ -16,14 +16,20 @@ namespace WindowsFormsApp3
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void frmConfig_Load(object sender, EventArgs e)
         {
 
-        }
+            LocalSettings ls = new LocalSettings();
+            propertyGrid1.SelectedObject = ls;
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            PublicSettings ps = new PublicSettings();
+            propertyGrid2.SelectedObject = ps;
+
+
+
+
 
         }
     }
+
 }
