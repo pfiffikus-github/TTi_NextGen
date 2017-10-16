@@ -69,8 +69,8 @@ namespace WindowsFormsApp3
                 PingReply reply = isPing.Send("127.0.0.1");
                 if (reply.Status == IPStatus.Success)
                 {
-                    toolStripStatusLabel2.ForeColor = Color.Green;
-                    toolStripDropDownButton1.ForeColor = Color.Green;
+                    toolStripStatusLabel2.ForeColor = Color.DimGray ;
+                    toolStripDropDownButton1.ForeColor = Color.DimGray;
                     toolStripStatusLabel2.Text = "= online (127.0.0.1)";
                     timerMainFrm.Interval = 10000;
 
@@ -90,10 +90,11 @@ namespace WindowsFormsApp3
         }
 
         private void fmrMain_Load(object sender, EventArgs e)
-        {
+        {           
+
             toolStripMenuItem8.CheckState = CheckState.Unchecked;
             checkBox1.CheckState = CheckState.Checked;
-
+            
         }
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
@@ -141,10 +142,7 @@ namespace WindowsFormsApp3
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
             Form settings = new frmConfig();
-
-            settings.Show();
-
-
+            settings.ShowDialog();
         }
     }
 }

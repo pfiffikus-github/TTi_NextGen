@@ -5,7 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace WindowsFormsApp3
 {
@@ -16,20 +18,53 @@ namespace WindowsFormsApp3
             InitializeComponent();
         }
 
+        private LocalSettings LocalSettings { get; set; }
+
         private void frmConfig_Load(object sender, EventArgs e)
         {
+            InitLocalSettings();
+            propertyGrid1.SelectedObject = LocalSettings;
 
-            LocalSettings ls = new LocalSettings();
-            propertyGrid1.SelectedObject = ls;
+        }
 
-            PublicSettings ps = new PublicSettings();
-            propertyGrid2.SelectedObject = ps;
+        private void saveLocalSettings()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(LocalSettings));
+            FileStream fs = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Create);
+            TextWriter writer = new StreamWriter(fs, new UTF8Encoding());
+            serializer.Serialize(writer, LocalSettings);
+            writer.Close();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            saveLocalSettings();
+            Close();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
+        private void InitLocalSettings()
+        {
+            if (File.Exists(LocalSettings.LocalSettingsFile))
+            {
 
+                XmlSerializer serializer = new XmlSerializer(typeof(LocalSettings));
+
+                using (Stream reader = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Open))
+                {
+                    LocalSettings = (LocalSettings)serializer.Deserialize(reader);
+                }
+            }
+            else
+            {
+                LocalSettings = new LocalSettings();
+                saveLocalSettings();
+            }
 
         }
     }
-
 }
