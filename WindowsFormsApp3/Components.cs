@@ -35,7 +35,7 @@ namespace WindowsFormsApp3
         public string DefaultMachine { get; set; }
 
         public static LocalSettings Instance { get; private set; }
-        
+
 
 
         public void Save()
@@ -45,7 +45,7 @@ namespace WindowsFormsApp3
             using (var fStream = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Create))
                 serializer.Serialize(fStream, this);
         }
-        
+
         public static void Load()
         {
             var serializer = new XmlSerializer(typeof(LocalSettings));
@@ -53,19 +53,11 @@ namespace WindowsFormsApp3
             using (var fStream = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Open))
                 LocalSettings.Instance = (LocalSettings)serializer.Deserialize(fStream);
         }
-        
-    }
-
-    public class PublicSettings
-    {
-        public MachineItem myMachineItems { get; set; }
-
-        public string myString { get; set; }
 
     }
 
     public class MachineItem
-    {    
+    {
         public MachineItem()
         {
             MachineName = DefaultMachineName;
@@ -92,4 +84,6 @@ namespace WindowsFormsApp3
 
         public string ProjectDirectory { get; set; }
     }
+
+
 }

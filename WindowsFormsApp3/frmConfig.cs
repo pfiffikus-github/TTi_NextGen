@@ -13,10 +13,6 @@ namespace WindowsFormsApp3
 {
     public partial class frmConfig : Form
     {
-        private LocalSettings myLocalSettings { get; set; }
-
-        public PublicSettings myPublicSettings { get; set; }
-
         public frmConfig()
         {
             InitializeComponent();
@@ -24,11 +20,6 @@ namespace WindowsFormsApp3
 
         private void frmConfig_Load(object sender, EventArgs e)
         {
-            InitLocalSettings();
-            propertyGrid1.SelectedObject = myLocalSettings;
-
-            myPublicSettings = new PublicSettings();
-            propertyGrid2.SelectedObject = myPublicSettings;
 
         }
 
@@ -37,7 +28,7 @@ namespace WindowsFormsApp3
             XmlSerializer serializer = new XmlSerializer(typeof(LocalSettings));
             FileStream fs = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Create);
             TextWriter writer = new StreamWriter(fs, new UTF8Encoding());
-            serializer.Serialize(writer, myLocalSettings);
+            //serializer.Serialize(writer, myLocalSettings);
             writer.Close();
         }
 
@@ -60,12 +51,12 @@ namespace WindowsFormsApp3
 
                 using (Stream reader = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Open))
                 {
-                    myLocalSettings = (LocalSettings)serializer.Deserialize(reader);
+                    //myLocalSettings = (LocalSettings)serializer.Deserialize(reader);
                 }
             }
             else
             {
-                myLocalSettings = new LocalSettings();
+                //myLocalSettings = new LocalSettings();
                 saveLocalSettings();
             }
 
