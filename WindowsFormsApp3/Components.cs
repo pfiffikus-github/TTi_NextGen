@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Windows.Forms;
-
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace WindowsFormsApp3
 {
-
     public class LocalSettings
     {
         public LocalSettings()
@@ -17,7 +17,7 @@ namespace WindowsFormsApp3
             CloseAppAfterSync = false;
             LocalSettingsDirectory = Path.Combine(Application.StartupPath, LocalSettingsFile);
             PublicSettingsDirectory = Path.Combine(Application.StartupPath, PublicSettingsFile);
-            DefaultMachine = PublicSettings.DefaultMachineName;
+            DefaultMachine = MachineItem.DefaultMachineName;
         }
 
         public const string LocalSettingsFile = "LocalSettings.xml";
@@ -33,11 +33,40 @@ namespace WindowsFormsApp3
         public string PublicSettingsDirectory { get; set; }
 
         public string DefaultMachine { get; set; }
+
+        public static LocalSettings Instance { get; private set; }
+        
+
+
+        public void Save()
+        {
+            var serializer = new XmlSerializer(typeof(LocalSettings));
+
+            using (var fStream = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Create))
+                serializer.Serialize(fStream, this);
+        }
+        
+        public static void Load()
+        {
+            var serializer = new XmlSerializer(typeof(LocalSettings));
+
+            using (var fStream = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Open))
+                LocalSettings.Instance = (LocalSettings)serializer.Deserialize(fStream);
+        }
+        
     }
 
     public class PublicSettings
     {
-        public PublicSettings()
+        public MachineItem myMachineItems { get; set; }
+
+        public string myString { get; set; }
+
+    }
+
+    public class MachineItem
+    {    
+        public MachineItem()
         {
             MachineName = DefaultMachineName;
             IP = "127.0.0.1";
@@ -63,6 +92,4 @@ namespace WindowsFormsApp3
 
         public string ProjectDirectory { get; set; }
     }
-
-
 }

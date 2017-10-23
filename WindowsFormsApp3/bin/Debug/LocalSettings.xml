@@ -3,5 +3,5 @@
   <ShowAllMachines>true</ShowAllMachines>
   <CloseAppAfterSync>false</CloseAppAfterSync>
   <PublicSettingsDirectory>C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\PublicSettings.xml</PublicSettingsDirectory>
-  <DefaultMachine>Test</DefaultMachine>
+  <DefaultMachine>C42U</DefaultMachine>
 </LocalSettings>
