@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
+using System.IO;
 
 namespace WindowsFormsApp3
 {
     public partial class frmMain : Form
     {
+        LocalSettings myLocalSettings = new LocalSettings();
+
         public frmMain()
         {
             InitializeComponent();
@@ -69,7 +72,7 @@ namespace WindowsFormsApp3
                 PingReply reply = isPing.Send("127.0.0.1");
                 if (reply.Status == IPStatus.Success)
                 {
-                    toolStripStatusLabel2.ForeColor = Color.DimGray ;
+                    toolStripStatusLabel2.ForeColor = Color.DimGray;
                     toolStripDropDownButton1.ForeColor = Color.DimGray;
                     toolStripStatusLabel2.Text = "= online (127.0.0.1)";
                     timerMainFrm.Interval = 10000;
@@ -90,11 +93,15 @@ namespace WindowsFormsApp3
         }
 
         private void fmrMain_Load(object sender, EventArgs e)
-        {           
+        {
+            if (!File.Exists(LocalSettings.LocalSettingsFile));
+            {
+                myLocalSettings.SerializeXML();
+            }
 
             toolStripMenuItem8.CheckState = CheckState.Unchecked;
             checkBox1.CheckState = CheckState.Checked;
-            
+
         }
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)

@@ -13,6 +13,8 @@ namespace WindowsFormsApp3
 {
     public partial class frmConfig : Form
     {
+        LocalSettings myLocalSettings = new LocalSettings();
+
         public frmConfig()
         {
             InitializeComponent();
@@ -21,45 +23,28 @@ namespace WindowsFormsApp3
         private void frmConfig_Load(object sender, EventArgs e)
         {
 
-        }
+            if (File.Exists(LocalSettings.LocalSettingsFile))
+            {
+                myLocalSettings = myLocalSettings.DeserializeXML();
+            }
+            else
+            {              
+                myLocalSettings.SerializeXML();
+            }
 
-        private void saveLocalSettings()
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(LocalSettings));
-            FileStream fs = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Create);
-            TextWriter writer = new StreamWriter(fs, new UTF8Encoding());
-            //serializer.Serialize(writer, myLocalSettings);
-            writer.Close();
-        }
-
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            Close();
+            propertyGrid1.SelectedObject = myLocalSettings;
         }
 
         private void OK_Click(object sender, EventArgs e)
         {
-            saveLocalSettings();
-            Close();
+            myLocalSettings.SerializeXML();
+            this.Close();
         }
 
-        private void InitLocalSettings()
+        private void Cancel_Click(object sender, EventArgs e)
         {
-            if (File.Exists(LocalSettings.LocalSettingsFile))
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(LocalSettings));
-
-                using (Stream reader = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Open))
-                {
-                    //myLocalSettings = (LocalSettings)serializer.Deserialize(reader);
-                }
-            }
-            else
-            {
-                //myLocalSettings = new LocalSettings();
-                saveLocalSettings();
-            }
-
+            this.Close();
         }
+
     }
 }

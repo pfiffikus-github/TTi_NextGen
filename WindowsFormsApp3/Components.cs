@@ -13,6 +13,7 @@ namespace WindowsFormsApp3
     {
         public LocalSettings()
         {
+
             ShowAllMachines = true;
             CloseAppAfterSync = false;
             LocalSettingsDirectory = Path.Combine(Application.StartupPath, LocalSettingsFile);
@@ -34,26 +35,27 @@ namespace WindowsFormsApp3
 
         public string DefaultMachine { get; set; }
 
-        public static LocalSettings Instance { get; private set; }
-
-
-
-        public void Save()
+        public void SerializeXML()
         {
-            var serializer = new XmlSerializer(typeof(LocalSettings));
+            XmlSerializer xs = new XmlSerializer(this.GetType());
+            using (StreamWriter sw = new StreamWriter(LocalSettingsFile))
+            {
+                xs.Serialize(sw, this);
+                sw.Flush();
+                sw.Dispose();
+                sw.Close();
+            }
 
-            using (var fStream = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Create))
-                serializer.Serialize(fStream, this);
         }
 
-        public static void Load()
+        public LocalSettings DeserializeXML()
         {
-            var serializer = new XmlSerializer(typeof(LocalSettings));
-
-            using (var fStream = new FileStream(LocalSettings.LocalSettingsFile, FileMode.Open))
-                LocalSettings.Instance = (LocalSettings)serializer.Deserialize(fStream);
+            XmlSerializer xs = new XmlSerializer(this.GetType());
+            using (StreamReader sr = new StreamReader(LocalSettingsFile))
+            {
+                return (LocalSettings)xs.Deserialize(sr);
+            }
         }
-
     }
 
     public class MachineItem
@@ -66,6 +68,7 @@ namespace WindowsFormsApp3
             InvalideToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
             InvalideToolNumbers = new int[] { 1, 2, 3 };
             ProjectDirectory = @"TNC:\Bauteile\";
+            DisableToolRangeSelection = false;
         }
 
         public const string DefaultMachineName = "Machine";
