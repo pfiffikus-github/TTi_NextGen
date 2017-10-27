@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
 using System.IO;
+using System.Reflection;
 
 namespace WindowsFormsApp3
 {
     public partial class frmMain : Form
     {
-        LocalSettings myLocalSettings = new LocalSettings();
-        Machines myMachines = new Machines();
+        LocalSettings myLocalSettings;
+        Machines myMachines;
 
         public frmMain()
         {
@@ -74,7 +75,7 @@ namespace WindowsFormsApp3
                 if (reply.Status == IPStatus.Success)
                 {
                     toolStripStatusLabel2.ForeColor = Color.DimGray;
-                    toolStripDropDownButton1.ForeColor = Color.DimGray;
+                    btnSelectedMachine.ForeColor = Color.DimGray;
                     toolStripStatusLabel2.Text = "= online (127.0.0.1)";
                     timerMainFrm.Interval = 10000;
 
@@ -84,7 +85,7 @@ namespace WindowsFormsApp3
             catch (PingException)
             {
                 toolStripStatusLabel2.ForeColor = Color.Red;
-                toolStripDropDownButton1.ForeColor = Color.Red;
+                btnSelectedMachine.ForeColor = Color.Red;
                 toolStripStatusLabel2.Text = "= offline (127.0.0.1)";
 
             }
@@ -95,25 +96,17 @@ namespace WindowsFormsApp3
 
         private void fmrMain_Load(object sender, EventArgs e)
         {
-            if (File.Exists(LocalSettings.LocalSettingsFile))
-            {
-                myLocalSettings = myLocalSettings.DeserializeXML();
-            }
-            else
-            {
-                myLocalSettings.SerializeXML();
-            }
+            #region InitAppAndSettings
+
+            App.ExtractEmbeddedResources();
+            myLocalSettings = App.InitLocalSettings();
+            myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
+
+            #endregion
 
 
-            if (File.Exists(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile)))
-            {
-                myMachines = myMachines.DeserializeXML(myLocalSettings.PublicSettingsDirectory);
-            }
-            else
-            {
-                myMachines.Add(new Machine());
-                myMachines.SerializeXML(Path.Combine(myLocalSettings.PublicSettingsDirectory, myLocalSettings.PublicSettingsDirectory));
-            }
+
+            btnSelectedMachine.Text = myLocalSettings.DefaultMachine;
 
 
             toolStripMenuItem8.CheckState = CheckState.Unchecked;

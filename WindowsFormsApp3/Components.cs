@@ -6,7 +6,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
-
+using System.Reflection;
 
 namespace WindowsFormsApp3
 {
@@ -71,6 +71,7 @@ namespace WindowsFormsApp3
         {
             if (!File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
             {
+                Directory.CreateDirectory(path);
                 XmlSerializer xs = new XmlSerializer(this.GetType());
                 using (StreamWriter sw = new StreamWriter(Path.Combine(path, LocalSettings.PublicSettingsFile), true))
                 {
@@ -107,7 +108,7 @@ namespace WindowsFormsApp3
             DisableToolRangeSelection = false;
         }
 
-        public const string DefaultMachineName = "Machine";
+        public const string DefaultMachineName = "Default_Machine";
 
         public string Name { get; set; }
 
@@ -129,5 +130,69 @@ namespace WindowsFormsApp3
         }
     }
 
+    public static class App
+    {
+
+        public static LocalSettings InitLocalSettings()
+        {
+            LocalSettings myLocalSettings = new LocalSettings();
+            
+            if (File.Exists(LocalSettings.LocalSettingsFile))
+            {
+                myLocalSettings = myLocalSettings.DeserializeXML();
+            }
+            else
+            {
+                myLocalSettings.SerializeXML();
+            }
+
+            return myLocalSettings;
+        }
+
+        public static Machines InitMachines(string path)
+        {
+            Machines myMachines = new Machines();
+
+            if (File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
+            {
+                myMachines = myMachines.DeserializeXML(path);
+            }
+            else
+            {
+                myMachines.Add(new Machine());
+                myMachines.SerializeXML(path);
+            }
+
+            return myMachines;
+        }
+
+        public static void ExtractEmbeddedResources()
+        {
+            string[] _Resources = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+            string[] Exes;
+
+            foreach (var _Resource in _Resources)
+            {
+                if (_Resource.Contains(".exe"))
+                {
+                    Exes = _Resource.Split('.');
+
+                    String _FileName = Exes[Exes.Length - 2] + Path.GetExtension(_Resource);
+
+                    using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(_Resource))
+                    {
+                        if (!File.Exists(_FileName))
+                        {
+                            FileStream fileStream = new FileStream(_FileName, FileMode.Create);
+                            for (int i = 0; i < stream.Length; i++)
+                                fileStream.WriteByte((byte)stream.ReadByte());
+                            fileStream.Close();
+                        }
+                    }
+                }
+            }
+        }
+
+    }
 
 }

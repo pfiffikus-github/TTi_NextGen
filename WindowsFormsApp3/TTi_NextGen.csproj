@@ -99,7 +99,7 @@
     <None Include="Resources\Werkzeugliste.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TNCsync.exe" />
+    <EmbeddedResource Include="Resources\TNCsync.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
