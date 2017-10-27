@@ -7,18 +7,20 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 
+
 namespace WindowsFormsApp3
 {
     public class LocalSettings
     {
+
         public LocalSettings()
         {
 
             ShowAllMachines = true;
             CloseAppAfterSync = false;
-            LocalSettingsDirectory = Path.Combine(Application.StartupPath, LocalSettingsFile);
-            PublicSettingsDirectory = Path.Combine(Application.StartupPath, PublicSettingsFile);
-            DefaultMachine = MachineItem.DefaultMachineName;
+            LocalSettingsDirectory = Application.StartupPath;
+            PublicSettingsDirectory = Application.StartupPath;
+            DefaultMachine = Machine.DefaultMachineName;
         }
 
         public const string LocalSettingsFile = "LocalSettings.xml";
@@ -56,13 +58,47 @@ namespace WindowsFormsApp3
                 return (LocalSettings)xs.Deserialize(sr);
             }
         }
+
     }
 
-    public class MachineItem
+    public class Machines : List<Machine>
     {
-        public MachineItem()
+        public Machines() : base() { }
+
+        public Machines(ICollection<Machine> collection) : base(collection) { }
+
+        public void SerializeXML(string path)
         {
-            MachineName = DefaultMachineName;
+            if (!File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
+            {
+                XmlSerializer xs = new XmlSerializer(this.GetType());
+                using (StreamWriter sw = new StreamWriter(Path.Combine(path, LocalSettings.PublicSettingsFile), true))
+                {
+                    xs.Serialize(sw, this);
+                    sw.Flush();
+                    sw.Dispose();
+                    sw.Close();
+                }
+            }
+
+
+        }
+
+        public Machines DeserializeXML(string path)
+        {
+            XmlSerializer xs = new XmlSerializer(this.GetType());
+            using (StreamReader sr = new StreamReader(Path.Combine(path, LocalSettings.PublicSettingsFile)))
+            {
+                return (Machines)xs.Deserialize(sr);
+            }
+        }
+    }
+
+    public class Machine
+    {
+        public Machine()
+        {
+            Name = DefaultMachineName;
             IP = "127.0.0.1";
             ToolTable = @"TNC:\Tool.t";
             InvalideToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
@@ -73,7 +109,7 @@ namespace WindowsFormsApp3
 
         public const string DefaultMachineName = "Machine";
 
-        public string MachineName { get; set; }
+        public string Name { get; set; }
 
         public string IP { get; set; }
 
@@ -86,6 +122,11 @@ namespace WindowsFormsApp3
         public bool DisableToolRangeSelection { get; set; }
 
         public string ProjectDirectory { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 
 

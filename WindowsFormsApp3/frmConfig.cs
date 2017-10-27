@@ -14,6 +14,7 @@ namespace WindowsFormsApp3
     public partial class frmConfig : Form
     {
         LocalSettings myLocalSettings = new LocalSettings();
+        Machines myMachines = new Machines();
 
         public frmConfig()
         {
@@ -28,16 +29,33 @@ namespace WindowsFormsApp3
                 myLocalSettings = myLocalSettings.DeserializeXML();
             }
             else
-            {              
+            {
                 myLocalSettings.SerializeXML();
             }
 
-            propertyGrid1.SelectedObject = myLocalSettings;
+            propertyGrid2.SelectedObject = myLocalSettings;
+
+
+            if (File.Exists(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile)))
+            {
+                myMachines = myMachines.DeserializeXML(myLocalSettings.PublicSettingsDirectory);
+            }
+            else
+            {
+                myMachines.Add(new Machine());
+                myMachines.SerializeXML(myLocalSettings.PublicSettingsDirectory);
+            }
+
+            propertyGrid1.SelectedObject = myMachines;
+
+
+
         }
 
         private void OK_Click(object sender, EventArgs e)
         {
             myLocalSettings.SerializeXML();
+            myMachines.SerializeXML(myLocalSettings.PublicSettingsDirectory);
             this.Close();
         }
 

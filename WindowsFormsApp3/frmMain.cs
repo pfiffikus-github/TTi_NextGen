@@ -15,6 +15,7 @@ namespace WindowsFormsApp3
     public partial class frmMain : Form
     {
         LocalSettings myLocalSettings = new LocalSettings();
+        Machines myMachines = new Machines();
 
         public frmMain()
         {
@@ -94,10 +95,26 @@ namespace WindowsFormsApp3
 
         private void fmrMain_Load(object sender, EventArgs e)
         {
-            if (!File.Exists(LocalSettings.LocalSettingsFile));
+            if (File.Exists(LocalSettings.LocalSettingsFile))
+            {
+                myLocalSettings = myLocalSettings.DeserializeXML();
+            }
+            else
             {
                 myLocalSettings.SerializeXML();
             }
+
+
+            if (File.Exists(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile)))
+            {
+                myMachines = myMachines.DeserializeXML(myLocalSettings.PublicSettingsDirectory);
+            }
+            else
+            {
+                myMachines.Add(new Machine());
+                myMachines.SerializeXML(Path.Combine(myLocalSettings.PublicSettingsDirectory, myLocalSettings.PublicSettingsDirectory));
+            }
+
 
             toolStripMenuItem8.CheckState = CheckState.Unchecked;
             checkBox1.CheckState = CheckState.Checked;
