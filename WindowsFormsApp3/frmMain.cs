@@ -103,12 +103,9 @@ namespace WindowsFormsApp3
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
 
             #endregion
-
-
-
+            
             btnSelectedMachine.Text = myLocalSettings.DefaultMachine;
-
-
+            
             toolStripMenuItem8.CheckState = CheckState.Unchecked;
             checkBox1.CheckState = CheckState.Checked;
 

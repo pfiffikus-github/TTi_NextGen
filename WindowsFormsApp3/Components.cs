@@ -22,7 +22,7 @@ namespace WindowsFormsApp3
             PublicSettingsDirectory = Application.StartupPath;
             DefaultMachine = Machine.DefaultMachineName;
         }
-
+        
         public const string LocalSettingsFile = "LocalSettings.xml";
 
         public const string PublicSettingsFile = "PublicSettings.xml";
