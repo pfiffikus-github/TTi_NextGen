@@ -11,7 +11,7 @@ using System.Net.NetworkInformation;
 using System.IO;
 using System.Reflection;
 
-namespace WindowsFormsApp3
+namespace TTi_NextGen
 {
     public partial class frmMain : Form
     {
@@ -101,13 +101,15 @@ namespace WindowsFormsApp3
             App.ExtractEmbeddedResources();
             myLocalSettings = App.InitLocalSettings();
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
+            myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
+
+            //myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
 
             #endregion
             
-            btnSelectedMachine.Text = myLocalSettings.DefaultMachine;
-            
             toolStripMenuItem8.CheckState = CheckState.Unchecked;
             checkBox1.CheckState = CheckState.Checked;
+
 
         }
 

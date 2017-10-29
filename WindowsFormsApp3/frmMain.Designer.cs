@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp3
+﻿namespace TTi_NextGen
 {
     partial class frmMain
     {

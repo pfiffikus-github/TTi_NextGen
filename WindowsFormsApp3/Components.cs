@@ -7,35 +7,54 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Reflection;
+using System.ComponentModel;
 
-namespace WindowsFormsApp3
+
+namespace TTi_NextGen
 {
+    //[Serializable]
     public class LocalSettings
     {
-
         public LocalSettings()
         {
-
             ShowAllMachines = true;
             CloseAppAfterSync = false;
             LocalSettingsDirectory = Application.StartupPath;
             PublicSettingsDirectory = Application.StartupPath;
             DefaultMachine = Machine.DefaultMachineName;
         }
-        
+
         public const string LocalSettingsFile = "LocalSettings.xml";
 
         public const string PublicSettingsFile = "PublicSettings.xml";
 
+        //[CategoryAttribute("Lokale Einstellungen"),
+        //DescriptionAttribute("Auswahl aller Maschinen anzeigen"),
+        //DefaultValueAttribute(true)]
         public bool ShowAllMachines { get; set; }
 
+        //[CategoryAttribute("Lokale Einstellungen"),
+        //DescriptionAttribute("Anwendung nach Datenübertragung schließen"),
+        //DefaultValueAttribute(false)]
         public bool CloseAppAfterSync { get; set; }
 
+        //[CategoryAttribute("Lokale Einstellungen"),
+        //DescriptionAttribute("Pfad der loaklen Einstellungsdatei")]
         public string LocalSettingsDirectory { get; }
 
+        //[CategoryAttribute("Lokale Einstellungen"),
+        //DescriptionAttribute("Pfad der öffentlichen Einstellungsdatei (Liste aller Maschinen)")]
         public string PublicSettingsDirectory { get; set; }
 
-        public string DefaultMachine { get; set; }
+        //[CategoryAttribute("Lokale Einstellungen"),
+        //DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine")]
+        [XmlIgnoreAttribute]
+        public string[] AvailableMachines { get; set; }
+
+        //[CategoryAttribute("Lokale Einstellungen"),
+        //DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird"),
+        //DefaultValueAttribute("Machine")]
+        public String DefaultMachine { get; set; }
 
         public void SerializeXML()
         {
@@ -66,6 +85,16 @@ namespace WindowsFormsApp3
         public Machines() : base() { }
 
         public Machines(ICollection<Machine> collection) : base(collection) { }
+
+        public string[] ListOfMachines()
+        {
+            string[] _tmp = new string[this.Count];
+            for (int i = 0; i < this.Count; i++)
+            {
+                _tmp[i] = base[i].ToString();
+            }
+            return _tmp;
+        }
 
         public void SerializeXML(string path)
         {
@@ -108,7 +137,7 @@ namespace WindowsFormsApp3
             DisableToolRangeSelection = false;
         }
 
-        public const string DefaultMachineName = "Default_Machine";
+        public const string DefaultMachineName = "Machine";
 
         public string Name { get; set; }
 
@@ -132,11 +161,10 @@ namespace WindowsFormsApp3
 
     public static class App
     {
-
         public static LocalSettings InitLocalSettings()
         {
             LocalSettings myLocalSettings = new LocalSettings();
-            
+
             if (File.Exists(LocalSettings.LocalSettingsFile))
             {
                 myLocalSettings = myLocalSettings.DeserializeXML();
@@ -160,6 +188,8 @@ namespace WindowsFormsApp3
             else
             {
                 myMachines.Add(new Machine());
+                myMachines.Add(new Machine()); //
+                myMachines.Add(new Machine()); //
                 myMachines.SerializeXML(path);
             }
 
@@ -169,15 +199,15 @@ namespace WindowsFormsApp3
         public static void ExtractEmbeddedResources()
         {
             string[] _Resources = Assembly.GetExecutingAssembly().GetManifestResourceNames();
-            string[] Exes;
+            string[] _Exes;
 
             foreach (var _Resource in _Resources)
             {
                 if (_Resource.Contains(".exe"))
                 {
-                    Exes = _Resource.Split('.');
+                    _Exes = _Resource.Split('.');
 
-                    String _FileName = Exes[Exes.Length - 2] + Path.GetExtension(_Resource);
+                    String _FileName = _Exes[_Exes.Length - 2] + Path.GetExtension(_Resource);
 
                     using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(_Resource))
                     {
@@ -192,7 +222,6 @@ namespace WindowsFormsApp3
                 }
             }
         }
-
     }
 
 }

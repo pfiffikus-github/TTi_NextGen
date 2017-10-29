@@ -9,7 +9,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
-namespace WindowsFormsApp3
+namespace TTi_NextGen
 {
     public partial class frmConfig : Form
     {
@@ -32,10 +32,7 @@ namespace WindowsFormsApp3
             {
                 myLocalSettings.SerializeXML();
             }
-
-            propertyGrid2.SelectedObject = myLocalSettings;
-
-
+            
             if (File.Exists(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile)))
             {
                 myMachines = myMachines.DeserializeXML(myLocalSettings.PublicSettingsDirectory);
@@ -46,6 +43,11 @@ namespace WindowsFormsApp3
                 myMachines.SerializeXML(myLocalSettings.PublicSettingsDirectory);
             }
 
+            myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
+            
+
+
+            propertyGrid2.SelectedObject = myLocalSettings;
             propertyGrid1.SelectedObject = myMachines;
 
 

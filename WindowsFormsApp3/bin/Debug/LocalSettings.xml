@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LocalSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ShowAllMachines>true</ShowAllMachines>
-  <CloseAppAfterSync>false</CloseAppAfterSync>
-  <PublicSettingsDirectory>C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\bin\Debug</PublicSettingsDirectory>
-  <DefaultMachine>Default_Machine</DefaultMachine>
-</LocalSettings>
