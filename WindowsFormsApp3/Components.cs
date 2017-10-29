@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Serialization;
 using System.Reflection;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
+using System.Drawing.Design;
 
 
 namespace TTi_NextGen
 {
-    //[Serializable]
     public class LocalSettings
     {
         public LocalSettings()
@@ -28,32 +25,32 @@ namespace TTi_NextGen
 
         public const string PublicSettingsFile = "PublicSettings.xml";
 
-        //[CategoryAttribute("Lokale Einstellungen"),
-        //DescriptionAttribute("Auswahl aller Maschinen anzeigen"),
-        //DefaultValueAttribute(true)]
+        [CategoryAttribute("Lokale Einstellungen"),
+         DescriptionAttribute("Auswahl aller Maschinen anzeigen")]
         public bool ShowAllMachines { get; set; }
 
-        //[CategoryAttribute("Lokale Einstellungen"),
-        //DescriptionAttribute("Anwendung nach Datenübertragung schließen"),
-        //DefaultValueAttribute(false)]
+        [CategoryAttribute("Lokale Einstellungen"),
+         DescriptionAttribute("Anwendung nach Datenübertragung schließen")]
         public bool CloseAppAfterSync { get; set; }
 
-        //[CategoryAttribute("Lokale Einstellungen"),
-        //DescriptionAttribute("Pfad der loaklen Einstellungsdatei")]
+        [CategoryAttribute("Lokale Einstellungen"),
+         DescriptionAttribute("Pfad der loaklen Einstellungsdatei")]
         public string LocalSettingsDirectory { get; }
 
-        //[CategoryAttribute("Lokale Einstellungen"),
-        //DescriptionAttribute("Pfad der öffentlichen Einstellungsdatei (Liste aller Maschinen)")]
+        [CategoryAttribute("Lokale Einstellungen"),
+         DescriptionAttribute("Pfad der öffentlichen Einstellungsdatei (Liste aller Maschinen)"),
+         Editor(typeof(PropertyGridSelectFolder), typeof(UITypeEditor))]
         public string PublicSettingsDirectory { get; set; }
 
-        //[CategoryAttribute("Lokale Einstellungen"),
-        //DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine")]
-        [XmlIgnoreAttribute]
+        [CategoryAttribute("Lokale Einstellungen"),
+         DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
+         TypeConverter(typeof(StringListConverter)),
+         XmlIgnoreAttribute]
         public string[] AvailableMachines { get; set; }
 
-        //[CategoryAttribute("Lokale Einstellungen"),
-        //DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird"),
-        //DefaultValueAttribute("Machine")]
+        [CategoryAttribute("Lokale Einstellungen"),
+         DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird"),
+         ReadOnlyAttribute(true)]
         public String DefaultMachine { get; set; }
 
         public void SerializeXML()
@@ -78,13 +75,12 @@ namespace TTi_NextGen
             }
         }
 
+
     }
 
-    public class Machines : List<Machine>
+    public class Machines : Collection<Machine>
     {
         public Machines() : base() { }
-
-        public Machines(ICollection<Machine> collection) : base(collection) { }
 
         public string[] ListOfMachines()
         {
@@ -94,6 +90,19 @@ namespace TTi_NextGen
                 _tmp[i] = base[i].ToString();
             }
             return _tmp;
+        }
+
+        protected override void InsertItem(int index, Machine insertItem)
+        {
+            foreach (var item in this)
+            {
+                if (item.Name == insertItem.Name)
+                {
+                    return;
+                }
+            }
+
+            base.InsertItem(index, insertItem);
         }
 
         public void SerializeXML(string path)
@@ -135,6 +144,11 @@ namespace TTi_NextGen
             InvalideToolNumbers = new int[] { 1, 2, 3 };
             ProjectDirectory = @"TNC:\Bauteile\";
             DisableToolRangeSelection = false;
+        }
+
+        public Machine(String name) : this()
+        {
+            Name = name;
         }
 
         public const string DefaultMachineName = "Machine";
@@ -188,8 +202,9 @@ namespace TTi_NextGen
             else
             {
                 myMachines.Add(new Machine());
-                myMachines.Add(new Machine()); //
-                myMachines.Add(new Machine()); //
+                myMachines.Add(new Machine("Maschine02")); //
+                myMachines.Add(new Machine("Maschine03")); //
+                myMachines.Add(new Machine("Maschine04")); //
                 myMachines.SerializeXML(path);
             }
 
@@ -223,5 +238,74 @@ namespace TTi_NextGen
             }
         }
     }
+
+    public class PropertyGridSelectFolder : UITypeEditor
+    {
+        public override System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(System.ComponentModel.ITypeDescriptorContext context)
+        {
+            if ((context != null) && (context.Instance != null))
+            {
+                return UITypeEditorEditStyle.Modal;
+            }
+            return UITypeEditorEditStyle.None;
+        }
+
+        public override object EditValue(System.ComponentModel.ITypeDescriptorContext context, System.IServiceProvider provider, object value)
+        {
+            FolderBrowserDialog myDialog = new FolderBrowserDialog();
+
+            myDialog.Description = "";
+
+            if (Directory.Exists(value.ToString()))
+            {
+                myDialog.SelectedPath = value.ToString();
+            }
+
+            if (myDialog.ShowDialog() == DialogResult.OK)
+            {
+                return myDialog.SelectedPath;
+            }
+            else
+            {
+                return value;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public sealed class StringListConverter : StringConverter
+    {
+        public static string[] value;
+
+        public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
+        {
+            return true;
+        }
+
+        public override bool GetStandardValuesExclusive(ITypeDescriptorContext context)
+        {
+            return true;
+        }
+
+        public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
+        {
+            return new StandardValuesCollection(value);
+        }
+    }
+
+
+
+
+
+
 
 }

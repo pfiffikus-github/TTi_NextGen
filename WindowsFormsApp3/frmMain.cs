@@ -103,7 +103,6 @@ namespace TTi_NextGen
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
             myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
 
-            //myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
 
             #endregion
             
