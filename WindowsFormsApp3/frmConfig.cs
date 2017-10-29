@@ -16,6 +16,8 @@ namespace TTi_NextGen
         LocalSettings myLocalSettings = new LocalSettings();
         Machines myMachines = new Machines();
 
+
+
         public frmConfig()
         {
             InitializeComponent();
@@ -32,7 +34,7 @@ namespace TTi_NextGen
             {
                 myLocalSettings.SerializeXML();
             }
-            
+
             if (File.Exists(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile)))
             {
                 myMachines = myMachines.DeserializeXML(myLocalSettings.PublicSettingsDirectory);
@@ -44,7 +46,9 @@ namespace TTi_NextGen
             }
 
             myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
-            
+
+            myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
+            myLocalSettings.Machines = myMachines;
 
 
             propertyGrid2.SelectedObject = myLocalSettings;

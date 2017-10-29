@@ -44,7 +44,6 @@ namespace TTi_NextGen
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
-         TypeConverter(typeof(StringListConverter)),
          XmlIgnoreAttribute]
         public string[] AvailableMachines { get; set; }
 
@@ -52,6 +51,13 @@ namespace TTi_NextGen
          DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird"),
          ReadOnlyAttribute(true)]
         public String DefaultMachine { get; set; }
+
+        [CategoryAttribute("Lokale Einstellungen"),
+         DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
+         XmlIgnoreAttribute]
+        public Machines Machines { get; set; }
+
+        
 
         public void SerializeXML()
         {
@@ -282,25 +288,25 @@ namespace TTi_NextGen
 
 
 
-    public sealed class StringListConverter : StringConverter
-    {
-        public static string[] value;
+    //public sealed class StringListConverter : StringConverter
+    //{
+    //    public static string[] value;
 
-        public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
-        {
-            return true;
-        }
+    //    public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
+    //    {
+    //        return true;
+    //    }
 
-        public override bool GetStandardValuesExclusive(ITypeDescriptorContext context)
-        {
-            return true;
-        }
+    //    public override bool GetStandardValuesExclusive(ITypeDescriptorContext context)
+    //    {
+    //        return true;
+    //    }
 
-        public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
-        {
-            return new StandardValuesCollection(value);
-        }
-    }
+    //    public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
+    //    {
+    //        return new StandardValuesCollection(value);
+    //    }
+    //}
 
 
 

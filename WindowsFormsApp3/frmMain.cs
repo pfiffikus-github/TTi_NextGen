@@ -101,7 +101,9 @@ namespace TTi_NextGen
             App.ExtractEmbeddedResources();
             myLocalSettings = App.InitLocalSettings();
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
+
             myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
+            myLocalSettings.Machines = myMachines;
 
 
             #endregion
