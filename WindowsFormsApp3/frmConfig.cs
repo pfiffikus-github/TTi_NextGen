@@ -16,8 +16,6 @@ namespace TTi_NextGen
         LocalSettings myLocalSettings = new LocalSettings();
         Machines myMachines = new Machines();
 
-
-
         public frmConfig()
         {
             InitializeComponent();
@@ -26,35 +24,38 @@ namespace TTi_NextGen
         private void frmConfig_Load(object sender, EventArgs e)
         {
 
-            if (File.Exists(LocalSettings.LocalSettingsFile))
-            {
-                myLocalSettings = myLocalSettings.DeserializeXML();
-            }
-            else
-            {
-                myLocalSettings.SerializeXML();
-            }
+            //if (File.Exists(LocalSettings.LocalSettingsFile))
+            //{
+            //    myLocalSettings = myLocalSettings.DeserializeXML();
+            //}
+            //else
+            //{
+            //    myLocalSettings.SerializeXML();
+            //}
 
-            if (File.Exists(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile)))
-            {
-                myMachines = myMachines.DeserializeXML(myLocalSettings.PublicSettingsDirectory);
-            }
-            else
-            {
-                myMachines.Add(new Machine());
-                myMachines.SerializeXML(myLocalSettings.PublicSettingsDirectory);
-            }
+            //if (File.Exists(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile)))
+            //{
+            //    myMachines = myMachines.DeserializeXML(myLocalSettings.PublicSettingsDirectory);
+            //}
+            //else
+            //{
+            //    myMachines.Add(new Machine());
+            //    myMachines.SerializeXML(myLocalSettings.PublicSettingsDirectory);
+            //}
 
-            myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
+            #region InitAppAndSettings
 
-            myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
+            App.ExtractEmbeddedResources();
+            myLocalSettings = App.InitLocalSettings();
+            myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
+
             myLocalSettings.Machines = myMachines;
+            myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
+
+            #endregion
 
 
-            propertyGrid2.SelectedObject = myLocalSettings;
-            propertyGrid1.SelectedObject = myMachines;
-
-
+            propertyGrid1.SelectedObject = myLocalSettings;
 
         }
 

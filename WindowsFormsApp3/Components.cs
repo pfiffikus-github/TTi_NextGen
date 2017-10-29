@@ -52,7 +52,7 @@ namespace TTi_NextGen
          ReadOnlyAttribute(true)]
         public String DefaultMachine { get; set; }
 
-        [CategoryAttribute("Lokale Einstellungen"),
+        [CategoryAttribute("Öffentliche Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
         public Machines Machines { get; set; }
