@@ -170,8 +170,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2MinSize = 300;
-            this.splitContainer1.Size = new System.Drawing.Size(1017, 512);
-            this.splitContainer1.SplitterDistance = 500;
+            this.splitContainer1.Size = new System.Drawing.Size(727, 338);
+            this.splitContainer1.SplitterDistance = 357;
             this.splitContainer1.TabIndex = 0;
             // 
             // richTextBox1
@@ -180,9 +180,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(3, 423);
+            this.richTextBox1.Location = new System.Drawing.Point(3, 249);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(494, 86);
+            this.richTextBox1.Size = new System.Drawing.Size(351, 86);
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "NH9_0.t erfolgreich geladen\n54564\n564\n654\n654\n654\n654\n6546\n354\n654\n45";
             // 
@@ -191,7 +191,7 @@
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(59, 398);
+            this.checkBox1.Location = new System.Drawing.Point(59, 224);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(71, 17);
             this.checkBox1.TabIndex = 6;
@@ -203,7 +203,7 @@
             // 
             this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.numericUpDown1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 395);
+            this.numericUpDown1.Location = new System.Drawing.Point(3, 221);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(50, 20);
             this.numericUpDown1.TabIndex = 5;
@@ -215,7 +215,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(347, 394);
+            this.button1.Location = new System.Drawing.Point(204, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 23);
             this.button1.TabIndex = 4;
@@ -248,7 +248,7 @@
             treeNode7.Text = "NH9_0.t";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode7});
-            this.treeView1.Size = new System.Drawing.Size(494, 335);
+            this.treeView1.Size = new System.Drawing.Size(351, 161);
             this.treeView1.TabIndex = 3;
             // 
             // contextLeft
@@ -465,7 +465,7 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(499, 50);
+            this.label1.Size = new System.Drawing.Size(356, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Werkzeugliste\r\n\r\nNH9_0g.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -476,16 +476,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.Location = new System.Drawing.Point(3, 423);
+            this.richTextBox2.Location = new System.Drawing.Point(3, 249);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(507, 86);
+            this.richTextBox2.Size = new System.Drawing.Size(360, 86);
             this.richTextBox2.TabIndex = 9;
             this.richTextBox2.Text = "HY3_0.t erfolgreich geladen\n";
             // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(360, 394);
+            this.button4.Location = new System.Drawing.Point(213, 220);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 23);
             this.button4.TabIndex = 8;
@@ -497,7 +497,7 @@
             this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox2.AutoSize = true;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox2.Location = new System.Drawing.Point(59, 398);
+            this.checkBox2.Location = new System.Drawing.Point(59, 224);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(71, 17);
             this.checkBox2.TabIndex = 7;
@@ -509,7 +509,7 @@
             // 
             this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.numericUpDown2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.numericUpDown2.Location = new System.Drawing.Point(3, 395);
+            this.numericUpDown2.Location = new System.Drawing.Point(3, 221);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(50, 20);
             this.numericUpDown2.TabIndex = 6;
@@ -538,7 +538,7 @@
             treeNode11.Text = "HY3_0.t";
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode11});
-            this.treeView2.Size = new System.Drawing.Size(507, 335);
+            this.treeView2.Size = new System.Drawing.Size(360, 161);
             this.treeView2.TabIndex = 4;
             // 
             // contextRight
@@ -672,7 +672,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(506, 50);
+            this.label2.Size = new System.Drawing.Size(359, 50);
             this.label2.TabIndex = 1;
             this.label2.Text = "CNC-Programm\r\n\r\nHY3_0.t";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -685,9 +685,9 @@
             this.toolStripStatusLabel2,
             this.toolStripProgressBar1,
             this.timeStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 515);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 341);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1017, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(727, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -737,7 +737,7 @@
             this.toolStripMenuItem9.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem9.Text = "Info";
             // 
-            // toolStripDropDownButton1
+            // btnSelectedMachine
             // 
             this.btnSelectedMachine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnSelectedMachine.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -746,9 +746,9 @@
             this.dMU50eVoToolStripMenuItem,
             this.c42UToolStripMenuItem});
             this.btnSelectedMachine.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSelectedMachine.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.btnSelectedMachine.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectedMachine.Image")));
             this.btnSelectedMachine.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSelectedMachine.Name = "toolStripDropDownButton1";
+            this.btnSelectedMachine.Name = "btnSelectedMachine";
             this.btnSelectedMachine.Size = new System.Drawing.Size(90, 20);
             this.btnSelectedMachine.Text = "\"MASCHINE\"";
             // 
@@ -792,7 +792,7 @@
             // 
             this.timeStatus.ForeColor = System.Drawing.Color.DimGray;
             this.timeStatus.Name = "timeStatus";
-            this.timeStatus.Size = new System.Drawing.Size(553, 17);
+            this.timeStatus.Size = new System.Drawing.Size(263, 17);
             this.timeStatus.Spring = true;
             this.timeStatus.Text = "D/T";
             this.timeStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -814,7 +814,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(1017, 537);
+            this.ClientSize = new System.Drawing.Size(727, 363);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
             this.MinimumSize = new System.Drawing.Size(650, 400);

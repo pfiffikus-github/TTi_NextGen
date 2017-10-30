@@ -103,11 +103,9 @@ namespace TTi_NextGen
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
 
             #endregion
-            
+
             toolStripMenuItem8.CheckState = CheckState.Unchecked;
             checkBox1.CheckState = CheckState.Checked;
-
-
         }
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
