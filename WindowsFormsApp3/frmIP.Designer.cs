@@ -46,6 +46,7 @@
             // 
             // Cancel
             // 
+            this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel.Location = new System.Drawing.Point(199, 39);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(75, 23);
@@ -91,6 +92,7 @@
             this.Name = "frmIP";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmIP";
             this.ResumeLayout(false);
             this.PerformLayout();

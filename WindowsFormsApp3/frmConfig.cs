@@ -24,25 +24,6 @@ namespace TTi_NextGen
         private void frmConfig_Load(object sender, EventArgs e)
         {
 
-            //if (File.Exists(LocalSettings.LocalSettingsFile))
-            //{
-            //    myLocalSettings = myLocalSettings.DeserializeXML();
-            //}
-            //else
-            //{
-            //    myLocalSettings.SerializeXML();
-            //}
-
-            //if (File.Exists(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile)))
-            //{
-            //    myMachines = myMachines.DeserializeXML(myLocalSettings.PublicSettingsDirectory);
-            //}
-            //else
-            //{
-            //    myMachines.Add(new Machine());
-            //    myMachines.SerializeXML(myLocalSettings.PublicSettingsDirectory);
-            //}
-
             #region InitAppAndSettings
 
             myLocalSettings = App.InitLocalSettings();
@@ -62,4 +43,5 @@ namespace TTi_NextGen
         {
         }
     }
-}
+
+    }

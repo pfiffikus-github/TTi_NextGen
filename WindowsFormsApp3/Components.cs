@@ -10,6 +10,13 @@ using System.Drawing.Design;
 
 namespace TTi_NextGen
 {
+    public class AppSettings
+    {
+        public LocalSettings localSettings { get; set; }
+
+        public Machines machines { get; set; }
+    }
+
     public class LocalSettings
     {
         public LocalSettings()
@@ -39,7 +46,8 @@ namespace TTi_NextGen
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Pfad der öffentlichen Einstellungsdatei (Liste aller Maschinen)"),
-         Editor(typeof(PropertyGridSelectFolder), typeof(UITypeEditor))]
+         Editor(typeof(PropertyGridSelectFolder), typeof(UITypeEditor)),
+         TypeConverter(typeof(CancelEditProp))]
         public string PublicSettingsDirectory { get; set; }
 
         [CategoryAttribute("Lokale Einstellungen"),
@@ -56,8 +64,6 @@ namespace TTi_NextGen
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
         public Machines Machines { get; set; }
-
-        
 
         public void SerializeXML()
         {
@@ -161,6 +167,10 @@ namespace TTi_NextGen
 
         public string Name { get; set; }
 
+        [CategoryAttribute("Kommunikation"),
+         DescriptionAttribute("Die IP-Adresse der Maschine"),
+         Editor(typeof(TypEditorEditIP), typeof(UITypeEditor)),
+         TypeConverter(typeof(CancelEditProp))]
         public string IP { get; set; }
 
         public string ToolTable { get; set; }
@@ -278,39 +288,39 @@ namespace TTi_NextGen
         }
     }
 
+    public class TypEditorEditIP : UITypeEditor
+    {
+        public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+        {
+            if (!(context == null) && (!(context.Instance == null)))
+            {
+                return UITypeEditorEditStyle.Modal;
+            }
+            return UITypeEditorEditStyle.None;
+        }
 
+        public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+        {
+            frmIP _frmIP = new frmIP();
+            string _diaResult = _frmIP.ShowDia(value.ToString());
+            if (!(_diaResult == null))
+            {
+                return _diaResult;
+            }
+            else
+            {
+                return value;
+            }
+        }
+    }
 
-
-
-
-
-
-
-
-
-    //public sealed class StringListConverter : StringConverter
-    //{
-    //    public static string[] value;
-
-    //    public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
-    //    {
-    //        return true;
-    //    }
-
-    //    public override bool GetStandardValuesExclusive(ITypeDescriptorContext context)
-    //    {
-    //        return true;
-    //    }
-
-    //    public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
-    //    {
-    //        return new StandardValuesCollection(value);
-    //    }
-    //}
-
-
-
-
+    public class CancelEditProp : StringConverter
+    {
+        public override bool GetStandardValuesExclusive(ITypeDescriptorContext context)
+        {
+            return true;
+        }
+    }
 
 
 
