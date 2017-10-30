@@ -45,7 +45,6 @@ namespace TTi_NextGen
 
             #region InitAppAndSettings
 
-            App.ExtractEmbeddedResources();
             myLocalSettings = App.InitLocalSettings();
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
 
@@ -59,17 +58,8 @@ namespace TTi_NextGen
 
         }
 
-        private void OK_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            myLocalSettings.SerializeXML();
-            myMachines.SerializeXML(myLocalSettings.PublicSettingsDirectory);
-            this.Close();
         }
-
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
     }
 }
