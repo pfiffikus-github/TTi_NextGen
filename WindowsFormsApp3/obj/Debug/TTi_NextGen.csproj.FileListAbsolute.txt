@@ -9,3 +9,4 @@ C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.exe
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.pdb
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.frmConfig.resources
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.frmMain.resources
+C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.frmIP.resources

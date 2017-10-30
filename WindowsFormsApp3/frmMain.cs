@@ -124,7 +124,11 @@ namespace TTi_NextGen
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            string _IP;
+
+            frmIP _frmIP = new frmIP();
+
+            _IP = _frmIP.ShowDia("127.0.0.1");
 
         }
 
