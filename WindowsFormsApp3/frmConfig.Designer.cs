@@ -33,13 +33,13 @@
             this.OK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // propGrid
+            // PropGrid
             // 
             this.PropGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PropGrid.Location = new System.Drawing.Point(12, 12);
-            this.PropGrid.Name = "propGrid";
+            this.PropGrid.Name = "PropGrid";
             this.PropGrid.Size = new System.Drawing.Size(610, 258);
             this.PropGrid.TabIndex = 1;
             // 
@@ -78,6 +78,7 @@
             this.Controls.Add(this.PropGrid);
             this.MinimumSize = new System.Drawing.Size(650, 350);
             this.Name = "frmConfig";
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Anwendungseinstellungen";

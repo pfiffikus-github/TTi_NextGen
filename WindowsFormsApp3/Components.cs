@@ -62,7 +62,7 @@ namespace TTi_NextGen
                 }
             }
         }
-                
+
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
@@ -127,6 +127,15 @@ namespace TTi_NextGen
             base.InsertItem(index, insertItem);
         }
 
+        protected override void ClearItems()
+        {
+            if (Count == 1)
+            {
+                return;
+            }
+            base.ClearItems();
+        }
+
         public void SerializeXML(string path)
         {
             Directory.CreateDirectory(path);
@@ -150,7 +159,7 @@ namespace TTi_NextGen
                 return (Machines)xs.Deserialize(sr);
             }
         }
-        
+
         public override string ToString()
         {
             return "Liste über " + this.Count + " Maschine/n";
@@ -229,7 +238,7 @@ namespace TTi_NextGen
             }
             else
             {
-                myMachines.Add(new Machine(Machine.DefaultMachineName));
+                myMachines.Add(new Machine());
                 myMachines.SerializeXML(path);
             }
 
@@ -330,5 +339,5 @@ namespace TTi_NextGen
             return true;
         }
     }
-    
+
 }

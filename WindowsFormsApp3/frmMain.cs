@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
+using System.Collections.ObjectModel;
 
 namespace TTi_NextGen
 {
@@ -9,7 +10,8 @@ namespace TTi_NextGen
     {
         LocalSettings myLocalSettings;
         Machines myMachines;
-        
+        Machine myMachine;
+
         public frmMain()
         {
             InitializeComponent();
@@ -88,15 +90,9 @@ namespace TTi_NextGen
 
         private void fmrMain_Load(object sender, EventArgs e)
         {
-            #region InitAppAndSettings
-
             App.ExtractEmbeddedResources();
             ReadOrInitSettings();
-
-            #endregion
-
-            toolStripMenuItem8.CheckState = CheckState.Unchecked;
-            checkBox1.CheckState = CheckState.Checked;
+            UpdateControls();
         }
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
@@ -141,10 +137,11 @@ namespace TTi_NextGen
             frmConfig _frmConfig = new frmConfig();
 
             _frmConfig.ShowDialog();
-            
+
             if (_frmConfig.DialogResult == DialogResult.OK)
             {
                 ReadOrInitSettings();
+                UpdateControls();
             }
         }
 
@@ -155,6 +152,30 @@ namespace TTi_NextGen
 
             myLocalSettings.Machines = myMachines;
             myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
+
+            foreach (Machine _Machine in myMachines)
+            {
+                if (_Machine.Name == myLocalSettings.DefaultMachine)
+                {
+                    myMachine = _Machine;
+                    return;
+                }
+            }
+
+            myMachine = myMachines[0];
+            MessageBox.Show("Die Standardmaschine '" +
+                myLocalSettings.DefaultMachine + "' konnte nicht geladen werden. Sie ist in den Einstellungen nicht definiert: \n\n" +
+                System.IO.Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile) +
+                "\n\nEs wurde die Maschine '" + myMachine.Name + "' geladen!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        private void UpdateControls()
+        {
+            toolStripMenuItem8.CheckState = CheckState.Unchecked;
+            checkBox1.CheckState = CheckState.Checked;
+            //btnSelectedMachine.Text = myLocalSettings.DefaultMachine;
+
         }
 
     }
