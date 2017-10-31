@@ -51,7 +51,8 @@ namespace TTi_NextGen
         private void txtBxIP_TextChanged(object sender, EventArgs e)
         {
             myIP = txtBxIP.Text.Replace(" ", "");
-            btnPing.Text = "Ping " + myIP;
+            Text = "IP-Adresse: " + myIP;
+            btnPing.Text = "Ping: " + myIP;
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -74,7 +75,7 @@ namespace TTi_NextGen
 
         private void ShowInvalidAddressErr()
         {
-            MessageBox.Show("ungültige IP-Adresse!");
+            MessageBox.Show("Ungültige IP-Adresse!", "Ungültige IP-Adresse!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnPing_Click(object sender, EventArgs e)
@@ -85,12 +86,13 @@ namespace TTi_NextGen
                 PingReply _Replay = _Ping.Send(myIP, 5);
                 if (_Replay.Status == IPStatus.Success)
                 {
-                    MessageBox.Show(myIP + " erreichbar.");
+                    MessageBox.Show("Host " + myIP + " erreichbar.", myIP + " - Abfrage", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show(myIP + " nicht erreichbar.");
+                    MessageBox.Show("Host " + myIP + " nicht erreichbar.", myIP + " - Abfrage", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
             }
             catch (Exception)
             {

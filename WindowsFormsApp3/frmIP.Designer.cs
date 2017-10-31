@@ -60,7 +60,7 @@
             this.OK.Location = new System.Drawing.Point(118, 39);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(75, 23);
-            this.OK.TabIndex = 2;
+            this.OK.TabIndex = 0;
             this.OK.Text = "OK";
             this.OK.UseVisualStyleBackColor = true;
             this.OK.Click += new System.EventHandler(this.OK_Click);
@@ -70,7 +70,7 @@
             this.btnPing.Location = new System.Drawing.Point(118, 10);
             this.btnPing.Name = "btnPing";
             this.btnPing.Size = new System.Drawing.Size(156, 23);
-            this.btnPing.TabIndex = 3;
+            this.btnPing.TabIndex = 1;
             this.btnPing.Text = "Ping";
             this.btnPing.UseVisualStyleBackColor = true;
             this.btnPing.Click += new System.EventHandler(this.btnPing_Click);
@@ -81,7 +81,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel;
-            this.ClientSize = new System.Drawing.Size(286, 73);
+            this.ClientSize = new System.Drawing.Size(284, 72);
             this.Controls.Add(this.btnPing);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.Cancel);
