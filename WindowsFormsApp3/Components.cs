@@ -10,13 +10,6 @@ using System.Drawing.Design;
 
 namespace TTi_NextGen
 {
-    public class AppSettings
-    {
-        public LocalSettings localSettings { get; set; }
-
-        public Machines machines { get; set; }
-    }
-
     public class LocalSettings
     {
         public LocalSettings()
@@ -26,6 +19,14 @@ namespace TTi_NextGen
             LocalSettingsDirectory = Application.StartupPath;
             PublicSettingsDirectory = Application.StartupPath;
             DefaultMachine = Machine.DefaultMachineName;
+        }
+
+        private EventHandler _PublicSettingsDirectoryChanged;
+
+        public event EventHandler PublicSettingsDirectoryChanged
+        {
+            add { _PublicSettingsDirectoryChanged += value; }
+            remove { _PublicSettingsDirectoryChanged -= value; }
         }
 
         public const string LocalSettingsFile = "LocalSettings.xml";
@@ -44,12 +45,24 @@ namespace TTi_NextGen
          DescriptionAttribute("Pfad der loaklen Einstellungsdatei")]
         public string LocalSettingsDirectory { get; }
 
+        private string myPublicSettingsDirectory;
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Pfad der öffentlichen Einstellungsdatei (Liste aller Maschinen)"),
          Editor(typeof(PropertyGridSelectFolder), typeof(UITypeEditor)),
          TypeConverter(typeof(CancelEditProp))]
-        public string PublicSettingsDirectory { get; set; }
-
+        public string PublicSettingsDirectory
+        {
+            get { return myPublicSettingsDirectory; }
+            set
+            {
+                myPublicSettingsDirectory = value;
+                if (_PublicSettingsDirectoryChanged != null)
+                {
+                    this._PublicSettingsDirectoryChanged(this, new EventArgs());
+                }
+            }
+        }
+                
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
@@ -86,8 +99,6 @@ namespace TTi_NextGen
                 return (LocalSettings)xs.Deserialize(sr);
             }
         }
-
-
     }
 
     public class Machines : Collection<Machine>
@@ -113,23 +124,19 @@ namespace TTi_NextGen
                     return;
                 }
             }
-
             base.InsertItem(index, insertItem);
         }
 
         public void SerializeXML(string path)
         {
-            if (!File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
+            Directory.CreateDirectory(path);
+            XmlSerializer xs = new XmlSerializer(this.GetType());
+            using (StreamWriter sw = new StreamWriter(Path.Combine(path, LocalSettings.PublicSettingsFile)))
             {
-                Directory.CreateDirectory(path);
-                XmlSerializer xs = new XmlSerializer(this.GetType());
-                using (StreamWriter sw = new StreamWriter(Path.Combine(path, LocalSettings.PublicSettingsFile), true))
-                {
-                    xs.Serialize(sw, this);
-                    sw.Flush();
-                    sw.Dispose();
-                    sw.Close();
-                }
+                xs.Serialize(sw, this);
+                sw.Flush();
+                sw.Dispose();
+                sw.Close();
             }
 
 
@@ -142,6 +149,11 @@ namespace TTi_NextGen
             {
                 return (Machines)xs.Deserialize(sr);
             }
+        }
+        
+        public override string ToString()
+        {
+            return "Liste über " + this.Count + " Maschine/n";
         }
     }
 
@@ -217,10 +229,7 @@ namespace TTi_NextGen
             }
             else
             {
-                myMachines.Add(new Machine());
-                myMachines.Add(new Machine("Maschine02")); //
-                myMachines.Add(new Machine("Maschine03")); //
-                myMachines.Add(new Machine("Maschine04")); //
+                myMachines.Add(new Machine(Machine.DefaultMachineName));
                 myMachines.SerializeXML(path);
             }
 

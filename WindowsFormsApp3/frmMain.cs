@@ -18,6 +18,8 @@ namespace TTi_NextGen
         LocalSettings myLocalSettings;
         Machines myMachines;
 
+
+
         public frmMain()
         {
             InitializeComponent();
@@ -99,8 +101,7 @@ namespace TTi_NextGen
             #region InitAppAndSettings
 
             App.ExtractEmbeddedResources();
-            myLocalSettings = App.InitLocalSettings();
-            myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
+            UpdateAppSettings();
 
             #endregion
 
@@ -120,16 +121,6 @@ namespace TTi_NextGen
             {
                 splitContainer1.Size = new Size(splitContainer1.Size.Width, splitContainer1.Size.Height - Y);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string _IP;
-
-            frmIP _frmIP = new frmIP();
-
-            _IP = _frmIP.ShowDia("127.0.0.1");
-
         }
 
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -156,8 +147,25 @@ namespace TTi_NextGen
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            Form settings = new frmConfig();
-            settings.ShowDialog();
+
+            frmConfig _frmConfig = new frmConfig();
+
+            _frmConfig.ShowDialog();
+            
+            if (_frmConfig.DialogResult == DialogResult.OK)
+            {
+                UpdateAppSettings();
+            }
         }
+
+        private void UpdateAppSettings()
+        {
+            myLocalSettings = App.InitLocalSettings();
+            myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
+
+            myLocalSettings.Machines = myMachines;
+            myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
+        }
+
     }
 }
