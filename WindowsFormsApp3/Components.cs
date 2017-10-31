@@ -187,8 +187,20 @@ namespace TTi_NextGen
 
         public const string DefaultMachineName = "Machine";
 
-        public string Name { get; set; }
-
+        private string  myName;
+        public string  Name
+        {
+            get { return myName; }
+            set
+            {
+                if (value.Replace(" ", "") == "")
+                {
+                    return;
+                }
+                myName = value;
+            }
+        }
+        
         [CategoryAttribute("Kommunikation"),
          DescriptionAttribute("Die IP-Adresse der Maschine"),
          Editor(typeof(TypEditorEditIP), typeof(UITypeEditor)),

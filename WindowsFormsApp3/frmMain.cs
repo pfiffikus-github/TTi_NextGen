@@ -63,20 +63,23 @@ namespace TTi_NextGen
 
             try
             {
-                Ping _Ping = new Ping();
-                PingReply _Replay = _Ping.Send(myMachine.IP, 5);
-                if (_Replay.Status == IPStatus.Success)
+                using (Ping _Ping = new Ping())
                 {
-                    toolStripStatusLabel2.ForeColor = Color.DimGray;
-                    lblSelectedMachine.ForeColor = Color.DimGray;
-                    toolStripStatusLabel2.Text = "= online (" + myMachine.IP + ")";
+                    PingReply _Replay = _Ping.Send(myMachine.IP, 5);
+                    if (_Replay.Status == IPStatus.Success)
+                    {
+                        toolStripStatusLabel2.ForeColor = Color.DimGray;
+                        lblSelectedMachine.ForeColor = Color.DimGray;
+                        toolStripStatusLabel2.Text = "= online (" + myMachine.IP + ")";
+                    }
+                    else
+                    {
+                        toolStripStatusLabel2.ForeColor = Color.Red;
+                        lblSelectedMachine.ForeColor = Color.Red;
+                        toolStripStatusLabel2.Text = "= offline (" + myMachine.IP + ")";
+                    }
                 }
-                else
-                {
-                    toolStripStatusLabel2.ForeColor = Color.Red;
-                    lblSelectedMachine.ForeColor = Color.Red;
-                    toolStripStatusLabel2.Text = "= offline (" + myMachine.IP + ")";
-                }
+
             }
             catch (Exception)
             { }
@@ -86,6 +89,7 @@ namespace TTi_NextGen
         {
             App.ExtractEmbeddedResources();
             ReadOrInitSettings();
+            viewHistory.CheckState = CheckState.Unchecked;
             UpdateControls();
         }
 
@@ -93,7 +97,7 @@ namespace TTi_NextGen
         {
             int Y = richTextBox1.Size.Height + 8;
 
-            if (toolStripMenuItem8.CheckState != CheckState.Checked)
+            if (viewHistory.CheckState != CheckState.Checked)
             {
                 splitContainer1.Size = new Size(splitContainer1.Size.Width, splitContainer1.Size.Height + Y);
             }
@@ -144,8 +148,8 @@ namespace TTi_NextGen
             myLocalSettings = App.InitLocalSettings();
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
 
-            myLocalSettings.Machines = myMachines;
-            myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
+            //myLocalSettings.Machines = myMachines;
+            //myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
 
             foreach (Machine _Machine in myMachines)
             {
@@ -167,7 +171,6 @@ namespace TTi_NextGen
         private void UpdateControls()
         {
             timerMainFrm_Tick(null, null);
-            toolStripMenuItem8.CheckState = CheckState.Unchecked;
             checkBox1.CheckState = CheckState.Checked;
             lblSelectedMachine.Text = myMachine.Name;   //myLocalSettings.DefaultMachine;
             if (myLocalSettings.ShowAllMachines == false)
@@ -187,6 +190,11 @@ namespace TTi_NextGen
             frmChooseMachine _cm = new frmChooseMachine();
             String _selectedMachine = _cm.ShowDia(myMachine.ToString(), myMachines.ListOfMachines());
 
+            if (_selectedMachine == myMachine.Name)
+            {
+                return;
+            }
+
             foreach (Machine _Machine in myMachines)
             {
                 if (_selectedMachine == _Machine.Name)
@@ -197,5 +205,24 @@ namespace TTi_NextGen
                 }
             }
         }
+
+        private void WriteHistoryToolList(string Text, HistoryMessageType type)
+        {
+            richTextBox1.Text = DateTime.Now.ToString("hh:mm:ss ") + Text + "\n" + richTextBox1.Text;
+        }
+
+        private void WriteHistoryCNC(string Text, HistoryMessageType type)
+        {
+            richTextBox2.Text = DateTime.Now.ToString("hh:mm:ss ") + Text + "\n" + richTextBox2.Text;
+        }
+
+        private enum HistoryMessageType
+        {
+            Information,
+            Warning,
+            Error,
+        }
+
+
     }
 }
