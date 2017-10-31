@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
-using System.IO;
-using System.Reflection;
 
 namespace TTi_NextGen
 {
@@ -17,9 +9,7 @@ namespace TTi_NextGen
     {
         LocalSettings myLocalSettings;
         Machines myMachines;
-
-
-
+        
         public frmMain()
         {
             InitializeComponent();
@@ -101,7 +91,7 @@ namespace TTi_NextGen
             #region InitAppAndSettings
 
             App.ExtractEmbeddedResources();
-            UpdateAppSettings();
+            ReadOrInitSettings();
 
             #endregion
 
@@ -154,11 +144,11 @@ namespace TTi_NextGen
             
             if (_frmConfig.DialogResult == DialogResult.OK)
             {
-                UpdateAppSettings();
+                ReadOrInitSettings();
             }
         }
 
-        private void UpdateAppSettings()
+        private void ReadOrInitSettings()
         {
             myLocalSettings = App.InitLocalSettings();
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);

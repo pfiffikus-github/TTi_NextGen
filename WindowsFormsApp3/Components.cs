@@ -330,7 +330,5 @@ namespace TTi_NextGen
             return true;
         }
     }
-
-
-
+    
 }

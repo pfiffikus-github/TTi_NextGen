@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.IO;
 using System.Windows.Forms;
-using System.Xml.Serialization;
+
 
 namespace TTi_NextGen
 {
@@ -15,8 +8,6 @@ namespace TTi_NextGen
     {
         LocalSettings myLocalSettings = new LocalSettings();
         Machines myMachines = new Machines();
-
-
 
         public frmConfig()
         {
@@ -31,19 +22,16 @@ namespace TTi_NextGen
             
             UpdateMembers(null, null);
 
-            propGrid.SelectedObject = myLocalSettings;
+            PropGrid.SelectedObject = myLocalSettings;
         }
 
         private void UpdateMembers(object sender, EventArgs e)
-        {
-            
+        {            
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
             myLocalSettings.Machines = myMachines;
             myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
-
         }
-
-
+        
         private void OK_Click(object sender, EventArgs e)
         {
             myLocalSettings.SerializeXML();

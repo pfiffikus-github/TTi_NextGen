@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.propGrid = new System.Windows.Forms.PropertyGrid();
+            this.PropGrid = new System.Windows.Forms.PropertyGrid();
             this.Cancel = new System.Windows.Forms.Button();
             this.OK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // propGrid
             // 
-            this.propGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.PropGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.propGrid.Location = new System.Drawing.Point(12, 12);
-            this.propGrid.Name = "propGrid";
-            this.propGrid.Size = new System.Drawing.Size(610, 258);
-            this.propGrid.TabIndex = 1;
+            this.PropGrid.Location = new System.Drawing.Point(12, 12);
+            this.PropGrid.Name = "propGrid";
+            this.PropGrid.Size = new System.Drawing.Size(610, 258);
+            this.PropGrid.TabIndex = 1;
             // 
             // Cancel
             // 
@@ -75,7 +75,7 @@
             this.ClientSize = new System.Drawing.Size(634, 311);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.Cancel);
-            this.Controls.Add(this.propGrid);
+            this.Controls.Add(this.PropGrid);
             this.MinimumSize = new System.Drawing.Size(650, 350);
             this.Name = "frmConfig";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
@@ -88,7 +88,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PropertyGrid propGrid;
+        private System.Windows.Forms.PropertyGrid PropGrid;
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button OK;
     }
