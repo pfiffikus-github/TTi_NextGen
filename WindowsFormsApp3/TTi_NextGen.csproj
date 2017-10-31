@@ -53,6 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components.cs" />
+    <Compile Include="frmChooseMachine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChooseMachine.Designer.cs">
+      <DependentUpon>frmChooseMachine.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmChooseMachine.resx">
+      <DependentUpon>frmChooseMachine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConfig.resx">
       <DependentUpon>frmConfig.cs</DependentUpon>
     </EmbeddedResource>

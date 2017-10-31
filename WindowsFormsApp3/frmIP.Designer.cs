@@ -92,7 +92,7 @@
             this.Name = "frmIP";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmIP";
             this.ResumeLayout(false);
             this.PerformLayout();

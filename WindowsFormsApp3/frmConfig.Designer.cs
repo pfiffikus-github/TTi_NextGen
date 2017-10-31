@@ -80,7 +80,7 @@
             this.Name = "frmConfig";
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Anwendungseinstellungen";
             this.Load += new System.EventHandler(this.frmConfig_Load);
             this.ResumeLayout(false);

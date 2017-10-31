@@ -63,19 +63,11 @@ namespace TTi_NextGen
                 }
             }
         }
-
-        private string[] myAvailableMachines;
+        
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
-        public string[] AvailableMachines
-        {
-            get { return myAvailableMachines; }
-            set
-            {
-                myAvailableMachines = value;
-            }
-        }
+        public string[] AvailableMachines { get; set; }
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird"),

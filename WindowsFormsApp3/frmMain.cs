@@ -169,11 +169,33 @@ namespace TTi_NextGen
             timerMainFrm_Tick(null, null);
             toolStripMenuItem8.CheckState = CheckState.Unchecked;
             checkBox1.CheckState = CheckState.Checked;
-            lblSelectedMachine.Text = myLocalSettings.DefaultMachine;
-
+            lblSelectedMachine.Text = myMachine.Name;   //myLocalSettings.DefaultMachine;
+            if (myLocalSettings.ShowAllMachines == false)
+            {
+                ChooseMachine.Visible = false;
+            }
+            else
+            {
+                ChooseMachine.Visible = true;
+            }
 
 
         }
 
+        private void ChooseMachine_Click(object sender, EventArgs e)
+        {
+            frmChooseMachine _cm = new frmChooseMachine();
+            String _selectedMachine = _cm.ShowDia(myMachine.ToString(), myMachines.ListOfMachines());
+
+            foreach (Machine _Machine in myMachines)
+            {
+                if (_selectedMachine == _Machine.Name)
+                {
+                    myMachine = _Machine;
+                    UpdateControls();
+                    return;
+                }
+            }
+        }
     }
 }
