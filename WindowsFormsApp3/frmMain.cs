@@ -61,31 +61,25 @@ namespace TTi_NextGen
         {
             timeStatus.Text = DateTime.Now.ToString("dd.MM.yyyy hh:mm");
 
-            Ping isPing = new Ping();
-
             try
             {
-                PingReply reply = isPing.Send("127.0.0.1");
-                if (reply.Status == IPStatus.Success)
+                Ping _Ping = new Ping();
+                PingReply _Replay = _Ping.Send(myMachine.IP, 5);
+                if (_Replay.Status == IPStatus.Success)
                 {
                     toolStripStatusLabel2.ForeColor = Color.DimGray;
                     btnSelectedMachine.ForeColor = Color.DimGray;
-                    toolStripStatusLabel2.Text = "= online (127.0.0.1)";
-                    timerMainFrm.Interval = 10000;
-
+                    toolStripStatusLabel2.Text = "= online (" + myMachine.IP + ")";
                 }
-
+                else
+                {
+                    toolStripStatusLabel2.ForeColor = Color.Red;
+                    btnSelectedMachine.ForeColor = Color.Red;
+                    toolStripStatusLabel2.Text = "= offline (" + myMachine.IP + ")";
+                }
             }
-            catch (PingException)
-            {
-                toolStripStatusLabel2.ForeColor = Color.Red;
-                btnSelectedMachine.ForeColor = Color.Red;
-                toolStripStatusLabel2.Text = "= offline (127.0.0.1)";
-
-            }
-
-
-
+            catch (Exception)
+            { }
         }
 
         private void fmrMain_Load(object sender, EventArgs e)
@@ -158,6 +152,9 @@ namespace TTi_NextGen
                 if (_Machine.Name == myLocalSettings.DefaultMachine)
                 {
                     myMachine = _Machine;
+
+                    btnSelectedMachine.Text = myMachine.Name;
+
                     return;
                 }
             }
@@ -172,9 +169,12 @@ namespace TTi_NextGen
 
         private void UpdateControls()
         {
+            timerMainFrm_Tick(null, null);
             toolStripMenuItem8.CheckState = CheckState.Unchecked;
             checkBox1.CheckState = CheckState.Checked;
             //btnSelectedMachine.Text = myLocalSettings.DefaultMachine;
+
+
 
         }
 

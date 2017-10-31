@@ -6,6 +6,7 @@ using System.Reflection;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Drawing.Design;
+using System.ComponentModel.Design;
 
 
 namespace TTi_NextGen
@@ -63,10 +64,18 @@ namespace TTi_NextGen
             }
         }
 
+        private string[] myAvailableMachines;
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
-        public string[] AvailableMachines { get; set; }
+        public string[] AvailableMachines
+        {
+            get { return myAvailableMachines; }
+            set
+            {
+                myAvailableMachines = value;
+            }
+        }
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird"),
@@ -339,5 +348,18 @@ namespace TTi_NextGen
             return true;
         }
     }
+
+
+
+
+    
+
+
+
+
+
+
+
+
 
 }

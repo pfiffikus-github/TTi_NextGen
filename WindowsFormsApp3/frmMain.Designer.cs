@@ -116,10 +116,6 @@
             this.backupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSelectedMachine = new System.Windows.Forms.ToolStripDropDownButton();
-            this.spinnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cTXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dMU50eVoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.c42UToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.timeStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -739,41 +735,12 @@
             // btnSelectedMachine
             // 
             this.btnSelectedMachine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnSelectedMachine.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.spinnerToolStripMenuItem,
-            this.cTXToolStripMenuItem,
-            this.dMU50eVoToolStripMenuItem,
-            this.c42UToolStripMenuItem});
             this.btnSelectedMachine.ForeColor = System.Drawing.Color.DimGray;
             this.btnSelectedMachine.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectedMachine.Image")));
             this.btnSelectedMachine.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSelectedMachine.Name = "btnSelectedMachine";
             this.btnSelectedMachine.Size = new System.Drawing.Size(90, 20);
             this.btnSelectedMachine.Text = "\"MASCHINE\"";
-            // 
-            // spinnerToolStripMenuItem
-            // 
-            this.spinnerToolStripMenuItem.Name = "spinnerToolStripMenuItem";
-            this.spinnerToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.spinnerToolStripMenuItem.Text = "Spinner";
-            // 
-            // cTXToolStripMenuItem
-            // 
-            this.cTXToolStripMenuItem.Name = "cTXToolStripMenuItem";
-            this.cTXToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.cTXToolStripMenuItem.Text = "CTX";
-            // 
-            // dMU50eVoToolStripMenuItem
-            // 
-            this.dMU50eVoToolStripMenuItem.Name = "dMU50eVoToolStripMenuItem";
-            this.dMU50eVoToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.dMU50eVoToolStripMenuItem.Text = "DMU 50eVo";
-            // 
-            // c42UToolStripMenuItem
-            // 
-            this.c42UToolStripMenuItem.Name = "c42UToolStripMenuItem";
-            this.c42UToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.c42UToolStripMenuItem.Text = "C42U";
             // 
             // toolStripStatusLabel2
             // 
@@ -791,7 +758,7 @@
             // 
             this.timeStatus.ForeColor = System.Drawing.Color.DimGray;
             this.timeStatus.Name = "timeStatus";
-            this.timeStatus.Size = new System.Drawing.Size(263, 17);
+            this.timeStatus.Size = new System.Drawing.Size(232, 17);
             this.timeStatus.Spring = true;
             this.timeStatus.Text = "D/T";
             this.timeStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -799,7 +766,7 @@
             // timerMainFrm
             // 
             this.timerMainFrm.Enabled = true;
-            this.timerMainFrm.Interval = 500;
+            this.timerMainFrm.Interval = 5000;
             this.timerMainFrm.Tick += new System.EventHandler(this.timerMainFrm_Tick);
             // 
             // pfadÖffnenToolStripMenuItem
@@ -861,10 +828,6 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.ToolStripDropDownButton btnSelectedMachine;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripMenuItem spinnerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cTXToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dMU50eVoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem c42UToolStripMenuItem;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.ToolStripStatusLabel timeStatus;
         private System.Windows.Forms.Timer timerMainFrm;
