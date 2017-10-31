@@ -68,13 +68,13 @@ namespace TTi_NextGen
                 if (_Replay.Status == IPStatus.Success)
                 {
                     toolStripStatusLabel2.ForeColor = Color.DimGray;
-                    btnSelectedMachine.ForeColor = Color.DimGray;
+                    lblSelectedMachine.ForeColor = Color.DimGray;
                     toolStripStatusLabel2.Text = "= online (" + myMachine.IP + ")";
                 }
                 else
                 {
                     toolStripStatusLabel2.ForeColor = Color.Red;
-                    btnSelectedMachine.ForeColor = Color.Red;
+                    lblSelectedMachine.ForeColor = Color.Red;
                     toolStripStatusLabel2.Text = "= offline (" + myMachine.IP + ")";
                 }
             }
@@ -152,9 +152,6 @@ namespace TTi_NextGen
                 if (_Machine.Name == myLocalSettings.DefaultMachine)
                 {
                     myMachine = _Machine;
-
-                    btnSelectedMachine.Text = myMachine.Name;
-
                     return;
                 }
             }
@@ -172,7 +169,7 @@ namespace TTi_NextGen
             timerMainFrm_Tick(null, null);
             toolStripMenuItem8.CheckState = CheckState.Unchecked;
             checkBox1.CheckState = CheckState.Checked;
-            //btnSelectedMachine.Text = myLocalSettings.DefaultMachine;
+            lblSelectedMachine.Text = myLocalSettings.DefaultMachine;
 
 
 
