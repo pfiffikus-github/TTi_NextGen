@@ -70,6 +70,11 @@ namespace TTi_NextGen
                     ShowInvalidAddressErr();
                     e.Cancel = true;
                 }
+                myIP = txtBxIP.Text;
+            }
+            else
+            {
+                myIP = null;
             }
         }
 

@@ -301,7 +301,7 @@ namespace TTi_NextGen
     {
         public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
         {
-            if (!(context == null) && (!(context.Instance == null)))
+            if (context != null && context.Instance != null)
             {
                 return UITypeEditorEditStyle.Modal;
             }
@@ -312,7 +312,7 @@ namespace TTi_NextGen
         {
             frmIP _frmIP = new frmIP();
             string _diaResult = _frmIP.ShowDia(value.ToString());
-            if (!(_diaResult == null))
+            if (_diaResult != null)
             {
                 return _diaResult;
             }
