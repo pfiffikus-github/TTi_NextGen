@@ -23,7 +23,6 @@ namespace TTi_NextGen
         }
 
         private EventHandler _PublicSettingsDirectoryChanged;
-
         public event EventHandler PublicSettingsDirectoryChanged
         {
             add { _PublicSettingsDirectoryChanged += value; }

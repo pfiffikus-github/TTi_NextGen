@@ -89,9 +89,12 @@ namespace TTi_NextGen
         {
             App.ExtractEmbeddedResources();
             ReadOrInitSettings();
+
             viewHistory.CheckState = CheckState.Unchecked;
             UpdateControls();
         }
+
+
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
         {
@@ -219,6 +222,14 @@ namespace TTi_NextGen
             Warning,
             Error,
         }
+
+        private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
+        {
+            WriteHistoryToolList("'" + myMachine.Name + "' geladen", HistoryMessageType.Information);
+            WriteHistoryCNC("'" + myMachine.Name + "' geladen", HistoryMessageType.Information);
+        }
+
+
 
 
     }
