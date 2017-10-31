@@ -127,21 +127,17 @@ namespace TTi_NextGen
             base.InsertItem(index, insertItem);
         }
 
-        protected override void ClearItems()
-        {
-            if (Count == 1)
-            {
-                return;
-            }
-            base.ClearItems();
-        }
-
         public void SerializeXML(string path)
         {
             Directory.CreateDirectory(path);
             XmlSerializer xs = new XmlSerializer(this.GetType());
             using (StreamWriter sw = new StreamWriter(Path.Combine(path, LocalSettings.PublicSettingsFile)))
             {
+                if (this.Count == 0 )
+                {
+                    Add(new Machine());
+                }
+
                 xs.Serialize(sw, this);
                 sw.Flush();
                 sw.Dispose();
