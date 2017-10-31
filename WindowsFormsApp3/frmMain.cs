@@ -148,9 +148,6 @@ namespace TTi_NextGen
             myLocalSettings = App.InitLocalSettings();
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
 
-            //myLocalSettings.Machines = myMachines;
-            //myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
-
             foreach (Machine _Machine in myMachines)
             {
                 if (_Machine.Name == myLocalSettings.DefaultMachine)

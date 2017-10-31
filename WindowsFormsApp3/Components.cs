@@ -63,7 +63,7 @@ namespace TTi_NextGen
                 }
             }
         }
-        
+
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
@@ -187,20 +187,20 @@ namespace TTi_NextGen
 
         public const string DefaultMachineName = "Machine";
 
-        private string  myName;
-        public string  Name
+        private string myName;
+        public string Name
         {
             get { return myName; }
             set
             {
-                if (value.Replace(" ", "") == "")
+                if (value.Trim().Replace(" ", "") == "")
                 {
                     return;
                 }
-                myName = value;
+                myName = value.Trim();
             }
         }
-        
+
         [CategoryAttribute("Kommunikation"),
          DescriptionAttribute("Die IP-Adresse der Maschine"),
          Editor(typeof(TypEditorEditIP), typeof(UITypeEditor)),
@@ -356,7 +356,7 @@ namespace TTi_NextGen
 
 
 
-    
+
 
 
 
