@@ -69,13 +69,11 @@ namespace TTi_NextGen
                     if (_Replay.Status == IPStatus.Success)
                     {
                         toolStripStatusLabel2.ForeColor = Color.DimGray;
-                        lblSelectedMachine.ForeColor = Color.DimGray;
                         toolStripStatusLabel2.Text = "= online (" + myMachine.IP + ")";
                     }
                     else
                     {
                         toolStripStatusLabel2.ForeColor = Color.Red;
-                        lblSelectedMachine.ForeColor = Color.Red;
                         toolStripStatusLabel2.Text = "= offline (" + myMachine.IP + ")";
                     }
                 }
@@ -172,38 +170,17 @@ namespace TTi_NextGen
         {
             timerMainFrm_Tick(null, null);
             checkBox1.CheckState = CheckState.Checked;
-            lblSelectedMachine.Text = myMachine.Name;   //myLocalSettings.DefaultMachine;
+            lblSelectedMachine.Text = "Gewählte Maschine: " + myMachine.Name;   //myLocalSettings.DefaultMachine;
             if (myLocalSettings.ShowAllMachines == false)
             {
-                ChooseMachine.Visible = false;
+                lblSelectedMachine.Enabled = false;
             }
             else
             {
-                ChooseMachine.Visible = true;
+                lblSelectedMachine.Enabled = true;
             }
 
 
-        }
-
-        private void ChooseMachine_Click(object sender, EventArgs e)
-        {
-            frmChooseMachine _cm = new frmChooseMachine();
-            String _selectedMachine = _cm.ShowDia(myMachine.ToString(), myMachines.ListOfMachines());
-
-            if (_selectedMachine == myMachine.Name)
-            {
-                return;
-            }
-
-            foreach (Machine _Machine in myMachines)
-            {
-                if (_selectedMachine == _Machine.Name)
-                {
-                    myMachine = _Machine;
-                    UpdateControls();
-                    return;
-                }
-            }
         }
 
         private void WriteHistoryToolList(string Text, HistoryMessageType type)
@@ -229,8 +206,25 @@ namespace TTi_NextGen
             WriteHistoryCNC("'" + myMachine.Name + "' geladen", HistoryMessageType.Information);
         }
 
+        private void lblSelectedMachine_Click(object sender, EventArgs e)
+        {
+            frmChooseMachine _cm = new frmChooseMachine();
+            String _selectedMachine = _cm.ShowDia(myMachine.ToString(), myMachines.ListOfMachines());
 
+            if (_selectedMachine == myMachine.Name)
+            {
+                return;
+            }
 
-
+            foreach (Machine _Machine in myMachines)
+            {
+                if (_selectedMachine == _Machine.Name)
+                {
+                    myMachine = _Machine;
+                    UpdateControls();
+                    return;
+                }
+            }
+        }
     }
 }

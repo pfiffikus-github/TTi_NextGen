@@ -77,7 +77,7 @@ namespace TTi_NextGen
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
         public Machines Machines { get; set; }
-
+        
         public void SerializeXML()
         {
             XmlSerializer xs = new XmlSerializer(this.GetType());
@@ -133,7 +133,7 @@ namespace TTi_NextGen
             XmlSerializer xs = new XmlSerializer(this.GetType());
             using (StreamWriter sw = new StreamWriter(Path.Combine(path, LocalSettings.PublicSettingsFile)))
             {
-                if (this.Count == 0 )
+                if (this.Count == 0)
                 {
                     Add(new Machine());
                 }
