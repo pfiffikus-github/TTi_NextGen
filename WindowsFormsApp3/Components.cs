@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -7,6 +8,7 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Drawing.Design;
 using System.ComponentModel.Design;
+using System.Windows.Forms.Design;
 
 
 namespace TTi_NextGen
@@ -69,15 +71,14 @@ namespace TTi_NextGen
         public string[] AvailableMachines { get; set; }
 
         [CategoryAttribute("Lokale Einstellungen"),
-         DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird"),
-         ReadOnlyAttribute(true)]
+         DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird")]
         public String DefaultMachine { get; set; }
 
         [CategoryAttribute("Öffentliche Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
         public Machines Machines { get; set; }
-        
+
         public void SerializeXML()
         {
             XmlSerializer xs = new XmlSerializer(this.GetType());
@@ -347,18 +348,4 @@ namespace TTi_NextGen
             return true;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
