@@ -21,6 +21,8 @@ namespace TTi_NextGen
             CloseAppAfterSync = false;
             LocalSettingsDirectory = Application.StartupPath;
             PublicSettingsDirectory = Application.StartupPath;
+            DefaultMachineBackground = new string[1];
+            DefaultMachineBackground[0] = Machine.DefaultMachineName;
             DefaultMachine = Machine.DefaultMachineName;
         }
 
@@ -48,7 +50,7 @@ namespace TTi_NextGen
         public string LocalSettingsDirectory { get; }
 
         private string myPublicSettingsDirectory;
-        [CategoryAttribute("Lokale Einstellungen"),
+        [CategoryAttribute("Öffentliche Einstellungen"),
          DescriptionAttribute("Pfad der öffentlichen Einstellungsdatei (Liste aller Maschinen)"),
          Editor(typeof(PropertyGridSelectFolder), typeof(UITypeEditor)),
          TypeConverter(typeof(CancelEditProp))]
@@ -65,20 +67,25 @@ namespace TTi_NextGen
             }
         }
 
-        [CategoryAttribute("Lokale Einstellungen"),
-         DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
-         XmlIgnoreAttribute]
-        public string[] AvailableMachines { get; set; }
-
-        [CategoryAttribute("Lokale Einstellungen"),
-         DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird")]
-        public String DefaultMachine { get; set; }
-
         [CategoryAttribute("Öffentliche Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
         public Machines Machines { get; set; }
 
+        private string[] myDefaultMachineBackground;
+        [Browsable(false),
+         XmlIgnoreAttribute]
+        public string[] DefaultMachineBackground
+        {
+            get { return myDefaultMachineBackground; }
+            set { myDefaultMachineBackground = value; }
+        }
+
+        [CategoryAttribute("Lokale Einstellungen"),
+         DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird"),
+         TypeConverter(typeof(MyMachineConverter))]
+        public string DefaultMachine { get; set; }
+        
         public void SerializeXML()
         {
             XmlSerializer xs = new XmlSerializer(this.GetType());
@@ -348,4 +355,46 @@ namespace TTi_NextGen
             return true;
         }
     }
+    
+    public class MyMachineConverter : TypeConverter
+    {
+        public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
+        {
+            return true;
+        }
+
+        public override bool GetStandardValuesExclusive(ITypeDescriptorContext context)
+        {
+            return true ;
+        }
+
+        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
+        {
+            var _LocalSettings = context.Instance as LocalSettings;
+            if (_LocalSettings != null)
+                return new StandardValuesCollection(_LocalSettings.Machines);
+
+            return base.GetStandardValues(context);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
