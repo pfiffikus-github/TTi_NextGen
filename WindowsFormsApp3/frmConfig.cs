@@ -19,8 +19,6 @@ namespace TTi_NextGen
             myLocalSettings = App.InitLocalSettings();
 
             myLocalSettings.PublicSettingsDirectoryChanged += new EventHandler(UpdateMembers);
-            myLocalSettings.MachinesChanged += new EventHandler(UpdateMembers);
-
 
             UpdateMembers(null, null);
 

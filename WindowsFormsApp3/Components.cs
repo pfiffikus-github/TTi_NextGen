@@ -33,12 +33,6 @@ namespace TTi_NextGen
             remove { _PublicSettingsDirectoryChanged -= value; }
         }
 
-        private EventHandler _MachinesChanged;
-        public event EventHandler MachinesChanged
-        {
-            add { _MachinesChanged += value; }
-            remove { _MachinesChanged -= value; }
-        }
 
         public const string LocalSettingsFile = "LocalSettings.xml";
 
