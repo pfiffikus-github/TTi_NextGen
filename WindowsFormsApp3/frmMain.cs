@@ -160,7 +160,7 @@ namespace TTi_NextGen
 
             myMachine = myMachines[0];
             MessageBox.Show("Die Standardmaschine '" +
-                myLocalSettings.DefaultMachineBackground + "' konnte nicht geladen werden. Sie ist in den Einstellungen nicht definiert: \n\n" +
+                myLocalSettings.DefaultMachine + "' konnte nicht geladen werden. Sie ist in den Einstellungen nicht definiert: \n\n" +
                 System.IO.Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile) +
                 "\n\nEs wurde die Maschine '" + myMachine.Name + "' geladen!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -170,8 +170,8 @@ namespace TTi_NextGen
         {
             timerMainFrm_Tick(null, null);
             checkBox1.CheckState = CheckState.Checked;
-            lblSelectedMachine.Text = "Gewählte Maschine: " + myMachine.Name;   //myLocalSettings.DefaultMachine;
-            if (myLocalSettings.ShowAllMachines == false)
+            lblSelectedMachine.Text = "Gewählte Maschine: " + myMachine.Name;
+            if (myLocalSettings.ShowAllMachines == false || myMachines.Count <= 1)
             {
                 lblSelectedMachine.Enabled = false;
             }

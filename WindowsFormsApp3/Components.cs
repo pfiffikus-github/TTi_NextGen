@@ -33,6 +33,13 @@ namespace TTi_NextGen
             remove { _PublicSettingsDirectoryChanged -= value; }
         }
 
+        private EventHandler _MachinesChanged;
+        public event EventHandler MachinesChanged
+        {
+            add { _MachinesChanged += value; }
+            remove { _MachinesChanged -= value; }
+        }
+
         public const string LocalSettingsFile = "LocalSettings.xml";
 
         public const string PublicSettingsFile = "PublicSettings.xml";
@@ -66,11 +73,15 @@ namespace TTi_NextGen
                 }
             }
         }
+        
+        
 
         [CategoryAttribute("Öffentliche Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
         public Machines Machines { get; set; }
+        
+
 
         private string[] myDefaultMachineBackground;
         [Browsable(false),
@@ -83,7 +94,7 @@ namespace TTi_NextGen
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird"),
-         TypeConverter(typeof(MyMachineConverter))]
+         TypeConverter(typeof(MachineTypeConverter))]
         public string DefaultMachine { get; set; }
 
         public void SerializeXML()
@@ -356,7 +367,7 @@ namespace TTi_NextGen
         }
     }
 
-    public class MyMachineConverter : StringConverter
+    public class MachineTypeConverter : StringConverter
     {
         public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
         {
