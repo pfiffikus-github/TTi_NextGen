@@ -29,7 +29,7 @@ namespace TTi_NextGen
         {
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
             myLocalSettings.Machines = myMachines;
-            //myLocalSettings.AvailableMachines = myMachines.ListOfMachines();
+            myLocalSettings.DefaultMachineBackground = myMachines.ListOfMachines();
         }
 
         private void OK_Click(object sender, EventArgs e)

@@ -85,7 +85,7 @@ namespace TTi_NextGen
          DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird"),
          TypeConverter(typeof(MyMachineConverter))]
         public string DefaultMachine { get; set; }
-        
+
         public void SerializeXML()
         {
             XmlSerializer xs = new XmlSerializer(this.GetType());
@@ -355,8 +355,8 @@ namespace TTi_NextGen
             return true;
         }
     }
-    
-    public class MyMachineConverter : TypeConverter
+
+    public class MyMachineConverter : StringConverter
     {
         public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
         {
@@ -365,14 +365,17 @@ namespace TTi_NextGen
 
         public override bool GetStandardValuesExclusive(ITypeDescriptorContext context)
         {
-            return true ;
+            return true;
         }
 
         public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
         {
             var _LocalSettings = context.Instance as LocalSettings;
-            if (_LocalSettings != null)
-                return new StandardValuesCollection(_LocalSettings.Machines);
+
+
+
+
+            if (_LocalSettings != null) return new StandardValuesCollection(_LocalSettings.DefaultMachineBackground);
 
             return base.GetStandardValues(context);
         }
