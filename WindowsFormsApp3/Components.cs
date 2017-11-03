@@ -68,15 +68,11 @@ namespace TTi_NextGen
             }
         }
         
-        
-
         [CategoryAttribute("Öffentliche Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
         public Machines Machines { get; set; }
         
-
-
         private string[] myDefaultMachineBackground;
         [Browsable(false),
          XmlIgnoreAttribute]
