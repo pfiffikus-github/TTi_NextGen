@@ -92,8 +92,6 @@ namespace TTi_NextGen
             UpdateControls();
         }
 
-
-
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
         {
             int Y = richTextBox1.Size.Height + 8;

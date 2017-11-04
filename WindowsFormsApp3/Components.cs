@@ -32,8 +32,7 @@ namespace TTi_NextGen
             add { _PublicSettingsDirectoryChanged += value; }
             remove { _PublicSettingsDirectoryChanged -= value; }
         }
-
-
+        
         public const string LocalSettingsFile = "LocalSettings.xml";
 
         public const string PublicSettingsFile = "PublicSettings.xml";
@@ -184,11 +183,6 @@ namespace TTi_NextGen
             DisableToolRangeSelection = false;
         }
 
-        public Machine(String name) : this()
-        {
-            Name = name;
-        }
-
         public const string DefaultMachineName = "Machine";
 
         private string myName;
@@ -205,9 +199,8 @@ namespace TTi_NextGen
             }
         }
 
-        [CategoryAttribute("Kommunikation"),
-         DescriptionAttribute("Die IP-Adresse der Maschine"),
-         Editor(typeof(TypEditorEditIP), typeof(UITypeEditor)),
+
+        [Editor(typeof(TypEditorEditIP), typeof(UITypeEditor)),
          TypeConverter(typeof(CancelEditProp))]
         public string IP { get; set; }
 
@@ -376,7 +369,7 @@ namespace TTi_NextGen
 
 
 
-            if (_LocalSettings != null) return new StandardValuesCollection(_LocalSettings.DefaultMachineBackground);
+            if (_LocalSettings != null) return new StandardValuesCollection(_LocalSettings.Machines );  //DefaultMachineBackground
 
             return base.GetStandardValues(context);
         }

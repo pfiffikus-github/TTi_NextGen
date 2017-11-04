@@ -39,12 +39,12 @@
             this.cmbBoxMachines.FormattingEnabled = true;
             this.cmbBoxMachines.Location = new System.Drawing.Point(12, 12);
             this.cmbBoxMachines.Name = "cmbBoxMachines";
-            this.cmbBoxMachines.Size = new System.Drawing.Size(121, 21);
+            this.cmbBoxMachines.Size = new System.Drawing.Size(147, 21);
             this.cmbBoxMachines.TabIndex = 0;
             // 
             // OK
             // 
-            this.OK.Location = new System.Drawing.Point(139, 10);
+            this.OK.Location = new System.Drawing.Point(165, 10);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(75, 23);
             this.OK.TabIndex = 1;
@@ -69,7 +69,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel;
-            this.ClientSize = new System.Drawing.Size(223, 43);
+            this.ClientSize = new System.Drawing.Size(248, 42);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.cmbBoxMachines);
