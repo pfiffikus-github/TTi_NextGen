@@ -195,7 +195,7 @@ namespace TTi_NextGen
                 {
                     return;
                 }
-                myName = value.Trim();
+                myName = value.Trim().Substring(0, Math.Min(16, value.Length));
             }
         }
 
