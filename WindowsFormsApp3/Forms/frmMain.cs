@@ -3,7 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
 using System.IO;
-using  System.Reflection;
+using System.Reflection;
+using Microsoft.VisualBasic;
 
 namespace TTi_NextGen
 {
@@ -88,7 +89,7 @@ namespace TTi_NextGen
         private void fmrMain_Load(object sender, EventArgs e)
         {
             ReadOrInitSettings();
-            
+
             this.Text = App.AppTitle() + " " + App.AppVersion();
 
             viewHistory.CheckState = CheckState.Unchecked;
@@ -116,6 +117,7 @@ namespace TTi_NextGen
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
+            if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "123") { return; }
 
             frmConfig _frmConfig = new frmConfig();
 
@@ -275,7 +277,7 @@ namespace TTi_NextGen
             if (_ofd.ShowDialog() == DialogResult.OK)
             {
                 myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName));
-               
+
             }
 
 
@@ -283,7 +285,7 @@ namespace TTi_NextGen
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(App.AppTitle() + "\n\n" + App.AppVersion() + " Build: " + Assembly.GetExecutingAssembly().GetName().Version.Build , App.AppTitle() );
+            MessageBox.Show(App.AppTitle() + "\n\n" + App.AppVersion() + " Build: " + Assembly.GetExecutingAssembly().GetName().Version.Build, App.AppTitle());
         }
     }
 }
