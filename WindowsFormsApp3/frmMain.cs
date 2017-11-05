@@ -87,6 +87,7 @@ namespace TTi_NextGen
         {
             App.ExtractEmbeddedResources();
             ReadOrInitSettings();
+            this.Text = App.AppTitle();
 
             viewHistory.CheckState = CheckState.Unchecked;
             UpdateControls();

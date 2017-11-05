@@ -32,7 +32,7 @@ namespace TTi_NextGen
             add { _PublicSettingsDirectoryChanged += value; }
             remove { _PublicSettingsDirectoryChanged -= value; }
         }
-        
+
         public const string LocalSettingsFile = "LocalSettings.xml";
 
         public const string PublicSettingsFile = "PublicSettings.xml";
@@ -66,12 +66,12 @@ namespace TTi_NextGen
                 }
             }
         }
-        
+
         [CategoryAttribute("Öffentliche Einstellungen"),
          DescriptionAttribute("Liste der verfügbaren Maschinen zur Wahl der Standardmaschine"),
          XmlIgnoreAttribute]
         public Machines Machines { get; set; }
-        
+
         private string[] myDefaultMachineBackground;
         [Browsable(false),
          XmlIgnoreAttribute]
@@ -281,6 +281,13 @@ namespace TTi_NextGen
                 }
             }
         }
+
+        public static string AppTitle()
+        {
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Name +
+                   " V" + Assembly.GetExecutingAssembly().GetName().Version.Major +
+                   "." + Assembly.GetExecutingAssembly().GetName().Version.Minor;
+        }
     }
 
     public class PropertyGridSelectFolder : UITypeEditor
@@ -369,7 +376,7 @@ namespace TTi_NextGen
 
 
 
-            if (_LocalSettings != null) return new StandardValuesCollection(_LocalSettings.Machines );  //DefaultMachineBackground
+            if (_LocalSettings != null) return new StandardValuesCollection(_LocalSettings.Machines);  //DefaultMachineBackground
 
             return base.GetStandardValues(context);
         }
