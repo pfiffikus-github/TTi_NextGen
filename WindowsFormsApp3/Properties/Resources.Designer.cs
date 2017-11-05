@@ -81,12 +81,12 @@ namespace TTi_NextGen.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap Werkzeugliste {
+        internal static byte[] tool_table {
             get {
-                object obj = ResourceManager.GetObject("Werkzeugliste", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("tool_table", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

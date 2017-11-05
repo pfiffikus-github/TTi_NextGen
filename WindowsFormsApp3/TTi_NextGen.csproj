@@ -110,18 +110,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Resources\tool_table.template" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Open.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\folder_Open_32xLG.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Werkzeugliste.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\TNCsync.exe" />

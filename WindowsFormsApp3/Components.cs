@@ -224,6 +224,8 @@ namespace TTi_NextGen
         {
             LocalSettings myLocalSettings = new LocalSettings();
 
+            App.ExtractEmbeddedResources(".exe", Application.StartupPath);
+
             if (File.Exists(LocalSettings.LocalSettingsFile))
             {
                 myLocalSettings = myLocalSettings.DeserializeXML();
@@ -239,6 +241,7 @@ namespace TTi_NextGen
         public static Machines InitMachines(string path)
         {
             Machines myMachines = new Machines();
+            App.ExtractEmbeddedResources(".template", path);
 
             if (File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
             {
@@ -247,33 +250,31 @@ namespace TTi_NextGen
             else
             {
                 myMachines.Add(new Machine());
-                myMachines.SerializeXML(path);
-
+                myMachines.SerializeXML(path);                
             }
 
             return myMachines;
         }
 
-        public static void ExtractEmbeddedResources(string publicSettingsDirectory)
+        public static void ExtractEmbeddedResources(string files, string path)
         {
             string[] _Resources = Assembly.GetExecutingAssembly().GetManifestResourceNames();
-            string[] _Exes;
-
-            //////Directory.CreateDirectory(Path.Combine(path, "ToolTableTemplates"));
+            string[] _File;
 
             foreach (var _Resource in _Resources)
             {
-                if (_Resource.Contains(".exe"))
+                if (_Resource.Contains(files))
                 {
-                    _Exes = _Resource.Split('.');
+                    _File = _Resource.Split('.');
 
-                    String _FileName = _Exes[_Exes.Length - 2] + Path.GetExtension(_Resource);
+                    String _FileName = _File[_File.Length - 2] + Path.GetExtension(_Resource);
 
                     using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(_Resource))
                     {
-                        if (!File.Exists(_FileName))
+                        if (!File.Exists(Path.Combine(path,  _FileName)))
                         {
-                            FileStream fileStream = new FileStream(_FileName, FileMode.Create);
+                            Directory.CreateDirectory(path);
+                            FileStream fileStream = new FileStream(Path.Combine(path, _FileName), FileMode.Create);
                             for (int i = 0; i < stream.Length; i++)
                                 fileStream.WriteByte((byte)stream.ReadByte());
                             fileStream.Close();

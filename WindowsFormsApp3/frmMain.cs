@@ -86,7 +86,7 @@ namespace TTi_NextGen
         private void fmrMain_Load(object sender, EventArgs e)
         {
             ReadOrInitSettings();
-            App.ExtractEmbeddedResources(myLocalSettings.PublicSettingsDirectory );
+
             this.Text = App.AppTitle() + " " + App.AppVersion();
 
             viewHistory.CheckState = CheckState.Unchecked;
