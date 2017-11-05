@@ -287,7 +287,7 @@ namespace TTi_NextGen
 
         public static string AppTitle()
         {
-            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+            return Assembly.GetExecutingAssembly().GetName().Name;
 
         }
 

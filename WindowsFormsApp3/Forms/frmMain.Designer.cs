@@ -43,7 +43,6 @@
             treeNode5,
             treeNode6});
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.myNumericUpDown1 = new TTi_NextGen.myNumericUpDown();
             this.treeView3 = new System.Windows.Forms.TreeView();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -76,7 +75,6 @@
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.myNumericUpDown2 = new TTi_NextGen.myNumericUpDown();
             this.treeView4 = new System.Windows.Forms.TreeView();
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -90,6 +88,19 @@
             this.dateiÖffnenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.öffnenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aktualisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speichernToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.speichernUnterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.schließenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.pfadÖffnenToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dateiÖffnenToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.eigenschaftenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ansichtToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.doppelteTOOLCALLsMarkierenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nurTOOLCALLsAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,31 +121,20 @@
             this.timeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerMainFrm = new System.Windows.Forms.Timer(this.components);
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.öffnenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aktualisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.speichernToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.speichernUnterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.schließenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.pfadÖffnenToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dateiÖffnenToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.eigenschaftenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.myNumericUpDown1 = new TTi_NextGen.myNumericUpDown();
+            this.myNumericUpDown2 = new TTi_NextGen.myNumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).BeginInit();
             this.contextLeft.SuspendLayout();
             this.menuStrip3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).BeginInit();
             this.contextRight.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMachine.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -171,15 +171,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(771, 377);
             this.splitContainer1.SplitterDistance = 373;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // myNumericUpDown1
-            // 
-            this.myNumericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.myNumericUpDown1.Location = new System.Drawing.Point(3, 262);
-            this.myNumericUpDown1.Name = "myNumericUpDown1";
-            this.myNumericUpDown1.Size = new System.Drawing.Size(50, 20);
-            this.myNumericUpDown1.TabIndex = 3;
-            this.myNumericUpDown1.ValueChanged += new System.EventHandler(this.myNumericUpDown1_ValueChanged);
             // 
             // treeView3
             // 
@@ -312,7 +303,7 @@
             this.menuStrip3.Location = new System.Drawing.Point(0, 26);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip3.Size = new System.Drawing.Size(202, 24);
+            this.menuStrip3.Size = new System.Drawing.Size(294, 24);
             this.menuStrip3.TabIndex = 2;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -346,18 +337,21 @@
             // 
             // aktuelisierenToolStripMenuItem
             // 
+            this.aktuelisierenToolStripMenuItem.Enabled = false;
             this.aktuelisierenToolStripMenuItem.Name = "aktuelisierenToolStripMenuItem";
             this.aktuelisierenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.aktuelisierenToolStripMenuItem.Text = "Aktualisieren";
             // 
             // speichernToolStripMenuItem
             // 
+            this.speichernToolStripMenuItem.Enabled = false;
             this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
             this.speichernToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.speichernToolStripMenuItem.Text = "Speichern";
             // 
             // speichernUnterToolStripMenuItem
             // 
+            this.speichernUnterToolStripMenuItem.Enabled = false;
             this.speichernUnterToolStripMenuItem.Name = "speichernUnterToolStripMenuItem";
             this.speichernUnterToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.speichernUnterToolStripMenuItem.Text = "Speichern unter";
@@ -369,6 +363,7 @@
             // 
             // schließenToolStripMenuItem
             // 
+            this.schließenToolStripMenuItem.Enabled = false;
             this.schließenToolStripMenuItem.Name = "schließenToolStripMenuItem";
             this.schließenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.schließenToolStripMenuItem.Text = "Schließen";
@@ -399,6 +394,7 @@
             // 
             // eigenschaftenToolStripMenuItem
             // 
+            this.eigenschaftenToolStripMenuItem.Enabled = false;
             this.eigenschaftenToolStripMenuItem.Name = "eigenschaftenToolStripMenuItem";
             this.eigenschaftenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.eigenschaftenToolStripMenuItem.Text = "Eigenschaften";
@@ -467,15 +463,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Werkzeugliste\r\n\r\n*.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // myNumericUpDown2
-            // 
-            this.myNumericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.myNumericUpDown2.Location = new System.Drawing.Point(3, 262);
-            this.myNumericUpDown2.Name = "myNumericUpDown2";
-            this.myNumericUpDown2.Size = new System.Drawing.Size(50, 20);
-            this.myNumericUpDown2.TabIndex = 10;
-            this.myNumericUpDown2.ValueChanged += new System.EventHandler(this.myNumericUpDown2_ValueChanged);
             // 
             // treeView4
             // 
@@ -590,7 +577,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(0, 26);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip2.Size = new System.Drawing.Size(294, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(202, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -614,6 +601,88 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
             this.toolStripMenuItem1.Text = "Datei";
+            // 
+            // öffnenToolStripMenuItem1
+            // 
+            this.öffnenToolStripMenuItem1.Name = "öffnenToolStripMenuItem1";
+            this.öffnenToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.öffnenToolStripMenuItem1.Text = "Öffnen";
+            this.öffnenToolStripMenuItem1.Click += new System.EventHandler(this.öffnenToolStripMenuItem1_Click);
+            // 
+            // aktualisierenToolStripMenuItem
+            // 
+            this.aktualisierenToolStripMenuItem.Enabled = false;
+            this.aktualisierenToolStripMenuItem.Name = "aktualisierenToolStripMenuItem";
+            this.aktualisierenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.aktualisierenToolStripMenuItem.Text = "Aktualisieren";
+            // 
+            // speichernToolStripMenuItem1
+            // 
+            this.speichernToolStripMenuItem1.Enabled = false;
+            this.speichernToolStripMenuItem1.Name = "speichernToolStripMenuItem1";
+            this.speichernToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.speichernToolStripMenuItem1.Text = "Speichern";
+            // 
+            // speichernUnterToolStripMenuItem1
+            // 
+            this.speichernUnterToolStripMenuItem1.Enabled = false;
+            this.speichernUnterToolStripMenuItem1.Name = "speichernUnterToolStripMenuItem1";
+            this.speichernUnterToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.speichernUnterToolStripMenuItem1.Text = "Speichern unter";
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(154, 6);
+            // 
+            // schließenToolStripMenuItem1
+            // 
+            this.schließenToolStripMenuItem1.Enabled = false;
+            this.schließenToolStripMenuItem1.Name = "schließenToolStripMenuItem1";
+            this.schließenToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.schließenToolStripMenuItem1.Text = "Schließen";
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(154, 6);
+            // 
+            // pfadÖffnenToolStripMenuItem3
+            // 
+            this.pfadÖffnenToolStripMenuItem3.Enabled = false;
+            this.pfadÖffnenToolStripMenuItem3.Name = "pfadÖffnenToolStripMenuItem3";
+            this.pfadÖffnenToolStripMenuItem3.Size = new System.Drawing.Size(157, 22);
+            this.pfadÖffnenToolStripMenuItem3.Text = "Pfad öffnen";
+            // 
+            // dateiÖffnenToolStripMenuItem3
+            // 
+            this.dateiÖffnenToolStripMenuItem3.Enabled = false;
+            this.dateiÖffnenToolStripMenuItem3.Name = "dateiÖffnenToolStripMenuItem3";
+            this.dateiÖffnenToolStripMenuItem3.Size = new System.Drawing.Size(157, 22);
+            this.dateiÖffnenToolStripMenuItem3.Text = "Datei öffnen";
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(154, 6);
+            // 
+            // eigenschaftenToolStripMenuItem1
+            // 
+            this.eigenschaftenToolStripMenuItem1.Enabled = false;
+            this.eigenschaftenToolStripMenuItem1.Name = "eigenschaftenToolStripMenuItem1";
+            this.eigenschaftenToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.eigenschaftenToolStripMenuItem1.Text = "Eigenschaften";
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(154, 6);
+            // 
+            // beendenToolStripMenuItem1
+            // 
+            this.beendenToolStripMenuItem1.Name = "beendenToolStripMenuItem1";
+            this.beendenToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.beendenToolStripMenuItem1.Text = "Beenden";
             // 
             // ansichtToolStripMenuItem1
             // 
@@ -737,6 +806,7 @@
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             this.toolStripMenuItem9.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem9.Text = "Info";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // lblSelectedMachine
             // 
@@ -780,80 +850,23 @@
             this.pfadÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.pfadÖffnenToolStripMenuItem.Text = "Pfad öffnen";
             // 
-            // öffnenToolStripMenuItem1
+            // myNumericUpDown1
             // 
-            this.öffnenToolStripMenuItem1.Name = "öffnenToolStripMenuItem1";
-            this.öffnenToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
-            this.öffnenToolStripMenuItem1.Text = "Öffnen";
-            this.öffnenToolStripMenuItem1.Click += new System.EventHandler(this.öffnenToolStripMenuItem1_Click);
+            this.myNumericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.myNumericUpDown1.Location = new System.Drawing.Point(3, 262);
+            this.myNumericUpDown1.Name = "myNumericUpDown1";
+            this.myNumericUpDown1.Size = new System.Drawing.Size(50, 20);
+            this.myNumericUpDown1.TabIndex = 3;
+            this.myNumericUpDown1.ValueChanged += new System.EventHandler(this.myNumericUpDown1_ValueChanged);
             // 
-            // aktualisierenToolStripMenuItem
+            // myNumericUpDown2
             // 
-            this.aktualisierenToolStripMenuItem.Name = "aktualisierenToolStripMenuItem";
-            this.aktualisierenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.aktualisierenToolStripMenuItem.Text = "Aktualisieren";
-            // 
-            // speichernToolStripMenuItem1
-            // 
-            this.speichernToolStripMenuItem1.Name = "speichernToolStripMenuItem1";
-            this.speichernToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
-            this.speichernToolStripMenuItem1.Text = "Speichern";
-            // 
-            // speichernUnterToolStripMenuItem1
-            // 
-            this.speichernUnterToolStripMenuItem1.Name = "speichernUnterToolStripMenuItem1";
-            this.speichernUnterToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
-            this.speichernUnterToolStripMenuItem1.Text = "Speichern unter";
-            // 
-            // schließenToolStripMenuItem1
-            // 
-            this.schließenToolStripMenuItem1.Name = "schließenToolStripMenuItem1";
-            this.schließenToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
-            this.schließenToolStripMenuItem1.Text = "Schließen";
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(154, 6);
-            // 
-            // pfadÖffnenToolStripMenuItem3
-            // 
-            this.pfadÖffnenToolStripMenuItem3.Name = "pfadÖffnenToolStripMenuItem3";
-            this.pfadÖffnenToolStripMenuItem3.Size = new System.Drawing.Size(157, 22);
-            this.pfadÖffnenToolStripMenuItem3.Text = "Pfad öffnen";
-            // 
-            // dateiÖffnenToolStripMenuItem3
-            // 
-            this.dateiÖffnenToolStripMenuItem3.Name = "dateiÖffnenToolStripMenuItem3";
-            this.dateiÖffnenToolStripMenuItem3.Size = new System.Drawing.Size(157, 22);
-            this.dateiÖffnenToolStripMenuItem3.Text = "Datei öffnen";
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(154, 6);
-            // 
-            // eigenschaftenToolStripMenuItem1
-            // 
-            this.eigenschaftenToolStripMenuItem1.Name = "eigenschaftenToolStripMenuItem1";
-            this.eigenschaftenToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
-            this.eigenschaftenToolStripMenuItem1.Text = "Eigenschaften";
-            // 
-            // beendenToolStripMenuItem1
-            // 
-            this.beendenToolStripMenuItem1.Name = "beendenToolStripMenuItem1";
-            this.beendenToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
-            this.beendenToolStripMenuItem1.Text = "Beenden";
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(154, 6);
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(154, 6);
+            this.myNumericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.myNumericUpDown2.Location = new System.Drawing.Point(3, 262);
+            this.myNumericUpDown2.Name = "myNumericUpDown2";
+            this.myNumericUpDown2.Size = new System.Drawing.Size(50, 20);
+            this.myNumericUpDown2.TabIndex = 10;
+            this.myNumericUpDown2.ValueChanged += new System.EventHandler(this.myNumericUpDown2_ValueChanged);
             // 
             // frmMain
             // 
@@ -873,17 +886,17 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).EndInit();
             this.contextLeft.ResumeLayout(false);
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).EndInit();
             this.contextRight.ResumeLayout(false);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.contextMachine.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

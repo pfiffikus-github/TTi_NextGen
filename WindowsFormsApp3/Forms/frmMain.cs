@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
 using System.IO;
+using  System.Reflection;
 
 namespace TTi_NextGen
 {
@@ -87,7 +88,7 @@ namespace TTi_NextGen
         private void fmrMain_Load(object sender, EventArgs e)
         {
             ReadOrInitSettings();
-
+            
             this.Text = App.AppTitle() + " " + App.AppVersion();
 
             viewHistory.CheckState = CheckState.Unchecked;
@@ -278,6 +279,11 @@ namespace TTi_NextGen
             }
 
 
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(App.AppTitle() + "\n\n" + App.AppVersion() + " Build: " + Assembly.GetExecutingAssembly().GetName().Version.Build , App.AppTitle() );
         }
     }
 }
