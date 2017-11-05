@@ -95,7 +95,7 @@ namespace TTi_NextGen
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
         {
-            int Y = richTextBox1.Size.Height + 8;
+            int Y = treeView3.Size.Height + 8;
 
             if (viewHistory.CheckState != CheckState.Checked)
             {
@@ -182,14 +182,46 @@ namespace TTi_NextGen
 
         }
 
-        private void WriteHistoryToolList(string Text, HistoryMessageType type)
-        {
-            richTextBox1.Text = DateTime.Now.ToString("hh:mm:ss ") + Text + "\n" + richTextBox1.Text;
-        }
 
-        private void WriteHistoryCNC(string Text, HistoryMessageType type)
-        {
-            richTextBox2.Text = DateTime.Now.ToString("hh:mm:ss ") + Text + "\n" + richTextBox2.Text;
+        private void WriteHistory(string text, StatusBox statusBox, HistoryMessageType type)
+        {            
+            text = DateTime.Now.ToString("hh:mm:ss ") + text + "\n";
+
+            TreeNode _tn = new TreeNode(text);
+
+            switch (type)
+            {
+                case HistoryMessageType.Information:
+                    _tn.ForeColor = Color.DimGray;
+                    break;
+                case HistoryMessageType.Warning:
+                    _tn.ForeColor = Color.Orange;
+                    break;
+                case HistoryMessageType.Error:
+                    _tn.ForeColor = Color.Red;
+                    break;
+                default:
+                    break;
+            }
+
+            switch (statusBox)
+            {
+                case StatusBox.Left:
+                    treeView3.Nodes.Add(_tn);
+                    break;
+                case StatusBox.Right:
+                    treeView4.Nodes.Add(_tn);
+                    break;
+                case StatusBox.Both:
+                    treeView3.Nodes.Insert(0, _tn);
+                    TreeNode _tn2 = (TreeNode)_tn.Clone();
+                    treeView4.Nodes.Insert(0, _tn2);
+                    break;
+                default:
+                    break;
+            }
+
+
         }
 
         private enum HistoryMessageType
@@ -199,10 +231,16 @@ namespace TTi_NextGen
             Error,
         }
 
+        private enum StatusBox
+        {
+            Left,
+            Right,
+            Both,
+        }
+
         private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
         {
-            WriteHistoryToolList("'" + myMachine.Name + "' geladen", HistoryMessageType.Information);
-            WriteHistoryCNC("'" + myMachine.Name + "' geladen", HistoryMessageType.Information);
+            WriteHistory("'" + myMachine.Name + "' geladen", StatusBox.Both, HistoryMessageType.Information);
         }
 
         private void lblSelectedMachine_Click(object sender, EventArgs e)
