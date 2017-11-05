@@ -284,10 +284,16 @@ namespace TTi_NextGen
 
         public static string AppTitle()
         {
-            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Name +
-                   " V" + Assembly.GetExecutingAssembly().GetName().Version.Major +
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+                   
+        }
+
+        public static string AppVersion()
+        {
+            return "V" + Assembly.GetExecutingAssembly().GetName().Version.Major +
                    "." + Assembly.GetExecutingAssembly().GetName().Version.Minor;
         }
+
     }
 
     public class PropertyGridSelectFolder : UITypeEditor
