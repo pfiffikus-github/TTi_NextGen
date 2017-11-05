@@ -241,6 +241,7 @@ namespace TTi_NextGen
         public static Machines InitMachines(string path)
         {
             Machines myMachines = new Machines();
+
             App.ExtractEmbeddedResources(".template", path);
 
             if (File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
@@ -392,11 +393,11 @@ namespace TTi_NextGen
 
     //----------------------------------------------------------------------------------------------------------------------------
 
-    public class FileToChange
+    public class CNCProgram
     {
         public const string ToolCallString = "TOOL CALL";
 
-        public FileToChange(FileInfo file)
+        public CNCProgram(FileInfo file)
         {
             File = file;
             CountOfRestrictiveToolValues = 0;   //in DetectIsToolRangeConsistent() neu initalisiert
@@ -575,7 +576,7 @@ namespace TTi_NextGen
         {
             OrgToolCallString = m.Value + " ";
             OrgToolRangeValue = System.Math.Floor(decimal.Parse(m.Groups[1].ToString()) / 1000) * 1000;
-            OrgToolCallValue = (Int32.Parse(OrgToolCallString.Replace(FileToChange.ToolCallString + " ", "")));
+            OrgToolCallValue = (Int32.Parse(OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")));
         }
 
         public String OrgToolCallString { get; private set; }

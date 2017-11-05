@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
-using System.Collections.ObjectModel;
+using System.IO;
 
 namespace TTi_NextGen
 {
@@ -11,6 +11,7 @@ namespace TTi_NextGen
         LocalSettings myLocalSettings;
         Machines myMachines;
         Machine myMachine;
+        CNCProgram myCNCProgram;
 
         public frmMain()
         {
@@ -110,7 +111,6 @@ namespace TTi_NextGen
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
-
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -167,9 +167,9 @@ namespace TTi_NextGen
 
 
         }
-        
+
         private void WriteHistory(string text, StatusBox statusBox, HistoryMessageType type)
-        {            
+        {
             text = DateTime.Now.ToString("hh:mm:ss ") + text + "\n";
 
             TreeNode _tn = new TreeNode(text);
@@ -234,20 +234,6 @@ namespace TTi_NextGen
                 }
             }
         }
-        
-        private enum HistoryMessageType
-        {
-            Information,
-            Warning,
-            Error,
-        }
-
-        private enum StatusBox
-        {
-            Left,
-            Right,
-            Both,
-        }
 
         private void myNumericUpDown1_ValueChanged(object sender, EventArgs e)
         {
@@ -263,6 +249,35 @@ namespace TTi_NextGen
             {
                 myNumericUpDown1.Value = myNumericUpDown2.Value;
             }
+        }
+
+        private enum HistoryMessageType
+        {
+            Information,
+            Warning,
+            Error,
+        }
+
+        private enum StatusBox
+        {
+            Left,
+            Right,
+            Both,
+        }
+
+        private void öffnenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog _ofd = new OpenFileDialog();
+
+            _ofd.Multiselect = false;
+            _ofd.Filter = "CNC-Programm (*.h)|*.h";
+            if (_ofd.ShowDialog() == DialogResult.OK)
+            {
+                myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName));
+               
+            }
+
+
         }
     }
 }
