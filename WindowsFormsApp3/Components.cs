@@ -7,8 +7,6 @@ using System.Reflection;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Drawing.Design;
-using System.ComponentModel.Design;
-using System.Windows.Forms.Design;
 using System.Text.RegularExpressions;
 
 namespace TTi_NextGen
@@ -250,15 +248,18 @@ namespace TTi_NextGen
             {
                 myMachines.Add(new Machine());
                 myMachines.SerializeXML(path);
+
             }
 
             return myMachines;
         }
 
-        public static void ExtractEmbeddedResources()
+        public static void ExtractEmbeddedResources(string publicSettingsDirectory)
         {
             string[] _Resources = Assembly.GetExecutingAssembly().GetManifestResourceNames();
             string[] _Exes;
+
+            //////Directory.CreateDirectory(Path.Combine(path, "ToolTableTemplates"));
 
             foreach (var _Resource in _Resources)
             {
