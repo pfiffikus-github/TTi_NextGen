@@ -52,43 +52,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components.cs" />
-    <Compile Include="frmChooseMachine.cs">
+    <Compile Include="Classes\Components.cs" />
+    <Compile Include="Forms\frmChooseMachine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChooseMachine.Designer.cs">
+    <Compile Include="Forms\frmChooseMachine.Designer.cs">
       <DependentUpon>frmChooseMachine.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConfig.cs">
+    <Compile Include="Forms\frmConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConfig.Designer.cs">
+    <Compile Include="Forms\frmConfig.Designer.cs">
       <DependentUpon>frmConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmIP.cs">
+    <Compile Include="Forms\frmIP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmIP.Designer.cs">
+    <Compile Include="Forms\frmIP.Designer.cs">
       <DependentUpon>frmIP.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="Forms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\myNumericUpDown.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmChooseMachine.resx">
+    <EmbeddedResource Include="Forms\frmChooseMachine.resx">
       <DependentUpon>frmChooseMachine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConfig.resx">
+    <EmbeddedResource Include="Forms\frmConfig.resx">
       <DependentUpon>frmConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmIP.resx">
+    <EmbeddedResource Include="Forms\frmIP.resx">
       <DependentUpon>frmIP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

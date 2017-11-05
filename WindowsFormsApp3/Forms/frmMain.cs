@@ -22,18 +22,18 @@ namespace TTi_NextGen
             checkBox2.CheckState = checkBox1.CheckState;
             if (checkBox1.CheckState == CheckState.Checked)
             {
-                numericUpDown1.Value = numericUpDown2.Value;
+                myNumericUpDown1.Value = myNumericUpDown2.Value;
                 checkBox1.ForeColor = Color.OrangeRed;
                 checkBox2.ForeColor = Color.OrangeRed;
-                numericUpDown1.ForeColor = Color.OrangeRed;
-                numericUpDown2.ForeColor = Color.OrangeRed;
+                myNumericUpDown1.ForeColor = Color.OrangeRed;
+                myNumericUpDown2.ForeColor = Color.OrangeRed;
             }
             else
             {
                 checkBox1.ForeColor = Color.Black;
                 checkBox2.ForeColor = Color.Black;
-                numericUpDown1.ForeColor = Color.Black;
-                numericUpDown2.ForeColor = Color.Black;
+                myNumericUpDown1.ForeColor = Color.Black;
+                myNumericUpDown2.ForeColor = Color.Black;
             }
         }
 
@@ -42,18 +42,18 @@ namespace TTi_NextGen
             checkBox1.CheckState = checkBox2.CheckState;
             if (checkBox2.CheckState == CheckState.Checked)
             {
-                numericUpDown2.Value = numericUpDown1.Value;
+                myNumericUpDown2.Value = myNumericUpDown1.Value;
                 checkBox1.ForeColor = Color.OrangeRed;
                 checkBox2.ForeColor = Color.OrangeRed;
-                numericUpDown1.ForeColor = Color.OrangeRed;
-                numericUpDown2.ForeColor = Color.OrangeRed;
+                myNumericUpDown1.ForeColor = Color.OrangeRed;
+                myNumericUpDown2.ForeColor = Color.OrangeRed;
             }
             else
             {
                 checkBox1.ForeColor = Color.Black;
                 checkBox2.ForeColor = Color.Black;
-                numericUpDown1.ForeColor = Color.Black;
-                numericUpDown2.ForeColor = Color.Black;
+                myNumericUpDown1.ForeColor = Color.Black;
+                myNumericUpDown2.ForeColor = Color.Black;
             }
         }
 
@@ -113,22 +113,6 @@ namespace TTi_NextGen
 
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.CheckState == CheckState.Checked)
-            {
-                numericUpDown2.Value = numericUpDown1.Value;
-            }
-        }
-
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.CheckState == CheckState.Checked)
-            {
-                numericUpDown1.Value = numericUpDown2.Value;
-            }
-        }
-
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
 
@@ -157,6 +141,8 @@ namespace TTi_NextGen
                 }
             }
 
+            WriteHistory("Standardmaschine '" + myLocalSettings.DefaultMachine + "' konnte nicht geladen werden", StatusBox.Both, HistoryMessageType.Error);
+
             myMachine = myMachines[0];
             MessageBox.Show("Die Standardmaschine '" +
                 myLocalSettings.DefaultMachine + "' konnte nicht geladen werden. Sie ist in den Einstellungen nicht definiert: \n\n" +
@@ -181,8 +167,7 @@ namespace TTi_NextGen
 
 
         }
-
-
+        
         private void WriteHistory(string text, StatusBox statusBox, HistoryMessageType type)
         {            
             text = DateTime.Now.ToString("hh:mm:ss ") + text + "\n";
@@ -224,20 +209,6 @@ namespace TTi_NextGen
 
         }
 
-        private enum HistoryMessageType
-        {
-            Information,
-            Warning,
-            Error,
-        }
-
-        private enum StatusBox
-        {
-            Left,
-            Right,
-            Both,
-        }
-
         private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
         {
             WriteHistory("'" + myMachine.Name + "' geladen", StatusBox.Both, HistoryMessageType.Information);
@@ -261,6 +232,36 @@ namespace TTi_NextGen
                     UpdateControls();
                     return;
                 }
+            }
+        }
+        
+        private enum HistoryMessageType
+        {
+            Information,
+            Warning,
+            Error,
+        }
+
+        private enum StatusBox
+        {
+            Left,
+            Right,
+            Both,
+        }
+
+        private void myNumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.CheckState == CheckState.Checked)
+            {
+                myNumericUpDown2.Value = myNumericUpDown1.Value;
+            }
+        }
+
+        private void myNumericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.CheckState == CheckState.Checked)
+            {
+                myNumericUpDown1.Value = myNumericUpDown2.Value;
             }
         }
     }

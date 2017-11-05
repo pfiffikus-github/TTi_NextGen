@@ -33,29 +33,28 @@
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160");
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("9  TOOL CALL 38 Z S0");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("10 * - TOOL 38 MESSTASTER");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("NH9_0.t", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("9  TOOL CALL 38 Z S0");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("10 * - TOOL 38 MESSTASTER");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("NH9_0.t", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3,
             treeNode4,
-            treeNode5,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("T       NAME             L           R           DL       DR       R2          PL" +
+            treeNode16,
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("T       NAME             L           R           DL       DR       R2          PL" +
         "C ");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
         "0000000");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
         "0000000");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("HY3_0.t", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9,
-            treeNode10});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("HY3_0.t", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6,
+            treeNode7});
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView3 = new System.Windows.Forms.TreeView();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.contextLeft = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -86,9 +85,9 @@
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.treeView4 = new System.Windows.Forms.TreeView();
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.treeView2 = new System.Windows.Forms.TreeView();
             this.contextRight = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,19 +118,20 @@
             this.timeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerMainFrm = new System.Windows.Forms.Timer(this.components);
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.treeView4 = new System.Windows.Forms.TreeView();
+            this.myNumericUpDown1 = new TTi_NextGen.myNumericUpDown();
+            this.myNumericUpDown2 = new TTi_NextGen.myNumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.contextLeft.SuspendLayout();
             this.menuStrip3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.contextRight.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMachine.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -145,9 +145,9 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.splitContainer1.Panel1.Controls.Add(this.myNumericUpDown1);
             this.splitContainer1.Panel1.Controls.Add(this.treeView3);
             this.splitContainer1.Panel1.Controls.Add(this.checkBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.numericUpDown1);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.treeView1);
             this.splitContainer1.Panel1.Controls.Add(this.menuStrip3);
@@ -157,10 +157,10 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.DimGray;
+            this.splitContainer1.Panel2.Controls.Add(this.myNumericUpDown2);
             this.splitContainer1.Panel2.Controls.Add(this.treeView4);
             this.splitContainer1.Panel2.Controls.Add(this.button4);
             this.splitContainer1.Panel2.Controls.Add(this.checkBox2);
-            this.splitContainer1.Panel2.Controls.Add(this.numericUpDown2);
             this.splitContainer1.Panel2.Controls.Add(this.treeView2);
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
@@ -197,17 +197,6 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numericUpDown1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 221);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown1.TabIndex = 5;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -237,14 +226,14 @@
             treeNode3.Text = "7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160";
             treeNode4.Name = "Knoten5";
             treeNode4.Text = "8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130";
-            treeNode5.Name = "Knoten6";
-            treeNode5.Text = "9  TOOL CALL 38 Z S0";
-            treeNode6.Name = "Knoten7";
-            treeNode6.Text = "10 * - TOOL 38 MESSTASTER";
-            treeNode7.Name = "Knoten0";
-            treeNode7.Text = "NH9_0.t";
+            treeNode16.Name = "Knoten6";
+            treeNode16.Text = "9  TOOL CALL 38 Z S0";
+            treeNode17.Name = "Knoten7";
+            treeNode17.Text = "10 * - TOOL 38 MESSTASTER";
+            treeNode18.Name = "Knoten0";
+            treeNode18.Text = "NH9_0.t";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode7});
+            treeNode18});
             this.treeView1.Size = new System.Drawing.Size(325, 159);
             this.treeView1.TabIndex = 3;
             // 
@@ -467,6 +456,21 @@
             this.label1.Text = "Werkzeugliste\r\n\r\nNH9_0g.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // treeView4
+            // 
+            this.treeView4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView4.ForeColor = System.Drawing.Color.DimGray;
+            this.treeView4.ItemHeight = 14;
+            this.treeView4.Location = new System.Drawing.Point(3, 247);
+            this.treeView4.Name = "treeView4";
+            this.treeView4.ShowLines = false;
+            this.treeView4.ShowRootLines = false;
+            this.treeView4.Size = new System.Drawing.Size(343, 86);
+            this.treeView4.TabIndex = 9;
+            this.treeView4.TabStop = false;
+            // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -490,17 +494,6 @@
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckStateChanged += new System.EventHandler(this.checkBox2_CheckStateChanged);
             // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numericUpDown2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.numericUpDown2.Location = new System.Drawing.Point(3, 221);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown2.TabIndex = 6;
-            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
-            // 
             // treeView2
             // 
             this.treeView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -510,19 +503,19 @@
             this.treeView2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView2.Location = new System.Drawing.Point(3, 53);
             this.treeView2.Name = "treeView2";
-            treeNode8.Name = "Knoten1";
-            treeNode8.Text = "T       NAME             L           R           DL       DR       R2          PL" +
+            treeNode5.Name = "Knoten1";
+            treeNode5.Text = "T       NAME             L           R           DL       DR       R2          PL" +
     "C ";
-            treeNode9.Name = "Knoten2";
-            treeNode9.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            treeNode6.Name = "Knoten2";
+            treeNode6.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
     "0000000";
-            treeNode10.Name = "Knoten4";
-            treeNode10.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
+            treeNode7.Name = "Knoten4";
+            treeNode7.Text = "1001    Test-TTi         +172.300    +006.000    +0       -000.018 +0          %0" +
     "0000000";
-            treeNode11.Name = "Knoten0";
-            treeNode11.Text = "HY3_0.t";
+            treeNode8.Name = "Knoten0";
+            treeNode8.Text = "HY3_0.t";
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode11});
+            treeNode8});
             this.treeView2.Size = new System.Drawing.Size(343, 159);
             this.treeView2.TabIndex = 4;
             // 
@@ -764,20 +757,23 @@
             this.pfadÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.pfadÖffnenToolStripMenuItem.Text = "Pfad öffnen";
             // 
-            // treeView4
+            // myNumericUpDown1
             // 
-            this.treeView4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView4.ForeColor = System.Drawing.Color.DimGray;
-            this.treeView4.ItemHeight = 14;
-            this.treeView4.Location = new System.Drawing.Point(3, 247);
-            this.treeView4.Name = "treeView4";
-            this.treeView4.ShowLines = false;
-            this.treeView4.ShowRootLines = false;
-            this.treeView4.Size = new System.Drawing.Size(343, 86);
-            this.treeView4.TabIndex = 9;
-            this.treeView4.TabStop = false;
+            this.myNumericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.myNumericUpDown1.Location = new System.Drawing.Point(3, 221);
+            this.myNumericUpDown1.Name = "myNumericUpDown1";
+            this.myNumericUpDown1.Size = new System.Drawing.Size(50, 20);
+            this.myNumericUpDown1.TabIndex = 3;
+            this.myNumericUpDown1.ValueChanged += new System.EventHandler(this.myNumericUpDown1_ValueChanged);
+            // 
+            // myNumericUpDown2
+            // 
+            this.myNumericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.myNumericUpDown2.Location = new System.Drawing.Point(3, 221);
+            this.myNumericUpDown2.Name = "myNumericUpDown2";
+            this.myNumericUpDown2.Size = new System.Drawing.Size(50, 20);
+            this.myNumericUpDown2.TabIndex = 10;
+            this.myNumericUpDown2.ValueChanged += new System.EventHandler(this.myNumericUpDown2_ValueChanged);
             // 
             // frmMain
             // 
@@ -797,17 +793,17 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.contextLeft.ResumeLayout(false);
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.contextRight.ResumeLayout(false);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.contextMachine.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -826,8 +822,6 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TreeView treeView2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
@@ -883,6 +877,8 @@
         private System.Windows.Forms.ToolStripDropDownButton lblSelectedMachine;
         private System.Windows.Forms.TreeView treeView3;
         private System.Windows.Forms.TreeView treeView4;
+        private myNumericUpDown myNumericUpDown1;
+        private myNumericUpDown myNumericUpDown2;
     }
 }
 
