@@ -278,6 +278,16 @@ namespace TTi_NextGen
             {
                 myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName));
 
+                string[] _lines = new string[] { };
+
+                _lines = myCNCProgram.Lines();      //--> .Lines als Property in CNCProgramm implementieren!!!
+
+                foreach (var _line in _lines)
+                {
+                    treeView2.Nodes.Add(_line);
+                }
+
+
             }
 
 

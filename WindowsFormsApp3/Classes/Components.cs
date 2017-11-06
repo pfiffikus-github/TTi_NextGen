@@ -251,7 +251,7 @@ namespace TTi_NextGen
             else
             {
                 myMachines.Add(new Machine());
-                myMachines.SerializeXML(path);                
+                myMachines.SerializeXML(path);
             }
 
             return myMachines;
@@ -272,7 +272,7 @@ namespace TTi_NextGen
 
                     using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(_Resource))
                     {
-                        if (!File.Exists(Path.Combine(path,  _FileName)))
+                        if (!File.Exists(Path.Combine(path, _FileName)))
                         {
                             Directory.CreateDirectory(path);
                             FileStream fileStream = new FileStream(Path.Combine(path, _FileName), FileMode.Create);
@@ -560,6 +560,11 @@ namespace TTi_NextGen
             }
         }
 
+        public string[] Lines()
+        {
+            return System.IO.File.ReadAllLines(File.FullName );            
+        }
+
         private bool IsRestrictiveToolValue(decimal toolValue)
         {
             if (toolValue <= 18)
@@ -568,6 +573,8 @@ namespace TTi_NextGen
             }
             return false;
         }
+
+
     }
 
     public class ToolCall
