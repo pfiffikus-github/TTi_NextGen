@@ -272,7 +272,7 @@ namespace TTi_NextGen
         {
             OpenFileDialog _ofd = new OpenFileDialog();
 
-            _ofd.Multiselect = false;
+                        _ofd.Multiselect = false;
             _ofd.Filter = "CNC-Programm (*.h)|*.h";
             if (_ofd.ShowDialog() == DialogResult.OK)
             {
@@ -287,6 +287,7 @@ namespace TTi_NextGen
                     treeView2.Nodes.Add(_line);
                 }
 
+                label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
 
             }
 
