@@ -121,6 +121,7 @@
             this.timeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerMainFrm = new System.Windows.Forms.Timer(this.components);
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tOOLCALLInformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myNumericUpDown1 = new TTi_NextGen.myNumericUpDown();
             this.myNumericUpDown2 = new TTi_NextGen.myNumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -303,7 +304,7 @@
             this.menuStrip3.Location = new System.Drawing.Point(0, 26);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip3.Size = new System.Drawing.Size(294, 24);
+            this.menuStrip3.Size = new System.Drawing.Size(202, 24);
             this.menuStrip3.TabIndex = 2;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -577,7 +578,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(0, 26);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip2.Size = new System.Drawing.Size(202, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(294, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -728,6 +729,8 @@
             // 
             // infoToolStripMenuItem1
             // 
+            this.infoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tOOLCALLInformationenToolStripMenuItem});
             this.infoToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.infoToolStripMenuItem1.Name = "infoToolStripMenuItem1";
             this.infoToolStripMenuItem1.Size = new System.Drawing.Size(40, 20);
@@ -849,6 +852,14 @@
             this.pfadÖffnenToolStripMenuItem.Name = "pfadÖffnenToolStripMenuItem";
             this.pfadÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.pfadÖffnenToolStripMenuItem.Text = "Pfad öffnen";
+            // 
+            // tOOLCALLInformationenToolStripMenuItem
+            // 
+            this.tOOLCALLInformationenToolStripMenuItem.Enabled = false;
+            this.tOOLCALLInformationenToolStripMenuItem.Name = "tOOLCALLInformationenToolStripMenuItem";
+            this.tOOLCALLInformationenToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.tOOLCALLInformationenToolStripMenuItem.Text = "\"TOOL CALL\"-Informationen";
+            this.tOOLCALLInformationenToolStripMenuItem.Click += new System.EventHandler(this.tOOLCALLInformationenToolStripMenuItem_Click);
             // 
             // myNumericUpDown1
             // 
@@ -985,6 +996,7 @@
         private System.Windows.Forms.ToolStripMenuItem eigenschaftenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tOOLCALLInformationenToolStripMenuItem;
     }
 }
 

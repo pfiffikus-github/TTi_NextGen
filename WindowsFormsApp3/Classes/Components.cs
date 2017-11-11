@@ -480,7 +480,7 @@ namespace TTi_NextGen
         {
             if (IsToolRangeConsistent == false && showErrAtInconsistency)
             {
-                DialogResult result = MessageBox.Show(NoteText + "\n" + "\n" + this.ToString() + "\n" + "Neuen ToolRange dennoch in '" + newRange.ToString() + "' ändern?", "HINWEIS... " + App.AppTitle(),
+                DialogResult result = MessageBox.Show(GetNoteText() + "\n" + "\n" + this.ToString() + "\n" + "Neuen ToolRange dennoch in '" + newRange.ToString() + "' ändern?", "HINWEIS... " + App.AppTitle(),
                                                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if (result == DialogResult.No) { return; }
             }
@@ -528,41 +528,38 @@ namespace TTi_NextGen
                 ToolCallsToString = ToolCallsToString + "• " + m.Value + SubString + "\n";
             }
             return ToolCallsToString + "\n-------------- INFORMATION --------------" +
-                   "\n(• " + this.MatchesOfToolCalls.Count.ToString() + "x '" + ToolCallString + "' insgesamt)" +
-                   "\n(• " + (this.MatchesOfToolCalls.Count - this.CountOfRestrictiveToolValues).ToString() + "x veränderbare '" + ToolCallString + "')" +
-                   "\n(• " + this.CountOfRestrictiveToolValues.ToString() + "x Standardwerkzeuge)";
+                   "\n• " + this.MatchesOfToolCalls.Count.ToString() + "x '" + ToolCallString + "' insgesamt" +
+                   "\n• " + (this.MatchesOfToolCalls.Count - this.CountOfRestrictiveToolValues).ToString() + "x veränderbare '" + ToolCallString + "'" +
+                   "\n• " + this.CountOfRestrictiveToolValues.ToString() + "x Standardwerkzeuge";
         }
 
-        public string NoteText
+        public string GetNoteText()
         {
-            get
+            string nt = "PGM '" + Path.GetFileName(File.Name) + "' ";
+
+            if (this.MatchesOfToolCalls.Count == 0)
             {
-                string nt = "PGM '" + Path.GetFileName(File.Name) + "' ";
+                return nt + "(" + this.MatchesOfToolCalls.Count + "x 'TOOL CALL' enthalten)";
+            }
 
-                if (this.MatchesOfToolCalls.Count == 0)
-                {
-                    return nt + "(" + this.MatchesOfToolCalls.Count + "x 'TOOL CALL' enthalten)";
-                }
+            if (this.OnlyRestrictiveToolValues)
+            {
+                return nt + "(" + this.MatchesOfToolCalls.Count + "x ausschließlich Standardwerkzeuge enthalten)";
+            }
 
-                if (this.OnlyRestrictiveToolValues)
-                {
-                    return nt + "(" + this.MatchesOfToolCalls.Count + "x ausschließlich Standardwerkzeuge enthalten)";
-                }
-
-                if (this.IsToolRangeConsistent)
-                {
-                    return nt + "(" + this.MatchesOfToolCalls.Count + "x 'TOOL CALL' in Tool-Range " + this.OriginalToolRange.ToString() + " gefunden)";
-                }
-                else
-                {
-                    return nt + "(" + this.MatchesOfToolCalls.Count + "x nicht übereinstimmende 'TOOL CALL' gefunden)";
-                }
+            if (this.IsToolRangeConsistent)
+            {
+                return nt + "(" + this.MatchesOfToolCalls.Count + "x 'TOOL CALL' in Tool-Range " + this.OriginalToolRange.ToString() + " gefunden)";
+            }
+            else
+            {
+                return nt + "(" + this.MatchesOfToolCalls.Count + "x nicht übereinstimmende 'TOOL CALL' gefunden)";
             }
         }
 
         public string[] Lines()
         {
-            return System.IO.File.ReadAllLines(File.FullName );            
+            return System.IO.File.ReadAllLines(File.FullName);
         }
 
         private bool IsRestrictiveToolValue(decimal toolValue)

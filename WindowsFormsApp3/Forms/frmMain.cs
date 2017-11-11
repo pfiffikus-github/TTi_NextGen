@@ -288,7 +288,7 @@ namespace TTi_NextGen
                 }
 
                 label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
-
+                tOOLCALLInformationenToolStripMenuItem.Enabled = true;
             }
 
 
@@ -297,6 +297,11 @@ namespace TTi_NextGen
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
             MessageBox.Show(App.AppTitle() + "\n\n" + App.AppVersion() + " Build: " + Assembly.GetExecutingAssembly().GetName().Version.Build, App.AppTitle());
+        }
+
+        private void tOOLCALLInformationenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(myCNCProgram.GetNoteText() + "\n\n" + myCNCProgram.ToString(), "Information");
         }
     }
 }
