@@ -94,16 +94,9 @@ namespace TTi_NextGen
 
             viewHistory.CheckState = CheckState.Unchecked;
             UpdateControls();
-
+            
 
         }
-
-        private void MyCNCProgram_SomethingsChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("TEST");
-        }
-
-
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
         {
@@ -128,7 +121,7 @@ namespace TTi_NextGen
         {
             if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "123") { return; }
 
-            WriteHistory("Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Warning);
+            WriteHistory("Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Warning, false, false);
 
             frmConfig _frmConfig = new frmConfig();
 
@@ -138,7 +131,7 @@ namespace TTi_NextGen
             {
                 ReadOrInitSettings();
                 UpdateControls();
-                WriteHistory("Konfiguration editiert", StatusBox.Both, HistoryMessageType.Warning);
+                WriteHistory("Konfiguration editiert", StatusBox.Both, HistoryMessageType.Warning, false, false);
             }
         }
 
@@ -156,7 +149,7 @@ namespace TTi_NextGen
                 }
             }
 
-            WriteHistory("Standardmaschine '" + myLocalSettings.DefaultMachine + "' konnte nicht geladen werden", StatusBox.Both, HistoryMessageType.Error);
+            WriteHistory("Standardmaschine '" + myLocalSettings.DefaultMachine + "' konnte nicht geladen werden", StatusBox.Both, HistoryMessageType.Error, false, false);
 
             myMachine = myMachines[0];
             MessageBox.Show("Die Standardmaschine '" +
@@ -183,11 +176,31 @@ namespace TTi_NextGen
 
         }
 
-        private void WriteHistory(string text, StatusBox statusBox, HistoryMessageType type)
+        private void WriteHistory(string text, StatusBox statusBox, HistoryMessageType type, bool bold, bool subLine)
         {
-            text = DateTime.Now.ToString("hh:mm:ss @ ") + System.Net.Dns.GetHostName() + ": " + text;
+            string subString = "";
+            int insertPos = 0;
+
+            if (subLine == true)
+            {
+                subString = subString.PadLeft((DateTime.Now.ToString("hh:mm:ss @ ") + System.Net.Dns.GetHostName()).Length + 2);
+                insertPos = 1;
+            }
+            else
+            {
+                subString = DateTime.Now.ToString("hh:mm:ss @ ") + System.Net.Dns.GetHostName() + ": ";
+            }
+
+
+
+            text = subString + text;
+
+
+
 
             TreeNode _tn = new TreeNode(text);
+
+            if (bold == true) { _tn.NodeFont = new Font("Consolas", 8, FontStyle.Bold); }
 
             switch (type)
             {
@@ -207,15 +220,15 @@ namespace TTi_NextGen
             switch (statusBox)
             {
                 case StatusBox.Left:
-                    treeView3.Nodes.Insert(0, _tn);
+                    treeView3.Nodes.Insert(insertPos, _tn);
                     break;
                 case StatusBox.Right:
-                    treeView4.Nodes.Insert(0, _tn);
+                    treeView4.Nodes.Insert(insertPos, _tn);
                     break;
                 case StatusBox.Both:
-                    treeView3.Nodes.Insert(0, _tn);
+                    treeView3.Nodes.Insert(insertPos, _tn);
                     TreeNode _tn2 = (TreeNode)_tn.Clone();
-                    treeView4.Nodes.Insert(0, _tn2);
+                    treeView4.Nodes.Insert(insertPos, _tn2);
                     break;
                 default:
                     break;
@@ -232,7 +245,7 @@ namespace TTi_NextGen
                 _subString = " (= Standardmaschine)";
             }
 
-            WriteHistory("'" + myMachine.Name + "'" + _subString + " geladen", StatusBox.Both, HistoryMessageType.Information);
+            WriteHistory("'" + myMachine.Name + "'" + _subString + " geladen", StatusBox.Both, HistoryMessageType.Information, false, false);
         }
 
         private void lblSelectedMachine_Click(object sender, EventArgs e)
@@ -307,7 +320,8 @@ namespace TTi_NextGen
 
                 label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
                 tOOLCALLInformationenToolStripMenuItem.Enabled = true;
-                WriteHistory("CNC-Programm '" + Path.GetFileName(_ofd.FileName) + "' geladen", StatusBox.Right, HistoryMessageType.Information);
+                WriteHistory("CNC-Programm '" + Path.GetFileName(_ofd.FileName) + "' geladen", StatusBox.Right, HistoryMessageType.Information, true, false);
+                WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString  + "' enthalten)" , StatusBox.Right, HistoryMessageType.Information, true, true);
             }
 
 
