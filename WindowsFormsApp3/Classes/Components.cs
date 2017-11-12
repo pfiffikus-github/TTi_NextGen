@@ -25,7 +25,7 @@ namespace TTi_NextGen
         }
 
         public event EventHandler PublicSettingsDirectoryChanged;
-        
+
         public const string LocalSettingsFile = "LocalSettings.xml";
 
         public const string PublicSettingsFile = "PublicSettings.xml";

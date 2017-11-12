@@ -464,6 +464,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 23);
             this.button4.TabIndex = 8;
+            this.button4.Tag = "CNCProgram";
             this.button4.Text = "CNC-Programm übertragen";
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -477,6 +478,7 @@
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(71, 17);
             this.checkBox2.TabIndex = 7;
+            this.checkBox2.Tag = "CNCProgram";
             this.checkBox2.Text = "Synchron";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckStateChanged += new System.EventHandler(this.checkBox2_CheckStateChanged);
@@ -563,7 +565,7 @@
             this.infoToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 26);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(202, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(294, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -600,6 +602,7 @@
             this.aktualisierenToolStripMenuItem.Enabled = false;
             this.aktualisierenToolStripMenuItem.Name = "aktualisierenToolStripMenuItem";
             this.aktualisierenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.aktualisierenToolStripMenuItem.Tag = "CNCProgram";
             this.aktualisierenToolStripMenuItem.Text = "Aktualisieren";
             // 
             // speichernToolStripMenuItem1
@@ -607,6 +610,7 @@
             this.speichernToolStripMenuItem1.Enabled = false;
             this.speichernToolStripMenuItem1.Name = "speichernToolStripMenuItem1";
             this.speichernToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.speichernToolStripMenuItem1.Tag = "CNCProgram";
             this.speichernToolStripMenuItem1.Text = "Speichern";
             // 
             // speichernUnterToolStripMenuItem1
@@ -614,6 +618,7 @@
             this.speichernUnterToolStripMenuItem1.Enabled = false;
             this.speichernUnterToolStripMenuItem1.Name = "speichernUnterToolStripMenuItem1";
             this.speichernUnterToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.speichernUnterToolStripMenuItem1.Tag = "CNCProgram";
             this.speichernUnterToolStripMenuItem1.Text = "Speichern unter";
             // 
             // toolStripSeparator9
@@ -626,7 +631,9 @@
             this.schließenToolStripMenuItem1.Enabled = false;
             this.schließenToolStripMenuItem1.Name = "schließenToolStripMenuItem1";
             this.schließenToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.schließenToolStripMenuItem1.Tag = "CNCProgram";
             this.schließenToolStripMenuItem1.Text = "Schließen";
+            this.schließenToolStripMenuItem1.Click += new System.EventHandler(this.schließenToolStripMenuItem1_Click);
             // 
             // toolStripSeparator10
             // 
@@ -638,6 +645,7 @@
             this.pfadÖffnenToolStripMenuItem3.Enabled = false;
             this.pfadÖffnenToolStripMenuItem3.Name = "pfadÖffnenToolStripMenuItem3";
             this.pfadÖffnenToolStripMenuItem3.Size = new System.Drawing.Size(157, 22);
+            this.pfadÖffnenToolStripMenuItem3.Tag = "CNCProgram";
             this.pfadÖffnenToolStripMenuItem3.Text = "Pfad öffnen";
             // 
             // dateiÖffnenToolStripMenuItem3
@@ -645,6 +653,7 @@
             this.dateiÖffnenToolStripMenuItem3.Enabled = false;
             this.dateiÖffnenToolStripMenuItem3.Name = "dateiÖffnenToolStripMenuItem3";
             this.dateiÖffnenToolStripMenuItem3.Size = new System.Drawing.Size(157, 22);
+            this.dateiÖffnenToolStripMenuItem3.Tag = "CNCProgram";
             this.dateiÖffnenToolStripMenuItem3.Text = "Datei öffnen";
             // 
             // toolStripSeparator11
@@ -657,6 +666,7 @@
             this.eigenschaftenToolStripMenuItem1.Enabled = false;
             this.eigenschaftenToolStripMenuItem1.Name = "eigenschaftenToolStripMenuItem1";
             this.eigenschaftenToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.eigenschaftenToolStripMenuItem1.Tag = "CNCProgram";
             this.eigenschaftenToolStripMenuItem1.Text = "Eigenschaften";
             // 
             // toolStripSeparator12
@@ -726,6 +736,7 @@
             this.tOOLCALLInformationenToolStripMenuItem.Enabled = false;
             this.tOOLCALLInformationenToolStripMenuItem.Name = "tOOLCALLInformationenToolStripMenuItem";
             this.tOOLCALLInformationenToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.tOOLCALLInformationenToolStripMenuItem.Tag = "CNCProgram";
             this.tOOLCALLInformationenToolStripMenuItem.Text = "\"TOOL CALL\"-Informationen";
             this.tOOLCALLInformationenToolStripMenuItem.Click += new System.EventHandler(this.tOOLCALLInformationenToolStripMenuItem_Click);
             // 
@@ -864,6 +875,7 @@
             this.myNumericUpDown2.Name = "myNumericUpDown2";
             this.myNumericUpDown2.Size = new System.Drawing.Size(50, 20);
             this.myNumericUpDown2.TabIndex = 10;
+            this.myNumericUpDown2.Tag = "CNCProgram";
             this.myNumericUpDown2.ValueChanged += new System.EventHandler(this.myNumericUpDown2_ValueChanged);
             // 
             // frmMain

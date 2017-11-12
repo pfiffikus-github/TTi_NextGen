@@ -94,7 +94,8 @@ namespace TTi_NextGen
 
             viewHistory.CheckState = CheckState.Unchecked;
             UpdateControls();
-            
+
+            EnabledCNCProgrammControls();
 
         }
 
@@ -191,16 +192,14 @@ namespace TTi_NextGen
                 subString = DateTime.Now.ToString("hh:mm:ss @ ") + System.Net.Dns.GetHostName() + ": ";
             }
 
-
-
             text = subString + text;
-
-
-
 
             TreeNode _tn = new TreeNode(text);
 
-            if (bold == true) { _tn.NodeFont = new Font("Consolas", 8, FontStyle.Bold); }
+            if (bold == true)
+            {
+                _tn.NodeFont = new Font("Consolas", 8, FontStyle.Bold);
+            }
 
             switch (type)
             {
@@ -233,8 +232,6 @@ namespace TTi_NextGen
                 default:
                     break;
             }
-
-
         }
 
         private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
@@ -318,10 +315,11 @@ namespace TTi_NextGen
                     treeView2.Nodes.Add(_line);
                 }
 
+                EnabledCNCProgrammControls();
+
                 label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
-                tOOLCALLInformationenToolStripMenuItem.Enabled = true;
                 WriteHistory("CNC-Programm '" + Path.GetFileName(_ofd.FileName) + "' geladen", StatusBox.Right, HistoryMessageType.Information, true, false);
-                WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString  + "' enthalten)" , StatusBox.Right, HistoryMessageType.Information, true, true);
+                WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' enthalten)", StatusBox.Right, HistoryMessageType.Information, true, true);
             }
 
 
@@ -335,6 +333,36 @@ namespace TTi_NextGen
         private void tOOLCALLInformationenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(myCNCProgram.GetNoteText() + "\n\n" + myCNCProgram.ToString(), "Information");
+        }
+
+        private void EnabledCNCProgrammControls()
+        {
+            bool _Enabled = false;
+
+            if (myCNCProgram != null )
+            {
+                _Enabled = true;
+            }
+
+            aktualisierenToolStripMenuItem.Enabled = _Enabled;
+            speichernToolStripMenuItem1.Enabled = _Enabled;
+            speichernUnterToolStripMenuItem1.Enabled = _Enabled;
+            schließenToolStripMenuItem1.Enabled = _Enabled;
+            pfadÖffnenToolStripMenuItem3.Enabled = _Enabled;
+            dateiÖffnenToolStripMenuItem3.Enabled = _Enabled;
+            eigenschaftenToolStripMenuItem1.Enabled = _Enabled;
+            myNumericUpDown2.Enabled = _Enabled;
+            checkBox2.Enabled = _Enabled;
+            button4.Enabled = _Enabled;
+            tOOLCALLInformationenToolStripMenuItem.Enabled = _Enabled;
+            
+        }
+
+        private void schließenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            myCNCProgram = null;
+            treeView2.Nodes.Clear();
+            EnabledCNCProgrammControls();
         }
     }
 }
