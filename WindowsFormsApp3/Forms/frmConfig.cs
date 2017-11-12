@@ -18,20 +18,20 @@ namespace TTi_NextGen
         {
             myLocalSettings = App.InitLocalSettings();
 
-            myLocalSettings.PublicSettingsDirectoryChanged += new EventHandler(UpdateMembers);
-
-            UpdateMembers(null, null);
+            myLocalSettings.PublicSettingsDirectoryChanged += MyLocalSettings_PublicSettingsDirectoryChanged; //Event konsumieren
+            
+            MyLocalSettings_PublicSettingsDirectoryChanged(null, null);
 
             PropGrid.SelectedObject = myLocalSettings;
         }
 
-        private void UpdateMembers(object sender, EventArgs e)
+        private void MyLocalSettings_PublicSettingsDirectoryChanged(object sender, EventArgs e)
         {
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
             myLocalSettings.Machines = myMachines;
             myLocalSettings.DefaultMachineBackground = myMachines.ListOfMachines();
         }
-
+        
         private void OK_Click(object sender, EventArgs e)
         {
             myLocalSettings.SerializeXML();

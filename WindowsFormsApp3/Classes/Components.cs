@@ -24,13 +24,8 @@ namespace TTi_NextGen
             DefaultMachine = Machine.DefaultMachineName;
         }
 
-        private EventHandler _PublicSettingsDirectoryChanged;
-        public event EventHandler PublicSettingsDirectoryChanged
-        {
-            add { _PublicSettingsDirectoryChanged += value; }
-            remove { _PublicSettingsDirectoryChanged -= value; }
-        }
-
+        public event EventHandler PublicSettingsDirectoryChanged;
+        
         public const string LocalSettingsFile = "LocalSettings.xml";
 
         public const string PublicSettingsFile = "PublicSettings.xml";
@@ -58,10 +53,7 @@ namespace TTi_NextGen
             set
             {
                 myPublicSettingsDirectory = value;
-                if (_PublicSettingsDirectoryChanged != null)
-                {
-                    this._PublicSettingsDirectoryChanged(this, new EventArgs());
-                }
+                PublicSettingsDirectoryChanged?.Invoke(this, new EventArgs()); //Event auslösen, wenn dieses kunsumiert wird
             }
         }
 
@@ -285,13 +277,13 @@ namespace TTi_NextGen
             }
         }
 
-        public static string AppTitle()
+        public static string Title()
         {
             return Assembly.GetExecutingAssembly().GetName().Name;
 
         }
 
-        public static string AppVersion()
+        public static string Version()
         {
             return "V" + Assembly.GetExecutingAssembly().GetName().Version.Major +
                    "." + Assembly.GetExecutingAssembly().GetName().Version.Minor;
@@ -411,7 +403,18 @@ namespace TTi_NextGen
 
         public int OriginalToolRange { get; private set; }
         public MatchCollection MatchesOfToolCalls { get; private set; }
-        public string FileContent { get; private set; }
+
+        private string myFileContent;
+        public string FileContent
+        {
+            get { return myFileContent; }
+
+            private set
+            {
+                myFileContent = value;
+            }
+        }
+
         public FileInfo File { get; private set; }
         public bool IsToolRangeConsistent { get; private set; }
         public bool OnlyRestrictiveToolValues { get; private set; }
@@ -480,7 +483,7 @@ namespace TTi_NextGen
         {
             if (IsToolRangeConsistent == false && showErrAtInconsistency)
             {
-                DialogResult result = MessageBox.Show(GetNoteText() + "\n" + "\n" + this.ToString() + "\n" + "Neuen ToolRange dennoch in '" + newRange.ToString() + "' ändern?", "HINWEIS... " + App.AppTitle(),
+                DialogResult result = MessageBox.Show(GetNoteText() + "\n" + "\n" + this.ToString() + "\n" + "Neuen ToolRange dennoch in '" + newRange.ToString() + "' ändern?", "HINWEIS... " + App.Title(),
                                                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if (result == DialogResult.No) { return; }
             }
@@ -527,6 +530,7 @@ namespace TTi_NextGen
 
                 ToolCallsToString = ToolCallsToString + "• " + m.Value + SubString + "\n";
             }
+
             return ToolCallsToString + "\n-------------- INFORMATION --------------" +
                    "\n• " + this.MatchesOfToolCalls.Count.ToString() + "x '" + ToolCallString + "' insgesamt" +
                    "\n• " + (this.MatchesOfToolCalls.Count - this.CountOfRestrictiveToolValues).ToString() + "x veränderbare '" + ToolCallString + "'" +

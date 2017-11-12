@@ -29,20 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1  STOP");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("9  TOOL CALL 38 Z S0");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("10 * - TOOL 38 MESSTASTER");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("NH9_0.t", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6});
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.myNumericUpDown1 = new TTi_NextGen.myNumericUpDown();
             this.treeView3 = new System.Windows.Forms.TreeView();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -75,6 +63,7 @@
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.myNumericUpDown2 = new TTi_NextGen.myNumericUpDown();
             this.treeView4 = new System.Windows.Forms.TreeView();
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -107,6 +96,7 @@
             this.extrasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tOOLCALLInformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.contextMachine = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -121,21 +111,18 @@
             this.timeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerMainFrm = new System.Windows.Forms.Timer(this.components);
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tOOLCALLInformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.myNumericUpDown1 = new TTi_NextGen.myNumericUpDown();
-            this.myNumericUpDown2 = new TTi_NextGen.myNumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).BeginInit();
             this.contextLeft.SuspendLayout();
             this.menuStrip3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).BeginInit();
             this.contextRight.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMachine.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -173,6 +160,16 @@
             this.splitContainer1.SplitterDistance = 373;
             this.splitContainer1.TabIndex = 0;
             // 
+            // myNumericUpDown1
+            // 
+            this.myNumericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.myNumericUpDown1.Enabled = false;
+            this.myNumericUpDown1.Location = new System.Drawing.Point(3, 262);
+            this.myNumericUpDown1.Name = "myNumericUpDown1";
+            this.myNumericUpDown1.Size = new System.Drawing.Size(50, 20);
+            this.myNumericUpDown1.TabIndex = 3;
+            this.myNumericUpDown1.ValueChanged += new System.EventHandler(this.myNumericUpDown1_ValueChanged);
+            // 
             // treeView3
             // 
             this.treeView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -192,6 +189,7 @@
             // 
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBox1.Location = new System.Drawing.Point(59, 263);
             this.checkBox1.Name = "checkBox1";
@@ -205,6 +203,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Enabled = false;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Location = new System.Drawing.Point(220, 259);
             this.button1.Name = "button1";
@@ -222,22 +221,6 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 53);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Knoten1";
-            treeNode1.Text = "1  STOP";
-            treeNode2.Name = "Knoten3";
-            treeNode2.Text = "2  ;Spindel bei T20, bei der Positionierung ausschalten -> Bettspuelduesen";
-            treeNode3.Name = "Knoten4";
-            treeNode3.Text = "7  BLK FORM 0.1 Z  X-55  Y-132.5  Z-160";
-            treeNode4.Name = "Knoten5";
-            treeNode4.Text = "8  BLK FORM 0.2  X+459.7  Y+132.5  Z+130";
-            treeNode5.Name = "Knoten6";
-            treeNode5.Text = "9  TOOL CALL 38 Z S0";
-            treeNode6.Name = "Knoten7";
-            treeNode6.Text = "10 * - TOOL 38 MESSTASTER";
-            treeNode7.Name = "Knoten0";
-            treeNode7.Text = "NH9_0.t";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode7});
             this.treeView1.Size = new System.Drawing.Size(367, 200);
             this.treeView1.TabIndex = 3;
             // 
@@ -256,6 +239,7 @@
             // 
             // toolStripMenuItem2
             // 
+            this.toolStripMenuItem2.Enabled = false;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(280, 22);
             this.toolStripMenuItem2.Text = "Werkzeuge im CNC-Programm suchen";
@@ -281,12 +265,14 @@
             // 
             // pfadÖffnenToolStripMenuItem1
             // 
+            this.pfadÖffnenToolStripMenuItem1.Enabled = false;
             this.pfadÖffnenToolStripMenuItem1.Name = "pfadÖffnenToolStripMenuItem1";
             this.pfadÖffnenToolStripMenuItem1.Size = new System.Drawing.Size(280, 22);
             this.pfadÖffnenToolStripMenuItem1.Text = "Pfad öffnen";
             // 
             // dateiÖffnenToolStripMenuItem
             // 
+            this.dateiÖffnenToolStripMenuItem.Enabled = false;
             this.dateiÖffnenToolStripMenuItem.Name = "dateiÖffnenToolStripMenuItem";
             this.dateiÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.dateiÖffnenToolStripMenuItem.Text = "Datei öffnen";
@@ -440,6 +426,7 @@
             // 
             // werkzeugeImCNCProgrammSuchenToolStripMenuItem
             // 
+            this.werkzeugeImCNCProgrammSuchenToolStripMenuItem.Enabled = false;
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem.Name = "werkzeugeImCNCProgrammSuchenToolStripMenuItem";
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem.Text = "Werkzeuge im CNC-Programm suchen";
@@ -465,6 +452,16 @@
             this.label1.Text = "Werkzeugliste\r\n\r\n*.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // myNumericUpDown2
+            // 
+            this.myNumericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.myNumericUpDown2.Enabled = false;
+            this.myNumericUpDown2.Location = new System.Drawing.Point(3, 262);
+            this.myNumericUpDown2.Name = "myNumericUpDown2";
+            this.myNumericUpDown2.Size = new System.Drawing.Size(50, 20);
+            this.myNumericUpDown2.TabIndex = 10;
+            this.myNumericUpDown2.ValueChanged += new System.EventHandler(this.myNumericUpDown2_ValueChanged);
+            // 
             // treeView4
             // 
             this.treeView4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -483,6 +480,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Enabled = false;
             this.button4.Location = new System.Drawing.Point(241, 259);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 23);
@@ -494,6 +492,7 @@
             // 
             this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Enabled = false;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBox2.Location = new System.Drawing.Point(59, 263);
             this.checkBox2.Name = "checkBox2";
@@ -531,6 +530,7 @@
             // 
             // toolStripMenuItem7
             // 
+            this.toolStripMenuItem7.Enabled = false;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Size = new System.Drawing.Size(273, 22);
             this.toolStripMenuItem7.Text = "TOOL CALL\'s in Werkzeugliste suchen";
@@ -556,12 +556,14 @@
             // 
             // pfadÖffenToolStripMenuItem
             // 
+            this.pfadÖffenToolStripMenuItem.Enabled = false;
             this.pfadÖffenToolStripMenuItem.Name = "pfadÖffenToolStripMenuItem";
             this.pfadÖffenToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
             this.pfadÖffenToolStripMenuItem.Text = "Pfad öffen";
             // 
             // dateiÖffnenToolStripMenuItem1
             // 
+            this.dateiÖffnenToolStripMenuItem1.Enabled = false;
             this.dateiÖffnenToolStripMenuItem1.Name = "dateiÖffnenToolStripMenuItem1";
             this.dateiÖffnenToolStripMenuItem1.Size = new System.Drawing.Size(273, 22);
             this.dateiÖffnenToolStripMenuItem1.Text = "Datei öffnen";
@@ -578,7 +580,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(0, 26);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip2.Size = new System.Drawing.Size(294, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(202, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -723,6 +725,7 @@
             // 
             // tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem
             // 
+            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Enabled = false;
             this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Name = "tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem";
             this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
             this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Text = "TOOL CALL\'s in Werkzeugliste suchen";
@@ -735,6 +738,14 @@
             this.infoToolStripMenuItem1.Name = "infoToolStripMenuItem1";
             this.infoToolStripMenuItem1.Size = new System.Drawing.Size(40, 20);
             this.infoToolStripMenuItem1.Text = "Info";
+            // 
+            // tOOLCALLInformationenToolStripMenuItem
+            // 
+            this.tOOLCALLInformationenToolStripMenuItem.Enabled = false;
+            this.tOOLCALLInformationenToolStripMenuItem.Name = "tOOLCALLInformationenToolStripMenuItem";
+            this.tOOLCALLInformationenToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.tOOLCALLInformationenToolStripMenuItem.Text = "\"TOOL CALL\"-Informationen";
+            this.tOOLCALLInformationenToolStripMenuItem.Click += new System.EventHandler(this.tOOLCALLInformationenToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -853,32 +864,6 @@
             this.pfadÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.pfadÖffnenToolStripMenuItem.Text = "Pfad öffnen";
             // 
-            // tOOLCALLInformationenToolStripMenuItem
-            // 
-            this.tOOLCALLInformationenToolStripMenuItem.Enabled = false;
-            this.tOOLCALLInformationenToolStripMenuItem.Name = "tOOLCALLInformationenToolStripMenuItem";
-            this.tOOLCALLInformationenToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.tOOLCALLInformationenToolStripMenuItem.Text = "\"TOOL CALL\"-Informationen";
-            this.tOOLCALLInformationenToolStripMenuItem.Click += new System.EventHandler(this.tOOLCALLInformationenToolStripMenuItem_Click);
-            // 
-            // myNumericUpDown1
-            // 
-            this.myNumericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.myNumericUpDown1.Location = new System.Drawing.Point(3, 262);
-            this.myNumericUpDown1.Name = "myNumericUpDown1";
-            this.myNumericUpDown1.Size = new System.Drawing.Size(50, 20);
-            this.myNumericUpDown1.TabIndex = 3;
-            this.myNumericUpDown1.ValueChanged += new System.EventHandler(this.myNumericUpDown1_ValueChanged);
-            // 
-            // myNumericUpDown2
-            // 
-            this.myNumericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.myNumericUpDown2.Location = new System.Drawing.Point(3, 262);
-            this.myNumericUpDown2.Name = "myNumericUpDown2";
-            this.myNumericUpDown2.Size = new System.Drawing.Size(50, 20);
-            this.myNumericUpDown2.TabIndex = 10;
-            this.myNumericUpDown2.ValueChanged += new System.EventHandler(this.myNumericUpDown2_ValueChanged);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -897,17 +882,17 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).EndInit();
             this.contextLeft.ResumeLayout(false);
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).EndInit();
             this.contextRight.ResumeLayout(false);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.contextMachine.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

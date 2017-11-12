@@ -90,11 +90,20 @@ namespace TTi_NextGen
         {
             ReadOrInitSettings();
 
-            this.Text = App.AppTitle() + " " + App.AppVersion();
+            this.Text = App.Title() + " " + App.Version();
 
             viewHistory.CheckState = CheckState.Unchecked;
             UpdateControls();
+
+
         }
+
+        private void MyCNCProgram_SomethingsChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("TEST");
+        }
+
+
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
         {
@@ -272,7 +281,7 @@ namespace TTi_NextGen
         {
             OpenFileDialog _ofd = new OpenFileDialog();
 
-                        _ofd.Multiselect = false;
+            _ofd.Multiselect = false;
             _ofd.Filter = "CNC-Programm (*.h)|*.h";
             if (_ofd.ShowDialog() == DialogResult.OK)
             {
@@ -296,7 +305,7 @@ namespace TTi_NextGen
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(App.AppTitle() + "\n\n" + App.AppVersion() + " Build: " + Assembly.GetExecutingAssembly().GetName().Version.Build, App.AppTitle());
+            MessageBox.Show(App.Title() + "\n\n" + App.Version() + " Build: " + Assembly.GetExecutingAssembly().GetName().Version.Build, App.Title());
         }
 
         private void tOOLCALLInformationenToolStripMenuItem_Click(object sender, EventArgs e)
