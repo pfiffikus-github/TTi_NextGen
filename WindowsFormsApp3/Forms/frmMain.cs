@@ -326,15 +326,7 @@ namespace TTi_NextGen
         {
             bool _Enabled = false;
 
-            if (myCNCProgram != null)
-            {
-                _Enabled = true;
-                label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
-            }
-            else
-            {
-                label2.Text = "CNC-Programm\n\n*.h";
-            }
+            if (myCNCProgram != null) { _Enabled = true; }
 
             aktualisierenToolStripMenuItem.Enabled = _Enabled;
             speichernToolStripMenuItem1.Enabled = _Enabled;
@@ -392,6 +384,7 @@ namespace TTi_NextGen
                 }
                 treeView2.EndUpdate();
 
+                label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
                 WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen", StatusBox.Right, HistoryMessageType.Information, true);
                 WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' enthalten)", StatusBox.Right, HistoryMessageType.Information, true, true);
 
@@ -400,11 +393,12 @@ namespace TTi_NextGen
             {
                 treeView2.BeginUpdate();
                 treeView2.Nodes.Clear();
-                WriteHistory("CNC-Programm entladen", StatusBox.Right, HistoryMessageType.Information, true);
                 treeView2.EndUpdate();
+
+                label2.Text = "CNC-Programm\n\n*.h";
+                WriteHistory("CNC-Programm entladen", StatusBox.Right, HistoryMessageType.Information, true);
+
             }
-
-
         }
 
 
