@@ -207,10 +207,10 @@ namespace TTi_NextGen
             switch (statusBox)
             {
                 case StatusBox.Left:
-                    treeView3.Nodes.Add(_tn);
+                    treeView3.Nodes.Insert(0, _tn);
                     break;
                 case StatusBox.Right:
-                    treeView4.Nodes.Add(_tn);
+                    treeView4.Nodes.Insert(0, _tn);
                     break;
                 case StatusBox.Both:
                     treeView3.Nodes.Insert(0, _tn);
@@ -227,7 +227,7 @@ namespace TTi_NextGen
         private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
         {
             string _subString = "";
-            if (myMachine.Name == myLocalSettings.DefaultMachine )
+            if (myMachine.Name == myLocalSettings.DefaultMachine)
             {
                 _subString = " (= Standardmaschine)";
             }
@@ -307,6 +307,7 @@ namespace TTi_NextGen
 
                 label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
                 tOOLCALLInformationenToolStripMenuItem.Enabled = true;
+                WriteHistory("CNC-Programm '" + Path.GetFileName(_ofd.FileName) + "' geladen", StatusBox.Right, HistoryMessageType.Information);
             }
 
 
