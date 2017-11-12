@@ -39,7 +39,7 @@ namespace TTi_NextGen
         public bool CloseAppAfterSync { get; set; }
 
         [CategoryAttribute("Lokale Einstellungen"),
-         DescriptionAttribute("Pfad der loaklen Einstellungsdatei")]
+         DescriptionAttribute("Pfad der loaklen Einstellungsdatei (unveränderbar im Startordner)")]
         public string LocalSettingsDirectory { get; }
 
         private string myPublicSettingsDirectory;

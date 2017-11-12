@@ -128,6 +128,8 @@ namespace TTi_NextGen
         {
             if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "123") { return; }
 
+            WriteHistory("Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Warning);
+
             frmConfig _frmConfig = new frmConfig();
 
             _frmConfig.ShowDialog();
@@ -136,6 +138,7 @@ namespace TTi_NextGen
             {
                 ReadOrInitSettings();
                 UpdateControls();
+                WriteHistory("Konfiguration editiert", StatusBox.Both, HistoryMessageType.Warning);
             }
         }
 
@@ -182,7 +185,7 @@ namespace TTi_NextGen
 
         private void WriteHistory(string text, StatusBox statusBox, HistoryMessageType type)
         {
-            text = DateTime.Now.ToString("hh:mm:ss ") + text + "\n";
+            text = DateTime.Now.ToString("hh:mm:ss @ ") + System.Net.Dns.GetHostName() + ": " + text;
 
             TreeNode _tn = new TreeNode(text);
 
@@ -223,7 +226,13 @@ namespace TTi_NextGen
 
         private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
         {
-            WriteHistory("'" + myMachine.Name + "' geladen", StatusBox.Both, HistoryMessageType.Information);
+            string _subString = "";
+            if (myMachine.Name == myLocalSettings.DefaultMachine )
+            {
+                _subString = " (= Standardmaschine)";
+            }
+
+            WriteHistory("'" + myMachine.Name + "'" + _subString + " geladen", StatusBox.Both, HistoryMessageType.Information);
         }
 
         private void lblSelectedMachine_Click(object sender, EventArgs e)

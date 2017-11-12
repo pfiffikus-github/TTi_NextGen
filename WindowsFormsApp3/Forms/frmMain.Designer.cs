@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.myNumericUpDown1 = new TTi_NextGen.myNumericUpDown();
             this.treeView3 = new System.Windows.Forms.TreeView();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -63,7 +62,6 @@
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.myNumericUpDown2 = new TTi_NextGen.myNumericUpDown();
             this.treeView4 = new System.Windows.Forms.TreeView();
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -112,18 +110,20 @@
             this.timeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerMainFrm = new System.Windows.Forms.Timer(this.components);
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.myNumericUpDown1 = new TTi_NextGen.myNumericUpDown();
+            this.myNumericUpDown2 = new TTi_NextGen.myNumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).BeginInit();
             this.contextLeft.SuspendLayout();
             this.menuStrip3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).BeginInit();
             this.contextRight.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMachine.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -161,16 +161,6 @@
             this.splitContainer1.SplitterDistance = 373;
             this.splitContainer1.TabIndex = 0;
             // 
-            // myNumericUpDown1
-            // 
-            this.myNumericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.myNumericUpDown1.Enabled = false;
-            this.myNumericUpDown1.Location = new System.Drawing.Point(3, 262);
-            this.myNumericUpDown1.Name = "myNumericUpDown1";
-            this.myNumericUpDown1.Size = new System.Drawing.Size(50, 20);
-            this.myNumericUpDown1.TabIndex = 3;
-            this.myNumericUpDown1.ValueChanged += new System.EventHandler(this.myNumericUpDown1_ValueChanged);
-            // 
             // treeView3
             // 
             this.treeView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -192,7 +182,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(59, 263);
+            this.checkBox1.Location = new System.Drawing.Point(59, 262);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(71, 17);
             this.checkBox1.TabIndex = 6;
@@ -287,10 +277,8 @@
             this.ansichtToolStripMenuItem,
             this.extrasToolStripMenuItem,
             this.infoToolStripMenuItem});
-            this.menuStrip3.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip3.Location = new System.Drawing.Point(0, 26);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip3.Size = new System.Drawing.Size(202, 24);
             this.menuStrip3.TabIndex = 2;
             this.menuStrip3.Text = "menuStrip3";
@@ -453,16 +441,6 @@
             this.label1.Text = "Werkzeugliste\r\n\r\n*.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // myNumericUpDown2
-            // 
-            this.myNumericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.myNumericUpDown2.Enabled = false;
-            this.myNumericUpDown2.Location = new System.Drawing.Point(3, 262);
-            this.myNumericUpDown2.Name = "myNumericUpDown2";
-            this.myNumericUpDown2.Size = new System.Drawing.Size(50, 20);
-            this.myNumericUpDown2.TabIndex = 10;
-            this.myNumericUpDown2.ValueChanged += new System.EventHandler(this.myNumericUpDown2_ValueChanged);
-            // 
             // treeView4
             // 
             this.treeView4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -495,7 +473,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Enabled = false;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox2.Location = new System.Drawing.Point(59, 263);
+            this.checkBox2.Location = new System.Drawing.Point(59, 262);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(71, 17);
             this.checkBox2.TabIndex = 7;
@@ -585,8 +563,7 @@
             this.infoToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 26);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip2.Size = new System.Drawing.Size(294, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(202, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -869,6 +846,26 @@
             this.pfadÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.pfadÖffnenToolStripMenuItem.Text = "Pfad öffnen";
             // 
+            // myNumericUpDown1
+            // 
+            this.myNumericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.myNumericUpDown1.Enabled = false;
+            this.myNumericUpDown1.Location = new System.Drawing.Point(3, 260);
+            this.myNumericUpDown1.Name = "myNumericUpDown1";
+            this.myNumericUpDown1.Size = new System.Drawing.Size(50, 20);
+            this.myNumericUpDown1.TabIndex = 3;
+            this.myNumericUpDown1.ValueChanged += new System.EventHandler(this.myNumericUpDown1_ValueChanged);
+            // 
+            // myNumericUpDown2
+            // 
+            this.myNumericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.myNumericUpDown2.Enabled = false;
+            this.myNumericUpDown2.Location = new System.Drawing.Point(3, 260);
+            this.myNumericUpDown2.Name = "myNumericUpDown2";
+            this.myNumericUpDown2.Size = new System.Drawing.Size(50, 20);
+            this.myNumericUpDown2.TabIndex = 10;
+            this.myNumericUpDown2.ValueChanged += new System.EventHandler(this.myNumericUpDown2_ValueChanged);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -887,17 +884,17 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).EndInit();
             this.contextLeft.ResumeLayout(false);
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).EndInit();
             this.contextRight.ResumeLayout(false);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.contextMachine.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
