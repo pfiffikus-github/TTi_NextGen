@@ -5,6 +5,7 @@ using System.Net.NetworkInformation;
 using System.IO;
 using System.Reflection;
 using Microsoft.VisualBasic;
+using System.Diagnostics;
 
 namespace TTi_NextGen
 {
@@ -177,7 +178,7 @@ namespace TTi_NextGen
 
         }
 
-        private void WriteHistory(string text, StatusBox statusBox, HistoryMessageType type, bool bold, bool subLine)
+        private void WriteHistory(string text, StatusBox statusBox, HistoryMessageType type, bool bold = false, bool subLine = false)
         {
             string subString = "";
             int insertPos = 0;
@@ -304,25 +305,11 @@ namespace TTi_NextGen
             _ofd.Filter = "CNC-Programm (*.h)|*.h";
             if (_ofd.ShowDialog() == DialogResult.OK)
             {
+                myCNCProgram = null;
                 myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName));
-
-                string[] _lines = new string[] { };
-
-                _lines = myCNCProgram.Lines();      //--> .Lines als Property in CNCProgramm implementieren!!!
-
-                foreach (var _line in _lines)
-                {
-                    treeView2.Nodes.Add(_line);
-                }
-
                 EnabledCNCProgrammControls();
-
-                label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
-                WriteHistory("CNC-Programm '" + Path.GetFileName(_ofd.FileName) + "' geladen", StatusBox.Right, HistoryMessageType.Information, true, false);
-                WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' enthalten)", StatusBox.Right, HistoryMessageType.Information, true, true);
+                BuildTreeViewCNCProgram(true);
             }
-
-
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
@@ -339,9 +326,14 @@ namespace TTi_NextGen
         {
             bool _Enabled = false;
 
-            if (myCNCProgram != null )
+            if (myCNCProgram != null)
             {
                 _Enabled = true;
+                label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
+            }
+            else
+            {
+                label2.Text = "CNC-Programm\n\n*.h";
             }
 
             aktualisierenToolStripMenuItem.Enabled = _Enabled;
@@ -355,14 +347,66 @@ namespace TTi_NextGen
             checkBox2.Enabled = _Enabled;
             button4.Enabled = _Enabled;
             tOOLCALLInformationenToolStripMenuItem.Enabled = _Enabled;
-            
+
         }
 
         private void schließenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             myCNCProgram = null;
-            treeView2.Nodes.Clear();
+            BuildTreeViewCNCProgram(true);
             EnabledCNCProgrammControls();
+
         }
+
+        private void pfadÖffnenToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Process.Start(myCNCProgram.File.DirectoryName);
+        }
+
+        private void dateiÖffnenToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"notepad.exe", myCNCProgram.File.FullName);
+        }
+
+        private void aktualisierenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string _file = myCNCProgram.File.FullName;
+            myCNCProgram = null;
+            myCNCProgram = new CNCProgram(new FileInfo(_file));
+            BuildTreeViewCNCProgram(true);
+        }
+
+        private void BuildTreeViewCNCProgram(bool ShowOnlyToolCall)
+        {
+            if (myCNCProgram != null)
+            {
+                string[] _lines = new string[] { };
+
+                _lines = myCNCProgram.Lines();      //--> .Lines als Property in CNCProgramm implementieren!!!
+
+                treeView2.BeginUpdate();
+                treeView2.Nodes.Clear();
+                foreach (var _line in _lines)
+                {
+                    treeView2.Nodes.Add(_line);
+                }
+                treeView2.EndUpdate();
+
+                WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen", StatusBox.Right, HistoryMessageType.Information, true);
+                WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' enthalten)", StatusBox.Right, HistoryMessageType.Information, true, true);
+
+            }
+            else
+            {
+                treeView2.BeginUpdate();
+                treeView2.Nodes.Clear();
+                WriteHistory("CNC-Programm entladen", StatusBox.Right, HistoryMessageType.Information, true);
+                treeView2.EndUpdate();
+            }
+
+
+        }
+
+
     }
 }
