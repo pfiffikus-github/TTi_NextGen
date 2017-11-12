@@ -72,6 +72,7 @@
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.doppelteTOOLCALLsMarkierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.pfadÖffenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiÖffnenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -522,15 +523,15 @@
             this.toolStripMenuItem7,
             this.toolStripSeparator3,
             this.doppelteTOOLCALLsMarkierenToolStripMenuItem,
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1,
             this.toolStripSeparator4,
             this.pfadÖffenToolStripMenuItem,
             this.dateiÖffnenToolStripMenuItem1});
             this.contextRight.Name = "contextRight";
-            this.contextRight.Size = new System.Drawing.Size(274, 104);
+            this.contextRight.Size = new System.Drawing.Size(274, 126);
             // 
             // toolStripMenuItem7
             // 
-            this.toolStripMenuItem7.Enabled = false;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Size = new System.Drawing.Size(273, 22);
             this.toolStripMenuItem7.Text = "TOOL CALL\'s in Werkzeugliste suchen";
@@ -549,6 +550,13 @@
             this.doppelteTOOLCALLsMarkierenToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
             this.doppelteTOOLCALLsMarkierenToolStripMenuItem.Text = "Doppelte TOOL CALL\'s markieren";
             // 
+            // nurTOOLCALLsAnzeigenToolStripMenuItem1
+            // 
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.CheckOnClick = true;
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem1";
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Size = new System.Drawing.Size(273, 22);
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Text = "Nur TOOL CALL\'s anzeigen";
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -556,14 +564,12 @@
             // 
             // pfadÖffenToolStripMenuItem
             // 
-            this.pfadÖffenToolStripMenuItem.Enabled = false;
             this.pfadÖffenToolStripMenuItem.Name = "pfadÖffenToolStripMenuItem";
             this.pfadÖffenToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
             this.pfadÖffenToolStripMenuItem.Text = "Pfad öffen";
             // 
             // dateiÖffnenToolStripMenuItem1
             // 
-            this.dateiÖffnenToolStripMenuItem1.Enabled = false;
             this.dateiÖffnenToolStripMenuItem1.Name = "dateiÖffnenToolStripMenuItem1";
             this.dateiÖffnenToolStripMenuItem1.Size = new System.Drawing.Size(273, 22);
             this.dateiÖffnenToolStripMenuItem1.Text = "Datei öffnen";
@@ -580,7 +586,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(0, 26);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip2.Size = new System.Drawing.Size(202, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(294, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -686,6 +692,7 @@
             this.beendenToolStripMenuItem1.Name = "beendenToolStripMenuItem1";
             this.beendenToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
             this.beendenToolStripMenuItem1.Text = "Beenden";
+            this.beendenToolStripMenuItem1.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
             // ansichtToolStripMenuItem1
             // 
@@ -708,9 +715,7 @@
             // 
             // nurTOOLCALLsAnzeigenToolStripMenuItem
             // 
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Checked = true;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.CheckOnClick = true;
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem";
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Text = "Nur TOOL CALL\'s anzeigen";
@@ -982,6 +987,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tOOLCALLInformationenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nurTOOLCALLsAnzeigenToolStripMenuItem1;
     }
 }
 
