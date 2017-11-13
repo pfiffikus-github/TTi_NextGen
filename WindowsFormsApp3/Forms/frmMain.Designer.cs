@@ -71,9 +71,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.doppelteTOOLCALLsMarkierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.pfadÖffenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dateiÖffnenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.öffnenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -503,12 +500,9 @@
             this.toolStripMenuItem7,
             this.toolStripSeparator3,
             this.doppelteTOOLCALLsMarkierenToolStripMenuItem,
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem1,
-            this.toolStripSeparator4,
-            this.pfadÖffenToolStripMenuItem,
-            this.dateiÖffnenToolStripMenuItem1});
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1});
             this.contextRight.Name = "contextRight";
-            this.contextRight.Size = new System.Drawing.Size(274, 126);
+            this.contextRight.Size = new System.Drawing.Size(274, 76);
             // 
             // toolStripMenuItem7
             // 
@@ -537,23 +531,6 @@
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Size = new System.Drawing.Size(273, 22);
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Text = "Nur TOOL CALL\'s anzeigen";
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(270, 6);
-            // 
-            // pfadÖffenToolStripMenuItem
-            // 
-            this.pfadÖffenToolStripMenuItem.Name = "pfadÖffenToolStripMenuItem";
-            this.pfadÖffenToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
-            this.pfadÖffenToolStripMenuItem.Text = "Pfad öffen";
-            // 
-            // dateiÖffnenToolStripMenuItem1
-            // 
-            this.dateiÖffnenToolStripMenuItem1.Name = "dateiÖffnenToolStripMenuItem1";
-            this.dateiÖffnenToolStripMenuItem1.Size = new System.Drawing.Size(273, 22);
-            this.dateiÖffnenToolStripMenuItem1.Text = "Datei öffnen";
-            // 
             // menuStrip2
             // 
             this.menuStrip2.BackColor = System.Drawing.Color.DimGray;
@@ -565,7 +542,7 @@
             this.infoToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 26);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(294, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(202, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -621,6 +598,7 @@
             this.speichernUnterToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
             this.speichernUnterToolStripMenuItem1.Tag = "CNCProgram";
             this.speichernUnterToolStripMenuItem1.Text = "Speichern unter";
+            this.speichernUnterToolStripMenuItem1.Click += new System.EventHandler(this.speichernUnterToolStripMenuItem1_Click);
             // 
             // toolStripSeparator9
             // 
@@ -780,7 +758,7 @@
             this.backupsToolStripMenuItem,
             this.toolStripMenuItem9});
             this.contextMachine.Name = "contextMachine";
-            this.contextMachine.Size = new System.Drawing.Size(161, 114);
+            this.contextMachine.Size = new System.Drawing.Size(161, 136);
             // 
             // toolStripMenuItem5
             // 
@@ -951,13 +929,10 @@
         private System.Windows.Forms.ToolStripMenuItem doppelteWerkzeugeMarkierenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem doppelteTOOLCALLsMarkierenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dateiÖffnenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pfadÖffenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dateiÖffnenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem pfadÖffnenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem pfadÖffnenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backupsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ansichtToolStripMenuItem;

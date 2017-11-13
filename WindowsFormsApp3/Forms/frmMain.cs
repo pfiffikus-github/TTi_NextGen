@@ -98,6 +98,11 @@ namespace TTi_NextGen
 
             EnabledCNCProgrammControls();
 
+            if (myLocalSettings.ShowHistory)
+            {
+                viewHistory.CheckState = CheckState.Checked;
+            }
+
         }
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
@@ -309,6 +314,7 @@ namespace TTi_NextGen
                 myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName));
                 EnabledCNCProgrammControls();
                 BuildTreeViewCNCProgram(true);
+                myNumericUpDown2.Value = myCNCProgram.OriginalToolRange;
             }
         }
 
@@ -339,6 +345,9 @@ namespace TTi_NextGen
             checkBox2.Enabled = _Enabled;
             button4.Enabled = _Enabled;
             tOOLCALLInformationenToolStripMenuItem.Enabled = _Enabled;
+            toolStripMenuItem7.Enabled = _Enabled;
+
+
 
         }
 
@@ -385,8 +394,22 @@ namespace TTi_NextGen
                 treeView2.EndUpdate();
 
                 label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
-                WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen", StatusBox.Right, HistoryMessageType.Information, true);
-                WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' enthalten)", StatusBox.Right, HistoryMessageType.Information, true, true);
+
+                WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, true);
+
+                if (myCNCProgram.IsToolRangeConsistent != true)
+                {
+                    WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                                 "' in verschiedenen Tool-Ranges enthalten)",
+                                 StatusBox.Right, HistoryMessageType.Error , true, true);
+                }
+                else
+                {
+
+                    WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                                 "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten)",
+                                 StatusBox.Right, HistoryMessageType.Information, true, true);
+                }
 
             }
             else
@@ -401,6 +424,11 @@ namespace TTi_NextGen
             }
         }
 
+        private void speichernUnterToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog _sfd = new SaveFileDialog();
+            _sfd.ShowDialog();
 
+        }
     }
 }

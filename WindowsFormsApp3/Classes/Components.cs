@@ -16,6 +16,7 @@ namespace TTi_NextGen
         public LocalSettings()
         {
             ShowAllMachines = true;
+            ShowHistory = false;
             CloseAppAfterSync = false;
             LocalSettingsDirectory = Application.StartupPath;
             PublicSettingsDirectory = Application.StartupPath;
@@ -33,6 +34,10 @@ namespace TTi_NextGen
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Auswahl aller Maschinen anzeigen")]
         public bool ShowAllMachines { get; set; }
+
+        [CategoryAttribute("Lokale Einstellungen"),
+        DescriptionAttribute("Verlauf anzeigen")]
+        public bool ShowHistory { get; set; }
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Anwendung nach Datenübertragung schließen")]
