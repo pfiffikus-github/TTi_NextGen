@@ -295,9 +295,6 @@ namespace TTi_NextGen
             {
                 myNumericUpDown2.Font = new Font(myNumericUpDown2.Font, FontStyle.Regular);
             }
-
-
-
         }
 
         private enum HistoryMessageType
