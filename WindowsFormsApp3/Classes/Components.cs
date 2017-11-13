@@ -309,9 +309,10 @@ namespace TTi_NextGen
 
         public override object EditValue(System.ComponentModel.ITypeDescriptorContext context, System.IServiceProvider provider, object value)
         {
-            FolderBrowserDialog myDialog = new FolderBrowserDialog();
-
-            myDialog.Description = "";
+            FolderBrowserDialog myDialog = new FolderBrowserDialog
+            {
+                Description = ""
+            };
 
             if (Directory.Exists(value.ToString()))
             {
@@ -377,12 +378,7 @@ namespace TTi_NextGen
 
         public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
         {
-            var _LocalSettings = context.Instance as LocalSettings;
-
-
-
-
-            if (_LocalSettings != null) return new StandardValuesCollection(_LocalSettings.Machines);  //DefaultMachineBackground
+            if (context.Instance is LocalSettings _LocalSettings) return new StandardValuesCollection(_LocalSettings.Machines);  //DefaultMachineBackground
 
             return base.GetStandardValues(context);
         }

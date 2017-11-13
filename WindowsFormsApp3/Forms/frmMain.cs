@@ -316,10 +316,12 @@ namespace TTi_NextGen
 
         private void öffnenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog _ofd = new OpenFileDialog();
+            OpenFileDialog _ofd = new OpenFileDialog
+            {
+                Multiselect = false,
+                Filter = "CNC-Programm (*.h)|*.h"
+            };
 
-            _ofd.Multiselect = false;
-            _ofd.Filter = "CNC-Programm (*.h)|*.h";
             if (_ofd.ShowDialog() == DialogResult.OK)
             {
                 myCNCProgram = null;
@@ -358,9 +360,6 @@ namespace TTi_NextGen
             button4.Enabled = _Enabled;
             tOOLCALLInformationenToolStripMenuItem.Enabled = _Enabled;
             toolStripMenuItem7.Enabled = _Enabled;
-
-
-
         }
 
         private void schließenToolStripMenuItem1_Click(object sender, EventArgs e)
