@@ -282,10 +282,22 @@ namespace TTi_NextGen
 
         private void myNumericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            if (checkBox1.CheckState == CheckState.Checked)
+            if (checkBox1.CheckState == CheckState.Checked) //für Sync
             {
                 myNumericUpDown1.Value = myNumericUpDown2.Value;
             }
+
+            if (myNumericUpDown2.Value == myCNCProgram.OriginalToolRange)
+            {
+                myNumericUpDown2.Font = new Font(myNumericUpDown2.Font, FontStyle.Bold);
+            }
+            else
+            {
+                myNumericUpDown2.Font = new Font(myNumericUpDown2.Font, FontStyle.Regular);
+            }
+
+
+
         }
 
         private enum HistoryMessageType
@@ -401,7 +413,7 @@ namespace TTi_NextGen
                 {
                     WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
                                  "' in verschiedenen Tool-Ranges enthalten)",
-                                 StatusBox.Right, HistoryMessageType.Error , true, true);
+                                 StatusBox.Right, HistoryMessageType.Error, true, true);
                 }
                 else
                 {
