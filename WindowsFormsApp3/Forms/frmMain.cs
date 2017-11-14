@@ -190,12 +190,12 @@ namespace TTi_NextGen
 
             if (subLine == true)
             {
-                subString = subString.PadLeft((DateTime.Now.ToString("hh:mm:ss @ ") + System.Net.Dns.GetHostName()).Length + 2);
+                subString = subString.PadLeft((DateTime.Now.ToString("hh:mm:ss ").Length)); //@ ") + System.Net.Dns.GetHostName()).Length + 2);
                 insertPos = 1;
             }
             else
             {
-                subString = DateTime.Now.ToString("hh:mm:ss @ ") + System.Net.Dns.GetHostName() + ": ";
+                subString = DateTime.Now.ToString("hh:mm:ss ");                  //@ ") + System.Net.Dns.GetHostName() + ": ";
             }
 
             text = subString + text;
@@ -204,13 +204,13 @@ namespace TTi_NextGen
 
             if (bold == true)
             {
-                _tn.NodeFont = new Font("Consolas", 8, FontStyle.Bold);
+                _tn.NodeFont = new Font("Consolas", 9, FontStyle.Bold);
             }
 
             switch (type)
             {
                 case HistoryMessageType.Information:
-                    _tn.ForeColor = Color.DimGray;
+                    _tn.ForeColor = Color.Black;                 //DimGray;
                     break;
                 case HistoryMessageType.Warning:
                     _tn.ForeColor = Color.Orange;
