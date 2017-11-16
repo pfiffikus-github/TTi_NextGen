@@ -126,9 +126,9 @@ namespace TTi_NextGen
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "123") { return; }
+            //if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "123") { return; }
 
-            WriteHistory("Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Warning, false, false);
+            WriteHistory("Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Warning);
 
             frmConfig _frmConfig = new frmConfig();
 
@@ -138,7 +138,7 @@ namespace TTi_NextGen
             {
                 ReadOrInitSettings();
                 UpdateControls();
-                WriteHistory("Konfiguration editiert", StatusBox.Both, HistoryMessageType.Warning, false, false);
+                WriteHistory("Konfiguration editiert", StatusBox.Both, HistoryMessageType.Warning);
             }
         }
 
@@ -146,6 +146,13 @@ namespace TTi_NextGen
         {
             myLocalSettings = App.InitLocalSettings();
             myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
+
+            if (myLocalSettings == null | myMachines == null)
+            {
+                Close();
+                return;
+            }
+
 
             foreach (Machine _Machine in myMachines)
             {
@@ -156,7 +163,7 @@ namespace TTi_NextGen
                 }
             }
 
-            WriteHistory("Standardmaschine '" + myLocalSettings.DefaultMachine + "' konnte nicht geladen werden", StatusBox.Both, HistoryMessageType.Error, false, false);
+            WriteHistory("Standardmaschine '" + myLocalSettings.DefaultMachine + "' konnte nicht geladen werden", StatusBox.Both, HistoryMessageType.Error);
 
             myMachine = myMachines[0];
             MessageBox.Show("Die Standardmaschine '" +
@@ -183,34 +190,30 @@ namespace TTi_NextGen
 
         }
 
-        private void WriteHistory(string text, StatusBox statusBox, HistoryMessageType type, bool bold = false, bool subLine = false)
+        private void WriteHistory(string text, StatusBox statusBox,
+            HistoryMessageType type = HistoryMessageType.Information,
+            FontStyle style = FontStyle.Regular,
+            bool withTime = true,
+            bool addSpaceLine = true)
         {
-            string subString = "";
-            int insertPos = 0;
 
-            if (subLine == true)
+            if (withTime & text != "")
             {
-                subString = subString.PadLeft((DateTime.Now.ToString("hh:mm:ss ").Length)); //@ ") + System.Net.Dns.GetHostName()).Length + 2);
-                insertPos = 1;
+                text = DateTime.Now.ToString("hh:mm:ss ") + text;
             }
             else
             {
-                subString = DateTime.Now.ToString("hh:mm:ss ");                  //@ ") + System.Net.Dns.GetHostName() + ": ";
+                text = "".PadLeft((DateTime.Now.ToString("hh:mm:ss ").Length)) + text;
             }
-
-            text = subString + text;
 
             TreeNode _tn = new TreeNode(text);
 
-            if (bold == true)
-            {
-                _tn.NodeFont = new Font("Consolas", 9, FontStyle.Bold);
-            }
+            _tn.NodeFont = new Font("Consolas", 9, style);
 
             switch (type)
             {
                 case HistoryMessageType.Information:
-                    _tn.ForeColor = Color.Black;                 //DimGray;
+                    _tn.ForeColor = Color.Black;
                     break;
                 case HistoryMessageType.Warning:
                     _tn.ForeColor = Color.Orange;
@@ -225,20 +228,27 @@ namespace TTi_NextGen
             switch (statusBox)
             {
                 case StatusBox.Left:
-                    treeView3.Nodes.Insert(insertPos, _tn);
+                    treeView3.Nodes.Add(_tn); _tn.EnsureVisible();
+                    if (addSpaceLine) { treeView3.Nodes.Add(""); }
                     break;
                 case StatusBox.Right:
-                    treeView4.Nodes.Insert(insertPos, _tn);
+                    treeView4.Nodes.Add(_tn); _tn.EnsureVisible();
+                    if (addSpaceLine) { treeView4.Nodes.Add(""); }
                     break;
                 case StatusBox.Both:
-                    treeView3.Nodes.Insert(insertPos, _tn);
+                    treeView3.Nodes.Add(_tn); _tn.EnsureVisible();
+                    if (addSpaceLine) { treeView3.Nodes.Add(""); }
                     TreeNode _tn2 = (TreeNode)_tn.Clone();
-                    treeView4.Nodes.Insert(insertPos, _tn2);
+                    treeView4.Nodes.Add(_tn2); _tn.EnsureVisible();
+                    if (addSpaceLine) { treeView4.Nodes.Add(""); }
                     break;
                 default:
                     break;
+
             }
         }
+
+
 
         private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
         {
@@ -248,7 +258,7 @@ namespace TTi_NextGen
                 _subString = " (= Standardmaschine)";
             }
 
-            WriteHistory("'" + myMachine.Name + "'" + _subString + " geladen", StatusBox.Both, HistoryMessageType.Information, false, false);
+            WriteHistory("'" + myMachine.Name + "'" + _subString + " geladen", StatusBox.Both, HistoryMessageType.Information);
         }
 
         private void lblSelectedMachine_Click(object sender, EventArgs e)
@@ -403,20 +413,20 @@ namespace TTi_NextGen
 
                 label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
 
-                WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, true);
+                WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true , false);
 
                 if (myCNCProgram.IsToolRangeConsistent != true)
                 {
                     WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
                                  "' in verschiedenen Tool-Ranges enthalten)",
-                                 StatusBox.Right, HistoryMessageType.Error, true, true);
+                                 StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, false );
                 }
                 else
                 {
 
                     WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
                                  "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten)",
-                                 StatusBox.Right, HistoryMessageType.Information, true, true);
+                                 StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false);
                 }
 
             }
@@ -425,9 +435,10 @@ namespace TTi_NextGen
                 treeView2.BeginUpdate();
                 treeView2.Nodes.Clear();
                 treeView2.EndUpdate();
+                // treeView2.scr
 
                 label2.Text = "CNC-Programm\n\n*.h";
-                WriteHistory("CNC-Programm entladen", StatusBox.Right, HistoryMessageType.Information, true);
+                WriteHistory("CNC-Programm entladen", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold);
 
             }
         }
@@ -438,5 +449,10 @@ namespace TTi_NextGen
             _sfd.ShowDialog();
 
         }
+
+
+
+
     }
+
 }

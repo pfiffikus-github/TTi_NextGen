@@ -219,39 +219,53 @@ namespace TTi_NextGen
     {
         public static LocalSettings InitLocalSettings()
         {
-            LocalSettings myLocalSettings = new LocalSettings();
-
-            App.ExtractEmbeddedResources(".exe", Application.StartupPath);
-
-            if (File.Exists(LocalSettings.LocalSettingsFile))
+            try
             {
-                myLocalSettings = myLocalSettings.DeserializeXML();
-            }
-            else
-            {
-                myLocalSettings.SerializeXML();
-            }
+                LocalSettings myLocalSettings = new LocalSettings();
 
-            return myLocalSettings;
+                App.ExtractEmbeddedResources(".exe", Application.StartupPath);
+
+                if (File.Exists(LocalSettings.LocalSettingsFile))
+                {
+                    myLocalSettings = myLocalSettings.DeserializeXML();
+                }
+                else
+                {
+                    myLocalSettings.SerializeXML();
+                }
+
+                return myLocalSettings;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public static Machines InitMachines(string path)
         {
-            Machines myMachines = new Machines();
-
-            App.ExtractEmbeddedResources(".template", path);
-
-            if (File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
+            try
             {
-                myMachines = myMachines.DeserializeXML(path);
-            }
-            else
-            {
-                myMachines.Add(new Machine());
-                myMachines.SerializeXML(path);
-            }
+                Machines myMachines = new Machines();
 
-            return myMachines;
+                App.ExtractEmbeddedResources(".template", path);
+
+                if (File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
+                {
+                    myMachines = myMachines.DeserializeXML(path);
+                }
+                else
+                {
+                    myMachines.Add(new Machine());
+                    myMachines.SerializeXML(path);
+                }
+
+                return myMachines;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public static void ExtractEmbeddedResources(string files, string path)

@@ -32,6 +32,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.myNumericUpDown1 = new TTi_NextGen.myNumericUpDown();
             this.treeView3 = new System.Windows.Forms.TreeView();
+            this.contextHistory = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.verlaufLeerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -114,6 +116,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).BeginInit();
+            this.contextHistory.SuspendLayout();
             this.contextLeft.SuspendLayout();
             this.menuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown2)).BeginInit();
@@ -177,7 +180,8 @@
             // 
             this.treeView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView3.ContextMenuStrip = this.contextHistory;
+            this.treeView3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView3.ForeColor = System.Drawing.Color.DimGray;
             this.treeView3.ItemHeight = 14;
             this.treeView3.Location = new System.Drawing.Point(3, 291);
@@ -187,6 +191,19 @@
             this.treeView3.Size = new System.Drawing.Size(367, 126);
             this.treeView3.TabIndex = 7;
             this.treeView3.TabStop = false;
+            // 
+            // contextHistory
+            // 
+            this.contextHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verlaufLeerenToolStripMenuItem});
+            this.contextHistory.Name = "contextHistory";
+            this.contextHistory.Size = new System.Drawing.Size(146, 26);
+            // 
+            // verlaufLeerenToolStripMenuItem
+            // 
+            this.verlaufLeerenToolStripMenuItem.Name = "verlaufLeerenToolStripMenuItem";
+            this.verlaufLeerenToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.verlaufLeerenToolStripMenuItem.Text = "Verlauf leeren";
             // 
             // checkBox1
             // 
@@ -473,6 +490,7 @@
             // 
             this.treeView4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView4.ContextMenuStrip = this.contextHistory;
             this.treeView4.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView4.ForeColor = System.Drawing.Color.DimGray;
             this.treeView4.ItemHeight = 14;
@@ -888,6 +906,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.myNumericUpDown1)).EndInit();
+            this.contextHistory.ResumeLayout(false);
             this.contextLeft.ResumeLayout(false);
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
@@ -985,6 +1004,8 @@
         private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tOOLCALLInformationenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nurTOOLCALLsAnzeigenToolStripMenuItem1;
+        private System.Windows.Forms.ContextMenuStrip contextHistory;
+        private System.Windows.Forms.ToolStripMenuItem verlaufLeerenToolStripMenuItem;
     }
 }
 
