@@ -91,6 +91,9 @@ namespace TTi_NextGen
         {
             ReadOrInitSettings();
 
+
+
+
             this.Text = App.Title() + " " + App.Version();
 
             viewHistory.CheckState = CheckState.Unchecked;
@@ -144,15 +147,32 @@ namespace TTi_NextGen
 
         private void ReadOrInitSettings()
         {
-            myLocalSettings = App.InitLocalSettings();
-            myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
+            myLocalSettings = App.InitLocalSettings();      //lese Lokale Einstellungen
 
-            if (myLocalSettings == null | myMachines == null)
+            if (Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) != Path.GetPathRoot(Application.StartupPath)) //prüfe, ob Netzlaufwerk verwendet wird
             {
-                Close();
-                return;
-            }
+                if (System.IO.Directory.Exists(Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory)))   //prüfe, ob Pfad existiert
+                {
+                    myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
+                    FileSystem.FileCopy(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile),    //Kopie der Maschinen lokal speichern, falls Netzlaufwerk später evtl. nicht verfügbar
+                                        Path.Combine(Application.StartupPath, LocalSettings.PublicSettingsFile));
+                    FileSystem.FileCopy(Path.Combine(myLocalSettings.PublicSettingsDirectory, "tool_table.template"),
+                                        Path.Combine(Application.StartupPath, "tool_table.template"));
+                }
+                else
+                {
+                    myMachines = App.InitMachines(Application.StartupPath);
 
+                    WriteHistory("Die Maschinen konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, true, false);
+                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, false);
+
+                    MessageBox.Show("Die Maschinen konnten nicht im Netzlaufwerk\n\n'" + myLocalSettings.PublicSettingsDirectory + "'\n\ngeladen werden.\n\nEs wird ein lokales Backup der Maschinen-Datei verwendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
+            }
 
             foreach (Machine _Machine in myMachines)
             {
@@ -163,7 +183,7 @@ namespace TTi_NextGen
                 }
             }
 
-            WriteHistory("Standardmaschine '" + myLocalSettings.DefaultMachine + "' konnte nicht geladen werden", StatusBox.Both, HistoryMessageType.Error);
+            WriteHistory("Standardmaschine '" + myLocalSettings.DefaultMachine + "' konnte nicht geladen werden", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold);
 
             myMachine = myMachines[0];
             MessageBox.Show("Die Standardmaschine '" +
@@ -239,7 +259,7 @@ namespace TTi_NextGen
                     treeView3.Nodes.Add(_tn); _tn.EnsureVisible();
                     if (addSpaceLine) { treeView3.Nodes.Add(""); }
                     TreeNode _tn2 = (TreeNode)_tn.Clone();
-                    treeView4.Nodes.Add(_tn2); _tn.EnsureVisible();
+                    treeView4.Nodes.Add(_tn2); _tn2.EnsureVisible();
                     if (addSpaceLine) { treeView4.Nodes.Add(""); }
                     break;
                 default:
@@ -247,8 +267,7 @@ namespace TTi_NextGen
 
             }
         }
-
-
+        
 
         private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
         {
@@ -335,7 +354,24 @@ namespace TTi_NextGen
                 myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName));
                 EnabledCNCProgrammControls();
                 BuildTreeViewCNCProgram(true);
-                myNumericUpDown2.Value = myCNCProgram.OriginalToolRange;
+
+                WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false );
+
+                if (myCNCProgram.IsToolRangeConsistent != true)
+                {
+                    WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                                 "' in verschiedenen Tool-Ranges enthalten)",
+                                 StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, false);
+                }
+                else
+                {
+
+                    WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                                 "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten)",
+                                 StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false);
+                }
+
+                label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
             }
         }
 
@@ -374,7 +410,8 @@ namespace TTi_NextGen
             myCNCProgram = null;
             BuildTreeViewCNCProgram(true);
             EnabledCNCProgrammControls();
-
+            label2.Text = "CNC-Programm\n\n*.h";
+            WriteHistory("CNC-Programm entladen", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold);
         }
 
         private void pfadÖffnenToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -393,12 +430,30 @@ namespace TTi_NextGen
             myCNCProgram = null;
             myCNCProgram = new CNCProgram(new FileInfo(_file));
             BuildTreeViewCNCProgram(true);
+            WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false );
+            if (myCNCProgram.IsToolRangeConsistent != true)
+            {
+                WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                             "' in verschiedenen Tool-Ranges enthalten)",
+                             StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, false);
+            }
+            else
+            {
+
+                WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                             "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten)",
+                             StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false);
+            }
         }
 
         private void BuildTreeViewCNCProgram(bool ShowOnlyToolCall)
         {
+            
+
             if (myCNCProgram != null)
             {
+                myNumericUpDown2.Value = myCNCProgram.OriginalToolRange;
+
                 string[] _lines = new string[] { };
 
                 _lines = myCNCProgram.Lines();      //--> .Lines als Property in CNCProgramm implementieren!!!
@@ -411,23 +466,7 @@ namespace TTi_NextGen
                 }
                 treeView2.EndUpdate();
 
-                label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
-
-                WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true , false);
-
-                if (myCNCProgram.IsToolRangeConsistent != true)
-                {
-                    WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                                 "' in verschiedenen Tool-Ranges enthalten)",
-                                 StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, false );
-                }
-                else
-                {
-
-                    WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                                 "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten)",
-                                 StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false);
-                }
+                
 
             }
             else
@@ -435,10 +474,8 @@ namespace TTi_NextGen
                 treeView2.BeginUpdate();
                 treeView2.Nodes.Clear();
                 treeView2.EndUpdate();
-                // treeView2.scr
 
-                label2.Text = "CNC-Programm\n\n*.h";
-                WriteHistory("CNC-Programm entladen", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold);
+
 
             }
         }
@@ -449,8 +486,6 @@ namespace TTi_NextGen
             _sfd.ShowDialog();
 
         }
-
-
 
 
     }

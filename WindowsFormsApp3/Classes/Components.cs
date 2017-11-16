@@ -132,22 +132,27 @@ namespace TTi_NextGen
 
         public void SerializeXML(string path)
         {
-            Directory.CreateDirectory(path);
-            XmlSerializer xs = new XmlSerializer(this.GetType());
-            using (StreamWriter sw = new StreamWriter(Path.Combine(path, LocalSettings.PublicSettingsFile)))
+            try
             {
-                if (this.Count == 0)
+                Directory.CreateDirectory(path);
+                XmlSerializer xs = new XmlSerializer(this.GetType());
+                using (StreamWriter sw = new StreamWriter(Path.Combine(path, LocalSettings.PublicSettingsFile)))
                 {
-                    Add(new Machine());
+                    if (this.Count == 0)
+                    {
+                        Add(new Machine());
+                    }
+
+                    xs.Serialize(sw, this);
+                    sw.Flush();
+                    sw.Dispose();
+                    sw.Close();
                 }
-
-                xs.Serialize(sw, this);
-                sw.Flush();
-                sw.Dispose();
-                sw.Close();
             }
-
-
+            catch (Exception)
+            {
+                throw;
+            }            
         }
 
         public Machines DeserializeXML(string path)
