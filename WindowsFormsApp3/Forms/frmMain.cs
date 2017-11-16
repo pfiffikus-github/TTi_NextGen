@@ -361,17 +361,28 @@ namespace TTi_NextGen
                 {
                     WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
                                  "' in verschiedenen Tool-Ranges enthalten)",
-                                 StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, false);
+                                 StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, true);
                 }
                 else
                 {
 
                     WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
                                  "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten)",
-                                 StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false);
+                                 StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, true);
                 }
 
+
+                string _line = "";
+                foreach (string _str in myCNCProgram.EachToolCallValues())
+                {
+                    _line += ", " + _str; //int.TryParse(_str).ToString();
+                }
+
+                WriteHistory(_line, StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, true);
+
+
                 label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
+
             }
         }
 

@@ -152,7 +152,7 @@ namespace TTi_NextGen
             catch (Exception)
             {
                 throw;
-            }            
+            }
         }
 
         public Machines DeserializeXML(string path)
@@ -593,6 +593,22 @@ namespace TTi_NextGen
                 return true;
             }
             return false;
+        }
+
+        public string[] EachToolCallValues()
+        {
+            string[] _str = new string[0];
+
+            foreach (Match m in MatchesOfToolCalls)
+            {
+                ToolCall tc = new ToolCall(m);
+
+                Array.Resize(ref _str, _str.Length + 1);
+                _str[_str.Length - 1] = m.Value;
+
+            }
+
+            return _str;
         }
 
 
