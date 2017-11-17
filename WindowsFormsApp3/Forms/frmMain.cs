@@ -277,7 +277,7 @@ namespace TTi_NextGen
                 _subString = " (= Standardmaschine)";
             }
 
-            WriteHistory("'" + myMachine.Name + "'" + _subString + " geladen", StatusBox.Both, HistoryMessageType.Information);
+            WriteHistory("Maschine '" + myMachine.Name + "' geladen" + _subString, StatusBox.Both, HistoryMessageType.Information);
         }
 
         private void lblSelectedMachine_Click(object sender, EventArgs e)
@@ -342,50 +342,66 @@ namespace TTi_NextGen
 
         private void öffnenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog _ofd = new OpenFileDialog
+            ToolStripMenuItem _tsmi = (ToolStripMenuItem)sender;
+
+            if (_tsmi.Text == "Öffnen")
             {
-                Multiselect = false,
-                Filter = "CNC-Programm (*.h)|*.h"
-            };
-
-            if (_ofd.ShowDialog() == DialogResult.OK)
-            {
-                myCNCProgram = null;
-                myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName));
-                EnabledCNCProgrammControls();
-                BuildTreeViewCNCProgram(true);
-
-                WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false);
-
-                if (myCNCProgram.IsToolRangeConsistent != true)
+                OpenFileDialog _ofd = new OpenFileDialog
                 {
-                    WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                                 "' in verschiedenen Tool-Ranges enthalten",
-                                 StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, false, false);
+                    Multiselect = false,
+                    Filter = "CNC-Programm (*.h)|*.h"
+                };
+
+                if (_ofd.ShowDialog() == DialogResult.OK)
+                {
+                    myCNCProgram = null;
+                    myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName));
+                    EnabledCNCProgrammControls();
+                    BuildTreeViewCNCProgram(true);
                 }
                 else
                 {
-
-                    WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                                 "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten",
-                                 StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, false);
+                    return;
                 }
-
-
-                string _line = "[";
-                foreach (string _str in myCNCProgram.EachToolCallValues())
-                {
-                    _line += _str.Replace(CNCProgram.ToolCallString, "").Trim() + ", ";
-                }
-                _line = _line.Remove(_line.Length - 2, 1).Trim() + "]";
-
-                WriteHistory(_line, StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, true);
-
-
-                label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
-
             }
+            else
+            {
+                string _file = myCNCProgram.File.FullName;
+                myCNCProgram = null;
+                myCNCProgram = new CNCProgram(new FileInfo(_file));
+                BuildTreeViewCNCProgram(true);
+            }
+
+            WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false);
+
+            if (myCNCProgram.IsToolRangeConsistent != true)
+            {
+                WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                             "' in verschiedenen Tool-Ranges enthalten",
+                             StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, false, false);
+            }
+            else
+            {
+
+                WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                             "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten",
+                             StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, false);
+            }
+
+            string _line = "[";
+            foreach (string _str in myCNCProgram.EachToolCallValues())
+            {
+                _line += _str.Replace(CNCProgram.ToolCallString, "").Trim() + ", ";
+            }
+            _line = _line.Remove(_line.Length - 2, 1).Trim() + "]";
+
+            WriteHistory(_line, StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, true);
+
+
+            label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
+
         }
+
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
@@ -438,24 +454,7 @@ namespace TTi_NextGen
 
         private void aktualisierenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string _file = myCNCProgram.File.FullName;
-            myCNCProgram = null;
-            myCNCProgram = new CNCProgram(new FileInfo(_file));
-            BuildTreeViewCNCProgram(true);
-            WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false);
-            if (myCNCProgram.IsToolRangeConsistent != true)
-            {
-                WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                             "' in verschiedenen Tool-Ranges enthalten)",
-                             StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, false);
-            }
-            else
-            {
 
-                WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                             "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten)",
-                             StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false);
-            }
         }
 
         private void BuildTreeViewCNCProgram(bool ShowOnlyToolCall)

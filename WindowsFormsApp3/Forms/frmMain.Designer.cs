@@ -603,7 +603,7 @@
             this.aktualisierenToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.aktualisierenToolStripMenuItem.Tag = "CNCProgram";
             this.aktualisierenToolStripMenuItem.Text = "Aktualisieren";
-            this.aktualisierenToolStripMenuItem.Click += new System.EventHandler(this.aktualisierenToolStripMenuItem_Click);
+            this.aktualisierenToolStripMenuItem.Click += new System.EventHandler(this.öffnenToolStripMenuItem1_Click);
             // 
             // speichernToolStripMenuItem1
             // 
@@ -867,6 +867,7 @@
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(3, 263);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(94, 20);
             this.textBox1.TabIndex = 11;
             this.textBox1.Text = "32000...32999";
@@ -878,6 +879,7 @@
             this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(3, 263);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(94, 20);
             this.textBox2.TabIndex = 12;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

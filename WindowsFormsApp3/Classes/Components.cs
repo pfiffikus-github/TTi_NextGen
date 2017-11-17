@@ -181,6 +181,8 @@ namespace TTi_NextGen
             InvalideToolNumbers = new int[] { 1, 2, 3 };
             ProjectDirectory = @"TNC:\Bauteile\";
             DisableToolRangeSelection = false;
+            RestrictiveToolValueLowerRange = 1;
+            RestrictiveToolValueUpperRange = 10;
         }
 
         public const string DefaultMachineName = "Machine";
@@ -198,8 +200,7 @@ namespace TTi_NextGen
                 myName = value.Trim().Substring(0, Math.Min(16, value.Length));
             }
         }
-
-
+        
         [Editor(typeof(TypEditorEditIP), typeof(UITypeEditor)),
          TypeConverter(typeof(CancelEditProp))]
         public string IP { get; set; }
@@ -212,6 +213,10 @@ namespace TTi_NextGen
 
         public bool DisableToolRangeSelection { get; set; }
 
+        public int RestrictiveToolValueLowerRange { get; set; }
+
+        public int RestrictiveToolValueUpperRange { get; set; }
+        
         public string ProjectDirectory { get; set; }
 
         public override string ToString()
