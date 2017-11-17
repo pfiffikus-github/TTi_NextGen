@@ -63,7 +63,7 @@ namespace TTi_NextGen
 
         private void timerMainFrm_Tick(object sender, EventArgs e)
         {
-            timeStatus.Text = DateTime.Now.ToString("dd.MM.yyyy hh:mm");
+            timeStatus.Text = DateTime.Now.ToString("dd.MM.yyyy HH:mm");
 
             try
             {
@@ -219,16 +219,16 @@ namespace TTi_NextGen
 
             if (withTime & text != "")
             {
-                text = DateTime.Now.ToString("hh:mm:ss ") + text;
+                text = DateTime.Now.ToString("HH:mm:ss ") + text;
             }
             else
             {
-                text = "".PadLeft((DateTime.Now.ToString("hh:mm:ss ").Length)) + text;
+                text = "".PadLeft((DateTime.Now.ToString("HH:mm:ss ").Length)) + text;
             }
 
             TreeNode _tn = new TreeNode(text);
 
-            _tn.NodeFont = new Font("Consolas", 9, style);
+            _tn.NodeFont = new Font("Consolas", 8, style);
 
             switch (type)
             {
@@ -301,25 +301,31 @@ namespace TTi_NextGen
             }
         }
 
+
         private void myNumericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             if (checkBox1.CheckState == CheckState.Checked)
             {
                 myNumericUpDown2.Value = myNumericUpDown1.Value;
+                button1.Text = "Werkzeugliste in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
+
             }
         }
 
         private void myNumericUpDown2_ValueChanged(object sender, EventArgs e)
         {
+
+            button4.Text = "CNC-Programm in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() +  " übertragen";
+
             if (checkBox1.CheckState == CheckState.Checked) //für Sync
             {
                 myNumericUpDown1.Value = myNumericUpDown2.Value;
+                button1.Text = "Werkzeugliste in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
             }
 
             if (myNumericUpDown2.Value == myCNCProgram.OriginalToolRange)
             {
                 myNumericUpDown2.Font = new Font(myNumericUpDown2.Font, FontStyle.Bold);
-
             }
             else
             {

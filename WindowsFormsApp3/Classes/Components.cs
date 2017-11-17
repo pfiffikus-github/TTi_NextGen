@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Drawing.Design;
 using System.Text.RegularExpressions;
+using System.Collections;
 
 namespace TTi_NextGen
 {
@@ -178,11 +179,10 @@ namespace TTi_NextGen
             IP = "127.0.0.1";
             ToolTable = @"TNC:\Tool.t";
             InvalideToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
-            InvalideToolNumbers = new int[] { 1, 2, 3 };
             ProjectDirectory = @"TNC:\Bauteile\";
             DisableToolRangeSelection = false;
-            RestrictiveToolValueLowerRange = 1;
-            RestrictiveToolValueUpperRange = 10;
+            //myRestrictiveToolValues.Add(new RestrictiveToolValue_2());
+
         }
 
         public const string DefaultMachineName = "DefaultMachine";
@@ -197,10 +197,10 @@ namespace TTi_NextGen
                 {
                     return;
                 }
-                myName = value.Trim().Substring(0, Math.Min(16, value.Length));
+                myName = value.Trim().Substring(0, Math.Min(24, value.Length));
             }
         }
-        
+
         [Editor(typeof(TypEditorEditIP), typeof(UITypeEditor)),
          TypeConverter(typeof(CancelEditProp))]
         public string IP { get; set; }
@@ -209,13 +209,14 @@ namespace TTi_NextGen
 
         public string InvalideToolNameCharakters { get; set; }
 
-        public int[] InvalideToolNumbers { get; set; }
-
         public bool DisableToolRangeSelection { get; set; }
 
-        public int RestrictiveToolValueLowerRange { get; set; }
-
-        public int RestrictiveToolValueUpperRange { get; set; }
+        private RestrictiveToolValues_XXX myRestrictiveToolValues = new RestrictiveToolValues_XXX();
+        public RestrictiveToolValues_XXX RestrictiveToolValues
+        {
+            get { return myRestrictiveToolValues; }
+            set { myRestrictiveToolValues = value; }
+        }
         
         public string ProjectDirectory { get; set; }
 
@@ -224,6 +225,49 @@ namespace TTi_NextGen
             return Name;
         }
     }
+
+    public class RestrictiveToolValues_XXX : Collection<RestrictiveToolValue_2>
+    {
+        public RestrictiveToolValues_XXX()  : base() { }
+
+        public override string ToString()
+        {
+            string _elements = "";
+
+            foreach (var item in this)
+            {
+                _elements += item + "\n";
+            }
+
+            return _elements;
+        }
+    }
+
+    public class RestrictiveToolValue_2
+    {
+        RestrictiveToolValue_2()
+        {
+            RangeBegins = 0;
+            RangeEnds = 10;
+        }
+
+        public int RangeBegins { get; set; }
+
+        public int RangeEnds { get; set; }
+
+        public override string ToString()
+        {
+            return RangeBegins.ToString() + " - " + RangeEnds.ToString();
+        }
+    }
+
+
+
+
+
+
+
+
 
     public static class App
     {
