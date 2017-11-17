@@ -267,7 +267,7 @@ namespace TTi_NextGen
 
             }
         }
-        
+
 
         private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
         {
@@ -355,28 +355,29 @@ namespace TTi_NextGen
                 EnabledCNCProgrammControls();
                 BuildTreeViewCNCProgram(true);
 
-                WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false );
+                WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false);
 
                 if (myCNCProgram.IsToolRangeConsistent != true)
                 {
-                    WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                                 "' in verschiedenen Tool-Ranges enthalten)",
-                                 StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, true);
+                    WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                                 "' in verschiedenen Tool-Ranges enthalten",
+                                 StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, false, false);
                 }
                 else
                 {
 
-                    WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                                 "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten)",
-                                 StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, true);
+                    WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                                 "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten",
+                                 StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, false);
                 }
 
 
-                string _line = "";
+                string _line = "[";
                 foreach (string _str in myCNCProgram.EachToolCallValues())
                 {
-                    _line += ", " + _str; //int.TryParse(_str).ToString();
+                    _line += _str.Replace(CNCProgram.ToolCallString, "").Trim() + ", ";
                 }
+                _line = _line.Remove(_line.Length - 2, 1).Trim() + "]";
 
                 WriteHistory(_line, StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, true);
 
@@ -441,7 +442,7 @@ namespace TTi_NextGen
             myCNCProgram = null;
             myCNCProgram = new CNCProgram(new FileInfo(_file));
             BuildTreeViewCNCProgram(true);
-            WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false );
+            WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false);
             if (myCNCProgram.IsToolRangeConsistent != true)
             {
                 WriteHistory("(" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
@@ -459,7 +460,7 @@ namespace TTi_NextGen
 
         private void BuildTreeViewCNCProgram(bool ShowOnlyToolCall)
         {
-            
+
 
             if (myCNCProgram != null)
             {
@@ -477,7 +478,7 @@ namespace TTi_NextGen
                 }
                 treeView2.EndUpdate();
 
-                
+
 
             }
             else
