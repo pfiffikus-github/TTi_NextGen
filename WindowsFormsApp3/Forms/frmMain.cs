@@ -319,6 +319,7 @@ namespace TTi_NextGen
             if (myNumericUpDown2.Value == myCNCProgram.OriginalToolRange)
             {
                 myNumericUpDown2.Font = new Font(myNumericUpDown2.Font, FontStyle.Bold);
+
             }
             else
             {

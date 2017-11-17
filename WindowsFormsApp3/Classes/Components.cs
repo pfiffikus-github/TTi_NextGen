@@ -185,7 +185,7 @@ namespace TTi_NextGen
             RestrictiveToolValueUpperRange = 10;
         }
 
-        public const string DefaultMachineName = "Machine";
+        public const string DefaultMachineName = "DefaultMachine";
 
         private string myName;
         public string Name
