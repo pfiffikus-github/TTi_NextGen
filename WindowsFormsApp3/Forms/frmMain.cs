@@ -91,9 +91,6 @@ namespace TTi_NextGen
         {
             ReadOrInitSettings();
 
-
-
-
             this.Text = App.Title() + " " + App.Version();
 
             viewHistory.CheckState = CheckState.Unchecked;
@@ -106,6 +103,14 @@ namespace TTi_NextGen
                 viewHistory.CheckState = CheckState.Checked;
             }
 
+            int maxToolRange = 32;
+            for (int i = 0; i < maxToolRange; i++)
+            {
+                comboBox1.Items.Add((i * 1000).ToString() + "..." + ((i * 1000) + 999).ToString());
+                comboBox2.Items.Add((i * 1000).ToString() + "..." + ((i * 1000) + 999).ToString());
+            }
+            //comboBox2.Text = comboBox2.Items[0].ToString();
+            //comboBox2.Text = comboBox2.Items[0].ToString();
         }
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
@@ -307,7 +312,7 @@ namespace TTi_NextGen
             if (checkBox1.CheckState == CheckState.Checked)
             {
                 myNumericUpDown2.Value = myNumericUpDown1.Value;
-                button1.Text = "Werkzeugliste in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
+                //button1.Text = "Werkzeugliste in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
 
             }
         }
@@ -315,12 +320,12 @@ namespace TTi_NextGen
         private void myNumericUpDown2_ValueChanged(object sender, EventArgs e)
         {
 
-            button4.Text = "CNC-Programm in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
+            //button4.Text = "CNC-Programm in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
 
             if (checkBox1.CheckState == CheckState.Checked) //für Sync
             {
                 myNumericUpDown1.Value = myNumericUpDown2.Value;
-                button1.Text = "Werkzeugliste in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
+                //button1.Text = "Werkzeugliste in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
             }
 
             if (myNumericUpDown2.Value == myCNCProgram.OriginalToolRange)
@@ -388,6 +393,8 @@ namespace TTi_NextGen
                 BuildTreeViewCNCProgram(true);
             }
 
+            //write history
+
             WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false);
 
             if (myCNCProgram.IsToolRangeConsistent != true)
@@ -404,6 +411,8 @@ namespace TTi_NextGen
                              StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, false);
             }
 
+            //list Tool-Numbers to History
+
             string _line = "[";
             foreach (string _str in myCNCProgram.EachToolCallValues())
             {
@@ -413,6 +422,7 @@ namespace TTi_NextGen
 
             WriteHistory(_line, StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, true);
 
+            //lbl-Text
 
             label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
 
@@ -447,6 +457,7 @@ namespace TTi_NextGen
             button4.Enabled = _Enabled;
             tOOLCALLInformationenToolStripMenuItem.Enabled = _Enabled;
             toolStripMenuItem7.Enabled = _Enabled;
+            comboBox2.Enabled = _Enabled;
         }
 
         private void schließenToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -515,6 +526,33 @@ namespace TTi_NextGen
         }
 
 
+        private int ExtractInt(string AtString) //aus 1000...1999, 1 extrahieren 
+        {
+            string[] _tmpStr = new string[] { };
+
+            _tmpStr = AtString.Split(new string[1] { "..." }, 2, StringSplitOptions.None);
+
+            return int.Parse(_tmpStr[0]) / 1000;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.CheckState == CheckState.Checked) //für Sync
+            {
+                //myNumericUpDown1.Value = myNumericUpDown2.Value;
+                //button1.Text = "Werkzeugliste in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
+                comboBox1.Text = comboBox2.Text;
+            }
+
+            if (ExtractInt(comboBox2.Text) == myCNCProgram.OriginalToolRange)
+            {
+                comboBox2.Font = new Font(comboBox2.Font, FontStyle.Bold);
+            }
+            else
+            {
+                comboBox2.Font = new Font(comboBox2.Font, FontStyle.Regular);
+            }
+        }
     }
 
 }

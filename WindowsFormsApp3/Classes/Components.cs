@@ -181,8 +181,8 @@ namespace TTi_NextGen
             InvalideToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
             ProjectDirectory = @"TNC:\Bauteile\";
             DisableToolRangeSelection = false;
+            MaxToolRange = 32;
             //myRestrictiveToolValues.Add(new RestrictiveToolValue_2());
-
         }
 
         public const string DefaultMachineName = "DefaultMachine";
@@ -217,7 +217,9 @@ namespace TTi_NextGen
             get { return myRestrictiveToolValues; }
             set { myRestrictiveToolValues = value; }
         }
-        
+
+        public int MaxToolRange { get; set; }
+
         public string ProjectDirectory { get; set; }
 
         public override string ToString()

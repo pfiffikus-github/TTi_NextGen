@@ -64,6 +64,7 @@
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.treeView4 = new System.Windows.Forms.TreeView();
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -109,6 +110,7 @@
             this.timeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerMainFrm = new System.Windows.Forms.Timer(this.components);
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.myNumericUpDown1 = new TTi_NextGen.myNumericUpDown();
             this.myNumericUpDown2 = new TTi_NextGen.myNumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -137,6 +139,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
             this.splitContainer1.Panel1.Controls.Add(this.myNumericUpDown1);
             this.splitContainer1.Panel1.Controls.Add(this.treeView3);
             this.splitContainer1.Panel1.Controls.Add(this.checkBox1);
@@ -149,6 +152,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.DimGray;
+            this.splitContainer1.Panel2.Controls.Add(this.comboBox2);
             this.splitContainer1.Panel2.Controls.Add(this.myNumericUpDown2);
             this.splitContainer1.Panel2.Controls.Add(this.treeView4);
             this.splitContainer1.Panel2.Controls.Add(this.button4);
@@ -210,11 +214,11 @@
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Enabled = false;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(267, 337);
+            this.button1.Location = new System.Drawing.Point(397, 337);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(275, 23);
+            this.button1.Size = new System.Drawing.Size(145, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Werkzeugliste in Bereich 0...999 übertragen";
+            this.button1.Text = "Werkzeugliste übertragen";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // treeView1
@@ -455,6 +459,18 @@
             this.label1.Text = "Werkzeugliste\r\n\r\n*.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Enabled = false;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(136, 338);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(93, 21);
+            this.comboBox2.TabIndex = 11;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
             // treeView4
             // 
             this.treeView4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -475,12 +491,12 @@
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(273, 337);
+            this.button4.Location = new System.Drawing.Point(403, 337);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(275, 23);
+            this.button4.Size = new System.Drawing.Size(145, 23);
             this.button4.TabIndex = 8;
             this.button4.Tag = "CNCProgram";
-            this.button4.Text = "CNC-Programm in Bereich 0...999 übertragen";
+            this.button4.Text = "CNC-Programm übertragen";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // checkBox2
@@ -856,6 +872,17 @@
             this.pfadÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.pfadÖffnenToolStripMenuItem.Text = "Pfad öffnen";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Enabled = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(136, 338);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(93, 21);
+            this.comboBox1.TabIndex = 12;
+            // 
             // myNumericUpDown1
             // 
             this.myNumericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1008,6 +1035,8 @@
         private System.Windows.Forms.ToolStripMenuItem nurTOOLCALLsAnzeigenToolStripMenuItem1;
         private System.Windows.Forms.ContextMenuStrip contextHistory;
         private System.Windows.Forms.ToolStripMenuItem verlaufLeerenToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
