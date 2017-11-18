@@ -272,8 +272,7 @@ namespace TTi_NextGen
 
             }
         }
-
-
+        
         private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
         {
             string _subString = "";
@@ -424,6 +423,7 @@ namespace TTi_NextGen
             tOOLCALLInformationenToolStripMenuItem.Enabled = _Enabled;
             toolStripMenuItem7.Enabled = _Enabled;
             comboBox2.Enabled = _Enabled;
+            button3.Enabled = _Enabled;
         }
 
         private void schließenToolStripMenuItem1_Click(object sender, EventArgs e)
