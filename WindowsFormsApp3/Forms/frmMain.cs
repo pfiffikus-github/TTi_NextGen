@@ -26,18 +26,18 @@ namespace TTi_NextGen
             checkBox2.CheckState = checkBox1.CheckState;
             if (checkBox1.CheckState == CheckState.Checked)
             {
-                myNumericUpDown1.Value = myNumericUpDown2.Value;
+                comboBox1.SelectedIndex = comboBox2.SelectedIndex;
                 checkBox1.ForeColor = Color.OrangeRed;
                 checkBox2.ForeColor = Color.OrangeRed;
-                myNumericUpDown1.ForeColor = Color.OrangeRed;
-                myNumericUpDown2.ForeColor = Color.OrangeRed;
+                //comboBox1.ForeColor = Color.OrangeRed;
+                //comboBox2.ForeColor = Color.OrangeRed;
             }
             else
             {
                 checkBox1.ForeColor = Color.Black;
                 checkBox2.ForeColor = Color.Black;
-                myNumericUpDown1.ForeColor = Color.Black;
-                myNumericUpDown2.ForeColor = Color.Black;
+                //comboBox1.ForeColor = Color.Black;
+                //comboBox2.ForeColor = Color.Black;
             }
         }
 
@@ -46,18 +46,18 @@ namespace TTi_NextGen
             checkBox1.CheckState = checkBox2.CheckState;
             if (checkBox2.CheckState == CheckState.Checked)
             {
-                myNumericUpDown2.Value = myNumericUpDown1.Value;
+                comboBox2.SelectedIndex = comboBox1.SelectedIndex;
                 checkBox1.ForeColor = Color.OrangeRed;
                 checkBox2.ForeColor = Color.OrangeRed;
-                myNumericUpDown1.ForeColor = Color.OrangeRed;
-                myNumericUpDown2.ForeColor = Color.OrangeRed;
+                //comboBox1.ForeColor = Color.OrangeRed;
+                //comboBox2.ForeColor = Color.OrangeRed;
             }
             else
             {
                 checkBox1.ForeColor = Color.Black;
                 checkBox2.ForeColor = Color.Black;
-                myNumericUpDown1.ForeColor = Color.Black;
-                myNumericUpDown2.ForeColor = Color.Black;
+                //comboBox1.ForeColor = Color.Black;
+                //comboBox2.ForeColor = Color.Black;
             }
         }
 
@@ -306,38 +306,6 @@ namespace TTi_NextGen
             }
         }
 
-
-        private void myNumericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.CheckState == CheckState.Checked)
-            {
-                myNumericUpDown2.Value = myNumericUpDown1.Value;
-                //button1.Text = "Werkzeugliste in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
-
-            }
-        }
-
-        private void myNumericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-
-            //button4.Text = "CNC-Programm in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
-
-            if (checkBox1.CheckState == CheckState.Checked) //für Sync
-            {
-                myNumericUpDown1.Value = myNumericUpDown2.Value;
-                //button1.Text = "Werkzeugliste in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
-            }
-
-            if (myNumericUpDown2.Value == myCNCProgram.OriginalToolRange)
-            {
-                myNumericUpDown2.Font = new Font(myNumericUpDown2.Font, FontStyle.Bold);
-            }
-            else
-            {
-                myNumericUpDown2.Font = new Font(myNumericUpDown2.Font, FontStyle.Regular);
-            }
-        }
-
         private enum HistoryMessageType
         {
             Information,
@@ -427,8 +395,7 @@ namespace TTi_NextGen
             label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
 
         }
-
-
+        
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
             MessageBox.Show(App.Title() + "\n\n" + App.Version() + " Build: " + Assembly.GetExecutingAssembly().GetName().Version.Build, App.Title());
@@ -452,7 +419,6 @@ namespace TTi_NextGen
             pfadÖffnenToolStripMenuItem3.Enabled = _Enabled;
             dateiÖffnenToolStripMenuItem3.Enabled = _Enabled;
             eigenschaftenToolStripMenuItem1.Enabled = _Enabled;
-            myNumericUpDown2.Enabled = _Enabled;
             checkBox2.Enabled = _Enabled;
             button4.Enabled = _Enabled;
             tOOLCALLInformationenToolStripMenuItem.Enabled = _Enabled;
@@ -479,18 +445,13 @@ namespace TTi_NextGen
             Process.Start(@"notepad.exe", myCNCProgram.File.FullName);
         }
 
-        private void aktualisierenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BuildTreeViewCNCProgram(bool ShowOnlyToolCall)
         {
 
 
             if (myCNCProgram != null)
             {
-                myNumericUpDown2.Value = myCNCProgram.OriginalToolRange;
+                comboBox2.SelectedIndex = myCNCProgram.OriginalToolRange;
 
                 string[] _lines = new string[] { };
 
@@ -512,9 +473,6 @@ namespace TTi_NextGen
                 treeView2.BeginUpdate();
                 treeView2.Nodes.Clear();
                 treeView2.EndUpdate();
-
-
-
             }
         }
 
@@ -524,7 +482,6 @@ namespace TTi_NextGen
             _sfd.ShowDialog();
 
         }
-
 
         private int ExtractInt(string AtString) //aus 1000...1999, 1 extrahieren 
         {
@@ -539,8 +496,6 @@ namespace TTi_NextGen
         {
             if (checkBox1.CheckState == CheckState.Checked) //für Sync
             {
-                //myNumericUpDown1.Value = myNumericUpDown2.Value;
-                //button1.Text = "Werkzeugliste in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
                 comboBox1.Text = comboBox2.Text;
             }
 
@@ -551,6 +506,23 @@ namespace TTi_NextGen
             else
             {
                 comboBox2.Font = new Font(comboBox2.Font, FontStyle.Regular);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.CheckState == CheckState.Checked) //für Sync
+            {
+                comboBox2.Text = comboBox1.Text;
+            }
+
+            if (ExtractInt(comboBox1.Text) == myCNCProgram.OriginalToolRange)
+            {
+                comboBox1.Font = new Font(comboBox1.Font, FontStyle.Bold);
+            }
+            else
+            {
+                comboBox1.Font = new Font(comboBox1.Font, FontStyle.Regular);
             }
         }
     }
