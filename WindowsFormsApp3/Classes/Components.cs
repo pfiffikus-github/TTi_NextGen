@@ -180,9 +180,7 @@ namespace TTi_NextGen
             ToolTable = @"TNC:\Tool.t";
             InvalideToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
             ProjectDirectory = @"TNC:\Bauteile\";
-            DisableToolRangeSelection = false;
             MaxToolRange = 32;
-            //myRestrictiveToolValues.Add(new RestrictiveToolValue_2());
         }
 
         public const string DefaultMachineName = "DefaultMachine";
@@ -209,16 +207,19 @@ namespace TTi_NextGen
 
         public string InvalideToolNameCharakters { get; set; }
 
-        public bool DisableToolRangeSelection { get; set; }
-
-        private RestrictiveToolValues_XXX myRestrictiveToolValues = new RestrictiveToolValues_XXX();
-        public RestrictiveToolValues_XXX RestrictiveToolValues
+        private int myMaxToolRange;
+        public int MaxToolRange
         {
-            get { return myRestrictiveToolValues; }
-            set { myRestrictiveToolValues = value; }
+            get { return myMaxToolRange; }
+            set
+            {
+                if (value < 1 | value > 32)
+                {
+                    return;
+                }
+                myMaxToolRange = value;
+            }
         }
-
-        public int MaxToolRange { get; set; }
 
         public string ProjectDirectory { get; set; }
 
@@ -227,10 +228,12 @@ namespace TTi_NextGen
             return Name;
         }
     }
+    
 
-    public class RestrictiveToolValues_XXX : Collection<RestrictiveToolValue_2>
+
+    public class RestrictiveToolValues : Collection<RestrictiveToolValue>
     {
-        public RestrictiveToolValues_XXX()  : base() { }
+        public RestrictiveToolValues() : base() { }
 
         public override string ToString()
         {
@@ -240,14 +243,13 @@ namespace TTi_NextGen
             {
                 _elements += item + "\n";
             }
-
             return _elements;
         }
     }
 
-    public class RestrictiveToolValue_2
+    public class RestrictiveToolValue
     {
-        RestrictiveToolValue_2()
+        RestrictiveToolValue()
         {
             RangeBegins = 0;
             RangeEnds = 10;
@@ -262,14 +264,6 @@ namespace TTi_NextGen
             return RangeBegins.ToString() + " - " + RangeEnds.ToString();
         }
     }
-
-
-
-
-
-
-
-
 
     public static class App
     {

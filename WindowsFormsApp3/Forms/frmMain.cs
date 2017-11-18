@@ -103,14 +103,7 @@ namespace TTi_NextGen
                 viewHistory.CheckState = CheckState.Checked;
             }
 
-            int maxToolRange = 32;
-            for (int i = 0; i < maxToolRange; i++)
-            {
-                comboBox1.Items.Add((i * 1000).ToString() + "..." + ((i * 1000) + 999).ToString());
-                comboBox2.Items.Add((i * 1000).ToString() + "..." + ((i * 1000) + 999).ToString());
-            }
-            //comboBox2.Text = comboBox2.Items[0].ToString();
-            //comboBox2.Text = comboBox2.Items[0].ToString();
+
         }
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
@@ -272,7 +265,7 @@ namespace TTi_NextGen
 
             }
         }
-        
+
         private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
         {
             string _subString = "";
@@ -280,6 +273,60 @@ namespace TTi_NextGen
             {
                 _subString = " (= Standardmaschine)";
             }
+
+
+
+
+
+
+
+
+
+
+            int tmpRangeToolList = comboBox1.SelectedIndex;
+            int tmpRangeCNCPorgramm = comboBox2.SelectedIndex;
+
+            int maxToolRange = myMachine.MaxToolRange;
+            comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
+            for (int i = 0; i < maxToolRange; i++)
+            {
+                comboBox1.Items.Add((i * 1000).ToString() + "..." + ((i * 1000) + 999).ToString());
+                comboBox2.Items.Add((i * 1000).ToString() + "..." + ((i * 1000) + 999).ToString());
+            }
+
+
+
+
+            if (tmpRangeToolList >= myMachine.MaxToolRange)
+            {
+                comboBox1.SelectedIndex = 0;
+            }
+            else
+            {
+                comboBox1.SelectedIndex = tmpRangeToolList;
+            }
+
+            if (tmpRangeToolList >= myMachine.MaxToolRange)
+            {
+                comboBox2.SelectedIndex = 0;
+            }
+            else
+            {
+                comboBox2.SelectedIndex = tmpRangeCNCPorgramm;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
 
             WriteHistory("Maschine '" + myMachine.Name + "' geladen" + _subString, StatusBox.Both, HistoryMessageType.Information);
         }
@@ -394,7 +441,7 @@ namespace TTi_NextGen
             label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
 
         }
-        
+
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
             MessageBox.Show(App.Title() + "\n\n" + App.Version() + " Build: " + Assembly.GetExecutingAssembly().GetName().Version.Build, App.Title());
@@ -451,7 +498,31 @@ namespace TTi_NextGen
 
             if (myCNCProgram != null)
             {
-                comboBox2.SelectedIndex = myCNCProgram.OriginalToolRange;
+                //---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+                //-----------------------------------------------------------------------------------
+
+
+
+                if (myCNCProgram.OriginalToolRange >= myMachine.MaxToolRange)
+                {
+                    comboBox2.SelectedIndex = 0;
+                }
+                else
+                {
+                    comboBox2.SelectedIndex = myCNCProgram.OriginalToolRange;
+                }
+
+
+
+
+
 
                 string[] _lines = new string[] { };
 
@@ -494,6 +565,8 @@ namespace TTi_NextGen
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (myCNCProgram == null) { return; }
+
             if (checkBox1.CheckState == CheckState.Checked) //für Sync
             {
                 comboBox1.Text = comboBox2.Text;
@@ -511,6 +584,8 @@ namespace TTi_NextGen
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (myCNCProgram == null) { return; }
+
             if (checkBox1.CheckState == CheckState.Checked) //für Sync
             {
                 comboBox2.Text = comboBox1.Text;
