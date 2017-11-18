@@ -145,7 +145,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.treeView1);
             this.splitContainer1.Panel1.Controls.Add(this.menuStrip3);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1MinSize = 400;
+            this.splitContainer1.Panel1MinSize = 450;
             // 
             // splitContainer1.Panel2
             // 
@@ -158,7 +158,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.treeView2);
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2MinSize = 400;
+            this.splitContainer1.Panel2MinSize = 450;
             this.splitContainer1.Size = new System.Drawing.Size(1100, 495);
             this.splitContainer1.SplitterDistance = 545;
             this.splitContainer1.TabIndex = 0;
@@ -913,7 +913,7 @@
             this.ClientSize = new System.Drawing.Size(1100, 520);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
-            this.MinimumSize = new System.Drawing.Size(900, 550);
+            this.MinimumSize = new System.Drawing.Size(925, 550);
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.Load += new System.EventHandler(this.fmrMain_Load);
