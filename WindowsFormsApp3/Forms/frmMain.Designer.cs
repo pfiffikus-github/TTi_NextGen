@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.treeView3 = new System.Windows.Forms.TreeView();
             this.contextHistory = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -66,7 +65,6 @@
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.treeView4 = new System.Windows.Forms.TreeView();
             this.button4 = new System.Windows.Forms.Button();
@@ -138,7 +136,6 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
             this.splitContainer1.Panel1.Controls.Add(this.treeView3);
             this.splitContainer1.Panel1.Controls.Add(this.checkBox1);
@@ -146,12 +143,11 @@
             this.splitContainer1.Panel1.Controls.Add(this.treeView1);
             this.splitContainer1.Panel1.Controls.Add(this.menuStrip3);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1MinSize = 425;
+            this.splitContainer1.Panel1MinSize = 375;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.DimGray;
-            this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.comboBox2);
             this.splitContainer1.Panel2.Controls.Add(this.treeView4);
             this.splitContainer1.Panel2.Controls.Add(this.button4);
@@ -159,21 +155,10 @@
             this.splitContainer1.Panel2.Controls.Add(this.treeView2);
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2MinSize = 425;
-            this.splitContainer1.Size = new System.Drawing.Size(1100, 495);
-            this.splitContainer1.SplitterDistance = 545;
+            this.splitContainer1.Panel2MinSize = 375;
+            this.splitContainer1.Size = new System.Drawing.Size(784, 486);
+            this.splitContainer1.SplitterDistance = 388;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(311, 337);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Speichern";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
@@ -181,7 +166,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(4, 338);
+            this.comboBox1.Location = new System.Drawing.Point(4, 329);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(93, 21);
             this.comboBox1.TabIndex = 12;
@@ -196,11 +181,11 @@
             this.treeView3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView3.ForeColor = System.Drawing.Color.DimGray;
             this.treeView3.ItemHeight = 14;
-            this.treeView3.Location = new System.Drawing.Point(3, 366);
+            this.treeView3.Location = new System.Drawing.Point(3, 357);
             this.treeView3.Name = "treeView3";
             this.treeView3.ShowLines = false;
             this.treeView3.ShowRootLines = false;
-            this.treeView3.Size = new System.Drawing.Size(539, 126);
+            this.treeView3.Size = new System.Drawing.Size(382, 126);
             this.treeView3.TabIndex = 7;
             this.treeView3.TabStop = false;
             // 
@@ -223,7 +208,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(102, 341);
+            this.checkBox1.Location = new System.Drawing.Point(102, 332);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(71, 17);
             this.checkBox1.TabIndex = 6;
@@ -237,7 +222,7 @@
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Enabled = false;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(392, 337);
+            this.button1.Location = new System.Drawing.Point(235, 328);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 23);
             this.button1.TabIndex = 4;
@@ -253,7 +238,7 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 53);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(539, 278);
+            this.treeView1.Size = new System.Drawing.Size(382, 269);
             this.treeView1.TabIndex = 3;
             // 
             // contextLeft
@@ -477,21 +462,10 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(542, 50);
+            this.label1.Size = new System.Drawing.Size(385, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Werkzeugliste\r\n\r\n*.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(317, 337);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Speichern";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // comboBox2
             // 
@@ -499,7 +473,7 @@
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Enabled = false;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(4, 338);
+            this.comboBox2.Location = new System.Drawing.Point(4, 329);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(93, 21);
             this.comboBox2.TabIndex = 11;
@@ -513,11 +487,11 @@
             this.treeView4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView4.ForeColor = System.Drawing.Color.DimGray;
             this.treeView4.ItemHeight = 14;
-            this.treeView4.Location = new System.Drawing.Point(3, 366);
+            this.treeView4.Location = new System.Drawing.Point(3, 357);
             this.treeView4.Name = "treeView4";
             this.treeView4.ShowLines = false;
             this.treeView4.ShowRootLines = false;
-            this.treeView4.Size = new System.Drawing.Size(545, 126);
+            this.treeView4.Size = new System.Drawing.Size(386, 126);
             this.treeView4.TabIndex = 9;
             this.treeView4.TabStop = false;
             // 
@@ -526,7 +500,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Enabled = false;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button4.Location = new System.Drawing.Point(398, 337);
+            this.button4.Location = new System.Drawing.Point(239, 328);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 23);
             this.button4.TabIndex = 8;
@@ -540,7 +514,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Enabled = false;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox2.Location = new System.Drawing.Point(102, 341);
+            this.checkBox2.Location = new System.Drawing.Point(102, 332);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(71, 17);
             this.checkBox2.TabIndex = 7;
@@ -559,7 +533,7 @@
             this.treeView2.Location = new System.Drawing.Point(3, 53);
             this.treeView2.Name = "treeView2";
             this.treeView2.ShowRootLines = false;
-            this.treeView2.Size = new System.Drawing.Size(545, 278);
+            this.treeView2.Size = new System.Drawing.Size(386, 269);
             this.treeView2.TabIndex = 4;
             // 
             // contextRight
@@ -799,7 +773,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(548, 50);
+            this.label2.Size = new System.Drawing.Size(389, 50);
             this.label2.TabIndex = 1;
             this.label2.Text = "CNC-Programm\r\n\r\n*.h";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -812,9 +786,9 @@
             this.toolStripStatusLabel2,
             this.toolStripProgressBar1,
             this.timeStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 498);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 489);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1100, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -828,7 +802,7 @@
             this.infoMaschineToolStripMenuItem,
             this.toolStripMenuItem9});
             this.contextMachine.Name = "contextMachine";
-            this.contextMachine.Size = new System.Drawing.Size(161, 158);
+            this.contextMachine.Size = new System.Drawing.Size(161, 136);
             // 
             // toolStripMenuItem5
             // 
@@ -920,10 +894,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(1100, 520);
+            this.ClientSize = new System.Drawing.Size(784, 511);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
-            this.MinimumSize = new System.Drawing.Size(880, 550);
+            this.MinimumSize = new System.Drawing.Size(800, 550);
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.Load += new System.EventHandler(this.fmrMain_Load);
@@ -1032,8 +1006,6 @@
         private System.Windows.Forms.ToolStripMenuItem verlaufLeerenToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem infoMaschineToolStripMenuItem;
     }
 }

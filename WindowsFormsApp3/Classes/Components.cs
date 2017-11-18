@@ -178,10 +178,10 @@ namespace TTi_NextGen
             Name = DefaultMachineName;
             IP = "127.0.0.1";
             ToolTable = @"TNC:\Tool.t";
-            InvalideToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
+            InvalidToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
             ProjectDirectory = @"TNC:\Bauteile\";
             MaxToolRange = 32;
-            InvalidToolNumber = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            RestrictivToolNumbers = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         }
 
         public const string DefaultMachineName = "DefaultMachine";
@@ -206,7 +206,7 @@ namespace TTi_NextGen
 
         public string ToolTable { get; set; }
 
-        public string InvalideToolNameCharakters { get; set; }
+        public string InvalidToolNameCharakters { get; set; }
 
         private int myMaxToolRange;
         public int MaxToolRange
@@ -222,8 +222,8 @@ namespace TTi_NextGen
             }
         }
 
-        public int[] InvalidToolNumber { get; set; }
-        
+        public int[] RestrictivToolNumbers { get; set; }
+
         public string ProjectDirectory { get; set; }
 
         public override string ToString()
@@ -231,7 +231,7 @@ namespace TTi_NextGen
             return Name;
         }
     }
-    
+
     public static class App
     {
         public static LocalSettings InitLocalSettings()
@@ -273,7 +273,7 @@ namespace TTi_NextGen
                 }
                 else
                 {
-                    myMachines.Add(new Machine() );
+                    myMachines.Add(new Machine());
                     myMachines.SerializeXML(path);
                 }
 
@@ -421,13 +421,14 @@ namespace TTi_NextGen
     {
         public const string ToolCallString = "TOOL CALL";
 
-        public CNCProgram(FileInfo file)
+        public CNCProgram(FileInfo file, int[] restrictivToolNumber)
         {
             File = file;
             CountOfRestrictiveToolValues = 0;   //in DetectIsToolRangeConsistent() neu initalisiert
             OriginalToolRange = 0;              //in DetectIsToolRangeConsistent() neu initalisiert
             FirstNotRestrictiveToolValue = 0;   //in DetectIsToolRangeConsistent() neu initalisiert
             OnlyRestrictiveToolValues = false;  //in DetectIsToolRangeConsistent() neu initalisiert
+            RestrictivToolNumbers = restrictivToolNumber;
             FileContent = System.IO.File.ReadAllText(File.FullName);
             MatchesOfToolCalls = GetDetectMatchesOfToolCalls();
             IsToolRangeConsistent = DetectIsToolRangeConsistent();
@@ -452,6 +453,7 @@ namespace TTi_NextGen
         public bool OnlyRestrictiveToolValues { get; private set; }
         public int FirstNotRestrictiveToolValue { get; private set; }
         public int CountOfRestrictiveToolValues { get; private set; }
+        public int[] RestrictivToolNumbers { get; set; }
 
         private MatchCollection GetDetectMatchesOfToolCalls()
         {
@@ -600,10 +602,17 @@ namespace TTi_NextGen
 
         private bool IsRestrictiveToolValue(decimal toolValue)
         {
-            if (toolValue <= 18)
+            if (RestrictivToolNumbers != null)
             {
-                return true;
+                foreach (int item in RestrictivToolNumbers)
+                {
+                    if (toolValue == item)
+                    {
+                        return true;
+                    }
+                }
             }
+
             return false;
         }
 

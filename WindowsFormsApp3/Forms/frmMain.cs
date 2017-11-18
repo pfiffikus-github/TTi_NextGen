@@ -286,7 +286,7 @@ namespace TTi_NextGen
                 comboBox1.Items.Add((i * 1000).ToString() + "..." + ((i * 1000) + 999).ToString());
                 comboBox2.Items.Add((i * 1000).ToString() + "..." + ((i * 1000) + 999).ToString());
             }
-            
+
 
             if (tmpRangeToolList >= myMachine.MaxToolRange)
             {
@@ -305,13 +305,23 @@ namespace TTi_NextGen
             {
                 comboBox2.SelectedIndex = tmpRangeCNCPorgramm;
             }
-            
+
 
             WriteHistory("Maschine '" + myMachine.Name + "' geladen" + _subString, StatusBox.Both, HistoryMessageType.Information);
         }
 
         private void lblSelectedMachine_Click(object sender, EventArgs e)
         {
+            //if (myCNCProgram != null)
+            //{
+            //    if (MessageBox.Show("CNC-Programm bereits geladen: " + myCNCProgram.File.Name +
+            //        "\n\nBei Auswahl einer anderen Maschine wird das CNC-Programm erneut " +
+            //        "geladen/aktualisiert.\n\nMöchten Sie fortfahren?", "Hinweis", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+            //    {
+            //        return;
+            //    }
+            //}
+
             frmChooseMachine _cm = new frmChooseMachine();
             String _selectedMachine = _cm.ShowDia(myMachine.ToString(), myMachines.ListOfMachines());
 
@@ -326,6 +336,10 @@ namespace TTi_NextGen
                 {
                     myMachine = _Machine;
                     UpdateControls();
+                    if (myCNCProgram != null)
+                    {
+                        öffnenToolStripMenuItem1_Click(aktualisierenToolStripMenuItem, null);
+                    }
                     return;
                 }
             }
@@ -360,7 +374,8 @@ namespace TTi_NextGen
                 if (_ofd.ShowDialog() == DialogResult.OK)
                 {
                     myCNCProgram = null;
-                    myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName));
+                    myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName), myMachine.RestrictivToolNumbers);
+
                     EnabledCNCProgrammControls();
                     BuildTreeViewCNCProgram(true);
                 }
@@ -375,7 +390,7 @@ namespace TTi_NextGen
                 myCNCProgram = null;
                 try
                 {
-                    myCNCProgram = new CNCProgram(new FileInfo(_file));
+                    myCNCProgram = new CNCProgram(new FileInfo(_file), myMachine.RestrictivToolNumbers);
                 }
                 catch (Exception)
                 {
@@ -387,7 +402,6 @@ namespace TTi_NextGen
             }
 
             //write history
-
             WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false);
 
             if (myCNCProgram.IsToolRangeConsistent != true)
@@ -405,7 +419,6 @@ namespace TTi_NextGen
             }
 
             //list Tool-Numbers to History
-
             string _line = "[";
             foreach (string _str in myCNCProgram.EachToolCallValues())
             {
@@ -416,8 +429,10 @@ namespace TTi_NextGen
             WriteHistory(_line, StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, true);
 
             //lbl-Text
-
             label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
+
+            //set restrictivToolValues
+
 
         }
 
@@ -449,7 +464,6 @@ namespace TTi_NextGen
             tOOLCALLInformationenToolStripMenuItem.Enabled = _Enabled;
             toolStripMenuItem7.Enabled = _Enabled;
             comboBox2.Enabled = _Enabled;
-            button3.Enabled = _Enabled;
         }
 
         private void schließenToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -473,22 +487,8 @@ namespace TTi_NextGen
 
         private void BuildTreeViewCNCProgram(bool ShowOnlyToolCall)
         {
-
-
             if (myCNCProgram != null)
             {
-                //---------------------------------------------------------------------------------
-
-
-
-
-
-
-
-                //-----------------------------------------------------------------------------------
-
-
-
                 if (myCNCProgram.OriginalToolRange >= myMachine.MaxToolRange)
                 {
                     comboBox2.SelectedIndex = 0;
@@ -497,11 +497,6 @@ namespace TTi_NextGen
                 {
                     comboBox2.SelectedIndex = myCNCProgram.OriginalToolRange;
                 }
-
-
-
-
-
 
                 string[] _lines = new string[] { };
 
@@ -514,9 +509,6 @@ namespace TTi_NextGen
                     treeView2.Nodes.Add(_line);
                 }
                 treeView2.EndUpdate();
-
-
-
             }
             else
             {
