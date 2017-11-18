@@ -315,7 +315,7 @@ namespace TTi_NextGen
         private void myNumericUpDown2_ValueChanged(object sender, EventArgs e)
         {
 
-            button4.Text = "CNC-Programm in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() +  " übertragen";
+            button4.Text = "CNC-Programm in Bereich " + (myNumericUpDown2.Value * 1000).ToString() + "..." + (myNumericUpDown2.Value * 1000 + 999).ToString() + " übertragen";
 
             if (checkBox1.CheckState == CheckState.Checked) //für Sync
             {
@@ -371,11 +371,20 @@ namespace TTi_NextGen
                     return;
                 }
             }
-            else
+            else //Aktualisieren
             {
                 string _file = myCNCProgram.File.FullName;
                 myCNCProgram = null;
-                myCNCProgram = new CNCProgram(new FileInfo(_file));
+                try
+                {
+                    myCNCProgram = new CNCProgram(new FileInfo(_file));
+                }
+                catch (Exception)
+                {
+                    WriteHistory("CNC-Programm '" + Path.GetFileName(_file) + "' nicht mehr gefunden -> CNC-Programm wird entladen", StatusBox.Right, HistoryMessageType.Error, FontStyle.Bold);
+                    schließenToolStripMenuItem1_Click(null, null);
+                    return;
+                }
                 BuildTreeViewCNCProgram(true);
             }
 
