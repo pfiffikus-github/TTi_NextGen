@@ -181,6 +181,7 @@ namespace TTi_NextGen
             InvalideToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
             ProjectDirectory = @"TNC:\Bauteile\";
             MaxToolRange = 32;
+            InvalidToolNumber = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         }
 
         public const string DefaultMachineName = "DefaultMachine";
@@ -221,6 +222,8 @@ namespace TTi_NextGen
             }
         }
 
+        public int[] InvalidToolNumber { get; set; }
+        
         public string ProjectDirectory { get; set; }
 
         public override string ToString()
@@ -229,42 +232,6 @@ namespace TTi_NextGen
         }
     }
     
-
-
-    public class RestrictiveToolValues : Collection<RestrictiveToolValue>
-    {
-        public RestrictiveToolValues() : base() { }
-
-        public override string ToString()
-        {
-            string _elements = "";
-
-            foreach (var item in this)
-            {
-                _elements += item + "\n";
-            }
-            return _elements;
-        }
-    }
-
-    public class RestrictiveToolValue
-    {
-        RestrictiveToolValue()
-        {
-            RangeBegins = 0;
-            RangeEnds = 10;
-        }
-
-        public int RangeBegins { get; set; }
-
-        public int RangeEnds { get; set; }
-
-        public override string ToString()
-        {
-            return RangeBegins.ToString() + " - " + RangeEnds.ToString();
-        }
-    }
-
     public static class App
     {
         public static LocalSettings InitLocalSettings()
@@ -306,7 +273,7 @@ namespace TTi_NextGen
                 }
                 else
                 {
-                    myMachines.Add(new Machine());
+                    myMachines.Add(new Machine() );
                     myMachines.SerializeXML(path);
                 }
 

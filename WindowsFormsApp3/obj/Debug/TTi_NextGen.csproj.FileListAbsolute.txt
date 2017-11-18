@@ -11,3 +11,4 @@ C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.frm
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.frmMain.resources
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.frmIP.resources
 C:\Users\mht\Source\Repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.frmChooseMachine.resources
+C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.frmProp.resources

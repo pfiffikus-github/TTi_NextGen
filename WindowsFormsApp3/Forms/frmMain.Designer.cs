@@ -106,6 +106,7 @@
             this.viewHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.protokolleAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoMaschineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.lblSelectedMachine = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -145,7 +146,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.treeView1);
             this.splitContainer1.Panel1.Controls.Add(this.menuStrip3);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1MinSize = 450;
+            this.splitContainer1.Panel1MinSize = 425;
             // 
             // splitContainer1.Panel2
             // 
@@ -158,7 +159,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.treeView2);
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2MinSize = 450;
+            this.splitContainer1.Panel2MinSize = 425;
             this.splitContainer1.Size = new System.Drawing.Size(1100, 495);
             this.splitContainer1.SplitterDistance = 545;
             this.splitContainer1.TabIndex = 0;
@@ -180,7 +181,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 337);
+            this.comboBox1.Location = new System.Drawing.Point(4, 338);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(93, 21);
             this.comboBox1.TabIndex = 12;
@@ -190,7 +191,7 @@
             // 
             this.treeView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView3.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.treeView3.BackColor = System.Drawing.SystemColors.Window;
             this.treeView3.ContextMenuStrip = this.contextHistory;
             this.treeView3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView3.ForeColor = System.Drawing.Color.DimGray;
@@ -222,7 +223,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(102, 340);
+            this.checkBox1.Location = new System.Drawing.Point(102, 341);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(71, 17);
             this.checkBox1.TabIndex = 6;
@@ -498,7 +499,7 @@
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Enabled = false;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 337);
+            this.comboBox2.Location = new System.Drawing.Point(4, 338);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(93, 21);
             this.comboBox2.TabIndex = 11;
@@ -539,7 +540,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Enabled = false;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox2.Location = new System.Drawing.Point(102, 340);
+            this.checkBox2.Location = new System.Drawing.Point(102, 341);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(71, 17);
             this.checkBox2.TabIndex = 7;
@@ -824,9 +825,10 @@
             this.viewHistory,
             this.protokolleAnzeigenToolStripMenuItem,
             this.backupsToolStripMenuItem,
+            this.infoMaschineToolStripMenuItem,
             this.toolStripMenuItem9});
             this.contextMachine.Name = "contextMachine";
-            this.contextMachine.Size = new System.Drawing.Size(161, 114);
+            this.contextMachine.Size = new System.Drawing.Size(161, 158);
             // 
             // toolStripMenuItem5
             // 
@@ -856,6 +858,13 @@
             this.backupsToolStripMenuItem.Name = "backupsToolStripMenuItem";
             this.backupsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.backupsToolStripMenuItem.Text = "Backups";
+            // 
+            // infoMaschineToolStripMenuItem
+            // 
+            this.infoMaschineToolStripMenuItem.Name = "infoMaschineToolStripMenuItem";
+            this.infoMaschineToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.infoMaschineToolStripMenuItem.Text = "Info-Maschine";
+            this.infoMaschineToolStripMenuItem.Click += new System.EventHandler(this.infoMaschineToolStripMenuItem_Click);
             // 
             // toolStripMenuItem9
             // 
@@ -914,7 +923,7 @@
             this.ClientSize = new System.Drawing.Size(1100, 520);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
-            this.MinimumSize = new System.Drawing.Size(925, 550);
+            this.MinimumSize = new System.Drawing.Size(880, 550);
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.Load += new System.EventHandler(this.fmrMain_Load);
@@ -1025,6 +1034,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ToolStripMenuItem infoMaschineToolStripMenuItem;
     }
 }
 

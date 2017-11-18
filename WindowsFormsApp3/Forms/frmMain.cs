@@ -274,17 +274,9 @@ namespace TTi_NextGen
                 _subString = " (= Standardmaschine)";
             }
 
-
-
-
-
-
-
-
-
-
             int tmpRangeToolList = comboBox1.SelectedIndex;
             int tmpRangeCNCPorgramm = comboBox2.SelectedIndex;
+
 
             int maxToolRange = myMachine.MaxToolRange;
             comboBox1.Items.Clear();
@@ -294,9 +286,7 @@ namespace TTi_NextGen
                 comboBox1.Items.Add((i * 1000).ToString() + "..." + ((i * 1000) + 999).ToString());
                 comboBox2.Items.Add((i * 1000).ToString() + "..." + ((i * 1000) + 999).ToString());
             }
-
-
-
+            
 
             if (tmpRangeToolList >= myMachine.MaxToolRange)
             {
@@ -315,18 +305,7 @@ namespace TTi_NextGen
             {
                 comboBox2.SelectedIndex = tmpRangeCNCPorgramm;
             }
-
-
-
-
-
-
-
-
-
-
-
-
+            
 
             WriteHistory("Maschine '" + myMachine.Name + "' geladen" + _subString, StatusBox.Both, HistoryMessageType.Information);
         }
@@ -599,6 +578,12 @@ namespace TTi_NextGen
             {
                 comboBox1.Font = new Font(comboBox1.Font, FontStyle.Regular);
             }
+        }
+
+        private void infoMaschineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProp _frmProp = new frmProp(myMachine);
+            _frmProp.ShowDialog();
         }
     }
 
