@@ -16,6 +16,7 @@ namespace TTi_NextGen
         Machines myMachines;
         Machine myMachine;
         CNCProgram myCNCProgram;
+        bool myNetworkDriveAvailable = true ;
 
         public frmMain()
         {
@@ -144,7 +145,7 @@ namespace TTi_NextGen
 
             WriteHistory("@" + Dns.GetHostName() + " Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Information);
 
-            frmConfig _frmConfig = new frmConfig();
+            frmConfig _frmConfig = new frmConfig(myNetworkDriveAvailable);
 
             _frmConfig.ShowDialog();
 
@@ -159,6 +160,8 @@ namespace TTi_NextGen
         private void ReadOrInitSettings()
         {
             myLocalSettings = App.InitLocalSettings();      //lese Lokale Einstellungen
+            toolStripStatusLabel1.Text = ""; //status Netzlaufwerk
+
 
             if (Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) != Path.GetPathRoot(Application.StartupPath)) //prüfe, ob Netzlaufwerk verwendet wird
             {
@@ -173,11 +176,14 @@ namespace TTi_NextGen
                 else
                 {
                     myMachines = App.InitMachines(Application.StartupPath);
+                    myNetworkDriveAvailable = false;
 
-                    WriteHistory("Die Maschinen konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, true, false);
-                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, false);
+                    toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar";
 
-                    MessageBox.Show("Die Maschinen konnten nicht im Netzlaufwerk\n\n'" + myLocalSettings.PublicSettingsDirectory + "'\n\ngeladen werden.\n\nEs wird ein lokales Backup der Maschinen-Datei verwendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, true, false);
+                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet.", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, false);
+
+                    MessageBox.Show("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.\n\nEs wird ein lokales Backup der Maschinen-Datei verwendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

@@ -9,10 +9,12 @@ namespace TTi_NextGen
     {
         LocalSettings myLocalSettings = new LocalSettings();
         Machines myMachines = new Machines();
+        bool myNetworkDriveAvailable;
 
-        public frmConfig()
+        public frmConfig(bool networkDriveAvailable)
         {
             InitializeComponent();
+            myNetworkDriveAvailable = networkDriveAvailable;
         }
 
         private void frmConfig_Load(object sender, EventArgs e)
@@ -46,16 +48,25 @@ namespace TTi_NextGen
             {
                 myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
             }
-            
+
             myLocalSettings.Machines = myMachines;
             myLocalSettings.DefaultMachineBackground = myMachines.ListOfMachines();
-            
+
         }
 
         private void OK_Click(object sender, EventArgs e)
         {
             myLocalSettings.SerializeXML();
-            myMachines.SerializeXML(myLocalSettings.PublicSettingsDirectory);
+
+            if (myNetworkDriveAvailable == false)
+            {
+                MessageBox.Show("Das Netzlaufwerk '" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' ist nicht verfügbar, weshalb die öffentlichen Einstellungen (Maschinen) nicht gespeichert werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                myMachines.SerializeXML(myLocalSettings.PublicSettingsDirectory);
+            }
+
             DialogResult = DialogResult.OK;
         }
 
@@ -63,6 +74,7 @@ namespace TTi_NextGen
         {
             DialogResult = DialogResult.Cancel;
         }
+
 
 
     }

@@ -112,6 +112,7 @@
             this.timeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerMainFrm = new System.Windows.Forms.Timer(this.components);
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -787,6 +788,7 @@
             this.lblSelectedMachine,
             this.toolStripStatusLabel2,
             this.toolStripProgressBar1,
+            this.toolStripStatusLabel1,
             this.timeStatus});
             this.statusStrip1.Location = new System.Drawing.Point(0, 489);
             this.statusStrip1.Name = "statusStrip1";
@@ -874,8 +876,7 @@
             // 
             this.timeStatus.ForeColor = System.Drawing.Color.DimGray;
             this.timeStatus.Name = "timeStatus";
-            this.timeStatus.Size = new System.Drawing.Size(337, 17);
-            this.timeStatus.Spring = true;
+            this.timeStatus.Size = new System.Drawing.Size(27, 17);
             this.timeStatus.Text = "D/T";
             this.timeStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -890,6 +891,15 @@
             this.pfadÖffnenToolStripMenuItem.Name = "pfadÖffnenToolStripMenuItem";
             this.pfadÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.pfadÖffnenToolStripMenuItem.Text = "Pfad öffnen";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(279, 17);
+            this.toolStripStatusLabel1.Spring = true;
+            this.toolStripStatusLabel1.Text = "Hinweis";
+            this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmMain
             // 
@@ -1009,6 +1019,7 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ToolStripMenuItem infoMaschineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
