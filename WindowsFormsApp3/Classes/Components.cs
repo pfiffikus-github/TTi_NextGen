@@ -17,7 +17,7 @@ namespace TTi_NextGen
         public LocalSettings()
         {
             ShowAllMachines = true;
-            ShowHistory = false;
+            ShowHistory = true;
             CloseAppAfterSync = false;
             LocalSettingsDirectory = Application.StartupPath;
             PublicSettingsDirectory = Application.StartupPath;
@@ -517,7 +517,7 @@ namespace TTi_NextGen
         {
             if (IsToolRangeConsistent == false && showErrAtInconsistency)
             {
-                DialogResult result = MessageBox.Show(GetNoteText() + "\n" + "\n" + this.ToString() + "\n" + "Neuen ToolRange dennoch in '" + newRange.ToString() + "' ändern?", "HINWEIS... " + App.Title(),
+                DialogResult result = MessageBox.Show(GetNoteText() + "\n" + "\n" + this.ToString() + "\n\n" + "Neuen ToolRange dennoch in '" + newRange.ToString() + "' ändern?", "HINWEIS... " + App.Title(),
                                                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if (result == DialogResult.No) { return; }
             }

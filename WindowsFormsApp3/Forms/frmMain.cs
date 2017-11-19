@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using Microsoft.VisualBasic;
 using System.Diagnostics;
+using System.Net;
 
 namespace TTi_NextGen
 {
@@ -27,15 +28,20 @@ namespace TTi_NextGen
             if (checkBox1.CheckState == CheckState.Checked)
             {
                 comboBox1.SelectedIndex = comboBox2.SelectedIndex;
-                checkBox1.ForeColor = Color.OrangeRed;
-                checkBox2.ForeColor = Color.OrangeRed;
+                checkBox1.Font = new Font(checkBox1.Font, FontStyle.Bold);
+                checkBox2.Font = new Font(checkBox2.Font, FontStyle.Bold);
+
+                //checkBox1.ForeColor = Color.OrangeRed;
+                //checkBox2.ForeColor = Color.OrangeRed;
                 //comboBox1.ForeColor = Color.OrangeRed;
                 //comboBox2.ForeColor = Color.OrangeRed;
             }
             else
             {
-                checkBox1.ForeColor = Color.Black;
-                checkBox2.ForeColor = Color.Black;
+                checkBox1.Font = new Font(checkBox1.Font, FontStyle.Regular);
+                checkBox2.Font = new Font(checkBox2.Font, FontStyle.Regular);
+                //checkBox1.ForeColor = Color.Black;
+                //checkBox2.ForeColor = Color.Black;
                 //comboBox1.ForeColor = Color.Black;
                 //comboBox2.ForeColor = Color.Black;
             }
@@ -47,15 +53,19 @@ namespace TTi_NextGen
             if (checkBox2.CheckState == CheckState.Checked)
             {
                 comboBox2.SelectedIndex = comboBox1.SelectedIndex;
-                checkBox1.ForeColor = Color.OrangeRed;
-                checkBox2.ForeColor = Color.OrangeRed;
+                checkBox1.Font = new Font(checkBox1.Font, FontStyle.Bold);
+                checkBox2.Font = new Font(checkBox2.Font, FontStyle.Bold);
+                //checkBox1.ForeColor = Color.OrangeRed;
+                //checkBox2.ForeColor = Color.OrangeRed;
                 //comboBox1.ForeColor = Color.OrangeRed;
                 //comboBox2.ForeColor = Color.OrangeRed;
             }
             else
             {
-                checkBox1.ForeColor = Color.Black;
-                checkBox2.ForeColor = Color.Black;
+                checkBox1.Font = new Font(checkBox1.Font, FontStyle.Regular);
+                checkBox2.Font = new Font(checkBox2.Font, FontStyle.Regular);
+                //checkBox1.ForeColor = Color.Black;
+                //checkBox2.ForeColor = Color.Black;
                 //comboBox1.ForeColor = Color.Black;
                 //comboBox2.ForeColor = Color.Black;
             }
@@ -89,6 +99,11 @@ namespace TTi_NextGen
 
         private void fmrMain_Load(object sender, EventArgs e)
         {
+            WriteHistory("@" + Dns.GetHostName() + " Werkzeugliste", StatusBox.Left, HistoryMessageType.Information);
+            WriteHistory("@" + Dns.GetHostName() + " CNC-Programm", StatusBox.Right, HistoryMessageType.Information);
+
+
+
             ReadOrInitSettings();
 
             this.Text = App.Title() + " " + App.Version();
@@ -129,7 +144,7 @@ namespace TTi_NextGen
         {
             //if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "123") { return; }
 
-            WriteHistory("Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Warning);
+            WriteHistory("@" + Dns.GetHostName() + " Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Warning);
 
             frmConfig _frmConfig = new frmConfig();
 
@@ -139,7 +154,7 @@ namespace TTi_NextGen
             {
                 ReadOrInitSettings();
                 UpdateControls();
-                WriteHistory("Konfiguration editiert", StatusBox.Both, HistoryMessageType.Warning);
+                WriteHistory("@" + Dns.GetHostName() + " Konfiguration editiert", StatusBox.Both, HistoryMessageType.Warning);
             }
         }
 
@@ -386,6 +401,7 @@ namespace TTi_NextGen
             }
             else //Aktualisieren
             {
+                comboBox2.SelectedIndex = comboBox2.SelectedIndex - 1;
                 string _file = myCNCProgram.File.FullName;
                 myCNCProgram = null;
                 try
@@ -500,13 +516,23 @@ namespace TTi_NextGen
 
                 string[] _lines = new string[] { };
 
-                _lines = myCNCProgram.Lines();      //--> .Lines als Property in CNCProgramm implementieren!!!
+                //_lines = myCNCProgram.Lines();      //--> .Lines als Property in CNCProgramm implementieren!!!
 
                 treeView2.BeginUpdate();
                 treeView2.Nodes.Clear();
-                foreach (var _line in _lines)
+                foreach (var _line in myCNCProgram.FileContent.Split('\n'))
                 {
-                    treeView2.Nodes.Add(_line);
+                    TreeNode _newNode = treeView2.Nodes.Add(_line);
+
+                    if (_line.Contains(CNCProgram.ToolCallString))
+                    {
+                        _newNode.ForeColor = Color.Blue;
+                        _newNode.BackColor = Color.LightBlue;
+                        _newNode.NodeFont = new Font(treeView2.Font, FontStyle.Bold);
+                    }
+
+
+
                 }
                 treeView2.EndUpdate();
             }
@@ -525,18 +551,37 @@ namespace TTi_NextGen
 
         }
 
-        private int ExtractInt(string AtString) //aus 1000...1999, 1 extrahieren 
+        private int ExtractInt(string AtString = "0") //aus 1000...1999, 1 extrahieren 
         {
             string[] _tmpStr = new string[] { };
 
             _tmpStr = AtString.Split(new string[1] { "..." }, 2, StringSplitOptions.None);
 
-            return int.Parse(_tmpStr[0]) / 1000;
+            try
+            {
+                return int.Parse(_tmpStr[0]) / 1000;
+            }
+            catch (Exception)
+            {
+
+                return -1;
+            }
+
+
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (myCNCProgram == null) { return; }
+
+            if (myCNCProgram.OriginalToolRange != ExtractInt(comboBox2.Text))
+            {
+                speichernToolStripMenuItem1.Enabled = true;
+            }
+            else
+            {
+                speichernToolStripMenuItem1.Enabled = false;
+            }
 
             if (checkBox1.CheckState == CheckState.Checked) //für Sync
             {
@@ -577,6 +622,11 @@ namespace TTi_NextGen
             frmProp _frmProp = new frmProp(myMachine);
             _frmProp.ShowDialog();
         }
-    }
 
+        private void speichernToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            myCNCProgram.ChangeToolRange(ExtractInt(comboBox2.Text), true);
+            öffnenToolStripMenuItem1_Click(aktualisierenToolStripMenuItem, null);
+        }
+    }
 }

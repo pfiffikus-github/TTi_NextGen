@@ -633,6 +633,7 @@
             this.speichernToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
             this.speichernToolStripMenuItem1.Tag = "CNCProgram";
             this.speichernToolStripMenuItem1.Text = "Speichern";
+            this.speichernToolStripMenuItem1.Click += new System.EventHandler(this.speichernToolStripMenuItem1_Click);
             // 
             // speichernUnterToolStripMenuItem1
             // 
@@ -872,7 +873,7 @@
             // 
             this.timeStatus.ForeColor = System.Drawing.Color.DimGray;
             this.timeStatus.Name = "timeStatus";
-            this.timeStatus.Size = new System.Drawing.Size(653, 17);
+            this.timeStatus.Size = new System.Drawing.Size(337, 17);
             this.timeStatus.Spring = true;
             this.timeStatus.Text = "D/T";
             this.timeStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
