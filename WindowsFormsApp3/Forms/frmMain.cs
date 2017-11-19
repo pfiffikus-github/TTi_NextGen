@@ -102,8 +102,6 @@ namespace TTi_NextGen
             WriteHistory("@" + Dns.GetHostName() + " Werkzeugliste", StatusBox.Left, HistoryMessageType.Information);
             WriteHistory("@" + Dns.GetHostName() + " CNC-Programm", StatusBox.Right, HistoryMessageType.Information);
 
-
-
             ReadOrInitSettings();
 
             this.Text = App.Title() + " " + App.Version();
@@ -144,7 +142,7 @@ namespace TTi_NextGen
         {
             //if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "123") { return; }
 
-            WriteHistory("@" + Dns.GetHostName() + " Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Warning);
+            WriteHistory("@" + Dns.GetHostName() + " Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Information);
 
             frmConfig _frmConfig = new frmConfig();
 
@@ -154,7 +152,7 @@ namespace TTi_NextGen
             {
                 ReadOrInitSettings();
                 UpdateControls();
-                WriteHistory("@" + Dns.GetHostName() + " Konfiguration editiert", StatusBox.Both, HistoryMessageType.Warning);
+                WriteHistory("@" + Dns.GetHostName() + " Konfiguration editiert", StatusBox.Both, HistoryMessageType.Information);
             }
         }
 
@@ -410,7 +408,7 @@ namespace TTi_NextGen
                 }
                 catch (Exception)
                 {
-                    WriteHistory("CNC-Programm '" + Path.GetFileName(_file) + "' nicht mehr gefunden -> CNC-Programm wird entladen", StatusBox.Right, HistoryMessageType.Error, FontStyle.Bold);
+                    WriteHistory("CNC-Programm '" + Path.GetFileName(_file) + "' nicht gefunden -> CNC-Programm wird entladen", StatusBox.Right, HistoryMessageType.Error, FontStyle.Bold);
                     schließenToolStripMenuItem1_Click(null, null);
                     return;
                 }
@@ -418,6 +416,9 @@ namespace TTi_NextGen
             }
 
             //write history
+
+
+
             WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false);
 
             if (myCNCProgram.IsToolRangeConsistent != true)
@@ -434,7 +435,6 @@ namespace TTi_NextGen
                              StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, false);
             }
 
-            //list Tool-Numbers to History
             string _line = "[";
             foreach (string _str in myCNCProgram.EachToolCallValues())
             {
@@ -626,7 +626,21 @@ namespace TTi_NextGen
         private void speichernToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             myCNCProgram.ChangeToolRange(ExtractInt(comboBox2.Text), true);
+            WriteHistory("CNC-Programm '" + myCNCProgram.File.Name + "': Tool-Range erfolgreich in '" + comboBox2.Text + "' geändert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold);
             öffnenToolStripMenuItem1_Click(aktualisierenToolStripMenuItem, null);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            speichernToolStripMenuItem1_Click(null, null);
+        }
     }
+
+
+
+
+
+
+
+
 }

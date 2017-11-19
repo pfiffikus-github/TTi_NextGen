@@ -181,7 +181,7 @@ namespace TTi_NextGen
             InvalidToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
             ProjectDirectory = @"TNC:\Bauteile\";
             MaxToolRange = 32;
-            RestrictivToolNumbers = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            RestrictivToolNumbers = "0,1,2,3,4,5,6,7,8,9,10";
         }
 
         public const string DefaultMachineName = "DefaultMachine";
@@ -222,7 +222,7 @@ namespace TTi_NextGen
             }
         }
 
-        public int[] RestrictivToolNumbers { get; set; }
+        public string RestrictivToolNumbers { get; set; }
 
         public string ProjectDirectory { get; set; }
 
@@ -421,14 +421,33 @@ namespace TTi_NextGen
     {
         public const string ToolCallString = "TOOL CALL";
 
-        public CNCProgram(FileInfo file, int[] restrictivToolNumber)
+        public CNCProgram(FileInfo file, string restrictivToolNumber)
         {
             File = file;
             CountOfRestrictiveToolValues = 0;   //in DetectIsToolRangeConsistent() neu initalisiert
             OriginalToolRange = 0;              //in DetectIsToolRangeConsistent() neu initalisiert
             FirstNotRestrictiveToolValue = 0;   //in DetectIsToolRangeConsistent() neu initalisiert
             OnlyRestrictiveToolValues = false;  //in DetectIsToolRangeConsistent() neu initalisiert
-            RestrictivToolNumbers = restrictivToolNumber;
+            
+            if (restrictivToolNumber.Trim() != "")
+            {
+                int[] _RestrictivToolNumbers = new int[0];
+                string[] _rtn = restrictivToolNumber.Split(',');
+
+                foreach (string item in _rtn)
+                {
+                    Array.Resize(ref _RestrictivToolNumbers, _RestrictivToolNumbers.Length + 1);
+                    
+                    try
+                    {
+                        _RestrictivToolNumbers[_RestrictivToolNumbers.Length - 1] = int.Parse(item.Trim());
+                    }
+                    catch (Exception)
+                    { }
+                }
+                RestrictivToolNumbers = _RestrictivToolNumbers;
+            }  
+
             FileContent = System.IO.File.ReadAllText(File.FullName);
             MatchesOfToolCalls = GetDetectMatchesOfToolCalls();
             IsToolRangeConsistent = DetectIsToolRangeConsistent();
@@ -573,11 +592,11 @@ namespace TTi_NextGen
 
         public string GetNoteText()
         {
-            string nt = "PGM '" + Path.GetFileName(File.Name) + "' ";
+            string nt = "CNC-Programm '" + Path.GetFileName(File.Name) + "': ";
 
             if (this.MatchesOfToolCalls.Count == 0)
             {
-                return nt + "(" + this.MatchesOfToolCalls.Count + "x 'TOOL CALL' enthalten)";
+                return nt + "(" + this.MatchesOfToolCalls.Count + "x '" +  CNCProgram.ToolCallString   +   "' enthalten)";
             }
 
             if (this.OnlyRestrictiveToolValues)
@@ -587,11 +606,11 @@ namespace TTi_NextGen
 
             if (this.IsToolRangeConsistent)
             {
-                return nt + "(" + this.MatchesOfToolCalls.Count + "x 'TOOL CALL' in Tool-Range " + this.OriginalToolRange.ToString() + " gefunden)";
+                return nt + "(" + this.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' in Tool-Range " + this.OriginalToolRange.ToString() + " gefunden)";
             }
             else
             {
-                return nt + "(" + this.MatchesOfToolCalls.Count + "x nicht übereinstimmende 'TOOL CALL' gefunden)";
+                return nt + "(" + this.MatchesOfToolCalls.Count + "x nicht übereinstimmende '" + CNCProgram.ToolCallString + "' gefunden)";
             }
         }
 
