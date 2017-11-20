@@ -100,8 +100,8 @@ namespace TTi_NextGen
 
         private void fmrMain_Load(object sender, EventArgs e)
         {
-            WriteHistory("@" + Dns.GetHostName() + " Werkzeugliste", StatusBox.Left, HistoryMessageType.Information);
-            WriteHistory("@" + Dns.GetHostName() + " CNC-Programm", StatusBox.Right, HistoryMessageType.Information);
+            //WriteHistory("@" + Dns.GetHostName() + " Werkzeugliste", StatusBox.Left, HistoryMessageType.Information);
+            WriteHistory("@" + Dns.GetHostName() + " " + Environment.UserName + ": " + App.Title() + " "  + App.Version() + " gestartet"  , StatusBox.Right, HistoryMessageType.Information);
 
             ReadOrInitSettings();
 
@@ -116,21 +116,19 @@ namespace TTi_NextGen
             {
                 viewHistory.CheckState = CheckState.Checked;
             }
-
-
         }
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
         {
-            int Y = treeView3.Size.Height + 8;
+            int Y = History_1.Size.Height + 8;
 
             if (viewHistory.CheckState != CheckState.Checked)
             {
-                splitContainer1.Size = new Size(splitContainer1.Size.Width, splitContainer1.Size.Height + Y);
+                History_1.Visible = false;
             }
             else
             {
-                splitContainer1.Size = new Size(splitContainer1.Size.Width, splitContainer1.Size.Height - Y);
+                History_1.Visible = true;
             }
         }
 
@@ -265,23 +263,18 @@ namespace TTi_NextGen
             switch (statusBox)
             {
                 case StatusBox.Left:
-                    treeView3.Nodes.Add(_tn); _tn.EnsureVisible();
-                    if (addSpaceLine) { treeView3.Nodes.Add(""); }
                     break;
                 case StatusBox.Right:
-                    History.Nodes.Add(_tn); _tn.EnsureVisible();
-                    if (addSpaceLine) { History.Nodes.Add(""); }
+                    History_1.Nodes.Add(_tn); _tn.EnsureVisible();
+                    if (addSpaceLine) { History_1.Nodes.Add(""); }
                     break;
                 case StatusBox.Both:
-                    treeView3.Nodes.Add(_tn); _tn.EnsureVisible();
-                    if (addSpaceLine) { treeView3.Nodes.Add(""); }
                     TreeNode _tn2 = (TreeNode)_tn.Clone();
-                    History.Nodes.Add(_tn2); _tn2.EnsureVisible();
-                    if (addSpaceLine) { History.Nodes.Add(""); }
+                    History_1.Nodes.Add(_tn2); _tn2.EnsureVisible();
+                    if (addSpaceLine) { History_1.Nodes.Add(""); }
                     break;
                 default:
                     break;
-
             }
         }
 
@@ -640,13 +633,6 @@ namespace TTi_NextGen
         {
             speichernToolStripMenuItem1_Click(null, null);
         }
+
     }
-
-
-
-
-
-
-
-
 }
