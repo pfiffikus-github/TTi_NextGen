@@ -66,7 +66,7 @@
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.treeView4 = new System.Windows.Forms.TreeView();
+            this.History = new System.Windows.Forms.TreeView();
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.treeView2 = new System.Windows.Forms.TreeView();
@@ -109,10 +109,11 @@
             this.lblSelectedMachine = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerMainFrm = new System.Windows.Forms.Timer(this.components);
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -150,7 +151,7 @@
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.DimGray;
             this.splitContainer1.Panel2.Controls.Add(this.comboBox2);
-            this.splitContainer1.Panel2.Controls.Add(this.treeView4);
+            this.splitContainer1.Panel2.Controls.Add(this.History);
             this.splitContainer1.Panel2.Controls.Add(this.button4);
             this.splitContainer1.Panel2.Controls.Add(this.checkBox2);
             this.splitContainer1.Panel2.Controls.Add(this.treeView2);
@@ -480,21 +481,21 @@
             this.comboBox2.TabIndex = 11;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // treeView4
+            // History
             // 
-            this.treeView4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.History.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView4.ContextMenuStrip = this.contextHistory;
-            this.treeView4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView4.ForeColor = System.Drawing.Color.DimGray;
-            this.treeView4.ItemHeight = 14;
-            this.treeView4.Location = new System.Drawing.Point(3, 357);
-            this.treeView4.Name = "treeView4";
-            this.treeView4.ShowLines = false;
-            this.treeView4.ShowRootLines = false;
-            this.treeView4.Size = new System.Drawing.Size(386, 126);
-            this.treeView4.TabIndex = 9;
-            this.treeView4.TabStop = false;
+            this.History.ContextMenuStrip = this.contextHistory;
+            this.History.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.History.ForeColor = System.Drawing.Color.DimGray;
+            this.History.ItemHeight = 14;
+            this.History.Location = new System.Drawing.Point(3, 357);
+            this.History.Name = "History";
+            this.History.ShowLines = false;
+            this.History.ShowRootLines = false;
+            this.History.Size = new System.Drawing.Size(386, 126);
+            this.History.TabIndex = 9;
+            this.History.TabStop = false;
             // 
             // button4
             // 
@@ -788,11 +789,12 @@
             this.lblSelectedMachine,
             this.toolStripStatusLabel2,
             this.toolStripProgressBar1,
+            this.toolStripStatusLabel3,
             this.toolStripStatusLabel1,
             this.timeStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 489);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 487);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(784, 24);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -855,7 +857,7 @@
             // 
             this.lblSelectedMachine.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblSelectedMachine.Name = "lblSelectedMachine";
-            this.lblSelectedMachine.Size = new System.Drawing.Size(123, 20);
+            this.lblSelectedMachine.Size = new System.Drawing.Size(123, 22);
             this.lblSelectedMachine.Text = "lblSelectedMachine";
             this.lblSelectedMachine.Click += new System.EventHandler(this.lblSelectedMachine_Click);
             this.lblSelectedMachine.TextChanged += new System.EventHandler(this.lblSelectedMachine_TextChanged);
@@ -864,19 +866,29 @@
             // 
             this.toolStripStatusLabel2.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(107, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(107, 19);
             this.toolStripStatusLabel2.Text = "= online (127.0.0.1)";
             // 
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(200, 16);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(200, 18);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(49, 19);
+            this.toolStripStatusLabel1.Text = "Hinweis";
+            this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // timeStatus
             // 
+            this.timeStatus.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.timeStatus.ForeColor = System.Drawing.Color.DimGray;
             this.timeStatus.Name = "timeStatus";
-            this.timeStatus.Size = new System.Drawing.Size(27, 17);
+            this.timeStatus.Size = new System.Drawing.Size(31, 19);
             this.timeStatus.Text = "D/T";
             this.timeStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -892,14 +904,11 @@
             this.pfadÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.pfadÖffnenToolStripMenuItem.Text = "Pfad öffnen";
             // 
-            // toolStripStatusLabel1
+            // toolStripStatusLabel3
             // 
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.Red;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(279, 17);
-            this.toolStripStatusLabel1.Spring = true;
-            this.toolStripStatusLabel1.Text = "Hinweis";
-            this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(257, 19);
+            this.toolStripStatusLabel3.Spring = true;
             // 
             // frmMain
             // 
@@ -998,7 +1007,7 @@
         private System.Windows.Forms.ToolStripMenuItem protokolleAnzeigenToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton lblSelectedMachine;
         private System.Windows.Forms.TreeView treeView3;
-        private System.Windows.Forms.TreeView treeView4;
+        private System.Windows.Forms.TreeView History;
         private System.Windows.Forms.ToolStripMenuItem öffnenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aktualisierenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem speichernToolStripMenuItem1;
@@ -1020,6 +1029,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ToolStripMenuItem infoMaschineToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
     }
 }
 

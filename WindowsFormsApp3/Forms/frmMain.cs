@@ -178,7 +178,7 @@ namespace TTi_NextGen
                     myMachines = App.InitMachines(Application.StartupPath);
                     myNetworkDriveAvailable = false;
 
-                    toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar";
+                    toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
 
                     WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, true, false);
                     WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet.", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, false);
@@ -269,15 +269,15 @@ namespace TTi_NextGen
                     if (addSpaceLine) { treeView3.Nodes.Add(""); }
                     break;
                 case StatusBox.Right:
-                    treeView4.Nodes.Add(_tn); _tn.EnsureVisible();
-                    if (addSpaceLine) { treeView4.Nodes.Add(""); }
+                    History.Nodes.Add(_tn); _tn.EnsureVisible();
+                    if (addSpaceLine) { History.Nodes.Add(""); }
                     break;
                 case StatusBox.Both:
                     treeView3.Nodes.Add(_tn); _tn.EnsureVisible();
                     if (addSpaceLine) { treeView3.Nodes.Add(""); }
                     TreeNode _tn2 = (TreeNode)_tn.Clone();
-                    treeView4.Nodes.Add(_tn2); _tn2.EnsureVisible();
-                    if (addSpaceLine) { treeView4.Nodes.Add(""); }
+                    History.Nodes.Add(_tn2); _tn2.EnsureVisible();
+                    if (addSpaceLine) { History.Nodes.Add(""); }
                     break;
                 default:
                     break;
@@ -580,14 +580,14 @@ namespace TTi_NextGen
         {
             if (myCNCProgram == null) { return; }
 
-            if (myCNCProgram.OriginalToolRange != ExtractInt(comboBox2.Text))
-            {
-                speichernToolStripMenuItem1.Enabled = true;
-            }
-            else
-            {
-                speichernToolStripMenuItem1.Enabled = false;
-            }
+            //if (myCNCProgram.OriginalToolRange != ExtractInt(comboBox2.Text))
+            //{
+            //    speichernToolStripMenuItem1.Enabled = true;
+            //}
+            //else
+            //{
+            //    speichernToolStripMenuItem1.Enabled = false;
+            //}
 
             if (checkBox1.CheckState == CheckState.Checked) //für Sync
             {
