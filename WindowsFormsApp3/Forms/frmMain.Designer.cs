@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.contextHistory = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.verlaufLeerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -96,6 +94,8 @@
             this.infoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tOOLCALLInformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
+            this.contextHistory = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.verlaufLeerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.contextMachine = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,15 +112,16 @@
             this.timerMainFrm = new System.Windows.Forms.Timer(this.components);
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.History_1 = new System.Windows.Forms.TreeView();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.contextHistory.SuspendLayout();
             this.contextLeft.SuspendLayout();
             this.menuStrip3.SuspendLayout();
             this.contextRight.SuspendLayout();
             this.menuStrip2.SuspendLayout();
+            this.contextHistory.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMachine.SuspendLayout();
             this.SuspendLayout();
@@ -152,7 +153,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2MinSize = 375;
-            this.splitContainer1.Size = new System.Drawing.Size(784, 374);
+            this.splitContainer1.Size = new System.Drawing.Size(784, 367);
             this.splitContainer1.SplitterDistance = 388;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -162,24 +163,11 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(4, 346);
+            this.comboBox1.Location = new System.Drawing.Point(4, 339);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(93, 21);
             this.comboBox1.TabIndex = 12;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // contextHistory
-            // 
-            this.contextHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verlaufLeerenToolStripMenuItem});
-            this.contextHistory.Name = "contextHistory";
-            this.contextHistory.Size = new System.Drawing.Size(146, 26);
-            // 
-            // verlaufLeerenToolStripMenuItem
-            // 
-            this.verlaufLeerenToolStripMenuItem.Name = "verlaufLeerenToolStripMenuItem";
-            this.verlaufLeerenToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.verlaufLeerenToolStripMenuItem.Text = "Verlauf leeren";
             // 
             // checkBox1
             // 
@@ -187,7 +175,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(102, 349);
+            this.checkBox1.Location = new System.Drawing.Point(102, 342);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(71, 17);
             this.checkBox1.TabIndex = 6;
@@ -201,7 +189,7 @@
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Enabled = false;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(235, 345);
+            this.button1.Location = new System.Drawing.Point(235, 338);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 23);
             this.button1.TabIndex = 4;
@@ -217,7 +205,7 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 53);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(382, 286);
+            this.treeView1.Size = new System.Drawing.Size(382, 279);
             this.treeView1.TabIndex = 3;
             // 
             // contextLeft
@@ -451,8 +439,7 @@
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Enabled = false;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(4, 346);
+            this.comboBox2.Location = new System.Drawing.Point(4, 339);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(93, 21);
             this.comboBox2.TabIndex = 11;
@@ -463,7 +450,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Enabled = false;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button4.Location = new System.Drawing.Point(239, 345);
+            this.button4.Location = new System.Drawing.Point(239, 338);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 23);
             this.button4.TabIndex = 8;
@@ -478,7 +465,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Enabled = false;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox2.Location = new System.Drawing.Point(102, 349);
+            this.checkBox2.Location = new System.Drawing.Point(102, 342);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(71, 17);
             this.checkBox2.TabIndex = 7;
@@ -497,7 +484,7 @@
             this.treeView2.Location = new System.Drawing.Point(3, 53);
             this.treeView2.Name = "treeView2";
             this.treeView2.ShowRootLines = false;
-            this.treeView2.Size = new System.Drawing.Size(386, 286);
+            this.treeView2.Size = new System.Drawing.Size(386, 279);
             this.treeView2.TabIndex = 4;
             // 
             // contextRight
@@ -743,6 +730,19 @@
             this.label2.Text = "CNC-Programm\r\n\r\n*.h";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // contextHistory
+            // 
+            this.contextHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verlaufLeerenToolStripMenuItem});
+            this.contextHistory.Name = "contextHistory";
+            this.contextHistory.Size = new System.Drawing.Size(146, 26);
+            // 
+            // verlaufLeerenToolStripMenuItem
+            // 
+            this.verlaufLeerenToolStripMenuItem.Name = "verlaufLeerenToolStripMenuItem";
+            this.verlaufLeerenToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.verlaufLeerenToolStripMenuItem.Text = "Verlauf leeren";
+            // 
             // statusStrip1
             // 
             this.statusStrip1.ContextMenuStrip = this.contextMachine;
@@ -750,6 +750,7 @@
             this.lblSelectedMachine,
             this.toolStripStatusLabel2,
             this.toolStripProgressBar1,
+            this.toolStripStatusLabel3,
             this.toolStripStatusLabel1,
             this.timeStatus});
             this.statusStrip1.Location = new System.Drawing.Point(0, 487);
@@ -768,7 +769,7 @@
             this.infoMaschineToolStripMenuItem,
             this.toolStripMenuItem9});
             this.contextMachine.Name = "contextMachine";
-            this.contextMachine.Size = new System.Drawing.Size(161, 158);
+            this.contextMachine.Size = new System.Drawing.Size(161, 136);
             // 
             // toolStripMenuItem5
             // 
@@ -839,8 +840,7 @@
             this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(275, 19);
-            this.toolStripStatusLabel1.Spring = true;
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(49, 19);
             this.toolStripStatusLabel1.Text = "Hinweis";
             this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -869,13 +869,19 @@
             // 
             this.History_1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.History_1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.History_1.Location = new System.Drawing.Point(0, 374);
+            this.History_1.Location = new System.Drawing.Point(0, 367);
             this.History_1.Name = "History_1";
             this.History_1.ShowLines = false;
             this.History_1.ShowRootLines = false;
-            this.History_1.Size = new System.Drawing.Size(784, 113);
+            this.History_1.Size = new System.Drawing.Size(784, 120);
             this.History_1.TabIndex = 4;
             this.History_1.TabStop = false;
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(226, 19);
+            this.toolStripStatusLabel3.Spring = true;
             // 
             // frmMain
             // 
@@ -896,13 +902,13 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.contextHistory.ResumeLayout(false);
             this.contextLeft.ResumeLayout(false);
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
             this.contextRight.ResumeLayout(false);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            this.contextHistory.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.contextMachine.ResumeLayout(false);
@@ -996,6 +1002,7 @@
         private System.Windows.Forms.ToolStripMenuItem infoMaschineToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.TreeView History_1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
     }
 }
 

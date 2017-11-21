@@ -101,7 +101,7 @@ namespace TTi_NextGen
         private void fmrMain_Load(object sender, EventArgs e)
         {
             //WriteHistory("@" + Dns.GetHostName() + " Werkzeugliste", StatusBox.Left, HistoryMessageType.Information);
-            WriteHistory("@" + Dns.GetHostName() + " " + Environment.UserName + ": " + App.Title() + " "  + App.Version() + " gestartet"  , StatusBox.Right, HistoryMessageType.Information);
+            WriteHistory( Environment.UserName + " @ " + Dns.GetHostName() + ": " + App.Title() + " "  + App.Version() + " gestartet"  , StatusBox.Right, HistoryMessageType.Information);
 
             ReadOrInitSettings();
 
@@ -141,7 +141,7 @@ namespace TTi_NextGen
         {
             //if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "123") { return; }
 
-            WriteHistory("@" + Dns.GetHostName() + " Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Information);
+            WriteHistory("Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Information);
 
             frmConfig _frmConfig = new frmConfig(myNetworkDriveAvailable);
 
@@ -151,7 +151,7 @@ namespace TTi_NextGen
             {
                 ReadOrInitSettings();
                 UpdateControls();
-                WriteHistory("@" + Dns.GetHostName() + " Konfiguration editiert", StatusBox.Both, HistoryMessageType.Information);
+                WriteHistory("Konfiguration editiert", StatusBox.Both, HistoryMessageType.Information);
             }
         }
 
@@ -177,6 +177,7 @@ namespace TTi_NextGen
                     myNetworkDriveAvailable = false;
 
                     toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
+                    toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
 
                     WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, true, false);
                     WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet.", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, false);

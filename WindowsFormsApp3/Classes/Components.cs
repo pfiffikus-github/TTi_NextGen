@@ -37,7 +37,7 @@ namespace TTi_NextGen
         public bool ShowAllMachines { get; set; }
 
         [CategoryAttribute("Lokale Einstellungen"),
-        DescriptionAttribute("Verlauf anzeigen")]
+         DescriptionAttribute("Verlauf anzeigen")]
         public bool ShowHistory { get; set; }
 
         [CategoryAttribute("Lokale Einstellungen"),
@@ -187,6 +187,8 @@ namespace TTi_NextGen
         public const string DefaultMachineName = "DefaultMachine";
 
         private string myName;
+        [CategoryAttribute("Maschinen-Einstellungen"),
+         DescriptionAttribute("Name")]
         public string Name
         {
             get { return myName; }
@@ -200,15 +202,23 @@ namespace TTi_NextGen
             }
         }
 
-        [Editor(typeof(TypEditorEditIP), typeof(UITypeEditor)),
+        [CategoryAttribute("Maschinen-Einstellungen"),
+         DescriptionAttribute("IP-Adresse"),
+         Editor(typeof(TypEditorEditIP), typeof(UITypeEditor)),
          TypeConverter(typeof(CancelEditProp))]
         public string IP { get; set; }
 
+        [CategoryAttribute("Maschinen-Einstellungen"),
+         DescriptionAttribute("Pfad + Dateiname der Werkzeugtabelle")]
         public string ToolTable { get; set; }
 
+        [CategoryAttribute("Maschinen-Einstellungen"),
+         DescriptionAttribute("Ungültige Zeichen in Spalte 'Name'")]
         public string InvalidToolNameCharakters { get; set; }
 
         private int myMaxToolRange;
+        [CategoryAttribute("Maschinen-Einstellungen"),
+         DescriptionAttribute("Tool-Range Max. ((i)TNC = 32)")]
         public int MaxToolRange
         {
             get { return myMaxToolRange; }
@@ -222,8 +232,12 @@ namespace TTi_NextGen
             }
         }
 
+        [CategoryAttribute("Maschinen-Einstellungen"),
+         DescriptionAttribute("Werkzeugnummern, die von Tool-Range-Änderung ignoriert werden")]
         public string RestrictivToolNumbers { get; set; }
 
+        [CategoryAttribute("Maschinen-Einstellungen"),
+         DescriptionAttribute("Projekt-/Programmverzeichnis auf Steuerung")]
         public string ProjectDirectory { get; set; }
 
         public override string ToString()

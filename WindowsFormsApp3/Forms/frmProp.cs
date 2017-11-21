@@ -17,8 +17,11 @@ namespace TTi_NextGen
         public frmProp(object _obj)
         {
             InitializeComponent();
+
+           
             myObject = _obj;
         }
+
 
         private void frmProp_Load(object sender, EventArgs e)
         {
