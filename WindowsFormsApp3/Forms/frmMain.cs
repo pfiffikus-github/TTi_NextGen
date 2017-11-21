@@ -16,7 +16,9 @@ namespace TTi_NextGen
         Machines myMachines;
         Machine myMachine;
         CNCProgram myCNCProgram;
-        bool myNetworkDriveAvailable = true ;
+        bool myNetworkDriveAvailable = true;
+        TreeNode[] myToolCallNodes;
+
 
         public frmMain()
         {
@@ -101,7 +103,7 @@ namespace TTi_NextGen
         private void fmrMain_Load(object sender, EventArgs e)
         {
             //WriteHistory("@" + Dns.GetHostName() + " Werkzeugliste", StatusBox.Left, HistoryMessageType.Information);
-            WriteHistory( Environment.UserName + " @ " + Dns.GetHostName() + ": " + App.Title() + " "  + App.Version() + " gestartet"  , StatusBox.Right, HistoryMessageType.Information);
+            WriteHistory(Environment.UserName + " @ " + Dns.GetHostName() + ": " + App.Title() + " " + App.Version() + " gestartet",  HistoryMessageType.Information);
 
             ReadOrInitSettings();
 
@@ -141,7 +143,7 @@ namespace TTi_NextGen
         {
             //if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "123") { return; }
 
-            WriteHistory("Konfiguration geöffnet", StatusBox.Both, HistoryMessageType.Information);
+            WriteHistory("Konfiguration geöffnet", HistoryMessageType.Information);
 
             frmConfig _frmConfig = new frmConfig(myNetworkDriveAvailable);
 
@@ -151,7 +153,7 @@ namespace TTi_NextGen
             {
                 ReadOrInitSettings();
                 UpdateControls();
-                WriteHistory("Konfiguration editiert", StatusBox.Both, HistoryMessageType.Information);
+                WriteHistory("Konfiguration editiert", HistoryMessageType.Information);
             }
         }
 
@@ -179,8 +181,8 @@ namespace TTi_NextGen
                     toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
                     toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
 
-                    WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, true, false);
-                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet.", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold, false);
+                    WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.",  HistoryMessageType.Error, FontStyle.Bold, true, false);
+                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet.",  HistoryMessageType.Error, FontStyle.Bold, false);
 
                     MessageBox.Show("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.\n\nEs wird ein lokales Backup der Maschinen-Datei verwendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -199,7 +201,7 @@ namespace TTi_NextGen
                 }
             }
 
-            WriteHistory("Standardmaschine '" + myLocalSettings.DefaultMachine + "' konnte nicht geladen werden", StatusBox.Both, HistoryMessageType.Error, FontStyle.Bold);
+            WriteHistory("Standardmaschine '" + myLocalSettings.DefaultMachine + "' konnte nicht geladen werden", HistoryMessageType.Error, FontStyle.Bold);
 
             myMachine = myMachines[0];
             MessageBox.Show("Die Standardmaschine '" +
@@ -226,7 +228,7 @@ namespace TTi_NextGen
 
         }
 
-        private void WriteHistory(string text, StatusBox statusBox,
+        private void WriteHistory(string text,
             HistoryMessageType type = HistoryMessageType.Information,
             FontStyle style = FontStyle.Regular,
             bool withTime = true,
@@ -261,22 +263,9 @@ namespace TTi_NextGen
                     break;
             }
 
-            switch (statusBox)
-            {
-                case StatusBox.Left:
-                    break;
-                case StatusBox.Right:
-                    History_1.Nodes.Add(_tn); _tn.EnsureVisible();
-                    if (addSpaceLine) { History_1.Nodes.Add(""); }
-                    break;
-                case StatusBox.Both:
-                    TreeNode _tn2 = (TreeNode)_tn.Clone();
-                    History_1.Nodes.Add(_tn2); _tn2.EnsureVisible();
-                    if (addSpaceLine) { History_1.Nodes.Add(""); }
-                    break;
-                default:
-                    break;
-            }
+            History_1.Nodes.Add(_tn); _tn.EnsureVisible();
+            if (addSpaceLine) { History_1.Nodes.Add(""); }
+
         }
 
         private void lblSelectedMachine_TextChanged(object sender, EventArgs e)
@@ -320,7 +309,7 @@ namespace TTi_NextGen
             }
 
 
-            WriteHistory("Maschine '" + myMachine.Name + "' geladen" + _subString, StatusBox.Both, HistoryMessageType.Information);
+            WriteHistory("Maschine '" + myMachine.Name + "' geladen" + _subString,  HistoryMessageType.Information);
         }
 
         private void lblSelectedMachine_Click(object sender, EventArgs e)
@@ -365,13 +354,6 @@ namespace TTi_NextGen
             Error,
         }
 
-        private enum StatusBox
-        {
-            Left,
-            Right,
-            Both,
-        }
-
         private void öffnenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem _tsmi = (ToolStripMenuItem)sender;
@@ -408,7 +390,7 @@ namespace TTi_NextGen
                 }
                 catch (Exception)
                 {
-                    WriteHistory("CNC-Programm '" + Path.GetFileName(_file) + "' nicht gefunden -> CNC-Programm wird entladen", StatusBox.Right, HistoryMessageType.Error, FontStyle.Bold);
+                    WriteHistory("CNC-Programm '" + Path.GetFileName(_file) + "' nicht gefunden -> CNC-Programm wird entladen", HistoryMessageType.Error, FontStyle.Bold);
                     schließenToolStripMenuItem1_Click(null, null);
                     return;
                 }
@@ -419,20 +401,20 @@ namespace TTi_NextGen
 
 
 
-            WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold, true, false);
+            WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert",  HistoryMessageType.Information, FontStyle.Bold, true, false);
 
             if (myCNCProgram.IsToolRangeConsistent != true)
             {
                 WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
                              "' in verschiedenen Tool-Ranges enthalten",
-                             StatusBox.Right, HistoryMessageType.Error, FontStyle.Italic, false, false);
+                             HistoryMessageType.Error, FontStyle.Italic, false, false);
             }
             else
             {
 
                 WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
                              "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten",
-                             StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, false);
+                             HistoryMessageType.Information, FontStyle.Italic, false, false);
             }
 
             string _line = "[";
@@ -442,7 +424,7 @@ namespace TTi_NextGen
             }
             _line = _line.Remove(_line.Length - 2, 1).Trim() + "]";
 
-            WriteHistory(_line, StatusBox.Right, HistoryMessageType.Information, FontStyle.Italic, false, true);
+            WriteHistory(_line,  HistoryMessageType.Information, FontStyle.Italic, false, true);
 
             //lbl-Text
             label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
@@ -488,7 +470,7 @@ namespace TTi_NextGen
             BuildTreeViewCNCProgram(true);
             EnabledCNCProgrammControls();
             label2.Text = "CNC-Programm\n\n*.h";
-            WriteHistory("CNC-Programm entladen", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold);
+            WriteHistory("CNC-Programm entladen",  HistoryMessageType.Information, FontStyle.Bold);
         }
 
         private void pfadÖffnenToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -518,6 +500,10 @@ namespace TTi_NextGen
 
                 //_lines = myCNCProgram.Lines();      //--> .Lines als Property in CNCProgramm implementieren!!!
 
+                myToolCallNodes = null;
+                myToolCallNodes = new TreeNode[0];
+
+
                 treeView2.BeginUpdate();
                 treeView2.Nodes.Clear();
                 foreach (var _line in myCNCProgram.FileContent.Split('\n'))
@@ -529,11 +515,24 @@ namespace TTi_NextGen
                         _newNode.ForeColor = Color.Blue;
                         _newNode.BackColor = Color.LightBlue;
                         _newNode.NodeFont = new Font(treeView2.Font, FontStyle.Bold);
+                        Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
+                        myToolCallNodes[myToolCallNodes.Length - 1] = _newNode;
                     }
 
 
 
                 }
+                //TreeNode _test = new TreeNode();
+
+
+
+                int _test;
+                _test = treeView2.Nodes.IndexOf(myToolCallNodes[0]);
+
+                treeView2.Nodes[_test].Text = "";
+
+
+
                 treeView2.EndUpdate();
             }
             else
@@ -626,7 +625,7 @@ namespace TTi_NextGen
         private void speichernToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             myCNCProgram.ChangeToolRange(ExtractInt(comboBox2.Text), true);
-            WriteHistory("CNC-Programm '" + myCNCProgram.File.Name + "': Tool-Range erfolgreich in '" + comboBox2.Text + "' geändert", StatusBox.Right, HistoryMessageType.Information, FontStyle.Bold);
+            WriteHistory("CNC-Programm '" + myCNCProgram.File.Name + "': Tool-Range erfolgreich in '" + comboBox2.Text + "' geändert",  HistoryMessageType.Information, FontStyle.Bold);
             öffnenToolStripMenuItem1_Click(aktualisierenToolStripMenuItem, null);
         }
 
