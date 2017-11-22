@@ -86,12 +86,12 @@ namespace TTi_NextGen
                     if (_Replay.Status == IPStatus.Success)
                     {
                         toolStripStatusLabel2.ForeColor = Color.DimGray;
-                        toolStripStatusLabel2.Text = "= online (" + myMachine.IP + ")";
+                        toolStripStatusLabel2.Text = "= online";
                     }
                     else
                     {
                         toolStripStatusLabel2.ForeColor = Color.Red;
-                        toolStripStatusLabel2.Text = "= offline (" + myMachine.IP + ")";
+                        toolStripStatusLabel2.Text = "= offline";
                     }
                 }
 
@@ -103,7 +103,7 @@ namespace TTi_NextGen
         private void fmrMain_Load(object sender, EventArgs e)
         {
             //WriteHistory("@" + Dns.GetHostName() + " Werkzeugliste", StatusBox.Left, HistoryMessageType.Information);
-            WriteHistory(Environment.UserName + " @ " + Dns.GetHostName() + ": " + App.Title() + " " + App.Version() + " gestartet",  HistoryMessageType.Information);
+            WriteHistory(Environment.UserName + " @ " + Dns.GetHostName() + ": " + App.Title() + " " + App.Version() + " gestartet", HistoryMessageType.Information);
 
             ReadOrInitSettings();
 
@@ -181,8 +181,8 @@ namespace TTi_NextGen
                     toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
                     toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
 
-                    WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.",  HistoryMessageType.Error, FontStyle.Bold, true, false);
-                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet.",  HistoryMessageType.Error, FontStyle.Bold, false);
+                    WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.", HistoryMessageType.Error, FontStyle.Bold, true, false);
+                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet.", HistoryMessageType.Error, FontStyle.Bold, false);
 
                     MessageBox.Show("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.\n\nEs wird ein lokales Backup der Maschinen-Datei verwendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -215,7 +215,7 @@ namespace TTi_NextGen
         {
             timerMainFrm_Tick(null, null);
             checkBox1.CheckState = CheckState.Checked;
-            lblSelectedMachine.Text = "Gewählte Maschine: " + myMachine.Name;
+            lblSelectedMachine.Text = myMachine.Name;
             if (myLocalSettings.ShowAllMachines == false || myMachines.Count <= 1)
             {
                 lblSelectedMachine.Enabled = false;
@@ -309,7 +309,7 @@ namespace TTi_NextGen
             }
 
 
-            WriteHistory("Maschine '" + myMachine.Name + "' geladen" + _subString,  HistoryMessageType.Information);
+            WriteHistory("Maschine '" + myMachine.Name + "' geladen" + _subString, HistoryMessageType.Information);
         }
 
         private void lblSelectedMachine_Click(object sender, EventArgs e)
@@ -383,6 +383,7 @@ namespace TTi_NextGen
             {
                 comboBox2.SelectedIndex = comboBox2.SelectedIndex - 1;
                 string _file = myCNCProgram.File.FullName;
+
                 myCNCProgram = null;
                 try
                 {
@@ -401,7 +402,7 @@ namespace TTi_NextGen
 
 
 
-            WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert",  HistoryMessageType.Information, FontStyle.Bold, true, false);
+            WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", HistoryMessageType.Information, FontStyle.Bold, true, false);
 
             if (myCNCProgram.IsToolRangeConsistent != true)
             {
@@ -424,7 +425,7 @@ namespace TTi_NextGen
             }
             _line = _line.Remove(_line.Length - 2, 1).Trim() + "]";
 
-            WriteHistory(_line,  HistoryMessageType.Information, FontStyle.Italic, false, true);
+            WriteHistory(_line, HistoryMessageType.Information, FontStyle.Italic, false, true);
 
             //lbl-Text
             label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
@@ -470,7 +471,7 @@ namespace TTi_NextGen
             BuildTreeViewCNCProgram(true);
             EnabledCNCProgrammControls();
             label2.Text = "CNC-Programm\n\n*.h";
-            WriteHistory("CNC-Programm entladen",  HistoryMessageType.Information, FontStyle.Bold);
+            WriteHistory("CNC-Programm entladen", HistoryMessageType.Information, FontStyle.Bold);
         }
 
         private void pfadÖffnenToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -496,20 +497,25 @@ namespace TTi_NextGen
                     comboBox2.SelectedIndex = myCNCProgram.OriginalToolRange;
                 }
 
-                string[] _lines = new string[] { };
-
-                //_lines = myCNCProgram.Lines();      //--> .Lines als Property in CNCProgramm implementieren!!!
-
                 myToolCallNodes = null;
                 myToolCallNodes = new TreeNode[0];
 
 
                 treeView2.BeginUpdate();
                 treeView2.Nodes.Clear();
-                foreach (var _line in myCNCProgram.FileContent.Split('\n'))
-                {
-                    TreeNode _newNode = treeView2.Nodes.Add(_line);
 
+                string[] _lines = new string[] { };
+                _lines = myCNCProgram.FileContent.Split('\n');
+                ProgressBar.Maximum = _lines.Length;
+
+                int i = 0;
+                foreach (var _line in _lines)
+                {
+
+                    ProgressBar.Value = Array.IndexOf(_lines, _line, i);
+                    i++;
+
+                    TreeNode _newNode = treeView2.Nodes.Add(_line);
                     if (_line.Contains(CNCProgram.ToolCallString))
                     {
                         _newNode.ForeColor = Color.Blue;
@@ -519,9 +525,22 @@ namespace TTi_NextGen
                         myToolCallNodes[myToolCallNodes.Length - 1] = _newNode;
                     }
 
-
-
                 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 //TreeNode _test = new TreeNode();
 
 
@@ -529,11 +548,16 @@ namespace TTi_NextGen
                 int _test;
                 _test = treeView2.Nodes.IndexOf(myToolCallNodes[0]);
 
+
+
+
                 treeView2.Nodes[_test].Text = "";
 
 
 
                 treeView2.EndUpdate();
+                ProgressBar.Value = 0;
+
             }
             else
             {
@@ -625,13 +649,25 @@ namespace TTi_NextGen
         private void speichernToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             myCNCProgram.ChangeToolRange(ExtractInt(comboBox2.Text), true);
-            WriteHistory("CNC-Programm '" + myCNCProgram.File.Name + "': Tool-Range erfolgreich in '" + comboBox2.Text + "' geändert",  HistoryMessageType.Information, FontStyle.Bold);
+            WriteHistory("CNC-Programm '" + myCNCProgram.File.Name + "': Tool-Range erfolgreich in '" + comboBox2.Text + "' geändert", HistoryMessageType.Information, FontStyle.Bold);
             öffnenToolStripMenuItem1_Click(aktualisierenToolStripMenuItem, null);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             speichernToolStripMenuItem1_Click(null, null);
+
+            ProcessStartInfo proc = new ProcessStartInfo();
+            proc.FileName = @"TNCsync.exe";
+            proc.Arguments = @"-I " + myMachine.IP + " MkDir " + Path.GetDirectoryName(myMachine.ProjectDirectory);
+            Process.Start(proc);
+
+            proc = null;
+            proc = new ProcessStartInfo();
+            proc.FileName = @"TNCsync.exe";
+            proc.Arguments = @"Put " + myCNCProgram.File.FullName + " " + Path.GetDirectoryName(myMachine.ProjectDirectory) + myCNCProgram.File.Name + " /A" + " -I " + myMachine.IP;
+            Process.Start(proc);
+
         }
 
     }
