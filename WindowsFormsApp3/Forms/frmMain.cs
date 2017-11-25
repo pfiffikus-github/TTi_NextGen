@@ -125,7 +125,7 @@ namespace TTi_NextGen
             }
 
 
-            ClearTempJob();
+            TempJobClear();
 
         }
 
@@ -363,7 +363,10 @@ namespace TTi_NextGen
 
         private void öffnenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            TempJob.Text = "Lädt...";
+            this.Update();
             ToolStripMenuItem _tsmi = (ToolStripMenuItem)sender;
+
 
             if (_tsmi.Text == "Öffnen")
             {
@@ -383,6 +386,7 @@ namespace TTi_NextGen
                 }
                 else
                 {
+                    TempJobClear();
                     return;
                 }
             }
@@ -400,6 +404,7 @@ namespace TTi_NextGen
                 {
                     WriteHistory("CNC-Programm '" + Path.GetFileName(_file) + "' nicht gefunden -> CNC-Programm wird entladen", HistoryMessageType.Error, FontStyle.Bold);
                     schließenToolStripMenuItem1_Click(null, null);
+                    TempJobClear();
                     return;
                 }
                 BuildTreeViewCNCProgram(true);
@@ -439,7 +444,8 @@ namespace TTi_NextGen
 
             //set restrictivToolValues
 
-
+            TempJobClear();
+            
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
@@ -703,7 +709,7 @@ namespace TTi_NextGen
             TempJob.Text = "Lädt CNC-Programm...";
         }
 
-        private void ClearTempJob()
+        private void TempJobClear()
         {
             TempJob.Text = "Bereit";
         }

@@ -266,7 +266,7 @@
             this.infoToolStripMenuItem});
             this.menuStrip3.Location = new System.Drawing.Point(0, 26);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(218, 24);
+            this.menuStrip3.Size = new System.Drawing.Size(294, 24);
             this.menuStrip3.TabIndex = 2;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -290,9 +290,8 @@
             this.toolStripSeparator8,
             this.beendenToolStripMenuItem});
             this.toolStripMenuItem4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripMenuItem4.Image = global::TTi_NextGen.Properties.Resources.GoToProperty_16x;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(62, 20);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(46, 20);
             this.toolStripMenuItem4.Text = "Datei";
             // 
             // speichernUnterToolStripMenuItem
@@ -325,6 +324,7 @@
             // eigenschaftenToolStripMenuItem
             // 
             this.eigenschaftenToolStripMenuItem.Enabled = false;
+            this.eigenschaftenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.GoToProperty_16x;
             this.eigenschaftenToolStripMenuItem.Name = "eigenschaftenToolStripMenuItem";
             this.eigenschaftenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.eigenschaftenToolStripMenuItem.Text = "Eigenschaften";
