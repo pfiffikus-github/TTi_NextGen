@@ -177,17 +177,19 @@ namespace TTi_NextGen
         {
             Name = DefaultMachineName;
             IP = "127.0.0.1";
-            ToolTable = @"TNC:\Tool.t";
+            PathToolTable = @"TNC:\Tool.t";
             InvalidToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
             ProjectDirectory = @"TNC:\Bauteile\";
             MaxToolRange = 32;
             RestrictivToolNumbers = "0,1,2,3,4,5,6,7,8,9,10";
+            BlockedToolNumbers = "";
+            ControlVersion = TNCVersions.bis_iTNC530;
         }
 
         public const string DefaultMachineName = "DefaultMachine";
 
         private string myName;
-        [CategoryAttribute("Maschinen-Einstellungen"),
+        [CategoryAttribute("Allgemein + Verbindung"),
          DescriptionAttribute("Name")]
         public string Name
         {
@@ -202,22 +204,22 @@ namespace TTi_NextGen
             }
         }
 
-        [CategoryAttribute("Maschinen-Einstellungen"),
+        [CategoryAttribute("Allgemein + Verbindung"),
          DescriptionAttribute("IP-Adresse"),
          Editor(typeof(TypEditorEditIP), typeof(UITypeEditor)),
          TypeConverter(typeof(CancelEditProp))]
         public string IP { get; set; }
 
-        [CategoryAttribute("Maschinen-Einstellungen"),
+        [CategoryAttribute("Einstellungen Werkzeugliste"),
          DescriptionAttribute("Pfad + Dateiname der Werkzeugtabelle")]
-        public string ToolTable { get; set; }
+        public string PathToolTable { get; set; }
 
-        [CategoryAttribute("Maschinen-Einstellungen"),
+        [CategoryAttribute("Einstellungen Werkzeugliste"),
          DescriptionAttribute("Ungültige Zeichen in Spalte 'Name'")]
         public string InvalidToolNameCharakters { get; set; }
 
         private int myMaxToolRange;
-        [CategoryAttribute("Maschinen-Einstellungen"),
+        [CategoryAttribute("Einstellungen Werkzeugliste"),
          DescriptionAttribute("Tool-Range Max. ((i)TNC = 32)")]
         public int MaxToolRange
         {
@@ -232,13 +234,27 @@ namespace TTi_NextGen
             }
         }
 
-        [CategoryAttribute("Maschinen-Einstellungen"),
-         DescriptionAttribute("Werkzeugnummern, die von Tool-Range-Änderung ignoriert werden")]
+        [CategoryAttribute("Einstellungen Werkzeugliste"),
+         DescriptionAttribute("Werkzeugnummern, die von Tool-Range-Änderung ignoriert werden (")]
         public string RestrictivToolNumbers { get; set; }
 
-        [CategoryAttribute("Maschinen-Einstellungen"),
+        [CategoryAttribute("Einstellungen CNC-Programm"),
          DescriptionAttribute("Projekt-/Programmverzeichnis auf Steuerung")]
         public string ProjectDirectory { get; set; }
+
+        [CategoryAttribute("Allgemein + Verbindung"),
+         DescriptionAttribute("Version der Steuerung (für korrekte Datenübertrgaung)")]
+        public TNCVersions ControlVersion { get; set; }
+        
+        [CategoryAttribute("Einstellungen Werkzeugliste"),
+         DescriptionAttribute("Werkzeugnummern, die statisch niemals auf Steuerung überschrieben werden (≙ Standardwerkzeug)")]
+        public string BlockedToolNumbers { get; set; }
+
+        public enum TNCVersions
+        {
+            bis_iTNC530,
+            ab_TNC640,
+        }
 
         public override string ToString()
         {
@@ -255,6 +271,7 @@ namespace TTi_NextGen
                 LocalSettings myLocalSettings = new LocalSettings();
 
                 App.ExtractEmbeddedResources(".exe", Application.StartupPath);
+                App.ExtractEmbeddedResources(".dll", Application.StartupPath);
 
                 if (File.Exists(LocalSettings.LocalSettingsFile))
                 {
@@ -442,7 +459,7 @@ namespace TTi_NextGen
             OriginalToolRange = 0;              //in DetectIsToolRangeConsistent() neu initalisiert
             FirstNotRestrictiveToolValue = 0;   //in DetectIsToolRangeConsistent() neu initalisiert
             OnlyRestrictiveToolValues = false;  //in DetectIsToolRangeConsistent() neu initalisiert
-            
+
             if (restrictivToolNumber.Trim() != "")
             {
                 int[] _RestrictivToolNumbers = new int[0];
@@ -451,7 +468,7 @@ namespace TTi_NextGen
                 foreach (string item in _rtn)
                 {
                     Array.Resize(ref _RestrictivToolNumbers, _RestrictivToolNumbers.Length + 1);
-                    
+
                     try
                     {
                         _RestrictivToolNumbers[_RestrictivToolNumbers.Length - 1] = int.Parse(item.Trim());
@@ -460,7 +477,7 @@ namespace TTi_NextGen
                     { }
                 }
                 RestrictivToolNumbers = _RestrictivToolNumbers;
-            }  
+            }
 
             FileContent = System.IO.File.ReadAllText(File.FullName);
             MatchesOfToolCalls = GetDetectMatchesOfToolCalls();
@@ -610,7 +627,7 @@ namespace TTi_NextGen
 
             if (this.MatchesOfToolCalls.Count == 0)
             {
-                return nt + "(" + this.MatchesOfToolCalls.Count + "x '" +  CNCProgram.ToolCallString   +   "' enthalten)";
+                return nt + "(" + this.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' enthalten)";
             }
 
             if (this.OnlyRestrictiveToolValues)

@@ -144,17 +144,50 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder_Open_32xLG.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\TNCsync.exe" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\msvcp100.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\msvcr100.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\TNCSync.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\TNCSyncPlus.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\SyncArrow_inverse_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\OpenfileDialog_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Substitution_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\ProjectLoadVeto_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\SaveFileDialogControl_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\DownloadFile_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\DownloadFolder_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\CloseSolution_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\GoToProperty_16x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -64,6 +64,15 @@ namespace TTi_NextGen
             }
             else
             {
+
+                foreach (var machine in myMachines)
+                {
+                    if (machine.ControlVersion == Machine.TNCVersions.ab_TNC640)
+                    {
+                        MessageBox.Show("Das Verwenden der Einstellung 'ab_TNC640' setzt folgendes Paket voraus:\n\n'Microsoft Visual C++ 2010 Redistributable Package (x64)'", "Informtion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    }
+                }
                 myMachines.SerializeXML(myLocalSettings.PublicSettingsDirectory);
             }
 

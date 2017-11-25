@@ -102,8 +102,13 @@ namespace TTi_NextGen
 
         private void fmrMain_Load(object sender, EventArgs e)
         {
-            //WriteHistory("@" + Dns.GetHostName() + " Werkzeugliste", StatusBox.Left, HistoryMessageType.Information);
+            TempJob.Text = "Init App";
+
+            History_1.NodeMouseClick += (senderX, args) => History_1.SelectedNode = args.Node;  //NodeMouseClick Event, damit Rechtsklick auf Node, diesen auch auswählt...
+
             WriteHistory(Environment.UserName + " @ " + Dns.GetHostName() + ": " + App.Title() + " " + App.Version() + " gestartet", HistoryMessageType.Information);
+
+
 
             ReadOrInitSettings();
 
@@ -118,6 +123,10 @@ namespace TTi_NextGen
             {
                 viewHistory.CheckState = CheckState.Checked;
             }
+
+
+            ClearTempJob();
+
         }
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
@@ -142,8 +151,6 @@ namespace TTi_NextGen
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
             //if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "123") { return; }
-
-            WriteHistory("Konfiguration geöffnet", HistoryMessageType.Information);
 
             frmConfig _frmConfig = new frmConfig(myNetworkDriveAvailable);
 
@@ -179,7 +186,7 @@ namespace TTi_NextGen
                     myNetworkDriveAvailable = false;
 
                     toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
-                    toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
+                    toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Right;
 
                     WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.", HistoryMessageType.Error, FontStyle.Bold, true, false);
                     WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet.", HistoryMessageType.Error, FontStyle.Bold, false);
@@ -458,6 +465,7 @@ namespace TTi_NextGen
             pfadÖffnenToolStripMenuItem3.Enabled = _Enabled;
             dateiÖffnenToolStripMenuItem3.Enabled = _Enabled;
             eigenschaftenToolStripMenuItem1.Enabled = _Enabled;
+            speichernÜbertragenToolStripMenuItem.Enabled = _Enabled;
             checkBox2.Enabled = _Enabled;
             button4.Enabled = _Enabled;
             tOOLCALLInformationenToolStripMenuItem.Enabled = _Enabled;
@@ -670,5 +678,34 @@ namespace TTi_NextGen
 
         }
 
+
+
+        private void verlaufLeerenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                TreeNode node = this.History_1.SelectedNode;
+                if (node != null)
+                {
+                    Clipboard.SetDataObject(node.Text.ToString(), true);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void nurTOOLCALLsAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TempJob.Text = "Lädt CNC-Programm...";
+        }
+
+        private void ClearTempJob()
+        {
+            TempJob.Text = "Bereit";
+        }
     }
 }

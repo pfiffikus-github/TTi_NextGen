@@ -63,9 +63,39 @@ namespace TTi_NextGen.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap folder_Open_32xLG {
+        internal static System.Drawing.Bitmap CloseSolution_16x {
             get {
-                object obj = ResourceManager.GetObject("folder_Open_32xLG", resourceCulture);
+                object obj = ResourceManager.GetObject("CloseSolution_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DownloadFile_16x {
+            get {
+                object obj = ResourceManager.GetObject("DownloadFile_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DownloadFolder_16x {
+            get {
+                object obj = ResourceManager.GetObject("DownloadFolder_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GoToProperty_16x {
+            get {
+                object obj = ResourceManager.GetObject("GoToProperty_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +103,89 @@ namespace TTi_NextGen.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
-        internal static byte[] TNCsync {
+        internal static byte[] msvcp100 {
             get {
-                object obj = ResourceManager.GetObject("TNCsync", resourceCulture);
+                object obj = ResourceManager.GetObject("msvcp100", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] msvcr100 {
+            get {
+                object obj = ResourceManager.GetObject("msvcr100", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OpenfileDialog_grey_16x {
+            get {
+                object obj = ResourceManager.GetObject("OpenfileDialog_grey_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProjectLoadVeto_16x {
+            get {
+                object obj = ResourceManager.GetObject("ProjectLoadVeto_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveFileDialogControl_16x {
+            get {
+                object obj = ResourceManager.GetObject("SaveFileDialogControl_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Substitution_16x {
+            get {
+                object obj = ResourceManager.GetObject("Substitution_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SyncArrow_inverse_16x {
+            get {
+                object obj = ResourceManager.GetObject("SyncArrow_inverse_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] TNCSync {
+            get {
+                object obj = ResourceManager.GetObject("TNCSync", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] TNCSyncPlus {
+            get {
+                object obj = ResourceManager.GetObject("TNCSyncPlus", resourceCulture);
                 return ((byte[])(obj));
             }
         }

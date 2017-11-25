@@ -52,6 +52,12 @@ namespace TTi_NextGen
                 myMachines = null;
             }
         }
-      
+
+        private void frmChooseMachine_Load(object sender, EventArgs e)
+        {
+            var _point = new System.Drawing.Point(Cursor.Position.X, Cursor.Position.Y);
+            Left = _point.X - (Size.Width / 4);
+            Top = _point.Y - (Size.Height / 2) ;
+        }
     }
 }
