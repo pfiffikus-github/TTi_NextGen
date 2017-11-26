@@ -40,14 +40,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PropGrid.Location = new System.Drawing.Point(12, 12);
             this.PropGrid.Name = "PropGrid";
-            this.PropGrid.Size = new System.Drawing.Size(610, 258);
+            this.PropGrid.Size = new System.Drawing.Size(447, 244);
             this.PropGrid.TabIndex = 1;
             // 
             // Cancel
             // 
             this.Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel.Location = new System.Drawing.Point(547, 276);
+            this.Cancel.Location = new System.Drawing.Point(384, 262);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(75, 23);
             this.Cancel.TabIndex = 2;
@@ -58,7 +58,7 @@
             // OK
             // 
             this.OK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OK.Location = new System.Drawing.Point(466, 276);
+            this.OK.Location = new System.Drawing.Point(303, 262);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(75, 23);
             this.OK.TabIndex = 3;
@@ -72,11 +72,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel;
-            this.ClientSize = new System.Drawing.Size(634, 311);
+            this.ClientSize = new System.Drawing.Size(471, 297);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.PropGrid);
-            this.MinimumSize = new System.Drawing.Size(650, 350);
+            this.MinimumSize = new System.Drawing.Size(450, 250);
             this.Name = "frmConfig";
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;

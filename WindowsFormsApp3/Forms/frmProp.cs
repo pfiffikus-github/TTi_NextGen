@@ -27,7 +27,7 @@ namespace TTi_NextGen
         {
             Machine _machine = new Machine();
             _machine = (Machine)myObject;
-            Text = _machine.Name;
+            Text = _machine.Name + " @ " + _machine.IP ;
 
             propertyGrid1.SelectedObject = myObject;
         }

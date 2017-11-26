@@ -85,13 +85,15 @@ namespace TTi_NextGen
                     PingReply _Replay = _Ping.Send(myMachine.IP, 5);
                     if (_Replay.Status == IPStatus.Success)
                     {
+                        toolStripStatusLabel4.Image = Properties.Resources.VirtualMachineOK_16x;
                         toolStripStatusLabel2.ForeColor = Color.DimGray;
-                        toolStripStatusLabel2.Text = "= online";
+                        toolStripStatusLabel2.Text = "online";
                     }
                     else
                     {
+                        toolStripStatusLabel4.Image = Properties.Resources.VirtualMachineError_16x;
                         toolStripStatusLabel2.ForeColor = Color.Red;
-                        toolStripStatusLabel2.Text = "= offline";
+                        toolStripStatusLabel2.Text = "offline";
                     }
                 }
 
@@ -445,7 +447,7 @@ namespace TTi_NextGen
             //set restrictivToolValues
 
             TempJobClear();
-            
+
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
@@ -712,6 +714,17 @@ namespace TTi_NextGen
         private void TempJobClear()
         {
             TempJob.Text = "Bereit";
+        }
+
+        private void cMDToTNCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (toolStripStatusLabel2.Text.Contains("online"))
+            {
+                ProcessStartInfo proc = new ProcessStartInfo();
+                proc.FileName = @"TNCsync.exe";
+                proc.Arguments = @"-I " + myMachine.IP ;
+                Process.Start(proc);
+            }
         }
     }
 }

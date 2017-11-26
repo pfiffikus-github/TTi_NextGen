@@ -58,6 +58,10 @@ namespace TTi_NextGen
             var _point = new System.Drawing.Point(Cursor.Position.X, Cursor.Position.Y);
             Left = _point.X - (Size.Width / 4);
             Top = _point.Y - (Size.Height / 2) ;
+
+
         }
+
+
     }
 }

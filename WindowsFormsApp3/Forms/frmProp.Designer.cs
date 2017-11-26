@@ -37,14 +37,14 @@
             this.propertyGrid1.Enabled = false;
             this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
             this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(396, 382);
+            this.propertyGrid1.Size = new System.Drawing.Size(382, 329);
             this.propertyGrid1.TabIndex = 0;
             // 
             // frmProp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 382);
+            this.ClientSize = new System.Drawing.Size(382, 329);
             this.Controls.Add(this.propertyGrid1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

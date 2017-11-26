@@ -53,6 +53,9 @@
   <PropertyGroup>
     <StartupObject>TTi_NextGen.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>if_advancedsettings_17814.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -92,9 +95,6 @@
     </Compile>
     <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\myNumericUpDown.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Forms\frmProp.cs">
       <SubType>Form</SubType>
@@ -187,6 +187,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Images\UnsyncedCommits_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\AssemblyInfoFile_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\SearchProperty_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Settings_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\ShowFullHistory_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\UIAboutBox_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\SystemInfo_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\VirtualMachineOK_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\VirtualMachineError_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Console_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\icons8-maintenance-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="if_advancedsettings_17814.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
