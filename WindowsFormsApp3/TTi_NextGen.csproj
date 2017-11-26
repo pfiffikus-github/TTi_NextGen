@@ -119,25 +119,24 @@
     <EmbeddedResource Include="Forms\frmProp.resx">
       <DependentUpon>frmProp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\tool_table.template" />
   </ItemGroup>
   <ItemGroup>
@@ -163,9 +162,6 @@
     <EmbeddedResource Include="Resources\TNCSyncPlus.exe" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Images\SyncArrow_inverse_16x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Images\OpenfileDialog_grey_16x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +184,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Images\GoToProperty_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\UnsyncedCommits_16x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

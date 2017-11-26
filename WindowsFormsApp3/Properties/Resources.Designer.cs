@@ -101,26 +101,6 @@ namespace TTi_NextGen.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        internal static byte[] msvcp100 {
-            get {
-                object obj = ResourceManager.GetObject("msvcp100", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        internal static byte[] msvcr100 {
-            get {
-                object obj = ResourceManager.GetObject("msvcr100", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap OpenfileDialog_grey_16x {
@@ -163,40 +143,10 @@ namespace TTi_NextGen.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SyncArrow_inverse_16x {
+        internal static System.Drawing.Bitmap UnsyncedCommits_16x {
             get {
-                object obj = ResourceManager.GetObject("SyncArrow_inverse_16x", resourceCulture);
+                object obj = ResourceManager.GetObject("UnsyncedCommits_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        internal static byte[] TNCSync {
-            get {
-                object obj = ResourceManager.GetObject("TNCSync", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        internal static byte[] TNCSyncPlus {
-            get {
-                object obj = ResourceManager.GetObject("TNCSyncPlus", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        internal static byte[] tool_table {
-            get {
-                object obj = ResourceManager.GetObject("tool_table", resourceCulture);
-                return ((byte[])(obj));
             }
         }
     }

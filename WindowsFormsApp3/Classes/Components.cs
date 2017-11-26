@@ -245,7 +245,7 @@ namespace TTi_NextGen
         [CategoryAttribute("Allgemein + Verbindung"),
          DescriptionAttribute("Version der Steuerung (für korrekte Datenübertrgaung)")]
         public TNCVersions ControlVersion { get; set; }
-        
+
         [CategoryAttribute("Einstellungen Werkzeugliste"),
          DescriptionAttribute("Werkzeugnummern, die statisch niemals auf Steuerung überschrieben werden (≙ Standardwerkzeug)")]
         public string BlockedToolNumbers { get; set; }
@@ -270,8 +270,7 @@ namespace TTi_NextGen
             {
                 LocalSettings myLocalSettings = new LocalSettings();
 
-                App.ExtractEmbeddedResources(".exe", Application.StartupPath);
-                App.ExtractEmbeddedResources(".dll", Application.StartupPath);
+                App.ExtractEmbeddedResources("TNCSync.exe", Application.StartupPath);
 
                 if (File.Exists(LocalSettings.LocalSettingsFile))
                 {
@@ -297,7 +296,7 @@ namespace TTi_NextGen
                 Machines myMachines = new Machines();
 
                 App.ExtractEmbeddedResources(".template", path);
-
+                
                 if (File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
                 {
                     myMachines = myMachines.DeserializeXML(path);
@@ -306,6 +305,17 @@ namespace TTi_NextGen
                 {
                     myMachines.Add(new Machine());
                     myMachines.SerializeXML(path);
+                }
+
+                foreach (var machine in myMachines)
+                {
+                    if (machine.ControlVersion == Machine.TNCVersions.ab_TNC640)
+                    {
+                        //MessageBox.Show("Das Verwenden der Einstellung 'ab_TNC640' setzt folgendes Paket voraus:\n\n'Microsoft Visual C++ 2010 Redistributable Package (x64)'", "Informtion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        App.ExtractEmbeddedResources(".dll", Application.StartupPath);
+                        App.ExtractEmbeddedResources("TNCSyncPlus.exe", Application.StartupPath);
+                        break;
+                    }
                 }
 
                 return myMachines;
