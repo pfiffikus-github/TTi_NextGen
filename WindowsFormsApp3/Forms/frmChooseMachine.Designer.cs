@@ -82,6 +82,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Maschine wählen...";
             this.Load += new System.EventHandler(this.frmChooseMachine_Load);
+            this.Shown += new System.EventHandler(this.frmChooseMachine_Shown);
             this.ResumeLayout(false);
 
         }

@@ -296,7 +296,7 @@ namespace TTi_NextGen
                 Machines myMachines = new Machines();
 
                 App.ExtractEmbeddedResources(".template", path);
-                
+
                 if (File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
                 {
                     myMachines = myMachines.DeserializeXML(path);
@@ -363,7 +363,8 @@ namespace TTi_NextGen
         public static string Version()
         {
             return "V" + Assembly.GetExecutingAssembly().GetName().Version.Major +
-                   "." + Assembly.GetExecutingAssembly().GetName().Version.Minor;
+                   "." + Assembly.GetExecutingAssembly().GetName().Version.Minor +
+                   " Rev." + Assembly.GetExecutingAssembly().GetName().Version.MinorRevision;
         }
 
     }

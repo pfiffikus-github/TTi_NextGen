@@ -17,6 +17,7 @@ namespace TTi_NextGen
         Machine myMachine;
         CNCProgram myCNCProgram;
         bool myNetworkDriveAvailable = true;
+        bool myPwdLooked = true;
         TreeNode[] myToolCallNodes;
 
 
@@ -152,7 +153,18 @@ namespace TTi_NextGen
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            //if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "123") { return; }
+            if (myPwdLooked)
+            {
+                if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "")
+                {
+                    return;
+                }
+                else
+                {
+                    myPwdLooked = false;
+                }
+            }
+
 
             frmConfig _frmConfig = new frmConfig(myNetworkDriveAvailable);
 
@@ -456,7 +468,7 @@ namespace TTi_NextGen
             MessageBox.Show(App.Title() + "\n\n" + App.Version() + " Build: " + Assembly.GetExecutingAssembly().GetName().Version.Build, App.Title());
         }
 
-         private void EnabledCNCProgrammControls()
+        private void EnabledCNCProgrammControls()
         {
             bool _Enabled = false;
 
@@ -716,9 +728,21 @@ namespace TTi_NextGen
         {
             if (toolStripStatusLabel2.Text.Contains("online"))
             {
+                if (myPwdLooked)
+                {
+                    if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "")
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        myPwdLooked = false;
+                    }
+                }
+
                 ProcessStartInfo proc = new ProcessStartInfo();
                 proc.FileName = @"TNCsync.exe";
-                proc.Arguments = @"-I " + myMachine.IP ;
+                proc.Arguments = @"-I " + myMachine.IP;
                 Process.Start(proc);
             }
         }
