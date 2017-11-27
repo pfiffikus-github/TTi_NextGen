@@ -188,6 +188,7 @@ namespace TTi_NextGen
                     myNetworkDriveAvailable = false;
 
                     toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
+                    toolStripStatusLabel1.Image = Properties.Resources.StorageContainerGroupError_16x;
                     toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Right;
 
                     WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.", HistoryMessageType.Error, FontStyle.Bold, true, false);
@@ -455,12 +456,7 @@ namespace TTi_NextGen
             MessageBox.Show(App.Title() + "\n\n" + App.Version() + " Build: " + Assembly.GetExecutingAssembly().GetName().Version.Build, App.Title());
         }
 
-        private void tOOLCALLInformationenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(myCNCProgram.GetNoteText() + "\n\n" + myCNCProgram.ToString(), "Information");
-        }
-
-        private void EnabledCNCProgrammControls()
+         private void EnabledCNCProgrammControls()
         {
             bool _Enabled = false;
 
@@ -476,9 +472,9 @@ namespace TTi_NextGen
             speichernÜbertragenToolStripMenuItem.Enabled = _Enabled;
             checkBox2.Enabled = _Enabled;
             button4.Enabled = _Enabled;
-            tOOLCALLInformationenToolStripMenuItem.Enabled = _Enabled;
             toolStripMenuItem7.Enabled = _Enabled;
             comboBox2.Enabled = _Enabled;
+            tOOLCALLInformationenToolStripMenuItem1.Enabled = _Enabled;
         }
 
         private void schließenToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -725,6 +721,11 @@ namespace TTi_NextGen
                 proc.Arguments = @"-I " + myMachine.IP ;
                 Process.Start(proc);
             }
+        }
+
+        private void tOOLCALLInformationenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(myCNCProgram.GetNoteText() + "\n\n" + myCNCProgram.ToString(), "Information");
         }
     }
 }

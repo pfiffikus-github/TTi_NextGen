@@ -113,6 +113,16 @@ namespace TTi_NextGen.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FilterTextbox_16x {
+            get {
+                object obj = ResourceManager.GetObject("FilterTextbox_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GoToProperty_16x {
             get {
                 object obj = ResourceManager.GetObject("GoToProperty_16x", resourceCulture);
@@ -176,6 +186,16 @@ namespace TTi_NextGen.Properties {
         internal static System.Drawing.Bitmap ShowFullHistory_16x {
             get {
                 object obj = ResourceManager.GetObject("ShowFullHistory_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StorageContainerGroupError_16x {
+            get {
+                object obj = ResourceManager.GetObject("StorageContainerGroupError_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
