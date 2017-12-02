@@ -363,8 +363,8 @@ namespace TTi_NextGen
         public static string Version()
         {
             return "V" + Assembly.GetExecutingAssembly().GetName().Version.Major +
-                   "." + Assembly.GetExecutingAssembly().GetName().Version.Minor +
-                   " Rev." + Assembly.GetExecutingAssembly().GetName().Version.MinorRevision;
+                   "." + Assembly.GetExecutingAssembly().GetName().Version.Minor; // +
+                   //" Rev." + Assembly.GetExecutingAssembly().GetName().Version.MinorRevision;
         }
 
     }

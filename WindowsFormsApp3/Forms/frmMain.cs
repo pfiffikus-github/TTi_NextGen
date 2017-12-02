@@ -193,15 +193,18 @@ namespace TTi_NextGen
                                         Path.Combine(Application.StartupPath, LocalSettings.PublicSettingsFile));
                     FileSystem.FileCopy(Path.Combine(myLocalSettings.PublicSettingsDirectory, "tool_table.template"),
                                         Path.Combine(Application.StartupPath, "tool_table.template"));
+                    toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "'";
+                    toolStripStatusLabel1.Image = Properties.Resources.Network_16x;
                 }
                 else
                 {
                     myMachines = App.InitMachines(Application.StartupPath);
                     myNetworkDriveAvailable = false;
 
-                    toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
-                    toolStripStatusLabel1.Image = Properties.Resources.StorageContainerGroupError_16x;
-                    toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Right;
+                    toolStripStatusLabel1.Text = "Netzlaufwerk '" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
+                    toolStripStatusLabel1.ForeColor = Color.Red;
+                    toolStripStatusLabel1.Image = Properties.Resources.ConnectionOffline_16x;
+
 
                     WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.", HistoryMessageType.Error, FontStyle.Bold, true, false);
                     WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet.", HistoryMessageType.Error, FontStyle.Bold, false);
@@ -484,7 +487,7 @@ namespace TTi_NextGen
             foreach (string _str in myCNCProgram.EachToolCallValues())
             {
                 _line[_line.Length - 1] += _str.Replace(CNCProgram.ToolCallString, "").Trim() + ", ";
-                if (_line[_line.Length - 1].Length >= 96)
+                if (_line[_line.Length - 1].Length >= 108)
                 {
                     Array.Resize(ref _line, _line.Length + 1);
                 }

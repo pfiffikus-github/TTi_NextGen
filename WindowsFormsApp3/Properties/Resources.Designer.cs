@@ -83,6 +83,16 @@ namespace TTi_NextGen.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ConnectionOffline_16x {
+            get {
+                object obj = ResourceManager.GetObject("ConnectionOffline_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Console_16x {
             get {
                 object obj = ResourceManager.GetObject("Console_16x", resourceCulture);
@@ -133,6 +143,16 @@ namespace TTi_NextGen.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Network_16x {
+            get {
+                object obj = ResourceManager.GetObject("Network_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap OpenfileDialog_grey_16x {
             get {
                 object obj = ResourceManager.GetObject("OpenfileDialog_grey_16x", resourceCulture);
@@ -146,6 +166,16 @@ namespace TTi_NextGen.Properties {
         internal static System.Drawing.Bitmap ProjectLoadVeto_16x {
             get {
                 object obj = ResourceManager.GetObject("ProjectLoadVeto_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RemoteServiceBinding_16x {
+            get {
+                object obj = ResourceManager.GetObject("RemoteServiceBinding_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

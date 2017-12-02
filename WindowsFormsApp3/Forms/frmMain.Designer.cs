@@ -33,7 +33,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.contextLeft = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,69 +43,39 @@
             this.dateiÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.öffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aktuelisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.speichernUnterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.speichernÜbertragenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
-            this.schließenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.pfadÖffnenToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dateiÖffnenToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.eigenschaftenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ansichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doppelteWerkzeugeMarkierenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.treeView2 = new System.Windows.Forms.TreeView();
             this.contextRight = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.kopierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.öffnenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aktualisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.speichernToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.speichernUnterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.speichernÜbertragenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.schließenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.pfadÖffnenToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dateiÖffnenToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.eigenschaftenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ansichtToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extrasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tOOLCALLInformationenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.contextHistory = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verlaufLeerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.contextMachine = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.viewHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cMDToTNCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.infoMaschineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblSelectedMachine = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -119,6 +88,37 @@
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.History_1 = new System.Windows.Forms.TreeView();
             this.HistoryImages = new System.Windows.Forms.ImageList(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.öffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aktuelisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speichernÜbertragenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.schließenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pfadÖffnenToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dateiÖffnenToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eigenschaftenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button4 = new System.Windows.Forms.Button();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.öffnenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aktualisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speichernToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.speichernÜbertragenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schließenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pfadÖffnenToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dateiÖffnenToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eigenschaftenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tOOLCALLInformationenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cMDToTNCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoMaschineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -159,8 +159,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2MinSize = 350;
-            this.splitContainer1.Size = new System.Drawing.Size(784, 367);
-            this.splitContainer1.SplitterDistance = 388;
+            this.splitContainer1.Size = new System.Drawing.Size(844, 377);
+            this.splitContainer1.SplitterDistance = 417;
             this.splitContainer1.TabIndex = 0;
             // 
             // comboBox1
@@ -169,7 +169,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(4, 339);
+            this.comboBox1.Location = new System.Drawing.Point(4, 349);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(93, 21);
             this.comboBox1.TabIndex = 12;
@@ -181,29 +181,13 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(102, 342);
+            this.checkBox1.Location = new System.Drawing.Point(102, 352);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(71, 17);
             this.checkBox1.TabIndex = 6;
             this.checkBox1.Text = "Synchron";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Enabled = false;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(242, 338);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Speichern && Übertragen";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // treeView1
             // 
@@ -214,7 +198,7 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 53);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(382, 279);
+            this.treeView1.Size = new System.Drawing.Size(411, 289);
             this.treeView1.TabIndex = 3;
             // 
             // contextLeft
@@ -308,29 +292,6 @@
             this.toolStripMenuItem4.Size = new System.Drawing.Size(46, 20);
             this.toolStripMenuItem4.Text = "Datei";
             // 
-            // öffnenToolStripMenuItem
-            // 
-            this.öffnenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.OpenfileDialog_grey_16x;
-            this.öffnenToolStripMenuItem.Name = "öffnenToolStripMenuItem";
-            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.öffnenToolStripMenuItem.Text = "Öffnen";
-            // 
-            // aktuelisierenToolStripMenuItem
-            // 
-            this.aktuelisierenToolStripMenuItem.Enabled = false;
-            this.aktuelisierenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.Substitution_16x;
-            this.aktuelisierenToolStripMenuItem.Name = "aktuelisierenToolStripMenuItem";
-            this.aktuelisierenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.aktuelisierenToolStripMenuItem.Text = "Aktualisieren";
-            // 
-            // speichernToolStripMenuItem
-            // 
-            this.speichernToolStripMenuItem.Enabled = false;
-            this.speichernToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.SaveFileDialogControl_16x;
-            this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
-            this.speichernToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.speichernToolStripMenuItem.Text = "Speichern";
-            // 
             // speichernUnterToolStripMenuItem
             // 
             this.speichernUnterToolStripMenuItem.Enabled = false;
@@ -343,73 +304,25 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(198, 6);
             // 
-            // speichernÜbertragenToolStripMenuItem1
-            // 
-            this.speichernÜbertragenToolStripMenuItem1.Enabled = false;
-            this.speichernÜbertragenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
-            this.speichernÜbertragenToolStripMenuItem1.Name = "speichernÜbertragenToolStripMenuItem1";
-            this.speichernÜbertragenToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
-            this.speichernÜbertragenToolStripMenuItem1.Text = "Speichern && Übertragen";
-            // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
             this.toolStripSeparator13.Size = new System.Drawing.Size(198, 6);
-            // 
-            // schließenToolStripMenuItem
-            // 
-            this.schließenToolStripMenuItem.Enabled = false;
-            this.schließenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.ProjectLoadVeto_16x;
-            this.schließenToolStripMenuItem.Name = "schließenToolStripMenuItem";
-            this.schließenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.schließenToolStripMenuItem.Text = "Schließen";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(198, 6);
             // 
-            // pfadÖffnenToolStripMenuItem2
-            // 
-            this.pfadÖffnenToolStripMenuItem2.Enabled = false;
-            this.pfadÖffnenToolStripMenuItem2.Image = global::TTi_NextGen.Properties.Resources.DownloadFolder_16x;
-            this.pfadÖffnenToolStripMenuItem2.Name = "pfadÖffnenToolStripMenuItem2";
-            this.pfadÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(201, 22);
-            this.pfadÖffnenToolStripMenuItem2.Text = "Pfad öffnen";
-            // 
-            // dateiÖffnenToolStripMenuItem2
-            // 
-            this.dateiÖffnenToolStripMenuItem2.Enabled = false;
-            this.dateiÖffnenToolStripMenuItem2.Image = global::TTi_NextGen.Properties.Resources.DownloadFile_16x;
-            this.dateiÖffnenToolStripMenuItem2.Name = "dateiÖffnenToolStripMenuItem2";
-            this.dateiÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(201, 22);
-            this.dateiÖffnenToolStripMenuItem2.Text = "Datei öffnen";
-            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(198, 6);
             // 
-            // eigenschaftenToolStripMenuItem
-            // 
-            this.eigenschaftenToolStripMenuItem.Enabled = false;
-            this.eigenschaftenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.GoToProperty_16x;
-            this.eigenschaftenToolStripMenuItem.Name = "eigenschaftenToolStripMenuItem";
-            this.eigenschaftenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.eigenschaftenToolStripMenuItem.Text = "Eigenschaften";
-            // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(198, 6);
-            // 
-            // beendenToolStripMenuItem
-            // 
-            this.beendenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.CloseSolution_16x;
-            this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.beendenToolStripMenuItem.Text = "Beenden";
-            this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
             // ansichtToolStripMenuItem
             // 
@@ -453,7 +366,7 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(385, 50);
+            this.label1.Size = new System.Drawing.Size(414, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Werkzeugliste\r\n\r\n*.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -463,27 +376,11 @@
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Enabled = false;
-            this.comboBox2.Location = new System.Drawing.Point(4, 339);
+            this.comboBox2.Location = new System.Drawing.Point(4, 349);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(93, 21);
             this.comboBox2.TabIndex = 11;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Enabled = false;
-            this.button4.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button4.Location = new System.Drawing.Point(246, 338);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(143, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Tag = "CNCProgram";
-            this.button4.Text = "Speichern && Übertragen";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // checkBox2
             // 
@@ -491,7 +388,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Enabled = false;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox2.Location = new System.Drawing.Point(102, 342);
+            this.checkBox2.Location = new System.Drawing.Point(102, 352);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(71, 17);
             this.checkBox2.TabIndex = 7;
@@ -511,7 +408,7 @@
             this.treeView2.Location = new System.Drawing.Point(3, 53);
             this.treeView2.Name = "treeView2";
             this.treeView2.ShowRootLines = false;
-            this.treeView2.Size = new System.Drawing.Size(386, 279);
+            this.treeView2.Size = new System.Drawing.Size(417, 289);
             this.treeView2.TabIndex = 4;
             // 
             // contextRight
@@ -523,21 +420,6 @@
             this.kopierenToolStripMenuItem});
             this.contextRight.Name = "contextRight";
             this.contextRight.Size = new System.Drawing.Size(274, 70);
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Image = global::TTi_NextGen.Properties.Resources.SearchProperty_16x;
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(273, 22);
-            this.toolStripMenuItem7.Text = "TOOL CALL\'s in Werkzeugliste suchen";
-            // 
-            // nurTOOLCALLsAnzeigenToolStripMenuItem1
-            // 
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.CheckOnClick = true;
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.FilterTextbox_16x;
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem1";
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Size = new System.Drawing.Size(273, 22);
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Text = "Nur TOOL CALL\'s anzeigen";
             // 
             // kopierenToolStripMenuItem
             // 
@@ -582,34 +464,6 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
             this.toolStripMenuItem1.Text = "Datei";
             // 
-            // öffnenToolStripMenuItem1
-            // 
-            this.öffnenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.OpenfileDialog_grey_16x;
-            this.öffnenToolStripMenuItem1.Name = "öffnenToolStripMenuItem1";
-            this.öffnenToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
-            this.öffnenToolStripMenuItem1.Text = "Öffnen";
-            this.öffnenToolStripMenuItem1.Click += new System.EventHandler(this.öffnenToolStripMenuItem1_Click);
-            // 
-            // aktualisierenToolStripMenuItem
-            // 
-            this.aktualisierenToolStripMenuItem.Enabled = false;
-            this.aktualisierenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.Substitution_16x;
-            this.aktualisierenToolStripMenuItem.Name = "aktualisierenToolStripMenuItem";
-            this.aktualisierenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.aktualisierenToolStripMenuItem.Tag = "CNCProgram";
-            this.aktualisierenToolStripMenuItem.Text = "Aktualisieren";
-            this.aktualisierenToolStripMenuItem.Click += new System.EventHandler(this.öffnenToolStripMenuItem1_Click);
-            // 
-            // speichernToolStripMenuItem1
-            // 
-            this.speichernToolStripMenuItem1.Enabled = false;
-            this.speichernToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.SaveFileDialogControl_16x;
-            this.speichernToolStripMenuItem1.Name = "speichernToolStripMenuItem1";
-            this.speichernToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
-            this.speichernToolStripMenuItem1.Tag = "CNCProgram";
-            this.speichernToolStripMenuItem1.Text = "Speichern";
-            this.speichernToolStripMenuItem1.Click += new System.EventHandler(this.speichernToolStripMenuItem1_Click);
-            // 
             // speichernUnterToolStripMenuItem1
             // 
             this.speichernUnterToolStripMenuItem1.Enabled = false;
@@ -624,80 +478,25 @@
             this.toolStripSeparator9.Name = "toolStripSeparator9";
             this.toolStripSeparator9.Size = new System.Drawing.Size(198, 6);
             // 
-            // speichernÜbertragenToolStripMenuItem
-            // 
-            this.speichernÜbertragenToolStripMenuItem.Enabled = false;
-            this.speichernÜbertragenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
-            this.speichernÜbertragenToolStripMenuItem.Name = "speichernÜbertragenToolStripMenuItem";
-            this.speichernÜbertragenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.speichernÜbertragenToolStripMenuItem.Text = "Speichern && Übertragen";
-            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(198, 6);
-            // 
-            // schließenToolStripMenuItem1
-            // 
-            this.schließenToolStripMenuItem1.Enabled = false;
-            this.schließenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.ProjectLoadVeto_16x;
-            this.schließenToolStripMenuItem1.Name = "schließenToolStripMenuItem1";
-            this.schließenToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
-            this.schließenToolStripMenuItem1.Tag = "CNCProgram";
-            this.schließenToolStripMenuItem1.Text = "Schließen";
-            this.schließenToolStripMenuItem1.Click += new System.EventHandler(this.schließenToolStripMenuItem1_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(198, 6);
             // 
-            // pfadÖffnenToolStripMenuItem3
-            // 
-            this.pfadÖffnenToolStripMenuItem3.Enabled = false;
-            this.pfadÖffnenToolStripMenuItem3.Image = global::TTi_NextGen.Properties.Resources.DownloadFolder_16x;
-            this.pfadÖffnenToolStripMenuItem3.Name = "pfadÖffnenToolStripMenuItem3";
-            this.pfadÖffnenToolStripMenuItem3.Size = new System.Drawing.Size(201, 22);
-            this.pfadÖffnenToolStripMenuItem3.Tag = "CNCProgram";
-            this.pfadÖffnenToolStripMenuItem3.Text = "Pfad öffnen";
-            this.pfadÖffnenToolStripMenuItem3.Click += new System.EventHandler(this.pfadÖffnenToolStripMenuItem3_Click);
-            // 
-            // dateiÖffnenToolStripMenuItem3
-            // 
-            this.dateiÖffnenToolStripMenuItem3.Enabled = false;
-            this.dateiÖffnenToolStripMenuItem3.Image = global::TTi_NextGen.Properties.Resources.DownloadFile_16x;
-            this.dateiÖffnenToolStripMenuItem3.Name = "dateiÖffnenToolStripMenuItem3";
-            this.dateiÖffnenToolStripMenuItem3.Size = new System.Drawing.Size(201, 22);
-            this.dateiÖffnenToolStripMenuItem3.Tag = "CNCProgram";
-            this.dateiÖffnenToolStripMenuItem3.Text = "Datei öffnen (Editor)";
-            this.dateiÖffnenToolStripMenuItem3.Click += new System.EventHandler(this.dateiÖffnenToolStripMenuItem3_Click);
-            // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(198, 6);
             // 
-            // eigenschaftenToolStripMenuItem1
-            // 
-            this.eigenschaftenToolStripMenuItem1.Enabled = false;
-            this.eigenschaftenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.GoToProperty_16x;
-            this.eigenschaftenToolStripMenuItem1.Name = "eigenschaftenToolStripMenuItem1";
-            this.eigenschaftenToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
-            this.eigenschaftenToolStripMenuItem1.Tag = "CNCProgram";
-            this.eigenschaftenToolStripMenuItem1.Text = "Eigenschaften";
-            // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
             this.toolStripSeparator12.Size = new System.Drawing.Size(198, 6);
-            // 
-            // beendenToolStripMenuItem1
-            // 
-            this.beendenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.CloseSolution_16x;
-            this.beendenToolStripMenuItem1.Name = "beendenToolStripMenuItem1";
-            this.beendenToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
-            this.beendenToolStripMenuItem1.Text = "Beenden";
-            this.beendenToolStripMenuItem1.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
             // ansichtToolStripMenuItem1
             // 
@@ -708,15 +507,6 @@
             this.ansichtToolStripMenuItem1.Size = new System.Drawing.Size(59, 20);
             this.ansichtToolStripMenuItem1.Text = "Ansicht";
             // 
-            // nurTOOLCALLsAnzeigenToolStripMenuItem
-            // 
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.CheckOnClick = true;
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.FilterTextbox_16x;
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem";
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Text = "Nur TOOL CALL\'s anzeigen";
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Click += new System.EventHandler(this.nurTOOLCALLsAnzeigenToolStripMenuItem_Click);
-            // 
             // extrasToolStripMenuItem1
             // 
             this.extrasToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -725,23 +515,6 @@
             this.extrasToolStripMenuItem1.Name = "extrasToolStripMenuItem1";
             this.extrasToolStripMenuItem1.Size = new System.Drawing.Size(49, 20);
             this.extrasToolStripMenuItem1.Text = "Extras";
-            // 
-            // tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem
-            // 
-            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Enabled = false;
-            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.SearchProperty_16x;
-            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Name = "tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem";
-            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
-            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Text = "\'TOOL CALL\' in Werkzeugliste suchen";
-            // 
-            // tOOLCALLInformationenToolStripMenuItem1
-            // 
-            this.tOOLCALLInformationenToolStripMenuItem1.Enabled = false;
-            this.tOOLCALLInformationenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.AssemblyInfoFile_16x;
-            this.tOOLCALLInformationenToolStripMenuItem1.Name = "tOOLCALLInformationenToolStripMenuItem1";
-            this.tOOLCALLInformationenToolStripMenuItem1.Size = new System.Drawing.Size(271, 22);
-            this.tOOLCALLInformationenToolStripMenuItem1.Text = "\'TOOL CALL\' Informationen";
-            this.tOOLCALLInformationenToolStripMenuItem1.Click += new System.EventHandler(this.tOOLCALLInformationenToolStripMenuItem1_Click);
             // 
             // label2
             // 
@@ -753,7 +526,7 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(389, 50);
+            this.label2.Size = new System.Drawing.Size(420, 50);
             this.label2.TabIndex = 1;
             this.label2.Text = "CNC-Programm\r\n\r\n*.h";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -785,9 +558,9 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel3,
             this.timeStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 487);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(784, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(844, 24);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -804,66 +577,15 @@
             this.contextMachine.Name = "contextMachine";
             this.contextMachine.Size = new System.Drawing.Size(166, 126);
             // 
-            // viewHistory
-            // 
-            this.viewHistory.Checked = true;
-            this.viewHistory.CheckOnClick = true;
-            this.viewHistory.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.viewHistory.Image = global::TTi_NextGen.Properties.Resources.ShowFullHistory_16x;
-            this.viewHistory.Name = "viewHistory";
-            this.viewHistory.Size = new System.Drawing.Size(165, 22);
-            this.viewHistory.Text = "Verlauf anzeigen";
-            this.viewHistory.CheckStateChanged += new System.EventHandler(this.toolStripMenuItem8_CheckStateChanged);
-            // 
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
             this.toolStripSeparator14.Size = new System.Drawing.Size(162, 6);
             // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Image = global::TTi_NextGen.Properties.Resources.Settings_16x;
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(165, 22);
-            this.toolStripMenuItem5.Text = "Konfiguration*";
-            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
-            // 
-            // cMDToTNCToolStripMenuItem
-            // 
-            this.cMDToTNCToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.Console_16x;
-            this.cMDToTNCToolStripMenuItem.Name = "cMDToTNCToolStripMenuItem";
-            this.cMDToTNCToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.cMDToTNCToolStripMenuItem.Text = "Bash-to-Control*";
-            this.cMDToTNCToolStripMenuItem.Click += new System.EventHandler(this.cMDToTNCToolStripMenuItem_Click);
-            // 
-            // infoMaschineToolStripMenuItem
-            // 
-            this.infoMaschineToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.SystemInfo_16x;
-            this.infoMaschineToolStripMenuItem.Name = "infoMaschineToolStripMenuItem";
-            this.infoMaschineToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.infoMaschineToolStripMenuItem.Text = "Maschinen-Info";
-            this.infoMaschineToolStripMenuItem.Click += new System.EventHandler(this.infoMaschineToolStripMenuItem_Click);
-            // 
             // toolStripSeparator15
             // 
             this.toolStripSeparator15.Name = "toolStripSeparator15";
             this.toolStripSeparator15.Size = new System.Drawing.Size(162, 6);
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem9.Image")));
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(165, 22);
-            this.toolStripMenuItem9.Text = "About...";
-            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
-            // 
-            // toolStripStatusLabel4
-            // 
-            this.toolStripStatusLabel4.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripStatusLabel4.Image = global::TTi_NextGen.Properties.Resources.VirtualMachineOK_16x;
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(77, 19);
-            this.toolStripStatusLabel4.Text = "Maschine:";
             // 
             // lblSelectedMachine
             // 
@@ -887,7 +609,7 @@
             // 
             this.toolStripStatusLabel5.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(111, 19);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(125, 19);
             this.toolStripStatusLabel5.Spring = true;
             this.toolStripStatusLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -908,7 +630,7 @@
             // 
             this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripStatusLabel1.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(123, 19);
             this.toolStripStatusLabel1.Text = "(Status Netzlaufwerk)";
@@ -917,7 +639,7 @@
             // 
             this.toolStripStatusLabel3.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(111, 19);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(125, 19);
             this.toolStripStatusLabel3.Spring = true;
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -949,12 +671,12 @@
             this.History_1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.History_1.ImageIndex = 0;
             this.History_1.ImageList = this.HistoryImages;
-            this.History_1.Location = new System.Drawing.Point(0, 367);
+            this.History_1.Location = new System.Drawing.Point(0, 377);
             this.History_1.Name = "History_1";
             this.History_1.SelectedImageIndex = 0;
             this.History_1.ShowLines = false;
             this.History_1.ShowRootLines = false;
-            this.History_1.Size = new System.Drawing.Size(784, 120);
+            this.History_1.Size = new System.Drawing.Size(844, 130);
             this.History_1.TabIndex = 4;
             this.History_1.TabStop = false;
             // 
@@ -967,17 +689,295 @@
             this.HistoryImages.Images.SetKeyName(2, "StatusOK_16x.png");
             this.HistoryImages.Images.SetKeyName(3, "StatusWarning_16x.png");
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Enabled = false;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(271, 348);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Speichern && Übertragen";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // öffnenToolStripMenuItem
+            // 
+            this.öffnenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.OpenfileDialog_grey_16x;
+            this.öffnenToolStripMenuItem.Name = "öffnenToolStripMenuItem";
+            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.öffnenToolStripMenuItem.Text = "Öffnen";
+            // 
+            // aktuelisierenToolStripMenuItem
+            // 
+            this.aktuelisierenToolStripMenuItem.Enabled = false;
+            this.aktuelisierenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.Substitution_16x;
+            this.aktuelisierenToolStripMenuItem.Name = "aktuelisierenToolStripMenuItem";
+            this.aktuelisierenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.aktuelisierenToolStripMenuItem.Text = "Aktualisieren";
+            // 
+            // speichernToolStripMenuItem
+            // 
+            this.speichernToolStripMenuItem.Enabled = false;
+            this.speichernToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.SaveFileDialogControl_16x;
+            this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
+            this.speichernToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.speichernToolStripMenuItem.Text = "Speichern";
+            // 
+            // speichernÜbertragenToolStripMenuItem1
+            // 
+            this.speichernÜbertragenToolStripMenuItem1.Enabled = false;
+            this.speichernÜbertragenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
+            this.speichernÜbertragenToolStripMenuItem1.Name = "speichernÜbertragenToolStripMenuItem1";
+            this.speichernÜbertragenToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
+            this.speichernÜbertragenToolStripMenuItem1.Text = "Speichern && Übertragen";
+            // 
+            // schließenToolStripMenuItem
+            // 
+            this.schließenToolStripMenuItem.Enabled = false;
+            this.schließenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.ProjectLoadVeto_16x;
+            this.schließenToolStripMenuItem.Name = "schließenToolStripMenuItem";
+            this.schließenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.schließenToolStripMenuItem.Text = "Schließen";
+            // 
+            // pfadÖffnenToolStripMenuItem2
+            // 
+            this.pfadÖffnenToolStripMenuItem2.Enabled = false;
+            this.pfadÖffnenToolStripMenuItem2.Image = global::TTi_NextGen.Properties.Resources.DownloadFolder_16x;
+            this.pfadÖffnenToolStripMenuItem2.Name = "pfadÖffnenToolStripMenuItem2";
+            this.pfadÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(201, 22);
+            this.pfadÖffnenToolStripMenuItem2.Text = "Pfad öffnen";
+            // 
+            // dateiÖffnenToolStripMenuItem2
+            // 
+            this.dateiÖffnenToolStripMenuItem2.Enabled = false;
+            this.dateiÖffnenToolStripMenuItem2.Image = global::TTi_NextGen.Properties.Resources.DownloadFile_16x;
+            this.dateiÖffnenToolStripMenuItem2.Name = "dateiÖffnenToolStripMenuItem2";
+            this.dateiÖffnenToolStripMenuItem2.Size = new System.Drawing.Size(201, 22);
+            this.dateiÖffnenToolStripMenuItem2.Text = "Datei öffnen";
+            // 
+            // eigenschaftenToolStripMenuItem
+            // 
+            this.eigenschaftenToolStripMenuItem.Enabled = false;
+            this.eigenschaftenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.GoToProperty_16x;
+            this.eigenschaftenToolStripMenuItem.Name = "eigenschaftenToolStripMenuItem";
+            this.eigenschaftenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.eigenschaftenToolStripMenuItem.Text = "Eigenschaften";
+            // 
+            // beendenToolStripMenuItem
+            // 
+            this.beendenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.CloseSolution_16x;
+            this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.beendenToolStripMenuItem.Text = "Beenden";
+            this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Enabled = false;
+            this.button4.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button4.Location = new System.Drawing.Point(277, 348);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(143, 23);
+            this.button4.TabIndex = 8;
+            this.button4.Tag = "CNCProgram";
+            this.button4.Text = "Speichern && Übertragen";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Image = global::TTi_NextGen.Properties.Resources.SearchProperty_16x;
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(273, 22);
+            this.toolStripMenuItem7.Text = "TOOL CALL\'s in Werkzeugliste suchen";
+            // 
+            // nurTOOLCALLsAnzeigenToolStripMenuItem1
+            // 
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.CheckOnClick = true;
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.FilterTextbox_16x;
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem1";
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Size = new System.Drawing.Size(273, 22);
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Text = "Nur TOOL CALL\'s anzeigen";
+            // 
+            // öffnenToolStripMenuItem1
+            // 
+            this.öffnenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.OpenfileDialog_grey_16x;
+            this.öffnenToolStripMenuItem1.Name = "öffnenToolStripMenuItem1";
+            this.öffnenToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
+            this.öffnenToolStripMenuItem1.Text = "Öffnen";
+            this.öffnenToolStripMenuItem1.Click += new System.EventHandler(this.öffnenToolStripMenuItem1_Click);
+            // 
+            // aktualisierenToolStripMenuItem
+            // 
+            this.aktualisierenToolStripMenuItem.Enabled = false;
+            this.aktualisierenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.Substitution_16x;
+            this.aktualisierenToolStripMenuItem.Name = "aktualisierenToolStripMenuItem";
+            this.aktualisierenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.aktualisierenToolStripMenuItem.Tag = "CNCProgram";
+            this.aktualisierenToolStripMenuItem.Text = "Aktualisieren";
+            this.aktualisierenToolStripMenuItem.Click += new System.EventHandler(this.öffnenToolStripMenuItem1_Click);
+            // 
+            // speichernToolStripMenuItem1
+            // 
+            this.speichernToolStripMenuItem1.Enabled = false;
+            this.speichernToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.SaveFileDialogControl_16x;
+            this.speichernToolStripMenuItem1.Name = "speichernToolStripMenuItem1";
+            this.speichernToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
+            this.speichernToolStripMenuItem1.Tag = "CNCProgram";
+            this.speichernToolStripMenuItem1.Text = "Speichern";
+            this.speichernToolStripMenuItem1.Click += new System.EventHandler(this.speichernToolStripMenuItem1_Click);
+            // 
+            // speichernÜbertragenToolStripMenuItem
+            // 
+            this.speichernÜbertragenToolStripMenuItem.Enabled = false;
+            this.speichernÜbertragenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
+            this.speichernÜbertragenToolStripMenuItem.Name = "speichernÜbertragenToolStripMenuItem";
+            this.speichernÜbertragenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.speichernÜbertragenToolStripMenuItem.Text = "Speichern && Übertragen";
+            // 
+            // schließenToolStripMenuItem1
+            // 
+            this.schließenToolStripMenuItem1.Enabled = false;
+            this.schließenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.ProjectLoadVeto_16x;
+            this.schließenToolStripMenuItem1.Name = "schließenToolStripMenuItem1";
+            this.schließenToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
+            this.schließenToolStripMenuItem1.Tag = "CNCProgram";
+            this.schließenToolStripMenuItem1.Text = "Schließen";
+            this.schließenToolStripMenuItem1.Click += new System.EventHandler(this.schließenToolStripMenuItem1_Click);
+            // 
+            // pfadÖffnenToolStripMenuItem3
+            // 
+            this.pfadÖffnenToolStripMenuItem3.Enabled = false;
+            this.pfadÖffnenToolStripMenuItem3.Image = global::TTi_NextGen.Properties.Resources.DownloadFolder_16x;
+            this.pfadÖffnenToolStripMenuItem3.Name = "pfadÖffnenToolStripMenuItem3";
+            this.pfadÖffnenToolStripMenuItem3.Size = new System.Drawing.Size(201, 22);
+            this.pfadÖffnenToolStripMenuItem3.Tag = "CNCProgram";
+            this.pfadÖffnenToolStripMenuItem3.Text = "Pfad öffnen";
+            this.pfadÖffnenToolStripMenuItem3.Click += new System.EventHandler(this.pfadÖffnenToolStripMenuItem3_Click);
+            // 
+            // dateiÖffnenToolStripMenuItem3
+            // 
+            this.dateiÖffnenToolStripMenuItem3.Enabled = false;
+            this.dateiÖffnenToolStripMenuItem3.Image = global::TTi_NextGen.Properties.Resources.DownloadFile_16x;
+            this.dateiÖffnenToolStripMenuItem3.Name = "dateiÖffnenToolStripMenuItem3";
+            this.dateiÖffnenToolStripMenuItem3.Size = new System.Drawing.Size(201, 22);
+            this.dateiÖffnenToolStripMenuItem3.Tag = "CNCProgram";
+            this.dateiÖffnenToolStripMenuItem3.Text = "Datei öffnen (Editor)";
+            this.dateiÖffnenToolStripMenuItem3.Click += new System.EventHandler(this.dateiÖffnenToolStripMenuItem3_Click);
+            // 
+            // eigenschaftenToolStripMenuItem1
+            // 
+            this.eigenschaftenToolStripMenuItem1.Enabled = false;
+            this.eigenschaftenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.GoToProperty_16x;
+            this.eigenschaftenToolStripMenuItem1.Name = "eigenschaftenToolStripMenuItem1";
+            this.eigenschaftenToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
+            this.eigenschaftenToolStripMenuItem1.Tag = "CNCProgram";
+            this.eigenschaftenToolStripMenuItem1.Text = "Eigenschaften";
+            // 
+            // beendenToolStripMenuItem1
+            // 
+            this.beendenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.CloseSolution_16x;
+            this.beendenToolStripMenuItem1.Name = "beendenToolStripMenuItem1";
+            this.beendenToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
+            this.beendenToolStripMenuItem1.Text = "Beenden";
+            this.beendenToolStripMenuItem1.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
+            // 
+            // nurTOOLCALLsAnzeigenToolStripMenuItem
+            // 
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem.CheckOnClick = true;
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.FilterTextbox_16x;
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem";
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Text = "Nur TOOL CALL\'s anzeigen";
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Click += new System.EventHandler(this.nurTOOLCALLsAnzeigenToolStripMenuItem_Click);
+            // 
+            // tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem
+            // 
+            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Enabled = false;
+            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.SearchProperty_16x;
+            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Name = "tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem";
+            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem.Text = "\'TOOL CALL\' in Werkzeugliste suchen";
+            // 
+            // tOOLCALLInformationenToolStripMenuItem1
+            // 
+            this.tOOLCALLInformationenToolStripMenuItem1.Enabled = false;
+            this.tOOLCALLInformationenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.AssemblyInfoFile_16x;
+            this.tOOLCALLInformationenToolStripMenuItem1.Name = "tOOLCALLInformationenToolStripMenuItem1";
+            this.tOOLCALLInformationenToolStripMenuItem1.Size = new System.Drawing.Size(271, 22);
+            this.tOOLCALLInformationenToolStripMenuItem1.Text = "\'TOOL CALL\' Informationen";
+            this.tOOLCALLInformationenToolStripMenuItem1.Click += new System.EventHandler(this.tOOLCALLInformationenToolStripMenuItem1_Click);
+            // 
+            // viewHistory
+            // 
+            this.viewHistory.Checked = true;
+            this.viewHistory.CheckOnClick = true;
+            this.viewHistory.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.viewHistory.Image = global::TTi_NextGen.Properties.Resources.ShowFullHistory_16x;
+            this.viewHistory.Name = "viewHistory";
+            this.viewHistory.Size = new System.Drawing.Size(165, 22);
+            this.viewHistory.Text = "Verlauf anzeigen";
+            this.viewHistory.CheckStateChanged += new System.EventHandler(this.toolStripMenuItem8_CheckStateChanged);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Image = global::TTi_NextGen.Properties.Resources.Settings_16x;
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(165, 22);
+            this.toolStripMenuItem5.Text = "Konfiguration*";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
+            // 
+            // cMDToTNCToolStripMenuItem
+            // 
+            this.cMDToTNCToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.Console_16x;
+            this.cMDToTNCToolStripMenuItem.Name = "cMDToTNCToolStripMenuItem";
+            this.cMDToTNCToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.cMDToTNCToolStripMenuItem.Text = "Bash-to-Control*";
+            this.cMDToTNCToolStripMenuItem.Click += new System.EventHandler(this.cMDToTNCToolStripMenuItem_Click);
+            // 
+            // infoMaschineToolStripMenuItem
+            // 
+            this.infoMaschineToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.SystemInfo_16x;
+            this.infoMaschineToolStripMenuItem.Name = "infoMaschineToolStripMenuItem";
+            this.infoMaschineToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.infoMaschineToolStripMenuItem.Text = "Maschinen-Info";
+            this.infoMaschineToolStripMenuItem.Click += new System.EventHandler(this.infoMaschineToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem9.Image")));
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(165, 22);
+            this.toolStripMenuItem9.Text = "About...";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripStatusLabel4.Image = global::TTi_NextGen.Properties.Resources.VirtualMachineOK_16x;
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(77, 19);
+            this.toolStripStatusLabel4.Text = "Maschine:";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(784, 511);
+            this.ClientSize = new System.Drawing.Size(844, 531);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.History_1);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(720, 460);
+            this.MinimumSize = new System.Drawing.Size(810, 480);
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.Load += new System.EventHandler(this.fmrMain_Load);

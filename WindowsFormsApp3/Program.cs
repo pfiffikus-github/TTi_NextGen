@@ -14,6 +14,17 @@ namespace TTi_NextGen
         [STAThread]
         static void Main()
         {
+            bool ok;
+            System.Threading.Mutex m = new System.Threading.Mutex(true, Application.ProductName, out ok);
+
+            if (!ok)
+            {
+                MessageBox.Show(Application.ProductName + " läuft bereits.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                return;
+            }
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());
