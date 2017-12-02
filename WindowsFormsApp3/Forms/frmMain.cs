@@ -254,7 +254,8 @@ namespace TTi_NextGen
             HistoryMessageType type = HistoryMessageType.Information,
             FontStyle style = FontStyle.Regular,
             bool withTime = true,
-            bool addSpaceLine = true)
+            bool addSpaceLine = true,
+            int image = 1)
         {
 
             if (withTime & text != "")
@@ -268,25 +269,53 @@ namespace TTi_NextGen
 
             TreeNode _tn = new TreeNode(text);
 
-            _tn.NodeFont = new Font("Consolas", 8, style);
-
             switch (type)
             {
                 case HistoryMessageType.Information:
                     _tn.ForeColor = Color.Black;
+                    _tn.ImageIndex = 0;
+                    _tn.SelectedImageIndex = _tn.ImageIndex;
                     break;
                 case HistoryMessageType.Warning:
                     _tn.ForeColor = Color.Orange;
+                    _tn.ImageIndex = 2;
+                    _tn.SelectedImageIndex = _tn.ImageIndex;
                     break;
                 case HistoryMessageType.Error:
                     _tn.ForeColor = Color.Red;
+                    _tn.ImageIndex = 1;
+                    _tn.SelectedImageIndex = _tn.ImageIndex;
                     break;
                 default:
                     break;
             }
 
+            if (withTime == false)
+            {
+                _tn.ImageIndex = 4;
+                _tn.SelectedImageIndex = _tn.ImageIndex;
+            }
+
+            if (image != 1)
+            {
+                _tn.ImageIndex = image;
+                _tn.SelectedImageIndex = _tn.ImageIndex;
+            }
+
+
+
+
+            _tn.NodeFont = new Font("Consolas", 8, style);
+
             History_1.Nodes.Add(_tn); _tn.EnsureVisible();
-            if (addSpaceLine) { History_1.Nodes.Add(""); }
+
+            if (addSpaceLine)
+            {
+                TreeNode _tn2 = new TreeNode("");
+                _tn2.ImageIndex = 4;
+                _tn2.SelectedImageIndex = _tn2.ImageIndex;
+                History_1.Nodes.Add(_tn2);
+            }
 
         }
 
@@ -427,15 +456,20 @@ namespace TTi_NextGen
 
             //write history
 
+            int _image = 1;
 
+            if (myCNCProgram.IsToolRangeConsistent != true)
+            {
+                _image = 3;
+            }
 
-            WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", HistoryMessageType.Information, FontStyle.Bold, true, false);
+            WriteHistory("CNC-Programm '" + Path.GetFileName(myCNCProgram.File.FullName) + "' geladen/aktualisiert", HistoryMessageType.Information, FontStyle.Bold, true, false, _image);
 
             if (myCNCProgram.IsToolRangeConsistent != true)
             {
                 WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
                              "' in verschiedenen Tool-Ranges enthalten",
-                             HistoryMessageType.Error, FontStyle.Italic, false, false);
+                             HistoryMessageType.Warning, FontStyle.Italic, false, false);
             }
             else
             {
@@ -445,14 +479,29 @@ namespace TTi_NextGen
                              HistoryMessageType.Information, FontStyle.Italic, false, false);
             }
 
-            string _line = "[";
+            //string _line = "[";
+            string[] _line = new string[] { "[" };
             foreach (string _str in myCNCProgram.EachToolCallValues())
             {
-                _line += _str.Replace(CNCProgram.ToolCallString, "").Trim() + ", ";
+                _line[_line.Length - 1] += _str.Replace(CNCProgram.ToolCallString, "").Trim() + ", ";
+                if (_line[_line.Length - 1].Length >= 96)
+                {
+                    Array.Resize(ref _line, _line.Length + 1);
+                }
             }
-            _line = _line.Remove(_line.Length - 2, 1).Trim() + "]";
+            _line[_line.Length - 1] = _line[_line.Length - 1].Remove(_line[_line.Length - 1].Length - 2, 1).Trim() + "]";
 
-            WriteHistory(_line, HistoryMessageType.Information, FontStyle.Italic, false, true);
+
+            bool withEmptyLine = false;
+            for (int i = 0; i < _line.Length; i++)
+            {
+                if (i == _line.Length - 1)
+                {
+                    withEmptyLine = true;
+                }
+
+                WriteHistory(_line[i], HistoryMessageType.Information, FontStyle.Italic, false, withEmptyLine);
+            }
 
             //lbl-Text
             label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
@@ -460,7 +509,6 @@ namespace TTi_NextGen
             //set restrictivToolValues
 
             TempJobClear();
-
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)

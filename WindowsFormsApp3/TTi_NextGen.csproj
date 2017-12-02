@@ -223,6 +223,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="if_advancedsettings_17814.ico" />
+    <None Include="Resources\Images\StatusInformation_16x.png" />
+    <None Include="Resources\Images\StatusWarning_16x.png" />
+    <None Include="Resources\Images\StatusOK_16x.png" />
+    <None Include="Resources\Images\StatusInvalid_16x.png" />
     <None Include="Resources\Images\FilterTextbox_16x.png" />
     <None Include="Resources\Images\StorageContainerGroupError_16x.png" />
   </ItemGroup>

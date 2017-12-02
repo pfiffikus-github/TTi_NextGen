@@ -63,7 +63,6 @@
             this.doppelteWerkzeugeMarkierenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -71,9 +70,8 @@
             this.treeView2 = new System.Windows.Forms.TreeView();
             this.contextRight = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.doppelteTOOLCALLsMarkierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.kopierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.öffnenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,6 +118,7 @@
             this.timerMainFrm = new System.Windows.Forms.Timer(this.components);
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.History_1 = new System.Windows.Forms.TreeView();
+            this.HistoryImages = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -278,11 +277,10 @@
             this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem4,
             this.ansichtToolStripMenuItem,
-            this.extrasToolStripMenuItem,
-            this.infoToolStripMenuItem});
+            this.extrasToolStripMenuItem});
             this.menuStrip3.Location = new System.Drawing.Point(0, 26);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(202, 24);
+            this.menuStrip3.Size = new System.Drawing.Size(162, 24);
             this.menuStrip3.TabIndex = 2;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -446,13 +444,6 @@
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.werkzeugeImCNCProgrammSuchenToolStripMenuItem.Text = "Werkzeuge im CNC-Programm suchen";
             // 
-            // infoToolStripMenuItem
-            // 
-            this.infoToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.infoToolStripMenuItem.Text = "Info";
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -528,38 +519,31 @@
             this.contextRight.BackColor = System.Drawing.Color.DimGray;
             this.contextRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem7,
-            this.toolStripSeparator3,
-            this.doppelteTOOLCALLsMarkierenToolStripMenuItem,
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem1});
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1,
+            this.kopierenToolStripMenuItem});
             this.contextRight.Name = "contextRight";
-            this.contextRight.Size = new System.Drawing.Size(274, 76);
+            this.contextRight.Size = new System.Drawing.Size(274, 70);
             // 
             // toolStripMenuItem7
             // 
+            this.toolStripMenuItem7.Image = global::TTi_NextGen.Properties.Resources.SearchProperty_16x;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Size = new System.Drawing.Size(273, 22);
             this.toolStripMenuItem7.Text = "TOOL CALL\'s in Werkzeugliste suchen";
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(270, 6);
-            // 
-            // doppelteTOOLCALLsMarkierenToolStripMenuItem
-            // 
-            this.doppelteTOOLCALLsMarkierenToolStripMenuItem.Checked = true;
-            this.doppelteTOOLCALLsMarkierenToolStripMenuItem.CheckOnClick = true;
-            this.doppelteTOOLCALLsMarkierenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.doppelteTOOLCALLsMarkierenToolStripMenuItem.Name = "doppelteTOOLCALLsMarkierenToolStripMenuItem";
-            this.doppelteTOOLCALLsMarkierenToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
-            this.doppelteTOOLCALLsMarkierenToolStripMenuItem.Text = "Doppelte TOOL CALL\'s markieren";
-            // 
             // nurTOOLCALLsAnzeigenToolStripMenuItem1
             // 
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.CheckOnClick = true;
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.FilterTextbox_16x;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem1";
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Size = new System.Drawing.Size(273, 22);
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Text = "Nur TOOL CALL\'s anzeigen";
+            // 
+            // kopierenToolStripMenuItem
+            // 
+            this.kopierenToolStripMenuItem.Name = "kopierenToolStripMenuItem";
+            this.kopierenToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.kopierenToolStripMenuItem.Text = "Kopieren";
             // 
             // menuStrip2
             // 
@@ -818,7 +802,7 @@
             this.toolStripSeparator15,
             this.toolStripMenuItem9});
             this.contextMachine.Name = "contextMachine";
-            this.contextMachine.Size = new System.Drawing.Size(166, 148);
+            this.contextMachine.Size = new System.Drawing.Size(166, 126);
             // 
             // viewHistory
             // 
@@ -903,7 +887,7 @@
             // 
             this.toolStripStatusLabel5.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(146, 19);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(111, 19);
             this.toolStripStatusLabel5.Spring = true;
             this.toolStripStatusLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -926,14 +910,14 @@
             this.toolStripStatusLabel1.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
             this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(53, 19);
-            this.toolStripStatusLabel1.Text = "Hinweis";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(123, 19);
+            this.toolStripStatusLabel1.Text = "(Status Netzlaufwerk)";
             // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(146, 19);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(111, 19);
             this.toolStripStatusLabel3.Spring = true;
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -963,13 +947,25 @@
             this.History_1.ContextMenuStrip = this.contextHistory;
             this.History_1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.History_1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.History_1.ImageIndex = 0;
+            this.History_1.ImageList = this.HistoryImages;
             this.History_1.Location = new System.Drawing.Point(0, 367);
             this.History_1.Name = "History_1";
+            this.History_1.SelectedImageIndex = 0;
             this.History_1.ShowLines = false;
             this.History_1.ShowRootLines = false;
             this.History_1.Size = new System.Drawing.Size(784, 120);
             this.History_1.TabIndex = 4;
             this.History_1.TabStop = false;
+            // 
+            // HistoryImages
+            // 
+            this.HistoryImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("HistoryImages.ImageStream")));
+            this.HistoryImages.TransparentColor = System.Drawing.Color.Transparent;
+            this.HistoryImages.Images.SetKeyName(0, "StatusInformation_16x.png");
+            this.HistoryImages.Images.SetKeyName(1, "StatusInvalid_16x.png");
+            this.HistoryImages.Images.SetKeyName(2, "StatusOK_16x.png");
+            this.HistoryImages.Images.SetKeyName(3, "StatusWarning_16x.png");
             // 
             // frmMain
             // 
@@ -1040,16 +1036,13 @@
         private System.Windows.Forms.ToolStripMenuItem viewHistory;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem doppelteWerkzeugeMarkierenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem doppelteTOOLCALLsMarkierenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dateiÖffnenToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem pfadÖffnenToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem pfadÖffnenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ansichtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ansichtToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ToolStripMenuItem doppelteWerkzeugeMarkierenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem nurTOOLCALLsAnzeigenToolStripMenuItem;
@@ -1098,6 +1091,8 @@
         private System.Windows.Forms.ToolStripMenuItem cMDToTNCToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.ToolStripMenuItem tOOLCALLInformationenToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem kopierenToolStripMenuItem;
+        private System.Windows.Forms.ImageList HistoryImages;
     }
 }
 
