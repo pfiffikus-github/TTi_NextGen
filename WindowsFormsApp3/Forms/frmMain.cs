@@ -182,32 +182,36 @@ namespace TTi_NextGen
         {
             myLocalSettings = App.InitLocalSettings();      //lese Lokale Einstellungen
             toolStripStatusLabel1.Text = ""; //status Netzlaufwerk
+            toolStripStatusLabel1.Image = null;
+            toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.None;
 
 
             if (Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) != Path.GetPathRoot(Application.StartupPath)) //prüfe, ob Netzlaufwerk verwendet wird
             {
-                if (System.IO.Directory.Exists(Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory)))   //prüfe, ob Pfad existiert
+                if (Directory.Exists(Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory)))   //prüfe, ob Pfad existiert
                 {
                     myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
                     FileSystem.FileCopy(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile),    //Kopie der Maschinen lokal speichern, falls Netzlaufwerk später evtl. nicht verfügbar
                                         Path.Combine(Application.StartupPath, LocalSettings.PublicSettingsFile));
                     FileSystem.FileCopy(Path.Combine(myLocalSettings.PublicSettingsDirectory, "tool_table.template"),
                                         Path.Combine(Application.StartupPath, "tool_table.template"));
-                    toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "'";
+                    toolStripStatusLabel1.Text = Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory);
                     toolStripStatusLabel1.Image = Properties.Resources.Network_16x;
+                    toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
                 }
                 else
                 {
                     myMachines = App.InitMachines(Application.StartupPath);
                     myNetworkDriveAvailable = false;
 
-                    toolStripStatusLabel1.Text = "Netzlaufwerk '" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
+                    toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
                     toolStripStatusLabel1.ForeColor = Color.Red;
                     toolStripStatusLabel1.Image = Properties.Resources.ConnectionOffline_16x;
+                    toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
 
 
-                    WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.", HistoryMessageType.Error, FontStyle.Bold, true, false);
-                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird ein lokales Backup der Maschinen-Datei verwendet.", HistoryMessageType.Error, FontStyle.Bold, false);
+                    WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + Path.GetPathRoot( myLocalSettings.PublicSettingsDirectory) + "' geladen werden.", HistoryMessageType.Error, FontStyle.Bold, true, false);
+                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird das letzte lokale Backup verwendet.", HistoryMessageType.Error, FontStyle.Bold, false);
 
                     MessageBox.Show("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.\n\nEs wird ein lokales Backup der Maschinen-Datei verwendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
