@@ -210,7 +210,7 @@ namespace TTi_NextGen
                     toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
 
 
-                    WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + Path.GetPathRoot( myLocalSettings.PublicSettingsDirectory) + "' geladen werden.", HistoryMessageType.Error, FontStyle.Bold, true, false);
+                    WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' geladen werden.", HistoryMessageType.Error, FontStyle.Bold, true, false);
                     WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird das letzte lokale Backup verwendet.", HistoryMessageType.Error, FontStyle.Bold, false);
 
                     MessageBox.Show("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.\n\nEs wird ein lokales Backup der Maschinen-Datei verwendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -245,7 +245,8 @@ namespace TTi_NextGen
             timerMainFrm_Tick(null, null);
             checkBox1.CheckState = CheckState.Checked;
             lblSelectedMachine.Text = myMachine.Name;
-            if (myLocalSettings.ShowAllMachines == false || myMachines.Count <= 1)
+            History_1.Size = new Size(History_1.Size.Width , myLocalSettings.HistorySizeHeight);
+            if (myLocalSettings.ShowMachineList == false || myMachines.Count <= 1)
             {
                 lblSelectedMachine.Enabled = false;
             }
@@ -799,6 +800,7 @@ namespace TTi_NextGen
                 proc.FileName = @"TNCsync.exe";
                 proc.Arguments = @"-I " + myMachine.IP;
                 Process.Start(proc);
+                WriteHistory("'Bash-to-Control' zu Maschine '" + myMachine.Name + "' (" + myMachine.IP + ") gestartet");
             }
         }
 

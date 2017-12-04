@@ -40,7 +40,6 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.doppelteWerkzeugeMarkierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.pfadÖffnenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,13 +111,14 @@
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TempJob = new System.Windows.Forms.ToolStripStatusLabel();
             this.ProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerMainFrm = new System.Windows.Forms.Timer(this.components);
             this.pfadÖffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.History_1 = new System.Windows.Forms.TreeView();
             this.HistoryImages = new System.Windows.Forms.ImageList(this.components);
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -225,10 +225,9 @@
             this.toolStripSeparator6,
             this.doppelteWerkzeugeMarkierenToolStripMenuItem,
             this.toolStripSeparator5,
-            this.pfadÖffnenToolStripMenuItem1,
             this.dateiÖffnenToolStripMenuItem});
             this.contextLeft.Name = "contextRight";
-            this.contextLeft.Size = new System.Drawing.Size(281, 104);
+            this.contextLeft.Size = new System.Drawing.Size(281, 82);
             // 
             // toolStripMenuItem2
             // 
@@ -256,19 +255,12 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(277, 6);
             // 
-            // pfadÖffnenToolStripMenuItem1
-            // 
-            this.pfadÖffnenToolStripMenuItem1.Enabled = false;
-            this.pfadÖffnenToolStripMenuItem1.Name = "pfadÖffnenToolStripMenuItem1";
-            this.pfadÖffnenToolStripMenuItem1.Size = new System.Drawing.Size(280, 22);
-            this.pfadÖffnenToolStripMenuItem1.Text = "Pfad öffnen";
-            // 
             // dateiÖffnenToolStripMenuItem
             // 
             this.dateiÖffnenToolStripMenuItem.Enabled = false;
             this.dateiÖffnenToolStripMenuItem.Name = "dateiÖffnenToolStripMenuItem";
             this.dateiÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
-            this.dateiÖffnenToolStripMenuItem.Text = "Datei öffnen";
+            this.dateiÖffnenToolStripMenuItem.Text = "Kopieren";
             // 
             // menuStrip3
             // 
@@ -520,9 +512,10 @@
             this.contextRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem7,
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1,
+            this.toolStripSeparator3,
             this.kopierenToolStripMenuItem});
             this.contextRight.Name = "contextRight";
-            this.contextRight.Size = new System.Drawing.Size(274, 70);
+            this.contextRight.Size = new System.Drawing.Size(274, 76);
             // 
             // toolStripMenuItem7
             // 
@@ -887,7 +880,7 @@
             // 
             this.toolStripStatusLabel5.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(125, 19);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(141, 19);
             this.toolStripStatusLabel5.Spring = true;
             this.toolStripStatusLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -904,15 +897,6 @@
             this.ProgressBar.Name = "ProgressBar";
             this.ProgressBar.Size = new System.Drawing.Size(100, 18);
             // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStripStatusLabel1.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(123, 19);
-            this.toolStripStatusLabel1.Text = "(Status Netzlaufwerk)";
-            // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
@@ -921,6 +905,15 @@
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(141, 19);
             this.toolStripStatusLabel3.Spring = true;
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel1.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(123, 19);
+            this.toolStripStatusLabel1.Text = "(Status Netzlaufwerk)";
             // 
             // timeStatus
             // 
@@ -967,6 +960,11 @@
             this.HistoryImages.Images.SetKeyName(1, "StatusInvalid_16x.png");
             this.HistoryImages.Images.SetKeyName(2, "StatusOK_16x.png");
             this.HistoryImages.Images.SetKeyName(3, "StatusWarning_16x.png");
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(270, 6);
             // 
             // frmMain
             // 
@@ -1041,7 +1039,6 @@
         private System.Windows.Forms.ToolStripMenuItem dateiÖffnenToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem pfadÖffnenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pfadÖffnenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ansichtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ansichtToolStripMenuItem1;
@@ -1095,6 +1092,7 @@
         private System.Windows.Forms.ToolStripMenuItem tOOLCALLInformationenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem kopierenToolStripMenuItem;
         private System.Windows.Forms.ImageList HistoryImages;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 

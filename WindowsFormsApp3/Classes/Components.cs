@@ -16,7 +16,7 @@ namespace TTi_NextGen
     {
         public LocalSettings()
         {
-            ShowAllMachines = true;
+            ShowMachineList = true;
             ShowHistory = true;
             CloseAppAfterSync = false;
             LocalSettingsDirectory = Application.StartupPath;
@@ -24,6 +24,7 @@ namespace TTi_NextGen
             DefaultMachineBackground = new string[1];
             DefaultMachineBackground[0] = Machine.DefaultMachineName;
             DefaultMachine = Machine.DefaultMachineName;
+            HistorySizeHeight = 130;
         }
 
         public event EventHandler PublicSettingsDirectoryChanged;
@@ -34,11 +35,30 @@ namespace TTi_NextGen
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Auswahl aller Maschinen anzeigen")]
-        public bool ShowAllMachines { get; set; }
+        public bool ShowMachineList { get; set; }
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Verlauf anzeigen")]
         public bool ShowHistory { get; set; }
+
+
+        private int myHistorySizeHeight;
+        [CategoryAttribute("Lokale Einstellungen"),
+         DescriptionAttribute("Höhe des History-Logs (in Pixel >50/<250)")]
+        public int HistorySizeHeight
+        {
+            get { return myHistorySizeHeight; }
+            set
+            {
+                if (value < 50 | value > 250)
+                {
+                    return;
+                }
+                myHistorySizeHeight = value;
+            }
+        }
+
+
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Anwendung nach Datenübertragung schließen")]
@@ -364,7 +384,7 @@ namespace TTi_NextGen
         {
             return "V" + Assembly.GetExecutingAssembly().GetName().Version.Major +
                    "." + Assembly.GetExecutingAssembly().GetName().Version.Minor; // +
-                   //" Rev." + Assembly.GetExecutingAssembly().GetName().Version.MinorRevision;
+                                                                                  //" Rev." + Assembly.GetExecutingAssembly().GetName().Version.MinorRevision;
         }
 
     }

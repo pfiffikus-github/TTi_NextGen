@@ -19,7 +19,7 @@ namespace TTi_NextGen
 
             if (!ok)
             {
-                MessageBox.Show(Application.ProductName + " läuft bereits.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Application.ProductName + " wird bereits ausgeführt...", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 return;
             }
