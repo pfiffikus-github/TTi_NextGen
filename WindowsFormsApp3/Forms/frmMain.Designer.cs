@@ -164,7 +164,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2MinSize = 350;
-            this.splitContainer1.Size = new System.Drawing.Size(837, 299);
+            this.splitContainer1.Size = new System.Drawing.Size(837, 319);
             this.splitContainer1.SplitterDistance = 437;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -174,7 +174,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(4, 262);
+            this.comboBox1.Location = new System.Drawing.Point(4, 282);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(93, 21);
             this.comboBox1.TabIndex = 12;
@@ -186,7 +186,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(102, 265);
+            this.checkBox1.Location = new System.Drawing.Point(102, 285);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(71, 17);
             this.checkBox1.TabIndex = 6;
@@ -202,7 +202,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(291, 262);
+            this.button1.Location = new System.Drawing.Point(291, 282);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 23);
             this.button1.TabIndex = 4;
@@ -219,7 +219,7 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 53);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(431, 202);
+            this.treeView1.Size = new System.Drawing.Size(431, 222);
             this.treeView1.TabIndex = 3;
             // 
             // contextLeft
@@ -460,7 +460,7 @@
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Enabled = false;
-            this.comboBox2.Location = new System.Drawing.Point(4, 262);
+            this.comboBox2.Location = new System.Drawing.Point(4, 282);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(93, 21);
             this.comboBox2.TabIndex = 11;
@@ -472,7 +472,7 @@
             this.button4.Enabled = false;
             this.button4.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button4.Location = new System.Drawing.Point(250, 260);
+            this.button4.Location = new System.Drawing.Point(250, 280);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(143, 23);
             this.button4.TabIndex = 8;
@@ -488,7 +488,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Enabled = false;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox2.Location = new System.Drawing.Point(102, 265);
+            this.checkBox2.Location = new System.Drawing.Point(102, 285);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(71, 17);
             this.checkBox2.TabIndex = 7;
@@ -508,7 +508,7 @@
             this.treeView2.Location = new System.Drawing.Point(3, 53);
             this.treeView2.Name = "treeView2";
             this.treeView2.ShowRootLines = false;
-            this.treeView2.Size = new System.Drawing.Size(390, 202);
+            this.treeView2.Size = new System.Drawing.Size(390, 222);
             this.treeView2.TabIndex = 4;
             // 
             // contextRight
@@ -890,7 +890,7 @@
             // 
             this.toolStripStatusLabel5.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(141, 19);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(137, 19);
             this.toolStripStatusLabel5.Spring = true;
             this.toolStripStatusLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -912,7 +912,7 @@
             this.toolStripStatusLabel3.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.toolStripStatusLabel3.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(141, 19);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(137, 19);
             this.toolStripStatusLabel3.Spring = true;
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -958,7 +958,7 @@
             this.History_1.SelectedImageIndex = 0;
             this.History_1.ShowLines = false;
             this.History_1.ShowRootLines = false;
-            this.History_1.Size = new System.Drawing.Size(837, 137);
+            this.History_1.Size = new System.Drawing.Size(837, 117);
             this.History_1.TabIndex = 4;
             this.History_1.TabStop = false;
             // 
@@ -982,12 +982,14 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.splitContainer1);
+            this.splitContainer2.Panel1MinSize = 250;
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.History_1);
+            this.splitContainer2.Panel2MinSize = 50;
             this.splitContainer2.Size = new System.Drawing.Size(837, 440);
-            this.splitContainer2.SplitterDistance = 299;
+            this.splitContainer2.SplitterDistance = 319;
             this.splitContainer2.TabIndex = 5;
             // 
             // frmMain

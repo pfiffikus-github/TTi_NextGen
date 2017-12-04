@@ -134,15 +134,13 @@ namespace TTi_NextGen
 
         private void toolStripMenuItem8_CheckStateChanged(object sender, EventArgs e)
         {
-            int Y = History_1.Size.Height + 8;
-
             if (viewHistory.CheckState != CheckState.Checked)
             {
-                History_1.Visible = false;
+                splitContainer2.Panel2Collapsed = true;
             }
             else
             {
-                History_1.Visible = true;
+                splitContainer2.Panel2Collapsed = false;
             }
         }
 
@@ -807,5 +805,6 @@ namespace TTi_NextGen
         {
             MessageBox.Show(myCNCProgram.GetNoteText() + "\n\n" + myCNCProgram.ToString(), "Information");
         }
+
     }
 }
