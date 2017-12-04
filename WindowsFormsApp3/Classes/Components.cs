@@ -24,7 +24,6 @@ namespace TTi_NextGen
             DefaultMachineBackground = new string[1];
             DefaultMachineBackground[0] = Machine.DefaultMachineName;
             DefaultMachine = Machine.DefaultMachineName;
-            HistorySizeHeight = 130;
         }
 
         public event EventHandler PublicSettingsDirectoryChanged;
@@ -40,25 +39,6 @@ namespace TTi_NextGen
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Verlauf anzeigen")]
         public bool ShowHistory { get; set; }
-
-
-        private int myHistorySizeHeight;
-        [CategoryAttribute("Lokale Einstellungen"),
-         DescriptionAttribute("Höhe des History-Logs (in Pixel >50/<250)")]
-        public int HistorySizeHeight
-        {
-            get { return myHistorySizeHeight; }
-            set
-            {
-                if (value < 50 | value > 250)
-                {
-                    return;
-                }
-                myHistorySizeHeight = value;
-            }
-        }
-
-
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Anwendung nach Datenübertragung schließen")]

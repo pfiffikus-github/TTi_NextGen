@@ -245,7 +245,6 @@ namespace TTi_NextGen
             timerMainFrm_Tick(null, null);
             checkBox1.CheckState = CheckState.Checked;
             lblSelectedMachine.Text = myMachine.Name;
-            History_1.Size = new Size(History_1.Size.Width , myLocalSettings.HistorySizeHeight);
             if (myLocalSettings.ShowMachineList == false || myMachines.Count <= 1)
             {
                 lblSelectedMachine.Enabled = false;
