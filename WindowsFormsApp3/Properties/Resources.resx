@@ -187,6 +187,15 @@
   <data name="SystemInfo_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\SystemInfo_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TopLeftOf2RowsTopSplit_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\TopLeftOf2RowsTopSplit_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TopOf2Rows_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\TopOf2Rows_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TopRightOf2RowsTopSplit_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\TopRightOf2RowsTopSplit_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="UIAboutBox_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\UIAboutBox_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

@@ -293,6 +293,36 @@ namespace TTi_NextGen.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TopLeftOf2RowsTopSplit_16x {
+            get {
+                object obj = ResourceManager.GetObject("TopLeftOf2RowsTopSplit_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TopOf2Rows_16x {
+            get {
+                object obj = ResourceManager.GetObject("TopOf2Rows_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TopRightOf2RowsTopSplit_16x {
+            get {
+                object obj = ResourceManager.GetObject("TopRightOf2RowsTopSplit_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UIAboutBox_16x {
             get {
                 object obj = ResourceManager.GetObject("UIAboutBox_16x", resourceCulture);

@@ -40,6 +40,7 @@ namespace TTi_NextGen
          DescriptionAttribute("Verlauf anzeigen")]
         public bool ShowHistory { get; set; }
 
+
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Anwendung nach Datenübertragung schließen")]
         public bool CloseAppAfterSync { get; set; }

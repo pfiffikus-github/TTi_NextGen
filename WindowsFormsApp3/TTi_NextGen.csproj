@@ -223,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="if_advancedsettings_17814.ico" />
+    <None Include="Resources\Images\TopRightOf2RowsTopSplit_16x.png" />
+    <None Include="Resources\Images\TopOf2Rows_16x.png" />
+    <None Include="Resources\Images\TopLeftOf2RowsTopSplit_16x.png" />
     <None Include="Resources\Images\Network_16x.png" />
     <None Include="Resources\Images\RemoteServiceBinding_16x.png" />
     <None Include="Resources\Images\ConnectionOffline_16x.png" />

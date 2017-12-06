@@ -726,7 +726,7 @@ namespace TTi_NextGen
         private void speichernToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             myCNCProgram.ChangeToolRange(ExtractInt(comboBox2.Text), true);
-            WriteHistory("CNC-Programm '" + myCNCProgram.File.Name + "': Tool-Range erfolgreich in '" + comboBox2.Text + "' geändert", HistoryMessageType.Information, FontStyle.Bold);
+            WriteHistory("CNC-Programm '" + myCNCProgram.File.Name + "': Tool-Range erfolgreich in '" + comboBox2.Text + "' geändert", HistoryMessageType.Information, FontStyle.Bold, true, true , 2);
             öffnenToolStripMenuItem1_Click(aktualisierenToolStripMenuItem, null);
         }
 
@@ -769,7 +769,8 @@ namespace TTi_NextGen
 
         private void nurTOOLCALLsAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TempJob.Text = "Lädt CNC-Programm...";
+            //TempJob.Text = "Lädt CNC-Programm...";
+            splitContainer1.Panel1Collapsed = true;
         }
 
         private void TempJobClear()
@@ -806,5 +807,31 @@ namespace TTi_NextGen
             MessageBox.Show(myCNCProgram.GetNoteText() + "\n\n" + myCNCProgram.ToString(), "Information");
         }
 
+        private void nurWerkzeuglisteAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            beideBereicheAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked ;
+            nurCNCProgrammAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked;
+            nurWerkzeuglisteAnzeigenToolStripMenuItem.CheckState = CheckState.Checked;
+            splitContainer1.Panel2Collapsed = true;
+            splitContainer1.Panel1Collapsed = false;
+        }
+
+        private void nurCNCProgrammAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            beideBereicheAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked;
+            nurCNCProgrammAnzeigenToolStripMenuItem.CheckState = CheckState.Checked;
+            nurWerkzeuglisteAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked;
+            splitContainer1.Panel2Collapsed = false;
+            splitContainer1.Panel1Collapsed = true;
+        }
+
+        private void beideBereicheAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            beideBereicheAnzeigenToolStripMenuItem.CheckState = CheckState.Checked;
+            nurCNCProgrammAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked;
+            nurWerkzeuglisteAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked;
+            splitContainer1.Panel2Collapsed = false;
+            splitContainer1.Panel1Collapsed = false;
+        }
     }
 }

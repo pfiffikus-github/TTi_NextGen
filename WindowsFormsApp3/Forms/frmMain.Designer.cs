@@ -100,6 +100,10 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.contextMachine = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.viewHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
+            this.nurWerkzeuglisteAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nurCNCProgrammAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.beideBereicheAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.cMDToTNCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,8 +168,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2MinSize = 350;
-            this.splitContainer1.Size = new System.Drawing.Size(837, 319);
-            this.splitContainer1.SplitterDistance = 437;
+            this.splitContainer1.Size = new System.Drawing.Size(876, 324);
+            this.splitContainer1.SplitterDistance = 457;
             this.splitContainer1.TabIndex = 0;
             // 
             // comboBox1
@@ -174,7 +178,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(4, 282);
+            this.comboBox1.Location = new System.Drawing.Point(3, 298);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(93, 21);
             this.comboBox1.TabIndex = 12;
@@ -186,7 +190,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(102, 285);
+            this.checkBox1.Location = new System.Drawing.Point(102, 300);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(71, 17);
             this.checkBox1.TabIndex = 6;
@@ -202,7 +206,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(291, 282);
+            this.button1.Location = new System.Drawing.Point(311, 298);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 23);
             this.button1.TabIndex = 4;
@@ -219,7 +223,7 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 53);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(431, 222);
+            this.treeView1.Size = new System.Drawing.Size(451, 241);
             this.treeView1.TabIndex = 3;
             // 
             // contextLeft
@@ -450,7 +454,7 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(434, 50);
+            this.label1.Size = new System.Drawing.Size(454, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Werkzeugliste\r\n\r\n*.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -460,7 +464,7 @@
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Enabled = false;
-            this.comboBox2.Location = new System.Drawing.Point(4, 282);
+            this.comboBox2.Location = new System.Drawing.Point(3, 298);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(93, 21);
             this.comboBox2.TabIndex = 11;
@@ -472,7 +476,7 @@
             this.button4.Enabled = false;
             this.button4.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button4.Location = new System.Drawing.Point(250, 280);
+            this.button4.Location = new System.Drawing.Point(269, 298);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(143, 23);
             this.button4.TabIndex = 8;
@@ -488,7 +492,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Enabled = false;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox2.Location = new System.Drawing.Point(102, 285);
+            this.checkBox2.Location = new System.Drawing.Point(102, 300);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(71, 17);
             this.checkBox2.TabIndex = 7;
@@ -508,7 +512,7 @@
             this.treeView2.Location = new System.Drawing.Point(3, 53);
             this.treeView2.Name = "treeView2";
             this.treeView2.ShowRootLines = false;
-            this.treeView2.Size = new System.Drawing.Size(390, 222);
+            this.treeView2.Size = new System.Drawing.Size(409, 241);
             this.treeView2.TabIndex = 4;
             // 
             // contextRight
@@ -756,7 +760,7 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(393, 50);
+            this.label2.Size = new System.Drawing.Size(412, 50);
             this.label2.TabIndex = 1;
             this.label2.Text = "CNC-Programm\r\n\r\n*.h";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -788,9 +792,9 @@
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel1,
             this.timeStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 440);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 445);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(837, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(876, 24);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -798,6 +802,10 @@
             // 
             this.contextMachine.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewHistory,
+            this.toolStripSeparator16,
+            this.nurWerkzeuglisteAnzeigenToolStripMenuItem,
+            this.nurCNCProgrammAnzeigenToolStripMenuItem,
+            this.beideBereicheAnzeigenToolStripMenuItem,
             this.toolStripSeparator14,
             this.toolStripMenuItem5,
             this.cMDToTNCToolStripMenuItem,
@@ -805,7 +813,7 @@
             this.toolStripSeparator15,
             this.toolStripMenuItem9});
             this.contextMachine.Name = "contextMachine";
-            this.contextMachine.Size = new System.Drawing.Size(166, 126);
+            this.contextMachine.Size = new System.Drawing.Size(235, 198);
             // 
             // viewHistory
             // 
@@ -814,20 +822,53 @@
             this.viewHistory.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewHistory.Image = global::TTi_NextGen.Properties.Resources.ShowFullHistory_16x;
             this.viewHistory.Name = "viewHistory";
-            this.viewHistory.Size = new System.Drawing.Size(165, 22);
+            this.viewHistory.Size = new System.Drawing.Size(234, 22);
             this.viewHistory.Text = "Verlauf anzeigen";
             this.viewHistory.CheckStateChanged += new System.EventHandler(this.toolStripMenuItem8_CheckStateChanged);
+            // 
+            // toolStripSeparator16
+            // 
+            this.toolStripSeparator16.Name = "toolStripSeparator16";
+            this.toolStripSeparator16.Size = new System.Drawing.Size(231, 6);
+            // 
+            // nurWerkzeuglisteAnzeigenToolStripMenuItem
+            // 
+            this.nurWerkzeuglisteAnzeigenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.TopLeftOf2RowsTopSplit_16x;
+            this.nurWerkzeuglisteAnzeigenToolStripMenuItem.Name = "nurWerkzeuglisteAnzeigenToolStripMenuItem";
+            this.nurWerkzeuglisteAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.nurWerkzeuglisteAnzeigenToolStripMenuItem.Text = "Nur Werkzeugliste anzeigen";
+            this.nurWerkzeuglisteAnzeigenToolStripMenuItem.Click += new System.EventHandler(this.nurWerkzeuglisteAnzeigenToolStripMenuItem_Click);
+            // 
+            // nurCNCProgrammAnzeigenToolStripMenuItem
+            // 
+            this.nurCNCProgrammAnzeigenToolStripMenuItem.CheckOnClick = true;
+            this.nurCNCProgrammAnzeigenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.TopRightOf2RowsTopSplit_16x;
+            this.nurCNCProgrammAnzeigenToolStripMenuItem.Name = "nurCNCProgrammAnzeigenToolStripMenuItem";
+            this.nurCNCProgrammAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.nurCNCProgrammAnzeigenToolStripMenuItem.Text = "Nur CNC-Programm anzeigen";
+            this.nurCNCProgrammAnzeigenToolStripMenuItem.Click += new System.EventHandler(this.nurCNCProgrammAnzeigenToolStripMenuItem_Click);
+            // 
+            // beideBereicheAnzeigenToolStripMenuItem
+            // 
+            this.beideBereicheAnzeigenToolStripMenuItem.Checked = true;
+            this.beideBereicheAnzeigenToolStripMenuItem.CheckOnClick = true;
+            this.beideBereicheAnzeigenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.beideBereicheAnzeigenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.TopOf2Rows_16x;
+            this.beideBereicheAnzeigenToolStripMenuItem.Name = "beideBereicheAnzeigenToolStripMenuItem";
+            this.beideBereicheAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.beideBereicheAnzeigenToolStripMenuItem.Text = "Beide Bereiche anzeigen";
+            this.beideBereicheAnzeigenToolStripMenuItem.Click += new System.EventHandler(this.beideBereicheAnzeigenToolStripMenuItem_Click);
             // 
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(162, 6);
+            this.toolStripSeparator14.Size = new System.Drawing.Size(231, 6);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Image = global::TTi_NextGen.Properties.Resources.Settings_16x;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(165, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(234, 22);
             this.toolStripMenuItem5.Text = "Konfiguration*";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
@@ -835,7 +876,7 @@
             // 
             this.cMDToTNCToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.Console_16x;
             this.cMDToTNCToolStripMenuItem.Name = "cMDToTNCToolStripMenuItem";
-            this.cMDToTNCToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.cMDToTNCToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.cMDToTNCToolStripMenuItem.Text = "Bash-to-Control*";
             this.cMDToTNCToolStripMenuItem.Click += new System.EventHandler(this.cMDToTNCToolStripMenuItem_Click);
             // 
@@ -843,20 +884,20 @@
             // 
             this.infoMaschineToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.SystemInfo_16x;
             this.infoMaschineToolStripMenuItem.Name = "infoMaschineToolStripMenuItem";
-            this.infoMaschineToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.infoMaschineToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.infoMaschineToolStripMenuItem.Text = "Maschinen-Info";
             this.infoMaschineToolStripMenuItem.Click += new System.EventHandler(this.infoMaschineToolStripMenuItem_Click);
             // 
             // toolStripSeparator15
             // 
             this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(162, 6);
+            this.toolStripSeparator15.Size = new System.Drawing.Size(231, 6);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem9.Image")));
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(165, 22);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(234, 22);
             this.toolStripMenuItem9.Text = "About...";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
@@ -890,7 +931,7 @@
             // 
             this.toolStripStatusLabel5.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(137, 19);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(157, 19);
             this.toolStripStatusLabel5.Spring = true;
             this.toolStripStatusLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -912,7 +953,7 @@
             this.toolStripStatusLabel3.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.toolStripStatusLabel3.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(137, 19);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(157, 19);
             this.toolStripStatusLabel3.Spring = true;
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -958,7 +999,7 @@
             this.History_1.SelectedImageIndex = 0;
             this.History_1.ShowLines = false;
             this.History_1.ShowRootLines = false;
-            this.History_1.Size = new System.Drawing.Size(837, 117);
+            this.History_1.Size = new System.Drawing.Size(876, 117);
             this.History_1.TabIndex = 4;
             this.History_1.TabStop = false;
             // 
@@ -988,8 +1029,8 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.History_1);
             this.splitContainer2.Panel2MinSize = 50;
-            this.splitContainer2.Size = new System.Drawing.Size(837, 440);
-            this.splitContainer2.SplitterDistance = 319;
+            this.splitContainer2.Size = new System.Drawing.Size(876, 445);
+            this.splitContainer2.SplitterDistance = 324;
             this.splitContainer2.TabIndex = 5;
             // 
             // frmMain
@@ -997,7 +1038,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(837, 464);
+            this.ClientSize = new System.Drawing.Size(876, 469);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1123,6 +1164,10 @@
         private System.Windows.Forms.ImageList HistoryImages;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
+        private System.Windows.Forms.ToolStripMenuItem nurCNCProgrammAnzeigenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nurWerkzeuglisteAnzeigenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem beideBereicheAnzeigenToolStripMenuItem;
     }
 }
 
