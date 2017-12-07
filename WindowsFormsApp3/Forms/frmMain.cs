@@ -833,5 +833,10 @@ namespace TTi_NextGen
             splitContainer1.Panel2Collapsed = false;
             splitContainer1.Panel1Collapsed = false;
         }
+
+        private void eigenschaftenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            App.ShowProp(myCNCProgram.File.FullName);
+        }
     }
 }
