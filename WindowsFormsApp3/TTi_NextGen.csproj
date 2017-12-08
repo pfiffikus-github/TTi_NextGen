@@ -70,6 +70,7 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -86,11 +87,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Components.cs" />
-    <Compile Include="Forms\frmProjects.cs">
+    <Compile Include="Forms\frmProjectList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmProjects.Designer.cs">
-      <DependentUpon>frmProjects.cs</DependentUpon>
+    <Compile Include="Forms\frmProjectList.Designer.cs">
+      <DependentUpon>frmProjectList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmChooseMachine.cs">
       <SubType>Form</SubType>
@@ -136,8 +137,8 @@
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmProjects.resx">
-      <DependentUpon>frmProjects.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmProjectList.resx">
+      <DependentUpon>frmProjectList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmProp.resx">
       <DependentUpon>frmProp.cs</DependentUpon>
@@ -214,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Images\AssemblyInfoFile_16x.png" />

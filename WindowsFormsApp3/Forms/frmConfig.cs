@@ -83,9 +83,5 @@ namespace TTi_NextGen
         {
             DialogResult = DialogResult.Cancel;
         }
-
-
-
     }
-
 }

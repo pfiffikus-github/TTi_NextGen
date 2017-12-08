@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Drawing.Design;
 using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
 
 
 namespace TTi_NextGen
@@ -249,6 +250,12 @@ namespace TTi_NextGen
         [CategoryAttribute("Einstellungen Werkzeugliste"),
          DescriptionAttribute("Werkzeugnummern, die statisch niemals auf Steuerung überschrieben werden (≙ Standardwerkzeug)")]
         public string BlockedToolNumbers { get; set; }
+
+        public List<Project> Projects { get; set; }
+
+
+
+
 
         public enum TNCVersions
         {
@@ -504,8 +511,30 @@ namespace TTi_NextGen
             return base.GetStandardValues(context);
         }
     }
+    
+    public class Project
+    {
+        public Project()
+        {
+            ToolRange = 0;
+            Name = "---";
+        }
 
-        //----------------------------------------------------------------------------------------------------------------------------
+        public int ToolRange { get; set; }
+
+        public string Name { get; set; }
+
+        public string Comment { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+
+
+
+    //----------------------------------------------------------------------------------------------------------------------------
 
     public class CNCProgram
     {
@@ -758,22 +787,6 @@ namespace TTi_NextGen
         public int OrgToolCallValue { get; private set; }
     }
 
-    public class Projects
-    {
-        public Projects(int ToolRangeSite)
-        {
-
-        }
-
-        public int ToolRange { get; set; }
-
-        public int ZeroPoint { get; set; }
-
-        public string Name { get; set; }
-
-    }
-
-    
 
 
 

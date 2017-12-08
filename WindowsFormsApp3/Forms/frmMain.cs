@@ -819,6 +819,11 @@ namespace TTi_NextGen
         {
             App.ShowProp(myCNCProgram.File.FullName);
         }
-        
+
+        private void maschinenProjektListeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProjectList _frmProjectList = new frmProjectList();
+
+        }
     }
 }

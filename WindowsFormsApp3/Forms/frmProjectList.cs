@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace TTi_NextGen.Forms
 {
-    public partial class frmProjects : Form
+    public partial class frmProjectList : Form
     {
-        public frmProjects()
+        private Machine myMachine;
+
+        public frmProjectList(Machine _machine)
         {
             InitializeComponent();
+            myMachine = _machine;
         }
+
+
+
+
+
+
     }
 }
