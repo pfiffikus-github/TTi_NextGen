@@ -172,8 +172,6 @@ namespace TTi_NextGen
         }
     }
 
-
-    [Serializable]
     public class Machine
     {
         public Machine()
@@ -262,8 +260,6 @@ namespace TTi_NextGen
         public string BlockedToolNumbers { get; set; }
 
         public List<Project> Projects { get; set; }
-
-
 
         [CategoryAttribute("Einstellungen Werkzeugliste"),
          DescriptionAttribute("Backup-Pfad der Tool.t auf TNC")]
@@ -524,7 +520,6 @@ namespace TTi_NextGen
         }
     }
 
-    [Serializable]
     public class Project
     {
         public Project()
