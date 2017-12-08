@@ -16,3 +16,4 @@ C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\TDM.exe.manifes
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\TDM.application
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TDM.exe.manifest
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TDM.application
+C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.Forms.frmProjects.resources

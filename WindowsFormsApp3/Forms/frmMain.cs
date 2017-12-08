@@ -153,7 +153,7 @@ namespace TTi_NextGen
         {
             if (myPwdLooked)
             {
-                if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "")
+                if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "3")
                 {
                     return;
                 }
@@ -726,46 +726,27 @@ namespace TTi_NextGen
         private void speichernToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             myCNCProgram.ChangeToolRange(ExtractInt(comboBox2.Text), true);
-            WriteHistory("CNC-Programm '" + myCNCProgram.File.Name + "': Tool-Range erfolgreich in '" + comboBox2.Text + "' geändert", HistoryMessageType.Information, FontStyle.Bold, true, true , 2);
+            WriteHistory("CNC-Programm '" + myCNCProgram.File.Name + "': Tool-Range erfolgreich in '" + comboBox2.Text + "' geändert", HistoryMessageType.Information, FontStyle.Bold, true, true, 2);
             öffnenToolStripMenuItem1_Click(aktualisierenToolStripMenuItem, null);
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            speichernToolStripMenuItem1_Click(null, null);
+        //private void button4_Click(object sender, Event void verlaufLeerenToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
-            ProcessStartInfo proc = new ProcessStartInfo();
-            proc.FileName = @"TNCsync.exe";
-            proc.Arguments = @"-I " + myMachine.IP + " MkDir " + Path.GetDirectoryName(myMachine.ProjectDirectory);
-            Process.Start(proc);
+        //    try
+        //    {
+        //        TreeNode node = this.History_1.SelectedNode;
+        //        if (node != null)
+        //        {
+        //            Clipboard.SetDataObject(node.Text.ToString(), true);
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
 
-            proc = null;
-            proc = new ProcessStartInfo();
-            proc.FileName = @"TNCsync.exe";
-            proc.Arguments = @"Put " + myCNCProgram.File.FullName + " " + Path.GetDirectoryName(myMachine.ProjectDirectory) + myCNCProgram.File.Name + " /A" + " -I " + myMachine.IP;
-            Process.Start(proc);
-
-        }
-
-
-
-        private void verlaufLeerenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                TreeNode node = this.History_1.SelectedNode;
-                if (node != null)
-                {
-                    Clipboard.SetDataObject(node.Text.ToString(), true);
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
 
         private void nurTOOLCALLsAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -784,7 +765,7 @@ namespace TTi_NextGen
             {
                 if (myPwdLooked)
                 {
-                    if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "")
+                    if (Interaction.InputBox("Passwort eingeben:", "Anwendungseinstellungen") != "3")
                     {
                         return;
                     }
@@ -809,7 +790,7 @@ namespace TTi_NextGen
 
         private void nurWerkzeuglisteAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            beideBereicheAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked ;
+            beideBereicheAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked;
             nurCNCProgrammAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked;
             nurWerkzeuglisteAnzeigenToolStripMenuItem.CheckState = CheckState.Checked;
             splitContainer1.Panel2Collapsed = true;
@@ -838,5 +819,6 @@ namespace TTi_NextGen
         {
             App.ShowProp(myCNCProgram.File.FullName);
         }
+        
     }
 }

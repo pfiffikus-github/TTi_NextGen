@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -8,7 +7,6 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Drawing.Design;
 using System.Text.RegularExpressions;
-using System.Collections;
 using System.Runtime.InteropServices;
 
 
@@ -507,7 +505,7 @@ namespace TTi_NextGen
         }
     }
 
-    //----------------------------------------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------------------------------------------
 
     public class CNCProgram
     {
@@ -758,6 +756,21 @@ namespace TTi_NextGen
         public String OrgToolCallString { get; private set; }
         public decimal OrgToolRangeValue { get; private set; }
         public int OrgToolCallValue { get; private set; }
+    }
+
+    public class Projects
+    {
+        public Projects(int ToolRangeSite)
+        {
+
+        }
+
+        public int ToolRange { get; set; }
+
+        public int ZeroPoint { get; set; }
+
+        public string Name { get; set; }
+
     }
 
     

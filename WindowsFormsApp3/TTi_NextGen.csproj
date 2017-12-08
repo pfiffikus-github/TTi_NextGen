@@ -86,6 +86,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Components.cs" />
+    <Compile Include="Forms\frmProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProjects.Designer.cs">
+      <DependentUpon>frmProjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmChooseMachine.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProjects.resx">
+      <DependentUpon>frmProjects.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmProp.resx">
       <DependentUpon>frmProp.cs</DependentUpon>
@@ -238,6 +247,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="if_advancedsettings_17814.ico" />
+    <None Include="Resources\Images\Datalist_16x.png" />
     <None Include="Resources\Images\TopRightOf2RowsTopSplit_16x.png" />
     <None Include="Resources\Images\TopOf2Rows_16x.png" />
     <None Include="Resources\Images\TopLeftOf2RowsTopSplit_16x.png" />
