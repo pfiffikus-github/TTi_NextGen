@@ -11,8 +11,4 @@ C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\TDM.exe
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\TDM.pdb
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TDM.exe
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TDM.pdb
-C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\TDM.exe.manifest
-C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\TDM.application
-C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TDM.exe.manifest
-C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TDM.application
-C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.Forms.frmProjectList.resources
+C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.frmProjectList.resources

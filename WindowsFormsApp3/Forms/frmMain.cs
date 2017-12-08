@@ -822,7 +822,10 @@ namespace TTi_NextGen
 
         private void maschinenProjektListeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProjectList _frmProjectList = new frmProjectList();
+            frmProjectList _frmProjectList = new frmProjectList(myMachine );
+
+            _frmProjectList.Show();
+
 
         }
     }

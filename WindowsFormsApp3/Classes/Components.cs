@@ -172,6 +172,8 @@ namespace TTi_NextGen
         }
     }
 
+
+    [Serializable]
     public class Machine
     {
         public Machine()
@@ -185,6 +187,14 @@ namespace TTi_NextGen
             RestrictivToolNumbers = "0,1,2,3,4,5,6,7,8,9,10";
             BlockedToolNumbers = "";
             ControlVersion = TNCVersions.bis_iTNC530;
+            BackUpDirectoryToolTable = @"TNC:\BackupToolT\";
+
+            Projects = new List<Project>();
+            for (int i = 0; i < MaxToolRange - 1; i++)
+            {
+                Projects.Add(new Project());
+            }
+
         }
 
         public const string DefaultMachineName = "DefaultMachine";
@@ -255,7 +265,9 @@ namespace TTi_NextGen
 
 
 
-
+        [CategoryAttribute("Einstellungen Werkzeugliste"),
+         DescriptionAttribute("Backup-Pfad der Tool.t auf TNC")]
+        public string BackUpDirectoryToolTable { get; set; }
 
         public enum TNCVersions
         {
@@ -511,7 +523,8 @@ namespace TTi_NextGen
             return base.GetStandardValues(context);
         }
     }
-    
+
+    [Serializable]
     public class Project
     {
         public Project()
@@ -531,8 +544,6 @@ namespace TTi_NextGen
             return Name;
         }
     }
-
-
 
     //----------------------------------------------------------------------------------------------------------------------------
 

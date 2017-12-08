@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TTi_NextGen.Forms
+namespace TTi_NextGen
 {
     public partial class frmProjectList : Form
     {
@@ -20,10 +20,9 @@ namespace TTi_NextGen.Forms
             myMachine = _machine;
         }
 
-
-
-
-
-
+        private void frmProjectList_Load(object sender, EventArgs e)
+        {
+            projectsBindingSource.DataSource = myMachine.Projects ;
+        }
     }
 }
