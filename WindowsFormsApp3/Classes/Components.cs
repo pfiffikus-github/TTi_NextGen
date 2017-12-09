@@ -187,11 +187,11 @@ namespace TTi_NextGen
             ControlVersion = TNCVersions.bis_iTNC530;
             BackUpDirectoryToolTable = @"TNC:\BackupToolT\";
 
-            Projects = new List<Project>();
-            for (int i = 0; i < MaxToolRange - 1; i++)
-            {
-                Projects.Add(new Project());
-            }
+            //Projects = new List<Project>();
+            //for (int i = 0; i < MaxToolRange - 1; i++)
+            //{
+            //    Projects.Add(new Project());
+            //}
 
         }
 
@@ -318,7 +318,20 @@ namespace TTi_NextGen
                 }
                 else
                 {
-                    myMachines.Add(new Machine());
+                    Machine _machine = new Machine();
+                    _machine.Projects = new List<Project>();
+                    for (int i = 0; i < _machine.MaxToolRange; i++)
+                    {
+                        Project _project = new Project(i);
+
+                        _machine.Projects.Add(_project);
+                    }
+
+
+                    myMachines.Add(_machine);
+
+
+
                     myMachines.SerializeXML(path);
                 }
 
@@ -337,7 +350,8 @@ namespace TTi_NextGen
             }
             catch (Exception)
             {
-                return null;
+                throw new Exception("");
+                //return null;
             }
         }
 
@@ -520,23 +534,31 @@ namespace TTi_NextGen
         }
     }
 
+    [Serializable]
     public class Project
     {
-        public Project()
+        public const string unusedProjectName = "--- ToolRange frei ---";
+
+        public Project() { }
+
+        public Project(int NumberOfLines)
         {
-            ToolRange = 0;
-            Name = "---";
+            ToolRange = NumberOfLines;
+            ProjectName = unusedProjectName;
+            Changed = DateTime.Now;
         }
 
         public int ToolRange { get; set; }
 
-        public string Name { get; set; }
+        public string ProjectName { get; set; }
 
         public string Comment { get; set; }
 
+        public DateTime Changed { get; set; }
+        
         public override string ToString()
         {
-            return Name;
+            return ProjectName;
         }
     }
 

@@ -18,11 +18,12 @@ namespace TTi_NextGen
         {
             InitializeComponent();
             myMachine = _machine;
+                Text = this.Text + myMachine.Name;
         }
 
         private void frmProjectList_Load(object sender, EventArgs e)
         {
-            projectsBindingSource.DataSource = myMachine.Projects ;
+            projectsBindingSource.DataSource = myMachine.Projects;
         }
     }
 }

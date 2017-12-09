@@ -824,7 +824,7 @@ namespace TTi_NextGen
         {
             frmProjectList _frmProjectList = new frmProjectList(myMachine );
 
-            _frmProjectList.Show();
+            _frmProjectList.ShowDialog();
 
 
         }
