@@ -608,16 +608,6 @@ namespace TTi_NextGen
 
 
 
-
-
-
-
-
-
-
-
-
-
                 //TreeNode _test = new TreeNode();
 
 
@@ -688,14 +678,14 @@ namespace TTi_NextGen
                 comboBox1.Text = comboBox2.Text;
             }
 
-            if (ExtractInt(comboBox2.Text) == myCNCProgram.OriginalToolRange)
-            {
-                comboBox2.Font = new Font(comboBox2.Font, FontStyle.Bold);
-            }
-            else
-            {
-                comboBox2.Font = new Font(comboBox2.Font, FontStyle.Regular);
-            }
+            //if (ExtractInt(comboBox2.Text) == myCNCProgram.OriginalToolRange)
+            //{
+            //    comboBox2.Font = new Font(comboBox2.Font, FontStyle.Bold);
+            //}
+            //else
+            //{
+            //    comboBox2.Font = new Font(comboBox2.Font, FontStyle.Regular);
+            //}
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -707,14 +697,14 @@ namespace TTi_NextGen
                 comboBox2.Text = comboBox1.Text;
             }
 
-            if (ExtractInt(comboBox1.Text) == myCNCProgram.OriginalToolRange)
-            {
-                comboBox1.Font = new Font(comboBox1.Font, FontStyle.Bold);
-            }
-            else
-            {
-                comboBox1.Font = new Font(comboBox1.Font, FontStyle.Regular);
-            }
+            //if (ExtractInt(comboBox1.Text) == myCNCProgram.OriginalToolRange)
+            //{
+            //    comboBox1.Font = new Font(comboBox1.Font, FontStyle.Bold);
+            //}
+            //else
+            //{
+            //    comboBox1.Font = new Font(comboBox1.Font, FontStyle.Regular);
+            //}
         }
 
         private void infoMaschineToolStripMenuItem_Click(object sender, EventArgs e)
@@ -822,10 +812,9 @@ namespace TTi_NextGen
 
         private void maschinenProjektListeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProjectList _frmProjectList = new frmProjectList(myMachine );
+            frmProjectList _frmProjectList = new frmProjectList(myMachine.Name );
 
             _frmProjectList.ShowDialog();
-
 
         }
     }

@@ -31,13 +31,13 @@ namespace TTi_NextGen
         private void OK_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            Close();
+            //Close();
         }
 
         private void Cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            Close();
+            //Close();
         }
 
         protected override void OnClosing(CancelEventArgs e)

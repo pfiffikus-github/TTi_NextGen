@@ -124,11 +124,31 @@ namespace TTi_NextGen
         {
             foreach (var item in this)
             {
+
+                if (insertItem.Projects == null)
+                {
+                    insertItem.Projects = new List<Project>();
+
+                    for (int i = 0; i < insertItem.MaxToolRange; i++)
+                    {
+                        Project _project = new Project(i);
+
+                        insertItem.Projects.Add(_project);
+                    }
+                }
+
                 if (item.Name == insertItem.Name)
                 {
                     return;
                 }
+
             }
+
+            if (insertItem.MaxToolRange <= insertItem.Projects.Count)
+            {
+                insertItem.Projects.RemoveRange(insertItem.MaxToolRange, insertItem.Projects.Count - insertItem.MaxToolRange);
+            }
+
             base.InsertItem(index, insertItem);
         }
 
@@ -142,7 +162,17 @@ namespace TTi_NextGen
                 {
                     if (this.Count == 0)
                     {
-                        Add(new Machine());
+                        Machine _machine = new Machine();
+                        _machine.Projects = new List<Project>();
+
+                        for (int i = 0; i < _machine.MaxToolRange; i++)
+                        {
+                            Project _project = new Project(i);
+
+                            _machine.Projects.Add(_project);
+                        }
+
+                        Add(_machine);
                     }
 
                     xs.Serialize(sw, this);
@@ -186,13 +216,6 @@ namespace TTi_NextGen
             BlockedToolNumbers = "";
             ControlVersion = TNCVersions.bis_iTNC530;
             BackUpDirectoryToolTable = @"TNC:\BackupToolT\";
-
-            //Projects = new List<Project>();
-            //for (int i = 0; i < MaxToolRange - 1; i++)
-            //{
-            //    Projects.Add(new Project());
-            //}
-
         }
 
         public const string DefaultMachineName = "DefaultMachine";
@@ -320,17 +343,14 @@ namespace TTi_NextGen
                 {
                     Machine _machine = new Machine();
                     _machine.Projects = new List<Project>();
+
                     for (int i = 0; i < _machine.MaxToolRange; i++)
                     {
                         Project _project = new Project(i);
 
                         _machine.Projects.Add(_project);
                     }
-
-
                     myMachines.Add(_machine);
-
-
 
                     myMachines.SerializeXML(path);
                 }
@@ -534,10 +554,9 @@ namespace TTi_NextGen
         }
     }
 
-    [Serializable]
     public class Project
     {
-        public const string unusedProjectName = "--- ToolRange frei ---";
+        public const string unusedProjectName = "- ToolRange frei -";
 
         public Project() { }
 
@@ -546,16 +565,22 @@ namespace TTi_NextGen
             ToolRange = NumberOfLines;
             ProjectName = unusedProjectName;
             Changed = DateTime.Now;
+            ToolRangeText = ((NumberOfLines * 1000).ToString() + "..." + ((NumberOfLines * 1000) + 999).ToString());
+            ToolTBackup = "-";
         }
 
         public int ToolRange { get; set; }
+
+        public string ToolRangeText { get; set; }
+
+        public string ToolTBackup { get; set; }
 
         public string ProjectName { get; set; }
 
         public string Comment { get; set; }
 
         public DateTime Changed { get; set; }
-        
+
         public override string ToString()
         {
             return ProjectName;
