@@ -209,7 +209,8 @@ namespace TTi_NextGen
 
 
                     WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' geladen werden.", HistoryMessageType.Error, FontStyle.Bold, true, false);
-                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird das letzte lokale Backup verwendet.", HistoryMessageType.Error, FontStyle.Bold, false);
+                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird das letzte lokale Backup verwendet.", HistoryMessageType.Error, FontStyle.Bold, false, true);
+                    WriteHistory("Ohne Zugriff auf Netzlaufwerk '" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' kann die 'Maschinen-Projekt-Liste' nicht gepflegt werden.", HistoryMessageType.Error, FontStyle.Bold, true, true);
 
                     MessageBox.Show("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.\n\nEs wird ein lokales Backup der Maschinen-Datei verwendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -812,9 +813,14 @@ namespace TTi_NextGen
 
         private void maschinenProjektListeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProjectList _frmProjectList = new frmProjectList(myMachine.Name );
 
+
+            frmProjectList _frmProjectList = new frmProjectList(myMachine.Name, !myNetworkDriveAvailable);
             _frmProjectList.ShowDialog();
+
+
+
+
 
         }
     }

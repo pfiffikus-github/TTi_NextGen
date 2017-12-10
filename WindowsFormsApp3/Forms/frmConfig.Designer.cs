@@ -76,8 +76,10 @@
             this.Controls.Add(this.OK);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.PropGrid);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(450, 250);
             this.Name = "frmConfig";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

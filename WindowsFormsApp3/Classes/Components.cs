@@ -144,10 +144,20 @@ namespace TTi_NextGen
 
             }
 
-            if (insertItem.MaxToolRange <= insertItem.Projects.Count)
+            if (insertItem.MaxToolRange < insertItem.Projects.Count)
             {
                 insertItem.Projects.RemoveRange(insertItem.MaxToolRange, insertItem.Projects.Count - insertItem.MaxToolRange);
             }
+
+            if (insertItem.MaxToolRange > insertItem.Projects.Count)
+            {
+                int isCount = insertItem.Projects.Count;
+                for (int i = 0; i < (insertItem.MaxToolRange - isCount); i++)
+                {
+                    insertItem.Projects.Add(new Project(i + isCount));
+                }
+            }
+
 
             base.InsertItem(index, insertItem);
         }
@@ -282,6 +292,7 @@ namespace TTi_NextGen
          DescriptionAttribute("Werkzeugnummern, die statisch niemals auf Steuerung überschrieben werden (≙ Standardwerkzeug)")]
         public string BlockedToolNumbers { get; set; }
 
+        [Browsable(false)] 
         public List<Project> Projects { get; set; }
 
         [CategoryAttribute("Einstellungen Werkzeugliste"),
@@ -556,7 +567,7 @@ namespace TTi_NextGen
 
     public class Project
     {
-        public const string unusedProjectName = "- ToolRange frei -";
+        public const string unusedProjectName = "- FREI -";
 
         public Project() { }
 
