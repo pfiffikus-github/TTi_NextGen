@@ -816,7 +816,7 @@
             this.toolStripSeparator15,
             this.toolStripMenuItem9});
             this.contextMachine.Name = "contextMachine";
-            this.contextMachine.Size = new System.Drawing.Size(235, 248);
+            this.contextMachine.Size = new System.Drawing.Size(235, 226);
             // 
             // viewHistory
             // 

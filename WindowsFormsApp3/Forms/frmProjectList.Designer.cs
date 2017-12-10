@@ -97,14 +97,14 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(738, 354);
+            this.dataGridView1.Size = new System.Drawing.Size(928, 481);
             this.dataGridView1.TabIndex = 0;
             // 
             // Cancel
             // 
             this.Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel.Location = new System.Drawing.Point(675, 372);
+            this.Cancel.Location = new System.Drawing.Point(865, 499);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(75, 23);
             this.Cancel.TabIndex = 2;
@@ -115,18 +115,21 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(12, 372);
+            this.button2.Image = global::TTi_NextGen.Properties.Resources.DeleteTable_16x;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(12, 499);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 23);
+            this.button2.Size = new System.Drawing.Size(102, 23);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Zeile/n freigeben";
+            this.button2.Text = "Zeile freigeben";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // OK
             // 
             this.OK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OK.Location = new System.Drawing.Point(594, 372);
+            this.OK.Location = new System.Drawing.Point(784, 499);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(75, 23);
             this.OK.TabIndex = 0;
@@ -191,7 +194,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel;
-            this.ClientSize = new System.Drawing.Size(762, 407);
+            this.ClientSize = new System.Drawing.Size(952, 534);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.OK);
