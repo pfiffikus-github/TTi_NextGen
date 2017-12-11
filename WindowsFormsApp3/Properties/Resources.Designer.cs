@@ -203,6 +203,16 @@ namespace TTi_NextGen.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RestoreMTR_16x {
+            get {
+                object obj = ResourceManager.GetObject("RestoreMTR_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SaveFileDialogControl_16x {
             get {
                 object obj = ResourceManager.GetObject("SaveFileDialogControl_16x", resourceCulture);

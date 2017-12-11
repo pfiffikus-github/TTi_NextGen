@@ -34,8 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Cancel = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.OK = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.toolRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolRangeTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,6 +100,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(928, 481);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
             // Cancel
             // 
@@ -112,20 +114,6 @@
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Image = global::TTi_NextGen.Properties.Resources.DeleteTable_16x;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(12, 499);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Zeile freigeben";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // OK
             // 
             this.OK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -137,12 +125,40 @@
             this.OK.UseVisualStyleBackColor = true;
             this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Image = global::TTi_NextGen.Properties.Resources.RestoreMTR_16x;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(121, 499);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Backup wiederherstellen";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Image = global::TTi_NextGen.Properties.Resources.DeleteTable_16x;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(12, 499);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(103, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Zeile freigeben";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // toolRangeDataGridViewTextBoxColumn
             // 
             this.toolRangeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.toolRangeDataGridViewTextBoxColumn.DataPropertyName = "ToolRange";
             this.toolRangeDataGridViewTextBoxColumn.HeaderText = "ToolRange";
             this.toolRangeDataGridViewTextBoxColumn.Name = "toolRangeDataGridViewTextBoxColumn";
+            this.toolRangeDataGridViewTextBoxColumn.ReadOnly = true;
             this.toolRangeDataGridViewTextBoxColumn.Width = 85;
             // 
             // toolRangeTextDataGridViewTextBoxColumn
@@ -151,6 +167,7 @@
             this.toolRangeTextDataGridViewTextBoxColumn.DataPropertyName = "ToolRangeText";
             this.toolRangeTextDataGridViewTextBoxColumn.HeaderText = "ToolRangeText";
             this.toolRangeTextDataGridViewTextBoxColumn.Name = "toolRangeTextDataGridViewTextBoxColumn";
+            this.toolRangeTextDataGridViewTextBoxColumn.ReadOnly = true;
             this.toolRangeTextDataGridViewTextBoxColumn.Width = 106;
             // 
             // projectNameDataGridViewTextBoxColumn
@@ -159,6 +176,7 @@
             this.projectNameDataGridViewTextBoxColumn.DataPropertyName = "ProjectName";
             this.projectNameDataGridViewTextBoxColumn.HeaderText = "ProjectName";
             this.projectNameDataGridViewTextBoxColumn.Name = "projectNameDataGridViewTextBoxColumn";
+            this.projectNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.projectNameDataGridViewTextBoxColumn.Width = 93;
             // 
             // toolTBackupDataGridViewTextBoxColumn
@@ -167,6 +185,7 @@
             this.toolTBackupDataGridViewTextBoxColumn.DataPropertyName = "ToolTBackup";
             this.toolTBackupDataGridViewTextBoxColumn.HeaderText = "ToolTBackup";
             this.toolTBackupDataGridViewTextBoxColumn.Name = "toolTBackupDataGridViewTextBoxColumn";
+            this.toolTBackupDataGridViewTextBoxColumn.ReadOnly = true;
             this.toolTBackupDataGridViewTextBoxColumn.Width = 97;
             // 
             // changedDataGridViewTextBoxColumn
@@ -175,6 +194,7 @@
             this.changedDataGridViewTextBoxColumn.DataPropertyName = "Changed";
             this.changedDataGridViewTextBoxColumn.HeaderText = "Changed";
             this.changedDataGridViewTextBoxColumn.Name = "changedDataGridViewTextBoxColumn";
+            this.changedDataGridViewTextBoxColumn.ReadOnly = true;
             this.changedDataGridViewTextBoxColumn.Width = 75;
             // 
             // commentDataGridViewTextBoxColumn
@@ -195,6 +215,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel;
             this.ClientSize = new System.Drawing.Size(952, 534);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.OK);
@@ -220,6 +241,7 @@
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource projectsBindingSource;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn toolRangeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn toolRangeTextDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn projectNameDataGridViewTextBoxColumn;

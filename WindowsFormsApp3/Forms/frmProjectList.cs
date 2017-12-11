@@ -30,6 +30,7 @@ namespace TTi_NextGen
                 button2.Enabled = false;
                 OK.Enabled = false;
                 path = Application.StartupPath;
+                //dataGridView1.ReadOnly = true;
             }
 
             myMachines = App.InitMachines(path);
@@ -45,6 +46,11 @@ namespace TTi_NextGen
             }
 
             dataGridView1.DataSource = myMachine.Projects;
+
+            UpdateRows();
+
+
+
         }
 
         private void frmProjectList_Load(object sender, EventArgs e)
@@ -86,6 +92,13 @@ namespace TTi_NextGen
             changedDataGridViewTextBoxColumn.DefaultCellStyle.BackColor = Color.LightGray;
             changedDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
+
+
+            UpdateRows();
+
+
+
+
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -113,5 +126,48 @@ namespace TTi_NextGen
             dataGridView1.Update();
             dataGridView1.Refresh();
         }
+
+        private void UpdateRows()
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                Project _project = row.DataBoundItem as Project;
+
+                if (_project.ProjectName == Project.unUsedProjectName)
+                {
+                    row.ReadOnly = true;
+                    row.DefaultCellStyle.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    row.ReadOnly = false;
+                    row.DefaultCellStyle.BackColor = Color.White;
+        
+
+                }
+            }
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+        }
+
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (myMachine.Projects[e.RowIndex].ProjectName == Project.unUsedProjectName)
+            {
+                button2.Enabled = false;
+                button1.Enabled = false;
+            }
+            else
+            {
+                button2.Enabled = true;
+                button1.Enabled = true;
+            }
+            UpdateRows();
+        }
     }
+
+
+
+
+
 }

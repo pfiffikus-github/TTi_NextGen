@@ -567,14 +567,14 @@ namespace TTi_NextGen
 
     public class Project
     {
-        public const string unusedProjectName = "- FREI -";
+        public const string unUsedProjectName = "- FREI -";
 
         public Project() { }
 
         public Project(int NumberOfLines)
         {
             ToolRange = NumberOfLines;
-            ProjectName = unusedProjectName;
+            ProjectName = unUsedProjectName;
             Changed = DateTime.Now;
             ToolRangeText = ((NumberOfLines * 1000).ToString() + "..." + ((NumberOfLines * 1000) + 999).ToString());
             ToolTBackup = "-";
