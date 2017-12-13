@@ -153,7 +153,7 @@
       <DependentUpon>frmProp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\app.manifest" />
-    <None Include="Properties\DataSources\Machine.datasource" />
+    <None Include="Properties\DataSources\Project.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

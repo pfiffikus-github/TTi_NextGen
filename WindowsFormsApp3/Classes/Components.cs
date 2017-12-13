@@ -226,6 +226,7 @@ namespace TTi_NextGen
             BlockedToolNumbers = "";
             ControlVersion = TNCVersions.bis_iTNC530;
             BackUpDirectoryToolTable = @"TNC:\BackupToolT\";
+            CreateSubFolder = false;
         }
 
         public const string DefaultMachineName = "DefaultMachine";
@@ -283,6 +284,10 @@ namespace TTi_NextGen
         [CategoryAttribute("Einstellungen CNC-Programm"),
          DescriptionAttribute("Projekt-/Programmverzeichnis auf Steuerung")]
         public string ProjectDirectory { get; set; }
+
+        [CategoryAttribute("Einstellungen CNC-Programm"),
+         DescriptionAttribute("Projekt-/Programmverzeichnis auf Steuerung")]
+        public bool CreateSubFolder { get; set; }
 
         [CategoryAttribute("Allgemein + Verbindung"),
          DescriptionAttribute("Version der Steuerung (für korrekte Datenübertrgaung)")]
@@ -578,6 +583,7 @@ namespace TTi_NextGen
             Changed = DateTime.Now;
             ToolRangeText = ((NumberOfLines * 1000).ToString() + "..." + ((NumberOfLines * 1000) + 999).ToString());
             ToolTBackup = "-";
+            BackupStatus = BackupAvailable.nein;
         }
 
         public int ToolRange { get; set; }
@@ -590,7 +596,16 @@ namespace TTi_NextGen
 
         public string Comment { get; set; }
 
+        public BackupAvailable BackupStatus { get; set; }
+
         public DateTime Changed { get; set; }
+
+        public enum BackupAvailable
+        {
+            ja,
+            nein,
+            noch_nicht_geprüft,
+        }
 
         public override string ToString()
         {

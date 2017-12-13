@@ -84,6 +84,11 @@ namespace TTi_NextGen
             projectNameDataGridViewTextBoxColumn.DefaultCellStyle.BackColor = Color.LightGray;
             projectNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
+            backupStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            backupStatusDataGridViewTextBoxColumn.HeaderText = "Backup verfügbar";
+            backupStatusDataGridViewTextBoxColumn.DefaultCellStyle.BackColor = Color.LightGray;
+            backupStatusDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
             commentDataGridViewTextBoxColumn.HeaderText = "Kommentar";
             commentDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
@@ -135,8 +140,8 @@ namespace TTi_NextGen
 
                 if (_project.ProjectName == Project.unUsedProjectName)
                 {
-                    row.ReadOnly = true;
-                    row.DefaultCellStyle.BackColor = Color.LightGray;
+                    //row.ReadOnly = true;
+                    //row.DefaultCellStyle.BackColor = Color.LightGray;
                 }
                 else
                 {

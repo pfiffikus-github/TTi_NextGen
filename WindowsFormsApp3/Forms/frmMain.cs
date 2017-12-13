@@ -31,10 +31,9 @@ namespace TTi_NextGen
             checkBox2.CheckState = checkBox1.CheckState;
             if (checkBox1.CheckState == CheckState.Checked)
             {
-                comboBox1.SelectedIndex = comboBox2.SelectedIndex;
-                checkBox1.Font = new Font(checkBox1.Font, FontStyle.Bold);
-                checkBox2.Font = new Font(checkBox2.Font, FontStyle.Bold);
-
+                comboBox1.SelectedIndex = comboBox2.SelectedIndex;            
+                //checkBox1.Font = new Font(checkBox1.Font, FontStyle.Bold);
+                //checkBox2.Font = new Font(checkBox2.Font, FontStyle.Bold);
                 //checkBox1.ForeColor = Color.OrangeRed;
                 //checkBox2.ForeColor = Color.OrangeRed;
                 //comboBox1.ForeColor = Color.OrangeRed;
@@ -42,8 +41,9 @@ namespace TTi_NextGen
             }
             else
             {
-                checkBox1.Font = new Font(checkBox1.Font, FontStyle.Regular);
-                checkBox2.Font = new Font(checkBox2.Font, FontStyle.Regular);
+                comboBox2.SelectedIndex = comboBox1.SelectedIndex;
+                //checkBox1.Font = new Font(checkBox1.Font, FontStyle.Regular);
+                //checkBox2.Font = new Font(checkBox2.Font, FontStyle.Regular);
                 //checkBox1.ForeColor = Color.Black;
                 //checkBox2.ForeColor = Color.Black;
                 //comboBox1.ForeColor = Color.Black;
@@ -57,8 +57,8 @@ namespace TTi_NextGen
             if (checkBox2.CheckState == CheckState.Checked)
             {
                 comboBox2.SelectedIndex = comboBox1.SelectedIndex;
-                checkBox1.Font = new Font(checkBox1.Font, FontStyle.Bold);
-                checkBox2.Font = new Font(checkBox2.Font, FontStyle.Bold);
+                //checkBox1.Font = new Font(checkBox1.Font, FontStyle.Bold);
+                //checkBox2.Font = new Font(checkBox2.Font, FontStyle.Bold);
                 //checkBox1.ForeColor = Color.OrangeRed;
                 //checkBox2.ForeColor = Color.OrangeRed;
                 //comboBox1.ForeColor = Color.OrangeRed;
@@ -66,8 +66,9 @@ namespace TTi_NextGen
             }
             else
             {
-                checkBox1.Font = new Font(checkBox1.Font, FontStyle.Regular);
-                checkBox2.Font = new Font(checkBox2.Font, FontStyle.Regular);
+                comboBox1.SelectedIndex = comboBox2.SelectedIndex;
+                //checkBox1.Font = new Font(checkBox1.Font, FontStyle.Regular);
+                //checkBox2.Font = new Font(checkBox2.Font, FontStyle.Regular);
                 //checkBox1.ForeColor = Color.Black;
                 //checkBox2.ForeColor = Color.Black;
                 //comboBox1.ForeColor = Color.Black;

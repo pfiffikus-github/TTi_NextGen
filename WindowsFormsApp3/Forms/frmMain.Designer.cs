@@ -491,6 +491,7 @@
             // 
             this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox2.AutoSize = true;
+            this.checkBox2.BackColor = System.Drawing.Color.DimGray;
             this.checkBox2.Enabled = false;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBox2.Location = new System.Drawing.Point(102, 324);
@@ -499,7 +500,7 @@
             this.checkBox2.TabIndex = 7;
             this.checkBox2.Tag = "CNCProgram";
             this.checkBox2.Text = "Synchron";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.UseVisualStyleBackColor = false;
             this.checkBox2.CheckStateChanged += new System.EventHandler(this.checkBox2_CheckStateChanged);
             // 
             // treeView2

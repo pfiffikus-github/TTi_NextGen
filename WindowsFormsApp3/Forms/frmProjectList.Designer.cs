@@ -37,10 +37,12 @@
             this.OK = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.toolRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolRangeTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTBackupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backupStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.changedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -72,6 +74,7 @@
             this.toolRangeTextDataGridViewTextBoxColumn,
             this.projectNameDataGridViewTextBoxColumn,
             this.toolTBackupDataGridViewTextBoxColumn,
+            this.backupStatusDataGridViewTextBoxColumn,
             this.changedDataGridViewTextBoxColumn,
             this.commentDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.projectsBindingSource;
@@ -130,9 +133,9 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Image = global::TTi_NextGen.Properties.Resources.RestoreMTR_16x;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(121, 499);
+            this.button1.Location = new System.Drawing.Point(294, 499);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 23);
+            this.button1.Size = new System.Drawing.Size(151, 23);
             this.button1.TabIndex = 3;
             this.button1.Text = "Backup wiederherstellen";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -152,54 +155,55 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button3.Location = new System.Drawing.Point(121, 499);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(165, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Backup-Verfügbarkeit prüfen";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // toolRangeDataGridViewTextBoxColumn
             // 
-            this.toolRangeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.toolRangeDataGridViewTextBoxColumn.DataPropertyName = "ToolRange";
             this.toolRangeDataGridViewTextBoxColumn.HeaderText = "ToolRange";
             this.toolRangeDataGridViewTextBoxColumn.Name = "toolRangeDataGridViewTextBoxColumn";
-            this.toolRangeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.toolRangeDataGridViewTextBoxColumn.Width = 85;
             // 
             // toolRangeTextDataGridViewTextBoxColumn
             // 
-            this.toolRangeTextDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.toolRangeTextDataGridViewTextBoxColumn.DataPropertyName = "ToolRangeText";
             this.toolRangeTextDataGridViewTextBoxColumn.HeaderText = "ToolRangeText";
             this.toolRangeTextDataGridViewTextBoxColumn.Name = "toolRangeTextDataGridViewTextBoxColumn";
-            this.toolRangeTextDataGridViewTextBoxColumn.ReadOnly = true;
-            this.toolRangeTextDataGridViewTextBoxColumn.Width = 106;
             // 
             // projectNameDataGridViewTextBoxColumn
             // 
-            this.projectNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.projectNameDataGridViewTextBoxColumn.DataPropertyName = "ProjectName";
             this.projectNameDataGridViewTextBoxColumn.HeaderText = "ProjectName";
             this.projectNameDataGridViewTextBoxColumn.Name = "projectNameDataGridViewTextBoxColumn";
-            this.projectNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.projectNameDataGridViewTextBoxColumn.Width = 93;
             // 
             // toolTBackupDataGridViewTextBoxColumn
             // 
-            this.toolTBackupDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.toolTBackupDataGridViewTextBoxColumn.DataPropertyName = "ToolTBackup";
             this.toolTBackupDataGridViewTextBoxColumn.HeaderText = "ToolTBackup";
             this.toolTBackupDataGridViewTextBoxColumn.Name = "toolTBackupDataGridViewTextBoxColumn";
-            this.toolTBackupDataGridViewTextBoxColumn.ReadOnly = true;
-            this.toolTBackupDataGridViewTextBoxColumn.Width = 97;
+            // 
+            // backupStatusDataGridViewTextBoxColumn
+            // 
+            this.backupStatusDataGridViewTextBoxColumn.DataPropertyName = "BackupStatus";
+            this.backupStatusDataGridViewTextBoxColumn.HeaderText = "BackupStatus";
+            this.backupStatusDataGridViewTextBoxColumn.Name = "backupStatusDataGridViewTextBoxColumn";
             // 
             // changedDataGridViewTextBoxColumn
             // 
-            this.changedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.changedDataGridViewTextBoxColumn.DataPropertyName = "Changed";
             this.changedDataGridViewTextBoxColumn.HeaderText = "Changed";
             this.changedDataGridViewTextBoxColumn.Name = "changedDataGridViewTextBoxColumn";
-            this.changedDataGridViewTextBoxColumn.ReadOnly = true;
-            this.changedDataGridViewTextBoxColumn.Width = 75;
             // 
             // commentDataGridViewTextBoxColumn
             // 
-            this.commentDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
             this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
             this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
@@ -215,6 +219,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel;
             this.ClientSize = new System.Drawing.Size(952, 534);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.button2);
@@ -246,7 +251,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn toolRangeTextDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn projectNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn toolTBackupDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn backupStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn changedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button3;
     }
 }
