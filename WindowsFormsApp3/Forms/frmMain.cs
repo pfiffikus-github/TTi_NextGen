@@ -31,7 +31,7 @@ namespace TTi_NextGen
             checkBox2.CheckState = checkBox1.CheckState;
             if (checkBox1.CheckState == CheckState.Checked)
             {
-                comboBox1.SelectedIndex = comboBox2.SelectedIndex;            
+                comboBox1.SelectedIndex = comboBox2.SelectedIndex;
                 //checkBox1.Font = new Font(checkBox1.Font, FontStyle.Bold);
                 //checkBox2.Font = new Font(checkBox2.Font, FontStyle.Bold);
                 //checkBox1.ForeColor = Color.OrangeRed;
@@ -109,10 +109,10 @@ namespace TTi_NextGen
             TempJob.Text = "Init App";
 
             History_1.NodeMouseClick += (senderX, args) => History_1.SelectedNode = args.Node;  //NodeMouseClick Event, damit Rechtsklick auf Node, diesen auch auswählt...
+            treeView2.NodeMouseClick += (senderX, args) => treeView2.SelectedNode = args.Node;
+            treeView1.NodeMouseClick += (senderX, args) => treeView1.SelectedNode = args.Node;
 
             WriteHistory(Environment.UserName + " @ " + Dns.GetHostName() + ": " + App.Title() + " " + App.Version() + " gestartet", HistoryMessageType.Information);
-
-
 
             ReadOrInitSettings();
 
