@@ -238,7 +238,7 @@
             this.toolStripSeparator5,
             this.dateiÖffnenToolStripMenuItem});
             this.contextLeft.Name = "contextRight";
-            this.contextLeft.Size = new System.Drawing.Size(281, 82);
+            this.contextLeft.Size = new System.Drawing.Size(281, 104);
             // 
             // toolStripMenuItem2
             // 
@@ -272,6 +272,7 @@
             this.dateiÖffnenToolStripMenuItem.Name = "dateiÖffnenToolStripMenuItem";
             this.dateiÖffnenToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
             this.dateiÖffnenToolStripMenuItem.Text = "Kopieren";
+            this.dateiÖffnenToolStripMenuItem.Click += new System.EventHandler(this.dateiÖffnenToolStripMenuItem_Click);
             // 
             // menuStrip3
             // 
@@ -553,6 +554,7 @@
             this.kopierenToolStripMenuItem.Name = "kopierenToolStripMenuItem";
             this.kopierenToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
             this.kopierenToolStripMenuItem.Text = "Kopieren";
+            this.kopierenToolStripMenuItem.Click += new System.EventHandler(this.kopierenToolStripMenuItem_Click);
             // 
             // menuStrip2
             // 
@@ -780,6 +782,7 @@
             this.verlaufLeerenToolStripMenuItem.Name = "verlaufLeerenToolStripMenuItem";
             this.verlaufLeerenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.verlaufLeerenToolStripMenuItem.Text = "Kopieren";
+            this.verlaufLeerenToolStripMenuItem.Click += new System.EventHandler(this.Kopieren_Click);
             // 
             // statusStrip1
             // 

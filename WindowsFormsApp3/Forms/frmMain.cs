@@ -433,7 +433,7 @@ namespace TTi_NextGen
                     myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName), myMachine.RestrictivToolNumbers);
 
                     EnabledCNCProgrammControls();
-                    BuildTreeViewCNCProgram(true);
+                    BuildTreeViewCNCProgram(false);
                 }
                 else
                 {
@@ -458,7 +458,7 @@ namespace TTi_NextGen
                     TempJobClear();
                     return;
                 }
-                BuildTreeViewCNCProgram(true);
+                BuildTreeViewCNCProgram(false);
             }
 
             //write history
@@ -547,7 +547,7 @@ namespace TTi_NextGen
         private void schließenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             myCNCProgram = null;
-            BuildTreeViewCNCProgram(true);
+            BuildTreeViewCNCProgram(false);
             EnabledCNCProgrammControls();
             label2.Text = "CNC-Programm\n\n*.h";
             WriteHistory("CNC-Programm entladen", HistoryMessageType.Information, FontStyle.Bold);
@@ -590,19 +590,32 @@ namespace TTi_NextGen
                 int i = 0;
                 foreach (var _line in _lines)
                 {
-
-                    ProgressBar.Value = Array.IndexOf(_lines, _line, i);
+                    ProgressBar.Value = Array.IndexOf(_lines, _line, i);  //Loadingbar
                     i++;
 
-                    TreeNode _newNode = treeView2.Nodes.Add(_line);
-                    if (_line.Contains(CNCProgram.ToolCallString))
+                    if (!ShowOnlyToolCall)
                     {
-                        _newNode.ForeColor = Color.Blue;
-                        _newNode.BackColor = Color.LightBlue;
-                        _newNode.NodeFont = new Font(treeView2.Font, FontStyle.Bold);
-                        Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
-                        myToolCallNodes[myToolCallNodes.Length - 1] = _newNode;
+
+
+                        TreeNode _newNode = treeView2.Nodes.Add(_line);
+
+                        if (_line.Contains(CNCProgram.ToolCallString))
+                        {
+                            //_newNode.ForeColor = Color.Blue;
+                            _newNode.BackColor = Color.Yellow;
+                            _newNode.NodeFont = new Font(treeView2.Font, FontStyle.Bold);
+                            Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
+                            myToolCallNodes[myToolCallNodes.Length - 1] = _newNode;
+                        }
                     }
+                    else //nur ToolCall anzeigen...
+                    {
+
+                    }
+
+
+
+
 
                 }
 
@@ -614,13 +627,13 @@ namespace TTi_NextGen
 
 
 
-                int _test;
-                _test = treeView2.Nodes.IndexOf(myToolCallNodes[0]);
+                //int _test;
+                //_test = treeView2.Nodes.IndexOf(myToolCallNodes[0]);
 
 
 
 
-                treeView2.Nodes[_test].Text = "";
+                //treeView2.Nodes[_test].Text = "HALLO";
 
 
 
@@ -722,28 +735,16 @@ namespace TTi_NextGen
             öffnenToolStripMenuItem1_Click(aktualisierenToolStripMenuItem, null);
         }
 
-        //private void button4_Click(object sender, Event void verlaufLeerenToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //    try
-        //    {
-        //        TreeNode node = this.History_1.SelectedNode;
-        //        if (node != null)
-        //        {
-        //            Clipboard.SetDataObject(node.Text.ToString(), true);
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
-
         private void nurTOOLCALLsAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TempJob.Text = "Lädt CNC-Programm...";
-            splitContainer1.Panel1Collapsed = true;
+            if (nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState == CheckState.Unchecked)
+            {
+                BuildTreeViewCNCProgram(false);
+            }
+            else
+            {
+                BuildTreeViewCNCProgram(true);
+            }
         }
 
         private void TempJobClear()
@@ -823,6 +824,54 @@ namespace TTi_NextGen
 
 
 
+        }
+
+        private void Kopieren_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TreeNode node = this.History_1.SelectedNode;
+                if (node != null)
+                {
+                    Clipboard.SetDataObject(node.Text.ToString(), true);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void kopierenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TreeNode node = this.treeView2.SelectedNode;
+                if (node != null)
+                {
+                    Clipboard.SetDataObject(node.Text.ToString(), true);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void dateiÖffnenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TreeNode node = this.treeView1.SelectedNode;
+                if (node != null)
+                {
+                    Clipboard.SetDataObject(node.Text.ToString(), true);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
