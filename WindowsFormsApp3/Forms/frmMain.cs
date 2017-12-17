@@ -433,7 +433,21 @@ namespace TTi_NextGen
                     myCNCProgram = new CNCProgram(new FileInfo(_ofd.FileName), myMachine.RestrictivToolNumbers);
 
                     EnabledCNCProgrammControls();
-                    BuildTreeViewCNCProgram(false);
+
+                    FileInfo _fi = new FileInfo(myCNCProgram.File.FullName);
+                    if (_fi.Length >= 150000)
+                    {
+                        nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = CheckState.Checked;
+                        nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = false;
+                        BuildTreeViewCNCProgram(true);
+                    }
+                    else
+                    {
+                        nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked;
+                        nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = true;
+                        BuildTreeViewCNCProgram(false);
+                    }    
+                    
                 }
                 else
                 {
@@ -737,6 +751,9 @@ namespace TTi_NextGen
 
         private void nurTOOLCALLsAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            TempJob.Text = "Lädt...";
+            this.Update();
+
             if (nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState == CheckState.Unchecked)
             {
                 BuildTreeViewCNCProgram(false);
@@ -745,11 +762,14 @@ namespace TTi_NextGen
             {
                 BuildTreeViewCNCProgram(true);
             }
+
+            TempJobClear();
         }
 
         private void TempJobClear()
         {
             TempJob.Text = "Bereit";
+            this.Update();
         }
 
         private void cMDToTNCToolStripMenuItem_Click(object sender, EventArgs e)
