@@ -435,7 +435,7 @@ namespace TTi_NextGen
                     EnabledCNCProgrammControls();
 
                     FileInfo _fi = new FileInfo(myCNCProgram.File.FullName);
-                    if (_fi.Length >= 150000)
+                    if (_fi.Length >= 500000)
                     {
                         nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = CheckState.Checked;
                         nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = false;
@@ -446,8 +446,8 @@ namespace TTi_NextGen
                         nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked;
                         nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = true;
                         BuildTreeViewCNCProgram(false);
-                    }    
-                    
+                    }
+
                 }
                 else
                 {
@@ -553,7 +553,6 @@ namespace TTi_NextGen
             speichernÜbertragenToolStripMenuItem.Enabled = _Enabled;
             checkBox2.Enabled = _Enabled;
             button4.Enabled = _Enabled;
-            toolStripMenuItem7.Enabled = _Enabled;
             comboBox2.Enabled = _Enabled;
             tOOLCALLInformationenToolStripMenuItem1.Enabled = _Enabled;
         }
@@ -615,7 +614,6 @@ namespace TTi_NextGen
 
                         if (_line.Contains(CNCProgram.ToolCallString))
                         {
-                            //_newNode.ForeColor = Color.Blue;
                             _newNode.BackColor = Color.Yellow;
                             _newNode.NodeFont = new Font(treeView2.Font, FontStyle.Bold);
                             Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
@@ -624,7 +622,16 @@ namespace TTi_NextGen
                     }
                     else //nur ToolCall anzeigen...
                     {
+                        if (_line.Contains(CNCProgram.ToolCallString))
+                        {
+                            treeView2.Nodes.Add("...");
+                            TreeNode _newNode = treeView2.Nodes.Add(_line);
 
+                            _newNode.BackColor = Color.Yellow;
+                            _newNode.NodeFont = new Font(treeView2.Font, FontStyle.Bold);
+                            Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
+                            myToolCallNodes[myToolCallNodes.Length - 1] = _newNode;
+                        }                      
                     }
 
 

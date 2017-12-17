@@ -68,7 +68,6 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.treeView2 = new System.Windows.Forms.TreeView();
             this.contextRight = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.kopierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -238,7 +237,7 @@
             this.toolStripSeparator5,
             this.dateiÖffnenToolStripMenuItem});
             this.contextLeft.Name = "contextRight";
-            this.contextLeft.Size = new System.Drawing.Size(281, 104);
+            this.contextLeft.Size = new System.Drawing.Size(281, 82);
             // 
             // toolStripMenuItem2
             // 
@@ -522,37 +521,29 @@
             // 
             this.contextRight.BackColor = System.Drawing.Color.DimGray;
             this.contextRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem7,
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1,
             this.toolStripSeparator3,
             this.kopierenToolStripMenuItem});
             this.contextRight.Name = "contextRight";
-            this.contextRight.Size = new System.Drawing.Size(274, 76);
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Image = global::TTi_NextGen.Properties.Resources.SearchProperty_16x;
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(273, 22);
-            this.toolStripMenuItem7.Text = "TOOL CALL\'s in Werkzeugliste suchen";
+            this.contextRight.Size = new System.Drawing.Size(217, 76);
             // 
             // nurTOOLCALLsAnzeigenToolStripMenuItem1
             // 
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.CheckOnClick = true;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.FilterTextbox_16x;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem1";
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Size = new System.Drawing.Size(273, 22);
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Text = "Nur TOOL CALL\'s anzeigen";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(270, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(213, 6);
             // 
             // kopierenToolStripMenuItem
             // 
             this.kopierenToolStripMenuItem.Name = "kopierenToolStripMenuItem";
-            this.kopierenToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.kopierenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.kopierenToolStripMenuItem.Text = "Kopieren";
             this.kopierenToolStripMenuItem.Click += new System.EventHandler(this.kopierenToolStripMenuItem_Click);
             // 
@@ -1115,7 +1106,6 @@
         private System.Windows.Forms.ToolStripStatusLabel timeStatus;
         private System.Windows.Forms.Timer timerMainFrm;
         private System.Windows.Forms.ContextMenuStrip contextRight;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem öffnenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aktuelisierenToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
