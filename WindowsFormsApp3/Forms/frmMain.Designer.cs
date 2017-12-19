@@ -716,8 +716,8 @@
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.CheckOnClick = true;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.FilterTextbox_16x;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem";
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Text = "Nur TOOL CALL\'s anzeigen";
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Text = "Nur \'TOOL CALL\'s anzeigen";
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Click += new System.EventHandler(this.nurTOOLCALLsAnzeigenToolStripMenuItem_Click);
             // 
             // extrasToolStripMenuItem1

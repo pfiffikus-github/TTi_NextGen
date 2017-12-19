@@ -435,16 +435,15 @@ namespace TTi_NextGen
                     EnabledCNCProgrammControls();
 
                     FileInfo _fi = new FileInfo(myCNCProgram.File.FullName);
-                    if (_fi.Length >= 500000)
+                    if (_fi.Length >= 2500000)
                     {
                         nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = CheckState.Checked;
                         nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = false;
-                        MessageBox.Show("Aufgrund der größe des CNC-Programms '" + Path.GetFileName( _ofd.FileName) + "' werden nur die 'TOOL CALLS' im Baum angezeigt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Aufgrund der Größe des CNC-Programms '" + Path.GetFileName( _ofd.FileName) + "' werden nur die 'TOOL CALL's im Baum angezeigt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         BuildTreeViewCNCProgram(true);
                     }
                     else
                     {
-                        nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked;
                         nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = true;
 
                         if (nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState == CheckState.Checked)
@@ -917,5 +916,6 @@ namespace TTi_NextGen
                 throw;
             }
         }
+
     }
 }
