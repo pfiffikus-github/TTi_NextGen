@@ -439,13 +439,23 @@ namespace TTi_NextGen
                     {
                         nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = CheckState.Checked;
                         nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = false;
+                        MessageBox.Show("Aufgrund der größe des CNC-Programms '" + Path.GetFileName( _ofd.FileName) + "' werden nur die 'TOOL CALLS' im Baum angezeigt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         BuildTreeViewCNCProgram(true);
                     }
                     else
                     {
                         nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = CheckState.Unchecked;
                         nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = true;
-                        BuildTreeViewCNCProgram(false);
+
+                        if (nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState == CheckState.Checked)
+                        {
+                            BuildTreeViewCNCProgram(true);
+                        }
+                        else
+                        {
+                            BuildTreeViewCNCProgram(false);
+                        }
+
                     }
 
                 }
@@ -472,7 +482,14 @@ namespace TTi_NextGen
                     TempJobClear();
                     return;
                 }
-                BuildTreeViewCNCProgram(false);
+                if (nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState == CheckState.Checked)
+                {
+                    BuildTreeViewCNCProgram(true);
+                }
+                else
+                {
+                    BuildTreeViewCNCProgram(false);
+                }
             }
 
             //write history
@@ -631,7 +648,7 @@ namespace TTi_NextGen
                             _newNode.NodeFont = new Font(treeView2.Font, FontStyle.Bold);
                             Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
                             myToolCallNodes[myToolCallNodes.Length - 1] = _newNode;
-                        }                      
+                        }
                     }
 
 
