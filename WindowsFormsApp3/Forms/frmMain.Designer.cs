@@ -169,8 +169,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2MinSize = 350;
-            this.splitContainer1.Size = new System.Drawing.Size(809, 348);
-            this.splitContainer1.SplitterDistance = 422;
+            this.splitContainer1.Size = new System.Drawing.Size(884, 373);
+            this.splitContainer1.SplitterDistance = 461;
             this.splitContainer1.TabIndex = 0;
             // 
             // comboBox1
@@ -179,7 +179,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 322);
+            this.comboBox1.Location = new System.Drawing.Point(3, 347);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(93, 21);
             this.comboBox1.TabIndex = 12;
@@ -191,7 +191,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(102, 324);
+            this.checkBox1.Location = new System.Drawing.Point(102, 349);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(71, 17);
             this.checkBox1.TabIndex = 6;
@@ -207,7 +207,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(276, 322);
+            this.button1.Location = new System.Drawing.Point(315, 347);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 23);
             this.button1.TabIndex = 4;
@@ -224,7 +224,7 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 53);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(416, 265);
+            this.treeView1.Size = new System.Drawing.Size(455, 290);
             this.treeView1.TabIndex = 3;
             // 
             // contextLeft
@@ -456,7 +456,7 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(419, 50);
+            this.label1.Size = new System.Drawing.Size(458, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Werkzeugliste\r\n\r\n*.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -466,7 +466,7 @@
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Enabled = false;
-            this.comboBox2.Location = new System.Drawing.Point(3, 322);
+            this.comboBox2.Location = new System.Drawing.Point(3, 347);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(93, 21);
             this.comboBox2.TabIndex = 11;
@@ -478,7 +478,7 @@
             this.button4.Enabled = false;
             this.button4.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button4.Location = new System.Drawing.Point(237, 322);
+            this.button4.Location = new System.Drawing.Point(273, 347);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(143, 23);
             this.button4.TabIndex = 8;
@@ -494,7 +494,7 @@
             this.checkBox2.BackColor = System.Drawing.Color.DimGray;
             this.checkBox2.Enabled = false;
             this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox2.Location = new System.Drawing.Point(102, 324);
+            this.checkBox2.Location = new System.Drawing.Point(102, 349);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(71, 17);
             this.checkBox2.TabIndex = 7;
@@ -514,7 +514,7 @@
             this.treeView2.Location = new System.Drawing.Point(3, 53);
             this.treeView2.Name = "treeView2";
             this.treeView2.ShowRootLines = false;
-            this.treeView2.Size = new System.Drawing.Size(377, 265);
+            this.treeView2.Size = new System.Drawing.Size(413, 290);
             this.treeView2.TabIndex = 4;
             // 
             // contextRight
@@ -525,7 +525,7 @@
             this.toolStripSeparator3,
             this.kopierenToolStripMenuItem});
             this.contextRight.Name = "contextRight";
-            this.contextRight.Size = new System.Drawing.Size(217, 76);
+            this.contextRight.Size = new System.Drawing.Size(217, 54);
             // 
             // nurTOOLCALLsAnzeigenToolStripMenuItem1
             // 
@@ -756,7 +756,7 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(380, 50);
+            this.label2.Size = new System.Drawing.Size(416, 50);
             this.label2.TabIndex = 1;
             this.label2.Text = "CNC-Programm\r\n\r\n*.h";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -788,9 +788,9 @@
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel1,
             this.timeStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 462);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 487);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(809, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(884, 24);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -942,7 +942,7 @@
             // 
             this.toolStripStatusLabel5.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(123, 19);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(161, 19);
             this.toolStripStatusLabel5.Spring = true;
             this.toolStripStatusLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -964,7 +964,7 @@
             this.toolStripStatusLabel3.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.toolStripStatusLabel3.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(123, 19);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(161, 19);
             this.toolStripStatusLabel3.Spring = true;
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1012,7 +1012,7 @@
             this.History_1.ShowLines = false;
             this.History_1.ShowPlusMinus = false;
             this.History_1.ShowRootLines = false;
-            this.History_1.Size = new System.Drawing.Size(809, 110);
+            this.History_1.Size = new System.Drawing.Size(884, 110);
             this.History_1.TabIndex = 4;
             this.History_1.TabStop = false;
             // 
@@ -1042,8 +1042,8 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.History_1);
             this.splitContainer2.Panel2MinSize = 50;
-            this.splitContainer2.Size = new System.Drawing.Size(809, 462);
-            this.splitContainer2.SplitterDistance = 348;
+            this.splitContainer2.Size = new System.Drawing.Size(884, 487);
+            this.splitContainer2.SplitterDistance = 373;
             this.splitContainer2.TabIndex = 5;
             // 
             // frmMain
@@ -1052,11 +1052,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(809, 486);
+            this.ClientSize = new System.Drawing.Size(884, 511);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(825, 500);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";

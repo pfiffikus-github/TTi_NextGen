@@ -518,7 +518,7 @@ namespace TTi_NextGen
 
             //string _line = "[";
             string[] _line = new string[] { "[" };
-            foreach (string _str in myCNCProgram.EachToolCallValues())
+            foreach (string _str in myCNCProgram.EachToolCallValues())  //TOOL CALL's in History aufführen + Zeilenumbruch
             {
                 if (_line[_line.Length - 1].Length >= 108)
                 {
