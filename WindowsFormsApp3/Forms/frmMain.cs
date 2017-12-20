@@ -439,7 +439,7 @@ namespace TTi_NextGen
                     {
                         nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = CheckState.Checked;
                         nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = false;
-                        MessageBox.Show("Aufgrund der Größe des CNC-Programms '" + Path.GetFileName( _ofd.FileName) + "' werden nur die 'TOOL CALL's im Baum angezeigt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Aufgrund der Größe des CNC-Programms '" + Path.GetFileName(_ofd.FileName) + "' werden nur die 'TOOL CALL's im Baum angezeigt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         BuildTreeViewCNCProgram(true);
                     }
                     else
@@ -520,11 +520,11 @@ namespace TTi_NextGen
             string[] _line = new string[] { "[" };
             foreach (string _str in myCNCProgram.EachToolCallValues())
             {
-                _line[_line.Length - 1] += _str.Replace(CNCProgram.ToolCallString, "").Trim() + ", ";
                 if (_line[_line.Length - 1].Length >= 108)
                 {
                     Array.Resize(ref _line, _line.Length + 1);
                 }
+                _line[_line.Length - 1] += _str.Replace(CNCProgram.ToolCallString, "").Trim() + ", ";
             }
             _line[_line.Length - 1] = _line[_line.Length - 1].Remove(_line[_line.Length - 1].Length - 2, 1).Trim() + "]";
 
@@ -858,15 +858,8 @@ namespace TTi_NextGen
 
         private void maschinenProjektListeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-
             frmProjectList _frmProjectList = new frmProjectList(myMachine.Name, !myNetworkDriveAvailable);
             _frmProjectList.ShowDialog();
-
-
-
-
-
         }
 
         private void Kopieren_Click(object sender, EventArgs e)
