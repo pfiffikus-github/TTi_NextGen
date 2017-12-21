@@ -297,7 +297,7 @@ namespace TTi_NextGen
          DescriptionAttribute("Werkzeugnummern, die statisch niemals auf Steuerung überschrieben werden (≙ Standardwerkzeug)")]
         public string BlockedToolNumbers { get; set; }
 
-        [Browsable(false)] 
+        [Browsable(false)]
         public List<Project> Projects { get; set; }
 
         [CategoryAttribute("Einstellungen Werkzeugliste"),
@@ -766,21 +766,25 @@ namespace TTi_NextGen
             var ToolCallsToString = "";
             var SubString = "";
 
-            foreach (Match m in MatchesOfToolCalls)
+            if (this.MatchesOfToolCalls.Count <= 40)
             {
-                ToolCall tc = new ToolCall(m);
-
-                if (!IsRestrictiveToolValue(tc.OrgToolCallValue - tc.OrgToolRangeValue))
+                foreach (Match m in MatchesOfToolCalls)
                 {
-                    SubString = "";
-                }
-                else
-                {
-                    SubString = "   (≙ Standardwerkzeug)";
-                }
+                    ToolCall tc = new ToolCall(m);
 
-                ToolCallsToString = ToolCallsToString + "• " + m.Value + SubString + "\n";
+                    if (!IsRestrictiveToolValue(tc.OrgToolCallValue - tc.OrgToolRangeValue))
+                    {
+                        SubString = "";
+                    }
+                    else
+                    {
+                        SubString = "   (≙ Standardwerkzeug)";
+                    }
+
+                    ToolCallsToString = ToolCallsToString + "• " + m.Value + SubString + "\n";
+                }
             }
+
 
             return ToolCallsToString + "\n-------------- INFORMATION --------------" +
                    "\n• " + this.MatchesOfToolCalls.Count.ToString() + "x '" + ToolCallString + "' insgesamt" +

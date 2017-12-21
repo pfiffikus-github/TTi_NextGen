@@ -869,7 +869,7 @@ namespace TTi_NextGen
                 TreeNode node = this.History_1.SelectedNode;
                 if (node != null)
                 {
-                    Clipboard.SetDataObject(node.Text.ToString(), true);
+                    Clipboard.SetDataObject(node.Text.ToString().Replace("\r", ""), true);
                 }
             }
             catch (Exception)
@@ -882,10 +882,10 @@ namespace TTi_NextGen
         {
             try
             {
-                TreeNode node = this.treeView2.SelectedNode;
+                TreeNode node = this.treeView2.SelectedNode;                     
                 if (node != null)
                 {
-                    Clipboard.SetDataObject(node.Text.ToString(), true);
+                    Clipboard.SetDataObject(node.Text.ToString().Replace("\r", ""), true);
                 }
             }
             catch (Exception)
@@ -901,7 +901,7 @@ namespace TTi_NextGen
                 TreeNode node = this.treeView1.SelectedNode;
                 if (node != null)
                 {
-                    Clipboard.SetDataObject(node.Text.ToString(), true);
+                    Clipboard.SetDataObject(node.Text.ToString().Replace("\r", ""), true);
                 }
             }
             catch (Exception)
