@@ -439,12 +439,17 @@ namespace TTi_NextGen
                     {
                         nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = CheckState.Checked;
                         nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = false;
+
+                        nurTOOLCALLsAnzeigenToolStripMenuItem1.CheckState = CheckState.Checked;
+                        nurTOOLCALLsAnzeigenToolStripMenuItem1.Enabled = false;
+
                         MessageBox.Show("Aufgrund der Größe des CNC-Programms '" + Path.GetFileName(_ofd.FileName) + "' werden nur die 'TOOL CALL's im Baum angezeigt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         BuildTreeViewCNCProgram(true);
                     }
                     else
                     {
                         nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = true;
+                        nurTOOLCALLsAnzeigenToolStripMenuItem1.Enabled = true;
 
                         if (nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState == CheckState.Checked)
                         {
@@ -771,24 +776,7 @@ namespace TTi_NextGen
             WriteHistory("CNC-Programm '" + myCNCProgram.File.Name + "': Tool-Range erfolgreich in '" + comboBox2.Text + "' geändert", HistoryMessageType.Information, FontStyle.Bold, true, true, 2);
             öffnenToolStripMenuItem1_Click(aktualisierenToolStripMenuItem, null);
         }
-
-        private void nurTOOLCALLsAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TempJob.Text = "Lädt...";
-            this.Update();
-
-            if (nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState == CheckState.Unchecked)
-            {
-                BuildTreeViewCNCProgram(false);
-            }
-            else
-            {
-                BuildTreeViewCNCProgram(true);
-            }
-
-            TempJobClear();
-        }
-
+        
         private void TempJobClear()
         {
             TempJob.Text = "Bereit";
@@ -882,7 +870,7 @@ namespace TTi_NextGen
         {
             try
             {
-                TreeNode node = this.treeView2.SelectedNode;                     
+                TreeNode node = this.treeView2.SelectedNode;
                 if (node != null)
                 {
                     Clipboard.SetDataObject(node.Text.ToString().Replace("\r", ""), true);
@@ -910,5 +898,32 @@ namespace TTi_NextGen
             }
         }
 
+        private void updateToolCallView()
+        {
+            TempJob.Text = "Lädt...";
+            this.Update();
+
+            if (nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState == CheckState.Unchecked)
+            {
+                BuildTreeViewCNCProgram(false);
+            }
+            else
+            {
+                BuildTreeViewCNCProgram(true);
+            }
+            TempJobClear();
+        }
+
+        private void nurTOOLCALLsAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState;
+            updateToolCallView();
+        }
+
+        private void nurTOOLCALLsAnzeigenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = nurTOOLCALLsAnzeigenToolStripMenuItem1.CheckState;
+            updateToolCallView();
+        }
     }
 }

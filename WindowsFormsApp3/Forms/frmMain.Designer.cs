@@ -525,25 +525,26 @@
             this.toolStripSeparator3,
             this.kopierenToolStripMenuItem});
             this.contextRight.Name = "contextRight";
-            this.contextRight.Size = new System.Drawing.Size(217, 54);
+            this.contextRight.Size = new System.Drawing.Size(220, 76);
             // 
             // nurTOOLCALLsAnzeigenToolStripMenuItem1
             // 
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.CheckOnClick = true;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.FilterTextbox_16x;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem1";
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Text = "Nur TOOL CALL\'s anzeigen";
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Size = new System.Drawing.Size(219, 22);
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Text = "Nur \'TOOL CALL\'s anzeigen";
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Click += new System.EventHandler(this.nurTOOLCALLsAnzeigenToolStripMenuItem1_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(216, 6);
             // 
             // kopierenToolStripMenuItem
             // 
             this.kopierenToolStripMenuItem.Name = "kopierenToolStripMenuItem";
-            this.kopierenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.kopierenToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.kopierenToolStripMenuItem.Text = "Kopieren";
             this.kopierenToolStripMenuItem.Click += new System.EventHandler(this.kopierenToolStripMenuItem_Click);
             // 
