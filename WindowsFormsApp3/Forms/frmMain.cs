@@ -695,7 +695,6 @@ namespace TTi_NextGen
         {
             SaveFileDialog _sfd = new SaveFileDialog();
             _sfd.ShowDialog();
-
         }
 
         private int ExtractInt(string AtString = "0") //aus 1000...1999, 1 extrahieren 
@@ -916,7 +915,7 @@ namespace TTi_NextGen
 
         private void nurTOOLCALLsAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState;
+            nurTOOLCALLsAnzeigenToolStripMenuItem1.CheckState = nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState;
             updateToolCallView();
         }
 
