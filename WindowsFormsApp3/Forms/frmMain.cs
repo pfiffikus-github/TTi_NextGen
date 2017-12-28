@@ -635,8 +635,11 @@ namespace TTi_NextGen
 
                         if (_line.Contains(CNCProgram.ToolCallString))
                         {
-                            _newNode.BackColor = Color.Yellow;
-                            _newNode.NodeFont = new Font(treeView2.Font, FontStyle.Bold);
+                            if (tOOLCALLsMarkierenToolStripMenuItem.CheckState == CheckState.Checked)
+                            {
+                                _newNode.BackColor = Color.Yellow;
+                                _newNode.NodeFont = new Font(treeView2.Font, FontStyle.Bold);
+                            }
                             Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
                             myToolCallNodes[myToolCallNodes.Length - 1] = _newNode;
                         }
@@ -648,8 +651,11 @@ namespace TTi_NextGen
                             treeView2.Nodes.Add("...");
                             TreeNode _newNode = treeView2.Nodes.Add(_line);
 
-                            _newNode.BackColor = Color.Yellow;
-                            _newNode.NodeFont = new Font(treeView2.Font, FontStyle.Bold);
+                            if (tOOLCALLsMarkierenToolStripMenuItem.CheckState == CheckState.Checked)
+                            {
+                                _newNode.BackColor = Color.Yellow;
+                                _newNode.NodeFont = new Font(treeView2.Font, FontStyle.Bold);
+                            }
                             Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
                             myToolCallNodes[myToolCallNodes.Length - 1] = _newNode;
                         }
@@ -775,7 +781,7 @@ namespace TTi_NextGen
             WriteHistory("CNC-Programm '" + myCNCProgram.File.Name + "': Tool-Range erfolgreich in '" + comboBox2.Text + "' geändert", HistoryMessageType.Information, FontStyle.Bold, true, true, 2);
             öffnenToolStripMenuItem1_Click(aktualisierenToolStripMenuItem, null);
         }
-        
+
         private void TempJobClear()
         {
             TempJob.Text = "Bereit";
@@ -922,6 +928,11 @@ namespace TTi_NextGen
         private void nurTOOLCALLsAnzeigenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = nurTOOLCALLsAnzeigenToolStripMenuItem1.CheckState;
+            updateToolCallView();
+        }
+
+        private void tOOLCALLsMarkierenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             updateToolCallView();
         }
     }
