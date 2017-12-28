@@ -9,7 +9,7 @@ using System.Drawing.Design;
 using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace TTi_NextGen
 {
@@ -222,7 +222,7 @@ namespace TTi_NextGen
             InvalidToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
             ProjectDirectory = @"TNC:\Bauteile\";
             MaxToolRange = 32;
-            RestrictivToolNumbers = "0,1,2,3,4,5,6,7,8,9,10";
+            RestrictivToolNumbers = "[0-3][4-7][8,9,10]";
             BlockedToolNumbers = "";
             ControlVersion = TNCVersions.bis_iTNC530;
             BackUpDirectoryToolTable = @"TNC:\BackupToolT\";
@@ -627,24 +627,38 @@ namespace TTi_NextGen
             FirstNotRestrictiveToolValue = 0;   //in DetectIsToolRangeConsistent() neu initalisiert
             OnlyRestrictiveToolValues = false;  //in DetectIsToolRangeConsistent() neu initalisiert
 
-            if (restrictivToolNumber.Trim() != "")
+            int[] _RestrictivToolNumbers = new int[0];
+
+            try
             {
-                int[] _RestrictivToolNumbers = new int[0];
-                string[] _rtn = restrictivToolNumber.Split(',');
+                Regex _RegEx = new Regex(@"([\d-\.]+)");
 
-                foreach (string item in _rtn)
+                foreach (Match _Match in _RegEx.Matches(restrictivToolNumber))
                 {
-                    Array.Resize(ref _RestrictivToolNumbers, _RestrictivToolNumbers.Length + 1);
-
-                    try
+                    if (_Match.ToString().Contains("-"))
                     {
-                        _RestrictivToolNumbers[_RestrictivToolNumbers.Length - 1] = int.Parse(item.Trim());
+                        int _down = int.Parse(_Match.ToString().Trim().Split('-')[0]);
+                        int _up = int.Parse(_Match.ToString().Trim().Split('-')[1]) + 1;
+
+                        for (int i = _down; i < _up; i++)
+                        {
+                            Array.Resize(ref _RestrictivToolNumbers, _RestrictivToolNumbers.Length + 1);
+                            _RestrictivToolNumbers[_RestrictivToolNumbers.Length - 1] = i;
+                        }
                     }
-                    catch (Exception)
-                    { }
+                    else
+                    {
+                        Array.Resize(ref _RestrictivToolNumbers, _RestrictivToolNumbers.Length + 1);
+                        _RestrictivToolNumbers[_RestrictivToolNumbers.Length - 1] = int.Parse(_Match.ToString().Trim());
+                    }
                 }
-                RestrictivToolNumbers = _RestrictivToolNumbers;
             }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            RestrictivToolNumbers = _RestrictivToolNumbers;
 
             FileContent = System.IO.File.ReadAllText(File.FullName);
             MatchesOfToolCalls = GetDetectMatchesOfToolCalls();
@@ -781,15 +795,15 @@ namespace TTi_NextGen
                         SubString = "   (≙ Standardwerkzeug)";
                     }
 
-                    ToolCallsToString = ToolCallsToString + "• " + m.Value + SubString + "\n";
+                    ToolCallsToString = ToolCallsToString + "   • " + m.Value + SubString + "\n";
                 }
             }
 
 
             return ToolCallsToString + "\n-------------- INFORMATION --------------" +
-                   "\n• " + this.MatchesOfToolCalls.Count.ToString() + "x '" + ToolCallString + "' insgesamt" +
-                   "\n• " + (this.MatchesOfToolCalls.Count - this.CountOfRestrictiveToolValues).ToString() + "x veränderbare '" + ToolCallString + "'" +
-                   "\n• " + this.CountOfRestrictiveToolValues.ToString() + "x Standardwerkzeuge";
+                   "\n   • " + this.MatchesOfToolCalls.Count.ToString() + "x '" + ToolCallString + "' insgesamt" +
+                   "\n   • " + (this.MatchesOfToolCalls.Count - this.CountOfRestrictiveToolValues).ToString() + "x veränderbare '" + ToolCallString + "'" +
+                   "\n   • " + this.CountOfRestrictiveToolValues.ToString() + "x Standardwerkzeuge";
         }
 
         public string GetNoteText()
