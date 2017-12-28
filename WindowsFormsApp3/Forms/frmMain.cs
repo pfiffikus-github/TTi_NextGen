@@ -286,7 +286,7 @@ namespace TTi_NextGen
                     _tn.SelectedImageIndex = _tn.ImageIndex;
                     break;
                 case HistoryMessageType.Warning:
-                    _tn.ForeColor = Color.Orange;
+                    _tn.ForeColor = Color.DarkOrange;
                     _tn.ImageIndex = 2;
                     _tn.SelectedImageIndex = _tn.ImageIndex;
                     break;
@@ -512,7 +512,7 @@ namespace TTi_NextGen
             if (myCNCProgram.IsToolRangeConsistent != true)
             {
                 WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                             "' in verschiedenen Tool-Ranges enthalten",
+                             "' in verschiedenen Tool-Ranges enthalten (Standardwerkzeuge von " + myMachine.Name + ": " + myMachine.RestrictivToolNumbers + ")",
                              HistoryMessageType.Warning, FontStyle.Italic, false, false);
             }
             else
@@ -943,7 +943,7 @@ namespace TTi_NextGen
         {
             tOOLCALLsMarkierenToolStripMenuItem.CheckState = tOOLCALLsMarkierenToolStripMenuItem1.CheckState;
             updateToolCallView();
-            
+
         }
 
     }

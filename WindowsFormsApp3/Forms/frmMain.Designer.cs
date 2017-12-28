@@ -91,7 +91,7 @@
             this.History_1 = new System.Windows.Forms.TreeView();
             this.HistoryImages = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.tOOLCALLsMarkierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vorschauBeiToolRangeÄnderungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.öffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktuelisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,6 +104,7 @@
             this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button4 = new System.Windows.Forms.Button();
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tOOLCALLsMarkierenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.öffnenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aktualisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.speichernToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,6 +115,7 @@
             this.eigenschaftenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.beendenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nurTOOLCALLsAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tOOLCALLsMarkierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tOOLCALLInformationenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHistory = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,7 +128,6 @@
             this.cMDToTNCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tOOLCALLsMarkierenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -450,7 +451,7 @@
             this.extrasToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 26);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(254, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(162, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -515,7 +516,8 @@
             // 
             this.ansichtToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nurTOOLCALLsAnzeigenToolStripMenuItem,
-            this.tOOLCALLsMarkierenToolStripMenuItem});
+            this.tOOLCALLsMarkierenToolStripMenuItem,
+            this.vorschauBeiToolRangeÄnderungToolStripMenuItem});
             this.ansichtToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ansichtToolStripMenuItem1.Name = "ansichtToolStripMenuItem1";
             this.ansichtToolStripMenuItem1.Size = new System.Drawing.Size(59, 20);
@@ -733,7 +735,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.splitContainer1);
-            this.splitContainer2.Panel1MinSize = 250;
+            this.splitContainer2.Panel1MinSize = 200;
             // 
             // splitContainer2.Panel2
             // 
@@ -743,16 +745,15 @@
             this.splitContainer2.SplitterDistance = 373;
             this.splitContainer2.TabIndex = 5;
             // 
-            // tOOLCALLsMarkierenToolStripMenuItem
+            // vorschauBeiToolRangeÄnderungToolStripMenuItem
             // 
-            this.tOOLCALLsMarkierenToolStripMenuItem.Checked = true;
-            this.tOOLCALLsMarkierenToolStripMenuItem.CheckOnClick = true;
-            this.tOOLCALLsMarkierenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tOOLCALLsMarkierenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.WPFApplication_16x;
-            this.tOOLCALLsMarkierenToolStripMenuItem.Name = "tOOLCALLsMarkierenToolStripMenuItem";
-            this.tOOLCALLsMarkierenToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.tOOLCALLsMarkierenToolStripMenuItem.Text = "\'TOOL CALL\'s markieren";
-            this.tOOLCALLsMarkierenToolStripMenuItem.Click += new System.EventHandler(this.tOOLCALLsMarkierenToolStripMenuItem_Click);
+            this.vorschauBeiToolRangeÄnderungToolStripMenuItem.Checked = true;
+            this.vorschauBeiToolRangeÄnderungToolStripMenuItem.CheckOnClick = true;
+            this.vorschauBeiToolRangeÄnderungToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.vorschauBeiToolRangeÄnderungToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.UserDefinedDataType_16x;
+            this.vorschauBeiToolRangeÄnderungToolStripMenuItem.Name = "vorschauBeiToolRangeÄnderungToolStripMenuItem";
+            this.vorschauBeiToolRangeÄnderungToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.vorschauBeiToolRangeÄnderungToolStripMenuItem.Text = "Vorschau bei Tool-Range-Änderung";
             // 
             // button1
             // 
@@ -865,6 +866,17 @@
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Text = "Nur \'TOOL CALL\'s anzeigen";
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1.Click += new System.EventHandler(this.nurTOOLCALLsAnzeigenToolStripMenuItem1_Click);
             // 
+            // tOOLCALLsMarkierenToolStripMenuItem1
+            // 
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Checked = true;
+            this.tOOLCALLsMarkierenToolStripMenuItem1.CheckOnClick = true;
+            this.tOOLCALLsMarkierenToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.WPFApplication_16x;
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Name = "tOOLCALLsMarkierenToolStripMenuItem1";
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Size = new System.Drawing.Size(219, 22);
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Text = "\'TOOL CALL\'s markieren";
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Click += new System.EventHandler(this.tOOLCALLsMarkierenToolStripMenuItem1_Click);
+            // 
             // öffnenToolStripMenuItem1
             // 
             this.öffnenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.OpenfileDialog_grey_16x;
@@ -954,9 +966,20 @@
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.CheckOnClick = true;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.FilterTextbox_16x;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem";
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Text = "Nur \'TOOL CALL\'s anzeigen";
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Click += new System.EventHandler(this.nurTOOLCALLsAnzeigenToolStripMenuItem_Click);
+            // 
+            // tOOLCALLsMarkierenToolStripMenuItem
+            // 
+            this.tOOLCALLsMarkierenToolStripMenuItem.Checked = true;
+            this.tOOLCALLsMarkierenToolStripMenuItem.CheckOnClick = true;
+            this.tOOLCALLsMarkierenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tOOLCALLsMarkierenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.WPFApplication_16x;
+            this.tOOLCALLsMarkierenToolStripMenuItem.Name = "tOOLCALLsMarkierenToolStripMenuItem";
+            this.tOOLCALLsMarkierenToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.tOOLCALLsMarkierenToolStripMenuItem.Text = "\'TOOL CALL\'s markieren";
+            this.tOOLCALLsMarkierenToolStripMenuItem.Click += new System.EventHandler(this.tOOLCALLsMarkierenToolStripMenuItem_Click);
             // 
             // tOOLCALLsInWerkzeuglisteSuchenToolStripMenuItem
             // 
@@ -1061,17 +1084,6 @@
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
             this.toolStripStatusLabel4.Size = new System.Drawing.Size(77, 16);
             this.toolStripStatusLabel4.Text = "Maschine:";
-            // 
-            // tOOLCALLsMarkierenToolStripMenuItem1
-            // 
-            this.tOOLCALLsMarkierenToolStripMenuItem1.Checked = true;
-            this.tOOLCALLsMarkierenToolStripMenuItem1.CheckOnClick = true;
-            this.tOOLCALLsMarkierenToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tOOLCALLsMarkierenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.WPFApplication_16x;
-            this.tOOLCALLsMarkierenToolStripMenuItem1.Name = "tOOLCALLsMarkierenToolStripMenuItem1";
-            this.tOOLCALLsMarkierenToolStripMenuItem1.Size = new System.Drawing.Size(219, 22);
-            this.tOOLCALLsMarkierenToolStripMenuItem1.Text = "\'TOOL CALL\'s markieren";
-            this.tOOLCALLsMarkierenToolStripMenuItem1.Click += new System.EventHandler(this.tOOLCALLsMarkierenToolStripMenuItem1_Click);
             // 
             // frmMain
             // 
@@ -1212,6 +1224,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
         private System.Windows.Forms.ToolStripMenuItem tOOLCALLsMarkierenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tOOLCALLsMarkierenToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem vorschauBeiToolRangeÄnderungToolStripMenuItem;
     }
 }
 

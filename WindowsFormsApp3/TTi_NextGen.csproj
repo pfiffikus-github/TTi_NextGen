@@ -259,6 +259,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="if_advancedsettings_17814.ico" />
+    <None Include="Resources\Images\UserDefinedDataType_16x.png" />
     <None Include="Resources\Images\WPFApplication_16x.png" />
     <None Include="Resources\Images\RestoreMTR_16x.png" />
     <None Include="Resources\Images\DeleteTable_16x.png" />
