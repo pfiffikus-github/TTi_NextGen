@@ -126,6 +126,7 @@
             this.cMDToTNCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tOOLCALLsMarkierenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -421,10 +422,11 @@
             this.contextRight.BackColor = System.Drawing.Color.DimGray;
             this.contextRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nurTOOLCALLsAnzeigenToolStripMenuItem1,
+            this.tOOLCALLsMarkierenToolStripMenuItem1,
             this.toolStripSeparator3,
             this.kopierenToolStripMenuItem});
             this.contextRight.Name = "contextRight";
-            this.contextRight.Size = new System.Drawing.Size(220, 54);
+            this.contextRight.Size = new System.Drawing.Size(220, 76);
             // 
             // toolStripSeparator3
             // 
@@ -1060,6 +1062,17 @@
             this.toolStripStatusLabel4.Size = new System.Drawing.Size(77, 16);
             this.toolStripStatusLabel4.Text = "Maschine:";
             // 
+            // tOOLCALLsMarkierenToolStripMenuItem1
+            // 
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Checked = true;
+            this.tOOLCALLsMarkierenToolStripMenuItem1.CheckOnClick = true;
+            this.tOOLCALLsMarkierenToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.WPFApplication_16x;
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Name = "tOOLCALLsMarkierenToolStripMenuItem1";
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Size = new System.Drawing.Size(219, 22);
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Text = "\'TOOL CALL\'s markieren";
+            this.tOOLCALLsMarkierenToolStripMenuItem1.Click += new System.EventHandler(this.tOOLCALLsMarkierenToolStripMenuItem1_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1198,6 +1211,7 @@
         private System.Windows.Forms.ToolStripMenuItem maschinenProjektListeToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
         private System.Windows.Forms.ToolStripMenuItem tOOLCALLsMarkierenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tOOLCALLsMarkierenToolStripMenuItem1;
     }
 }
 
