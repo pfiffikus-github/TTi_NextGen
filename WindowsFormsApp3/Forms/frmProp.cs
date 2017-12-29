@@ -33,13 +33,18 @@ namespace TTi_NextGen
 
             textBox1.Text = "Standardwerkzeuge von " + _machine.Name + ":" + System.Environment.NewLine;
 
-
             foreach (var item in CNCProgram.GetRestrictivToolNumbers(_machine.RestrictivToolNumbers))
             {
                 textBox1.Text += item.ToString() + "; ";
             }
+        }
 
-
+        private void frmProp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }
