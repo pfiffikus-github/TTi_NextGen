@@ -50,7 +50,7 @@ namespace TTi_NextGen
         public string LocalSettingsDirectory { get; }
 
         private string myPublicSettingsDirectory;
-        [CategoryAttribute("Öffentliche Einstellungen"),
+        [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Pfad der öffentlichen Einstellungsdatei (Liste aller Maschinen)"),
          Editor(typeof(PropertyGridSelectFolder), typeof(UITypeEditor)),
          TypeConverter(typeof(CancelEditProp))]
@@ -93,7 +93,6 @@ namespace TTi_NextGen
                 sw.Dispose();
                 sw.Close();
             }
-
         }
 
         public LocalSettings DeserializeXML()
@@ -386,8 +385,8 @@ namespace TTi_NextGen
             }
             catch (Exception)
             {
-                throw new Exception("");
-                //return null;
+                //throw new Exception("");
+                return null;
             }
         }
 
@@ -856,8 +855,7 @@ namespace TTi_NextGen
             return _RestrictivToolNumbers;
 
         }
-
-
+        
         public string[] EachToolCallValues()
         {
             string[] _str = new string[0];
@@ -873,9 +871,6 @@ namespace TTi_NextGen
 
             return _str;
         }
-
-
-
 
     }
 
