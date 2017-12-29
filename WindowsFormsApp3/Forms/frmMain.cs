@@ -519,7 +519,7 @@ namespace TTi_NextGen
             {
 
                 WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                             "' in Tool-Range '" + myCNCProgram.OriginalToolRange.ToString() + "' enthalten",
+                             "' in Tool-Range '" + (myCNCProgram.OriginalToolRange * 1000).ToString() + "..." + ((myCNCProgram.OriginalToolRange * 1000) + 999).ToString() + "' enthalten",
                              HistoryMessageType.Information, FontStyle.Italic, false, false);
             }
 
