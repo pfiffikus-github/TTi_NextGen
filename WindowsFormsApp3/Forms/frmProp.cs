@@ -30,6 +30,16 @@ namespace TTi_NextGen
             Text = _machine.Name + " @ " + _machine.IP ;
 
             propertyGrid1.SelectedObject = myObject;
+
+            textBox1.Text = "Standardwerkzeuge von " + _machine.Name + ":" + System.Environment.NewLine;
+
+
+            foreach (var item in CNCProgram.GetRestrictivToolNumbers(_machine.RestrictivToolNumbers))
+            {
+                textBox1.Text += item.ToString() + "; ";
+            }
+
+
         }
     }
 }

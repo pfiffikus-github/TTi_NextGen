@@ -626,39 +626,8 @@ namespace TTi_NextGen
             OriginalToolRange = 0;              //in DetectIsToolRangeConsistent() neu initalisiert
             FirstNotRestrictiveToolValue = 0;   //in DetectIsToolRangeConsistent() neu initalisiert
             OnlyRestrictiveToolValues = false;  //in DetectIsToolRangeConsistent() neu initalisiert
-
-            int[] _RestrictivToolNumbers = new int[0];
-
-            try
-            {
-                Regex _RegEx = new Regex(@"([\d-\.]+)");
-
-                foreach (Match _Match in _RegEx.Matches(restrictivToolNumber))
-                {
-                    if (_Match.ToString().Contains("-"))
-                    {
-                        int _down = int.Parse(_Match.ToString().Trim().Split('-')[0]);
-                        int _up = int.Parse(_Match.ToString().Trim().Split('-')[1]) + 1;
-
-                        for (int i = _down; i < _up; i++)
-                        {
-                            Array.Resize(ref _RestrictivToolNumbers, _RestrictivToolNumbers.Length + 1);
-                            _RestrictivToolNumbers[_RestrictivToolNumbers.Length - 1] = i;
-                        }
-                    }
-                    else
-                    {
-                        Array.Resize(ref _RestrictivToolNumbers, _RestrictivToolNumbers.Length + 1);
-                        _RestrictivToolNumbers[_RestrictivToolNumbers.Length - 1] = int.Parse(_Match.ToString().Trim());
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-            RestrictivToolNumbers = _RestrictivToolNumbers;
+            
+            RestrictivToolNumbers = GetRestrictivToolNumbers(restrictivToolNumber);
 
             FileContent = System.IO.File.ReadAllText(File.FullName);
             MatchesOfToolCalls = GetDetectMatchesOfToolCalls();
@@ -851,6 +820,44 @@ namespace TTi_NextGen
             return false;
         }
 
+        public static  int[] GetRestrictivToolNumbers(string source)
+        {
+            int[] _RestrictivToolNumbers = new int[0];
+
+            try
+            {
+                Regex _RegEx = new Regex(@"([\d-\.]+)");
+
+                foreach (Match _Match in _RegEx.Matches(source))
+                {
+                    if (_Match.ToString().Contains("-"))
+                    {
+                        int _down = int.Parse(_Match.ToString().Trim().Split('-')[0]);
+                        int _up = int.Parse(_Match.ToString().Trim().Split('-')[1]) + 1;
+
+                        for (int i = _down; i < _up; i++)
+                        {
+                            Array.Resize(ref _RestrictivToolNumbers, _RestrictivToolNumbers.Length + 1);
+                            _RestrictivToolNumbers[_RestrictivToolNumbers.Length - 1] = i;
+                        }
+                    }
+                    else
+                    {
+                        Array.Resize(ref _RestrictivToolNumbers, _RestrictivToolNumbers.Length + 1);
+                        _RestrictivToolNumbers[_RestrictivToolNumbers.Length - 1] = int.Parse(_Match.ToString().Trim());
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return _RestrictivToolNumbers;
+
+        }
+
+
         public string[] EachToolCallValues()
         {
             string[] _str = new string[0];
@@ -866,6 +873,8 @@ namespace TTi_NextGen
 
             return _str;
         }
+
+
 
 
     }
