@@ -12,4 +12,3 @@ C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\bin\Debug\TDM.pdb
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TDM.exe
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TDM.pdb
 C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.frmProjectList.resources
-C:\Users\mht\source\repos\TTi_NextGen\WindowsFormsApp3\obj\Debug\TTi_NextGen.csprojResolveAssemblyReference.cache

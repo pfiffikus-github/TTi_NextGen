@@ -742,6 +742,7 @@ namespace TTi_NextGen
             }
             System.IO.File.WriteAllText(System.IO.Path.Combine(File.DirectoryName, File.Name), newFileContent);
         }
+        
 
         public override string ToString()
         {
@@ -803,7 +804,7 @@ namespace TTi_NextGen
             return System.IO.File.ReadAllLines(File.FullName);
         }
 
-        private bool IsRestrictiveToolValue(decimal toolValue)
+        public bool IsRestrictiveToolValue(decimal toolValue)
         {
             if (RestrictivToolNumbers != null)
             {
@@ -815,7 +816,6 @@ namespace TTi_NextGen
                     }
                 }
             }
-
             return false;
         }
 

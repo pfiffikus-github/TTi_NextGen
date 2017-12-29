@@ -183,6 +183,16 @@ namespace TTi_NextGen.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProcedureMissing_16x {
+            get {
+                object obj = ResourceManager.GetObject("ProcedureMissing_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProjectLoadVeto_16x {
             get {
                 object obj = ResourceManager.GetObject("ProjectLoadVeto_16x", resourceCulture);

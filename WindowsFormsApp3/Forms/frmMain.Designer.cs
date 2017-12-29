@@ -98,6 +98,8 @@
             this.tOOLCALLInformationenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.contextHistory = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.verlaufLeerenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.verlaufLeerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.contextMachine = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -172,8 +174,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2MinSize = 350;
-            this.splitContainer1.Size = new System.Drawing.Size(874, 381);
-            this.splitContainer1.SplitterDistance = 455;
+            this.splitContainer1.Size = new System.Drawing.Size(834, 381);
+            this.splitContainer1.SplitterDistance = 434;
             this.splitContainer1.TabIndex = 0;
             // 
             // comboBox1
@@ -210,7 +212,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(309, 355);
+            this.button1.Location = new System.Drawing.Point(288, 355);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 23);
             this.button1.TabIndex = 4;
@@ -227,7 +229,7 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 53);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(449, 298);
+            this.treeView1.Size = new System.Drawing.Size(428, 298);
             this.treeView1.TabIndex = 3;
             // 
             // contextLeft
@@ -459,7 +461,7 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(452, 50);
+            this.label1.Size = new System.Drawing.Size(431, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Werkzeugliste\r\n\r\n*.t";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -481,7 +483,7 @@
             this.button4.Enabled = false;
             this.button4.Image = global::TTi_NextGen.Properties.Resources.UnsyncedCommits_16x;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button4.Location = new System.Drawing.Point(269, 355);
+            this.button4.Location = new System.Drawing.Point(250, 355);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(143, 23);
             this.button4.TabIndex = 8;
@@ -517,7 +519,7 @@
             this.treeView2.Location = new System.Drawing.Point(3, 53);
             this.treeView2.Name = "treeView2";
             this.treeView2.ShowRootLines = false;
-            this.treeView2.Size = new System.Drawing.Size(409, 298);
+            this.treeView2.Size = new System.Drawing.Size(390, 298);
             this.treeView2.TabIndex = 4;
             // 
             // contextRight
@@ -573,7 +575,7 @@
             this.extrasToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 26);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(162, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(254, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -734,7 +736,7 @@
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.CheckOnClick = true;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.FilterTextbox_16x;
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Name = "nurTOOLCALLsAnzeigenToolStripMenuItem";
-            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.nurTOOLCALLsAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Text = "Nur \'TOOL CALL\'s anzeigen";
             this.nurTOOLCALLsAnzeigenToolStripMenuItem.Click += new System.EventHandler(this.nurTOOLCALLsAnzeigenToolStripMenuItem_Click);
             // 
@@ -745,7 +747,7 @@
             this.tOOLCALLsMarkierenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tOOLCALLsMarkierenToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.WPFApplication_16x;
             this.tOOLCALLsMarkierenToolStripMenuItem.Name = "tOOLCALLsMarkierenToolStripMenuItem";
-            this.tOOLCALLsMarkierenToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.tOOLCALLsMarkierenToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
             this.tOOLCALLsMarkierenToolStripMenuItem.Text = "\'TOOL CALL\'s markieren";
             this.tOOLCALLsMarkierenToolStripMenuItem.Click += new System.EventHandler(this.tOOLCALLsMarkierenToolStripMenuItem_Click);
             // 
@@ -756,8 +758,8 @@
             this.vorschauBeiToolRangeÄnderungToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.vorschauBeiToolRangeÄnderungToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.UserDefinedDataType_16x;
             this.vorschauBeiToolRangeÄnderungToolStripMenuItem.Name = "vorschauBeiToolRangeÄnderungToolStripMenuItem";
-            this.vorschauBeiToolRangeÄnderungToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
-            this.vorschauBeiToolRangeÄnderungToolStripMenuItem.Text = "Vorschau bei Tool-Range-Änderung";
+            this.vorschauBeiToolRangeÄnderungToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
+            this.vorschauBeiToolRangeÄnderungToolStripMenuItem.Text = "Vorschau-Modus bei Tool-Range-Änderung";
             // 
             // extrasToolStripMenuItem1
             // 
@@ -795,7 +797,7 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(412, 50);
+            this.label2.Size = new System.Drawing.Size(393, 50);
             this.label2.TabIndex = 1;
             this.label2.Text = "CNC-Programm\r\n\r\n*.h";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -803,14 +805,29 @@
             // contextHistory
             // 
             this.contextHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verlaufLeerenToolStripMenuItem1,
+            this.toolStripSeparator18,
             this.verlaufLeerenToolStripMenuItem});
             this.contextHistory.Name = "contextHistory";
-            this.contextHistory.Size = new System.Drawing.Size(122, 26);
+            this.contextHistory.Size = new System.Drawing.Size(146, 54);
+            // 
+            // verlaufLeerenToolStripMenuItem1
+            // 
+            this.verlaufLeerenToolStripMenuItem1.Image = global::TTi_NextGen.Properties.Resources.ProcedureMissing_16x;
+            this.verlaufLeerenToolStripMenuItem1.Name = "verlaufLeerenToolStripMenuItem1";
+            this.verlaufLeerenToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
+            this.verlaufLeerenToolStripMenuItem1.Text = "Verlauf leeren";
+            this.verlaufLeerenToolStripMenuItem1.Click += new System.EventHandler(this.verlaufLeerenToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator18
+            // 
+            this.toolStripSeparator18.Name = "toolStripSeparator18";
+            this.toolStripSeparator18.Size = new System.Drawing.Size(142, 6);
             // 
             // verlaufLeerenToolStripMenuItem
             // 
             this.verlaufLeerenToolStripMenuItem.Name = "verlaufLeerenToolStripMenuItem";
-            this.verlaufLeerenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.verlaufLeerenToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.verlaufLeerenToolStripMenuItem.Text = "Kopieren";
             this.verlaufLeerenToolStripMenuItem.Click += new System.EventHandler(this.Kopieren_Click);
             // 
@@ -829,7 +846,7 @@
             this.timeStatus});
             this.statusStrip1.Location = new System.Drawing.Point(0, 512);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(874, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(834, 24);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -981,7 +998,7 @@
             // 
             this.toolStripStatusLabel5.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(156, 19);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(136, 19);
             this.toolStripStatusLabel5.Spring = true;
             this.toolStripStatusLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -1003,7 +1020,7 @@
             this.toolStripStatusLabel3.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.toolStripStatusLabel3.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(156, 19);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(136, 19);
             this.toolStripStatusLabel3.Spring = true;
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1051,7 +1068,7 @@
             this.History_1.ShowLines = false;
             this.History_1.ShowPlusMinus = false;
             this.History_1.ShowRootLines = false;
-            this.History_1.Size = new System.Drawing.Size(874, 127);
+            this.History_1.Size = new System.Drawing.Size(834, 127);
             this.History_1.TabIndex = 4;
             this.History_1.TabStop = false;
             // 
@@ -1081,7 +1098,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.History_1);
             this.splitContainer2.Panel2MinSize = 50;
-            this.splitContainer2.Size = new System.Drawing.Size(874, 512);
+            this.splitContainer2.Size = new System.Drawing.Size(834, 512);
             this.splitContainer2.SplitterDistance = 381;
             this.splitContainer2.TabIndex = 5;
             // 
@@ -1091,7 +1108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(874, 536);
+            this.ClientSize = new System.Drawing.Size(834, 536);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1225,6 +1242,8 @@
         private System.Windows.Forms.ToolStripMenuItem tOOLCALLsMarkierenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tOOLCALLsMarkierenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem vorschauBeiToolRangeÄnderungToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
+        private System.Windows.Forms.ToolStripMenuItem verlaufLeerenToolStripMenuItem1;
     }
 }
 
