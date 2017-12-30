@@ -617,6 +617,7 @@ namespace TTi_NextGen
     public class CNCProgram
     {
         public const string ToolCallString = "TOOL CALL";
+        public const string FilterToolCallRexEx = @"TOOL\s+CALL\s+(\d+)";
 
         public CNCProgram(FileInfo file, string restrictivToolNumber)
         {
@@ -656,7 +657,7 @@ namespace TTi_NextGen
 
         private MatchCollection GetDetectMatchesOfToolCalls()
         {
-            var rgx = new Regex(@"TOOL\s+CALL\s+(\d+)");
+            var rgx = new Regex(FilterToolCallRexEx);
 
             MatchCollection matches = rgx.Matches(FileContent);
 
@@ -743,7 +744,6 @@ namespace TTi_NextGen
             System.IO.File.WriteAllText(System.IO.Path.Combine(File.DirectoryName, File.Name), newFileContent);
         }
         
-
         public override string ToString()
         {
             var ToolCallsToString = "";

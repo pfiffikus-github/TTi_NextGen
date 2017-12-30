@@ -312,9 +312,6 @@ namespace TTi_NextGen
                 _tn.SelectedImageIndex = _tn.ImageIndex;
             }
 
-
-
-
             _tn.NodeFont = new Font("Consolas", 8, style);
 
             History_1.Nodes.Add(_tn); _tn.EnsureVisible();
@@ -437,7 +434,7 @@ namespace TTi_NextGen
                     EnabledCNCProgrammControls();
 
                     FileInfo _fi = new FileInfo(myCNCProgram.File.FullName);
-                    if (_fi.Length >= 2500000)
+                    if (_fi.Length >= 2000000)
                     {
                         nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState = CheckState.Checked;
                         nurTOOLCALLsAnzeigenToolStripMenuItem.Enabled = false;
@@ -473,10 +470,11 @@ namespace TTi_NextGen
             }
             else //Aktualisieren
             {
-                comboBox2.SelectedIndex = comboBox2.SelectedIndex - 1;
+                //comboBox2.SelectedIndex = comboBox2.SelectedIndex - 1;
                 string _file = myCNCProgram.File.FullName;
 
                 myCNCProgram = null;
+
                 try
                 {
                     myCNCProgram = new CNCProgram(new FileInfo(_file), myMachine.RestrictivToolNumbers);
@@ -488,6 +486,7 @@ namespace TTi_NextGen
                     TempJobClear();
                     return;
                 }
+
                 if (nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState == CheckState.Checked)
                 {
                     BuildTreeViewCNCProgram(true);
@@ -496,6 +495,7 @@ namespace TTi_NextGen
                 {
                     BuildTreeViewCNCProgram(false);
                 }
+
             }
 
             //write history
@@ -583,6 +583,7 @@ namespace TTi_NextGen
         private void schließenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             myCNCProgram = null;
+            myToolCallNodes = null;
             BuildTreeViewCNCProgram(false);
             EnabledCNCProgrammControls();
             label2.Text = "CNC-Programm\n\n*.h";
@@ -610,27 +611,36 @@ namespace TTi_NextGen
                 else
                 {
                     comboBox2.SelectedIndex = myCNCProgram.OriginalToolRange;
-                }
-
-                myToolCallNodes = null;
-                myToolCallNodes = new TreeNode[0];
-
-
-                treeView2.BeginUpdate();
-                treeView2.Nodes.Clear();
+                }                               
 
                 string[] _lines = new string[] { };
                 _lines = myCNCProgram.FileContent.Split('\n');
-                ProgressBar.Maximum = _lines.Length;
-
+                
+                TempJob.Text = "Lädt...";
+                if (ShowOnlyToolCall)
+                {
+                    ProgressBar.Value = ProgressBar.Maximum / 3;
+                }
+                else
+                {
+                    ProgressBar.Maximum = _lines.Length;
+                }
+                this.Update();
+                
+                treeView2.BeginUpdate();
+                treeView2.Nodes.Clear();
+                
+                myToolCallNodes = null;
+                myToolCallNodes = new TreeNode[0];
+                
                 int i = 0;
                 foreach (var _line in _lines)
                 {
-                    ProgressBar.Value = Array.IndexOf(_lines, _line, i);  //Loadingbar
-                    i++;
-
                     if (!ShowOnlyToolCall)
                     {
+                        ProgressBar.Value = Array.IndexOf(_lines, _line, i);  //Loadingbar
+                        i++;
+
                         TreeNode _newNode = treeView2.Nodes.Add(_line);
 
                         if (_line.Contains(CNCProgram.ToolCallString))
@@ -660,12 +670,13 @@ namespace TTi_NextGen
                             myToolCallNodes[myToolCallNodes.Length - 1] = _newNode;
                         }
                     }
-                }              
+                }
 
                 treeView2.EndUpdate();
                 ProgressBar.Value = 0;
-                
-                if (myToolCallNodes.Length >= 100)
+                TempJobClear();
+
+                if (myToolCallNodes.Length >= 250)
                 {
                     MessageBox.Show("Aufgrund der Fülle an '" + CNCProgram.ToolCallString + "'s  im CNC-Programm '" + myCNCProgram.File.Name + "' steht der 'Vorschau-Modus bei Tool-Range-Änderung' nicht zu Verfügung.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     vorschauBeiToolRangeÄnderungToolStripMenuItem.CheckState = CheckState.Unchecked;
@@ -673,8 +684,9 @@ namespace TTi_NextGen
                 }
                 else
                 {
+                    vorschauBeiToolRangeÄnderungToolStripMenuItem.CheckState = CheckState.Checked;
                     vorschauBeiToolRangeÄnderungToolStripMenuItem.Enabled = true;
-                }  
+                }
 
             }
             else
@@ -682,6 +694,7 @@ namespace TTi_NextGen
                 treeView2.BeginUpdate();
                 treeView2.Nodes.Clear();
                 treeView2.EndUpdate();
+                TempJobClear();
             }
         }
 
@@ -713,7 +726,7 @@ namespace TTi_NextGen
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (myCNCProgram == null) { return; }
-            
+
             if (checkBox1.CheckState == CheckState.Checked) //für Sync
             {
                 comboBox1.Text = comboBox2.Text;
@@ -743,28 +756,46 @@ namespace TTi_NextGen
             if (myToolCallNodes == null | vorschauBeiToolRangeÄnderungToolStripMenuItem.CheckState == CheckState.Unchecked) { return; }
 
             //Vorschau...
+            TempJob.Text = "Lädt...";
+            this.Update();
+            treeView2.BeginUpdate();
+            ProgressBar.Maximum = myToolCallNodes.Length;
+            int _pbValue = 0;
+
             int _newRange = ExtractInt(comboBox1.Text);
             int newToolCallValue;
-            //string newToolCallString;
+            string newToolCallString;
             TreeNode _tn = new TreeNode();
-            var rgx = new Regex(@"TOOL\s+CALL\s+(\d+)");
+            var rgx = new Regex(CNCProgram.FilterToolCallRexEx);
 
             foreach (var item in myToolCallNodes)
             {
                 _tn = treeView2.Nodes[treeView2.Nodes.IndexOf(item)];
+                ProgressBar.Value = _pbValue += 1;
 
-                var tc = new ToolCall(rgx.Matches(_tn.Text)[0]);
+                try
+                {
+                    var tc = new ToolCall(rgx.Matches(_tn.Text)[0]);
+                    if (myCNCProgram.IsRestrictiveToolValue(tc.OrgToolCallValue - tc.OrgToolRangeValue)) { continue; }
 
-                if (myCNCProgram.IsRestrictiveToolValue(tc.OrgToolCallValue - tc.OrgToolRangeValue)) { continue; }
+                    newToolCallValue = (Int32.Parse(tc.OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")) -
+                                        Int32.Parse(tc.OrgToolRangeValue.ToString())) + (_newRange * 1000);
 
-                newToolCallValue = (Int32.Parse(tc.OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")) -
-                                   Int32.Parse(tc.OrgToolRangeValue.ToString())) +
-                                   (_newRange * 1000);
+                    newToolCallString = (tc.OrgToolCallString.Replace(tc.OrgToolCallValue.ToString(), newToolCallValue.ToString()));
 
-                //newToolCallString = (tc.OrgToolCallString.Replace(tc.OrgToolCallValue.ToString(), newToolCallValue.ToString()));
+                    _tn.Text = _tn.Text.Replace(tc.OrgToolCallString, newToolCallString);
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
 
-                _tn.Text = _tn.Text.Replace(tc.OrgToolCallString, (tc.OrgToolCallString.Replace(tc.OrgToolCallValue.ToString(), newToolCallValue.ToString()))); //newToolCallString
+
             }
+
+            TempJobClear();
+            treeView2.EndUpdate();
+            ProgressBar.Value = 0;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -922,8 +953,7 @@ namespace TTi_NextGen
 
         private void updateToolCallView()
         {
-            TempJob.Text = "Lädt...";
-            this.Update();
+
 
             if (nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState == CheckState.Unchecked)
             {
@@ -933,7 +963,7 @@ namespace TTi_NextGen
             {
                 BuildTreeViewCNCProgram(true);
             }
-            TempJobClear();
+
         }
 
         private void nurTOOLCALLsAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
