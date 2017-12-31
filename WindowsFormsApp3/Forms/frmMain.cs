@@ -511,47 +511,55 @@ namespace TTi_NextGen
 
             if (myCNCProgram.IsToolRangeConsistent != true)
             {
-                WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                             "' in verschiedenen Tool-Ranges enthalten (Standardwerkzeuge von " + myMachine.Name + ": " + myMachine.RestrictivToolNumbers + ")",
-                             HistoryMessageType.Warning, FontStyle.Italic, false, false);
+                //WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                //             "' in verschiedenen Tool-Ranges enthalten (Standardwerkzeuge von " + myMachine.Name + ": " + myMachine.RestrictivToolNumbers + ")",
+                //             HistoryMessageType.Warning, FontStyle.Italic, false, false);
+
+                WriteHistory(myCNCProgram.GetNoteText(), HistoryMessageType.Warning, FontStyle.Italic, false, false);
             }
             else
             {
 
-                WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
-                             "' in Tool-Range '" + (myCNCProgram.OriginalToolRange * 1000).ToString() + "..." + ((myCNCProgram.OriginalToolRange * 1000) + 999).ToString() + "' enthalten",
-                             HistoryMessageType.Information, FontStyle.Italic, false, false);
+                //WriteHistory("" + myCNCProgram.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString +
+                //             "' in Tool-Range '" + (myCNCProgram.OriginalToolRange * 1000).ToString() + "..." + ((myCNCProgram.OriginalToolRange * 1000) + 999).ToString() + "' enthalten",
+                //             HistoryMessageType.Information, FontStyle.Italic, false, false);
+
+                WriteHistory(myCNCProgram.GetNoteText(), HistoryMessageType.Information, FontStyle.Italic, false, false);
             }
+            
 
-            //string _line = "[";
-            string[] _line = new string[] { "[" };
-            foreach (string _str in myCNCProgram.EachToolCallValues())  //TOOL CALL's in History aufführen + Zeilenumbruch
+            if (myCNCProgram.MatchesOfToolCalls.Count > 0)    //TOOL CALL's in History aufführen + Zeilenumbruch
             {
-                if (_line[_line.Length - 1].Length >= 108)
+                string[] _line = new string[] { "[" };
+                foreach (string _str in myCNCProgram.EachToolCallValues())  
                 {
-                    Array.Resize(ref _line, _line.Length + 1);
+                    if (_line[_line.Length - 1].Length >= 108)
+                    {
+                        Array.Resize(ref _line, _line.Length + 1);
+                    }
+                    _line[_line.Length - 1] += _str.Replace(CNCProgram.ToolCallString, "").Trim() + ", ";
                 }
-                _line[_line.Length - 1] += _str.Replace(CNCProgram.ToolCallString, "").Trim() + ", ";
+                _line[_line.Length - 1] = _line[_line.Length - 1].Remove(_line[_line.Length - 1].Length - 2, 1).Trim() + "]";
+
+                bool withEmptyLine = false;
+                for (int i = 0; i < _line.Length; i++)
+                {
+                    if (i == _line.Length - 1)
+                    {
+                        withEmptyLine = true;
+                    }
+
+                    WriteHistory(_line[i], HistoryMessageType.Information, FontStyle.Italic, false, withEmptyLine);
+                }
             }
-            _line[_line.Length - 1] = _line[_line.Length - 1].Remove(_line[_line.Length - 1].Length - 2, 1).Trim() + "]";
-
-
-            bool withEmptyLine = false;
-            for (int i = 0; i < _line.Length; i++)
+            else
             {
-                if (i == _line.Length - 1)
-                {
-                    withEmptyLine = true;
-                }
-
-                WriteHistory(_line[i], HistoryMessageType.Information, FontStyle.Italic, false, withEmptyLine);
+                WriteHistory("", HistoryMessageType.Information, FontStyle.Italic, false, false);
             }
 
             //lbl-Text
-            label2.Text = "CNC-Programm\n\n" + myCNCProgram.File.Name;
-
-            //set restrictivToolValues
-
+            label2.Text = "CNC-Programm: " + myCNCProgram.File.Name + "\n\nTool-Range: " + (myCNCProgram.OriginalToolRange * 1000).ToString() + "..." + ((myCNCProgram.OriginalToolRange * 1000) + 999).ToString();
+            
             TempJobClear();
         }
 
@@ -611,11 +619,11 @@ namespace TTi_NextGen
                 else
                 {
                     comboBox2.SelectedIndex = myCNCProgram.OriginalToolRange;
-                }                               
+                }
 
                 string[] _lines = new string[] { };
                 _lines = myCNCProgram.FileContent.Split('\n');
-                
+
                 TempJob.Text = "Lädt...";
                 if (ShowOnlyToolCall)
                 {
@@ -626,13 +634,13 @@ namespace TTi_NextGen
                     ProgressBar.Maximum = _lines.Length;
                 }
                 this.Update();
-                
+
                 treeView2.BeginUpdate();
                 treeView2.Nodes.Clear();
-                
+
                 myToolCallNodes = null;
                 myToolCallNodes = new TreeNode[0];
-                
+
                 int i = 0;
                 foreach (var _line in _lines)
                 {
@@ -862,7 +870,7 @@ namespace TTi_NextGen
 
         private void tOOLCALLInformationenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(myCNCProgram.GetNoteText() + "\n\n" + myCNCProgram.ToString(), "Information");
+            MessageBox.Show(myCNCProgram.File.Name + ": " + myCNCProgram.GetNoteText() + "\n\n" + myCNCProgram.ToString(), "Information");
         }
 
         private void nurWerkzeuglisteAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -953,8 +961,6 @@ namespace TTi_NextGen
 
         private void updateToolCallView()
         {
-
-
             if (nurTOOLCALLsAnzeigenToolStripMenuItem.CheckState == CheckState.Unchecked)
             {
                 BuildTreeViewCNCProgram(false);
@@ -963,7 +969,6 @@ namespace TTi_NextGen
             {
                 BuildTreeViewCNCProgram(true);
             }
-
         }
 
         private void nurTOOLCALLsAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)

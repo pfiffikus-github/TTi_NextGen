@@ -777,25 +777,25 @@ namespace TTi_NextGen
 
         public string GetNoteText()
         {
-            string nt = "CNC-Programm '" + Path.GetFileName(File.Name) + "': ";
+            string nt = ""; // "CNC-Programm '" + Path.GetFileName(File.Name) + "': ";
 
             if (this.MatchesOfToolCalls.Count == 0)
             {
-                return nt + "(" + this.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' enthalten)";
+                return nt + this.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' enthalten";
             }
 
             if (this.OnlyRestrictiveToolValues)
             {
-                return nt + "(" + this.MatchesOfToolCalls.Count + "x ausschließlich Standardwerkzeuge enthalten)";
+                return nt + this.MatchesOfToolCalls.Count + "x ausschließlich Standardwerkzeuge enthalten";
             }
 
             if (this.IsToolRangeConsistent)
             {
-                return nt + "(" + this.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' in Tool-Range " + this.OriginalToolRange.ToString() + " gefunden)";
+                return nt + this.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' in Tool-Range '" + (this.OriginalToolRange *1000) + "..." + ((this.OriginalToolRange * 1000) +999) + "' gefunden";
             }
             else
             {
-                return nt + "(" + this.MatchesOfToolCalls.Count + "x nicht übereinstimmende '" + CNCProgram.ToolCallString + "' gefunden)";
+                return nt +  this.MatchesOfToolCalls.Count + "x nicht übereinstimmende '" + CNCProgram.ToolCallString + "' gefunden";
             }
         }
 
