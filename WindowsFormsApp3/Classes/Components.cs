@@ -626,7 +626,7 @@ namespace TTi_NextGen
             OriginalToolRange = 0;              //in DetectIsToolRangeConsistent() neu initalisiert
             FirstNotRestrictiveToolValue = 0;   //in DetectIsToolRangeConsistent() neu initalisiert
             OnlyRestrictiveToolValues = false;  //in DetectIsToolRangeConsistent() neu initalisiert
-            
+
             RestrictivToolNumbers = GetRestrictivToolNumbers(restrictivToolNumber);
 
             FileContent = System.IO.File.ReadAllText(File.FullName);
@@ -743,7 +743,7 @@ namespace TTi_NextGen
             }
             System.IO.File.WriteAllText(System.IO.Path.Combine(File.DirectoryName, File.Name), newFileContent);
         }
-        
+
         public override string ToString()
         {
             var ToolCallsToString = "";
@@ -791,11 +791,11 @@ namespace TTi_NextGen
 
             if (this.IsToolRangeConsistent)
             {
-                return nt + this.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' in Tool-Range '" + (this.OriginalToolRange *1000) + "..." + ((this.OriginalToolRange * 1000) +999) + "' gefunden";
+                return nt + this.MatchesOfToolCalls.Count + "x '" + CNCProgram.ToolCallString + "' in Tool-Range '" + (this.OriginalToolRange * 1000) + "..." + ((this.OriginalToolRange * 1000) + 999) + "' gefunden";
             }
             else
             {
-                return nt +  this.MatchesOfToolCalls.Count + "x nicht übereinstimmende '" + CNCProgram.ToolCallString + "' gefunden";
+                return nt + this.MatchesOfToolCalls.Count + "x nicht übereinstimmende '" + CNCProgram.ToolCallString + "' gefunden";
             }
         }
 
@@ -819,7 +819,7 @@ namespace TTi_NextGen
             return false;
         }
 
-        public static  int[] GetRestrictivToolNumbers(string source)
+        public static int[] GetRestrictivToolNumbers(string source)
         {
             int[] _RestrictivToolNumbers = new int[0];
 
@@ -855,7 +855,7 @@ namespace TTi_NextGen
             return _RestrictivToolNumbers;
 
         }
-        
+
         public string[] EachToolCallValues()
         {
             string[] _str = new string[0];
@@ -878,7 +878,7 @@ namespace TTi_NextGen
     {
         public ToolCall(Match m)
         {
-            OrgToolCallString = m.Value + " ";
+            OrgToolCallString = m.Value + " "; 
             OrgToolRangeValue = System.Math.Floor(decimal.Parse(m.Groups[1].ToString()) / 1000) * 1000;
             OrgToolCallValue = (Int32.Parse(OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")));
         }
