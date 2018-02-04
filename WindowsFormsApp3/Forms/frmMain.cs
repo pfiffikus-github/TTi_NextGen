@@ -443,7 +443,7 @@ namespace TTi_NextGen
                         nurTOOLCALLsAnzeigenToolStripMenuItem1.Enabled = false;
 
                         MessageBox.Show("Aufgrund der Größe des CNC-Programms '" + Path.GetFileName(_ofd.FileName) + "' werden nur die 'TOOL CALL's im Baum angezeigt.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        BuildTreeViewCNCProgram(false);
+                        BuildTreeViewCNCProgram(true);
                     }
                     else
                     {
@@ -611,179 +611,178 @@ namespace TTi_NextGen
             Process.Start(@"notepad.exe", myCNCProgram.File.FullName);
         }
 
-        private void BuildTreeViewCNCProgram(bool UpdateOnlyToolRange)
+        private void BuildTreeViewCNCProgram(bool ShowOnlyToolCall)              //bool ShowOnlyToolCall    oder        bool UpdateOnlyToolRange
         {
 
-            if (myCNCProgram == null)    //kein CNC-Programm --> TreeView leeren
-            {
-                TempJob.Text = "Lädt...";
-                this.Update();
-                treeView2.BeginUpdate();
-                treeView2.Nodes.Clear();
-                treeView2.EndUpdate();
-                TempJobClear();
-                return;               
-            };
+            //if (myCNCProgram == null)    //kein CNC-Programm --> TreeView leeren
+            //{
+            //    TempJob.Text = "Lädt...";
+            //    this.Update();
+            //    treeView2.BeginUpdate();
+            //    treeView2.Nodes.Clear();
+            //    treeView2.EndUpdate();
+            //    TempJobClear();
+            //    return;               
+            //};
 
-
-            TempJob.Text = "Lädt...";
-            this.Update();
-            treeView2.BeginUpdate();
-
-
-
-            if (UpdateOnlyToolRange)
-            {
-                if (ToolStrip_VorschauModus.CheckState == CheckState.Checked & treeView2.Nodes.Count >= 1)
-                {
-
-                    int newToolCallValue;
-                    string newToolCallString;
-                    var rgx = new Regex(CNCProgram.FilterToolCallRexEx);
-                    TreeNode _tn = new TreeNode();
-
-                    int _newRange = ExtractInt(comboBox1.Text);
-
-
-                    foreach (var item in myToolCallNodes)
-                    {
-                        _tn = treeView2.Nodes[treeView2.Nodes.IndexOf(item)];
-
-                        try
-                        {
-
-                            var tc = new ToolCall(rgx.Matches(_tn.Text)[0]);
-                            if (myCNCProgram.IsRestrictiveToolValue(tc.OrgToolCallValue - tc.OrgToolRangeValue)) { continue; }
-
-                            newToolCallValue = (Int32.Parse(tc.OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")) -
-                                                Int32.Parse(tc.OrgToolRangeValue.ToString())) + (comboBox2.SelectedIndex * 1000);
-
-                            newToolCallString = (tc.OrgToolCallString.Replace(tc.OrgToolCallValue.ToString(), newToolCallValue.ToString()));
-
-                            _tn.Text = _tn.Text.Replace(tc.OrgToolCallString, newToolCallString);
-                        }
-                        catch (Exception)
-                        {
-                            continue;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                treeView2.Nodes.Clear();
-
-                string[] _Lines = new string[] { }; _Lines = myCNCProgram.FileContent.Split('\n');
-                myToolCallNodes = null; myToolCallNodes = new TreeNode[0];
-
-                for (int i = 0; i < _Lines.Length; i++)
-                {
-
-                    if (ToolStrip_NurToolCall.CheckState == CheckState.Checked)
-                    {
-                        if (_Lines[i].Contains(CNCProgram.ToolCallString))
-                        {
-                            treeView2.Nodes.Add("...");
-                            TreeNode _NewNode = treeView2.Nodes.Add(_Lines[i]);
-
-                            if (ToolStrip_ToolCallMarkieren.CheckState == CheckState.Checked)
-                            {
-                                _NewNode.BackColor = Color.Yellow;
-                            }
-
-                            Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
-                            myToolCallNodes[myToolCallNodes.Length - 1] = _NewNode;
+            //TempJob.Text = "Lädt...";
+            //this.Update();
+            //treeView2.BeginUpdate();
 
 
 
-                            try
-                            {
-                                var tc = new ToolCall(new Regex(CNCProgram.FilterToolCallRexEx).Matches(_NewNode.Text)[0]);
+            //if (UpdateOnlyToolRange)
+            //{
+            //    if (ToolStrip_VorschauModus.CheckState == CheckState.Checked & treeView2.Nodes.Count >= 1)
+            //    {
 
-                                if (!myCNCProgram.IsRestrictiveToolValue(tc.OrgToolCallValue - tc.OrgToolRangeValue))
-                                {
-                                    int newToolCallValue;
-                                    string newToolCallString;
+            //        int newToolCallValue;
+            //        string newToolCallString;
+            //        var rgx = new Regex(CNCProgram.FilterToolCallRexEx);
+            //        TreeNode _tn = new TreeNode();
 
-
-
-                                    newToolCallValue = (Int32.Parse(tc.OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")) -
-                                                                                    Int32.Parse(tc.OrgToolRangeValue.ToString())) + (comboBox2.SelectedIndex * 1000);
-
-                                    newToolCallString = (tc.OrgToolCallString.Replace(tc.OrgToolCallValue.ToString(), newToolCallValue.ToString()));
-
-                                    _NewNode.Text = _NewNode.Text.Replace(tc.OrgToolCallString, newToolCallString);
-
-                                }
-                            }
-                            catch (Exception)
-                            {
-
-                                continue;
-                            }
+            //        int _newRange = ExtractInt(comboBox1.Text);
 
 
-                        }
-                    }
-                    else
-                    {
-                        TreeNode _NewNode = treeView2.Nodes.Add(_Lines[i]);
+            //        foreach (var item in myToolCallNodes)
+            //        {
+            //            _tn = treeView2.Nodes[treeView2.Nodes.IndexOf(item)];
 
-                        if (_Lines[i].Contains(CNCProgram.ToolCallString))
-                        {
-                            if (ToolStrip_ToolCallMarkieren.CheckState == CheckState.Checked)
-                            {
-                                _NewNode.BackColor = Color.Yellow;
-                            }
+            //            try
+            //            {
 
-                            Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
-                            myToolCallNodes[myToolCallNodes.Length - 1] = _NewNode;
-                            
-                            try
-                            {
-                                var tc = new ToolCall(new Regex(CNCProgram.FilterToolCallRexEx).Matches(_NewNode.Text)[0]);
+            //                var tc = new ToolCall(rgx.Matches(_tn.Text)[0]);
+            //                if (myCNCProgram.IsRestrictiveToolValue(tc.OrgToolCallValue - tc.OrgToolRangeValue)) { continue; }
 
-                                if (!myCNCProgram.IsRestrictiveToolValue(tc.OrgToolCallValue - tc.OrgToolRangeValue))
-                                {
-                                    int newToolCallValue;
-                                    string newToolCallString;
+            //                newToolCallValue = (Int32.Parse(tc.OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")) -
+            //                                    Int32.Parse(tc.OrgToolRangeValue.ToString())) + (comboBox2.SelectedIndex * 1000);
 
+            //                newToolCallString = (tc.OrgToolCallString.Replace(tc.OrgToolCallValue.ToString(), newToolCallValue.ToString()));
 
+            //                _tn.Text = _tn.Text.Replace(tc.OrgToolCallString, newToolCallString);
+            //            }
+            //            catch (Exception)
+            //            {
+            //                continue;
+            //            }
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    treeView2.Nodes.Clear();
 
-                                    newToolCallValue = (Int32.Parse(tc.OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")) -
-                                                                                    Int32.Parse(tc.OrgToolRangeValue.ToString())) + (comboBox2.SelectedIndex * 1000);
+            //    string[] _Lines = new string[] { }; _Lines = myCNCProgram.FileContent.Split('\n');
+            //    myToolCallNodes = null; myToolCallNodes = new TreeNode[0];
 
-                                    newToolCallString = (tc.OrgToolCallString.Replace(tc.OrgToolCallValue.ToString(), newToolCallValue.ToString()));
+            //    for (int i = 0; i < _Lines.Length; i++)
+            //    {
 
-                                    _NewNode.Text = _NewNode.Text.Replace(tc.OrgToolCallString, newToolCallString);
+            //        if (ToolStrip_NurToolCall.CheckState == CheckState.Checked)
+            //        {
+            //            if (_Lines[i].Contains(CNCProgram.ToolCallString))
+            //            {
+            //                treeView2.Nodes.Add("...");
+            //                TreeNode _NewNode = treeView2.Nodes.Add(_Lines[i]);
 
-                                }
-                            }
-                            catch (Exception)
-                            {
+            //                if (ToolStrip_ToolCallMarkieren.CheckState == CheckState.Checked)
+            //                {
+            //                    _NewNode.BackColor = Color.Yellow;
+            //                }
 
-                                continue;
-                            }
-                        }
-                    }
-                }
-
-            }
+            //                Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
+            //                myToolCallNodes[myToolCallNodes.Length - 1] = _NewNode;
 
 
 
-            treeView2.EndUpdate();
-            TempJobClear();
+            //                try
+            //                {
+            //                    var tc = new ToolCall(new Regex(CNCProgram.FilterToolCallRexEx).Matches(_NewNode.Text)[0]);
+
+            //                    if (!myCNCProgram.IsRestrictiveToolValue(tc.OrgToolCallValue - tc.OrgToolRangeValue))
+            //                    {
+            //                        int newToolCallValue;
+            //                        string newToolCallString;
 
 
+
+            //                        newToolCallValue = (Int32.Parse(tc.OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")) -
+            //                                                                        Int32.Parse(tc.OrgToolRangeValue.ToString())) + (comboBox2.SelectedIndex * 1000);
+
+            //                        newToolCallString = (tc.OrgToolCallString.Replace(tc.OrgToolCallValue.ToString(), newToolCallValue.ToString()));
+
+            //                        _NewNode.Text = _NewNode.Text.Replace(tc.OrgToolCallString, newToolCallString);
+
+            //                    }
+            //                }
+            //                catch (Exception)
+            //                {
+
+            //                    continue;
+            //                }
+
+
+            //            }
+            //        }
+            //        else
+            //        {
+            //            TreeNode _NewNode = treeView2.Nodes.Add(_Lines[i]);
+
+            //            if (_Lines[i].Contains(CNCProgram.ToolCallString))
+            //            {
+            //                if (ToolStrip_ToolCallMarkieren.CheckState == CheckState.Checked)
+            //                {
+            //                    _NewNode.BackColor = Color.Yellow;
+            //                }
+
+            //                Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
+            //                myToolCallNodes[myToolCallNodes.Length - 1] = _NewNode;
+
+            //                try
+            //                {
+            //                    var tc = new ToolCall(new Regex(CNCProgram.FilterToolCallRexEx).Matches(_NewNode.Text)[0]);
+
+            //                    if (!myCNCProgram.IsRestrictiveToolValue(tc.OrgToolCallValue - tc.OrgToolRangeValue))
+            //                    {
+            //                        int newToolCallValue;
+            //                        string newToolCallString;
+
+
+
+            //                        newToolCallValue = (Int32.Parse(tc.OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")) -
+            //                                                                        Int32.Parse(tc.OrgToolRangeValue.ToString())) + (comboBox2.SelectedIndex * 1000);
+
+            //                        newToolCallString = (tc.OrgToolCallString.Replace(tc.OrgToolCallValue.ToString(), newToolCallValue.ToString()));
+
+            //                        _NewNode.Text = _NewNode.Text.Replace(tc.OrgToolCallString, newToolCallString);
+
+            //                    }
+            //                }
+            //                catch (Exception)
+            //                {
+
+            //                    continue;
+            //                }
+            //            }
+            //        }
+            //    }
+
+            //}
+
+
+
+            //treeView2.EndUpdate();
+            //TempJobClear();
 
 
 
 
 
-            //#####################################################################################################
-            return;
-            //#####################################################################################################
+
+
+            ////#####################################################################################################
+            //return;
+            ////#####################################################################################################
 
 
             if (myCNCProgram != null)
@@ -808,7 +807,7 @@ namespace TTi_NextGen
                 _lines = myCNCProgram.FileContent.Split('\n');
 
 
-                if (true)    //ShowOnlyToolCall
+                if (ShowOnlyToolCall)    //ShowOnlyToolCall   oder true
                 {
                     ProgressBar.Value = ProgressBar.Maximum / 3;
                 }
@@ -837,7 +836,7 @@ namespace TTi_NextGen
                 int i = 0; //für ProcessBar
                 foreach (var _line in _lines)
                 {
-                    if (true)  //!ShowOnlyToolCall
+                    if (!ShowOnlyToolCall)  //!ShowOnlyToolCall      oder true
                     {
                         ProgressBar.Value = Array.IndexOf(_lines, _line, i); i++;  //ProgressBar
 
@@ -852,9 +851,6 @@ namespace TTi_NextGen
                             Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
                             myToolCallNodes[myToolCallNodes.Length - 1] = _newNode;
 
-
-
-
                         }
                     }
                     else //nur ToolCall anzeigen...
@@ -868,11 +864,6 @@ namespace TTi_NextGen
                             {
                                 _newNode.BackColor = Color.Yellow;
                             }
-
-
-
-
-
 
                             Array.Resize(ref myToolCallNodes, myToolCallNodes.Length + 1);
                             myToolCallNodes[myToolCallNodes.Length - 1] = _newNode;
@@ -939,19 +930,19 @@ namespace TTi_NextGen
 
 
 
-            if (comboBox2.Text == "")
-            {
-                BuildTreeViewCNCProgram(true);
-            }
-            else
-            {
-                BuildTreeViewCNCProgram(false);
-            }
+            //if (comboBox2.Text == "")
+            //{
+            //    BuildTreeViewCNCProgram(true);
+            //}
+            //else
+            //{
+            //    BuildTreeViewCNCProgram(false);
+            //}
 
 
-            //#############################################################################################################################
-            return;
-            //#############################################################################################################################
+            ////#############################################################################################################################
+            //return;
+            ////#############################################################################################################################
 
 
 
@@ -1192,7 +1183,14 @@ namespace TTi_NextGen
 
         private void updateToolCallView()
         {
-            BuildTreeViewCNCProgram(false);
+            if (nurTOOLCALLsAnzeigenToolStripMenuItem1.CheckState == CheckState.Checked)
+            {
+                BuildTreeViewCNCProgram(true);
+            }
+            else
+            {
+                BuildTreeViewCNCProgram(false);
+            }
         }
 
         private void nurTOOLCALLsAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
