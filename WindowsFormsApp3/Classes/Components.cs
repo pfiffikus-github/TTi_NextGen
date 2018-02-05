@@ -25,6 +25,7 @@ namespace TTi_NextGen
             DefaultMachineBackground = new string[1];
             DefaultMachineBackground[0] = Machine.DefaultMachineName;
             DefaultMachine = Machine.DefaultMachineName;
+            UseProjectManagement = false;
         }
 
         public event EventHandler PublicSettingsDirectoryChanged;
@@ -82,6 +83,23 @@ namespace TTi_NextGen
          DescriptionAttribute("Maschine, welche nach Anwendungsstart automatisch ausgewählt wird"),
          TypeConverter(typeof(MachineTypeConverter))]
         public string DefaultMachine { get; set; }
+
+
+
+        //###########################################################################
+        // NEU Def.
+
+        [CategoryAttribute("Lokale Einstellungen"),
+         DescriptionAttribute("Anwendung nach Datenübertragung schließen")]
+        public bool UseProjectManagement { get; set; }
+
+        //###########################################################################
+
+
+
+
+
+
 
         public void SerializeXML()
         {
@@ -878,7 +896,7 @@ namespace TTi_NextGen
     {
         public ToolCall(Match m)
         {
-            OrgToolCallString = m.Value + " "; 
+            OrgToolCallString = m.Value + " ";
             OrgToolRangeValue = System.Math.Floor(decimal.Parse(m.Groups[1].ToString()) / 1000) * 1000;
             OrgToolCallValue = (Int32.Parse(OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")));
         }
