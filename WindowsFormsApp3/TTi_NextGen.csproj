@@ -255,9 +255,6 @@
     <None Include="Resources\Images\Console_16x.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Images\icons8-maintenance-80.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="if_advancedsettings_17814.ico" />
     <None Include="Resources\Images\ProcedureMissing_16x.png" />
     <None Include="Resources\Images\UserDefinedDataType_16x.png" />
