@@ -867,7 +867,7 @@
             this.toolStripSeparator15,
             this.toolStripMenuItem9});
             this.contextMachine.Name = "contextMachine";
-            this.contextMachine.Size = new System.Drawing.Size(235, 226);
+            this.contextMachine.Size = new System.Drawing.Size(235, 248);
             // 
             // viewHistory
             // 
@@ -920,6 +920,7 @@
             // 
             // maschinenProjektListeToolStripMenuItem
             // 
+            this.maschinenProjektListeToolStripMenuItem.Enabled = false;
             this.maschinenProjektListeToolStripMenuItem.Image = global::TTi_NextGen.Properties.Resources.Datalist_16x;
             this.maschinenProjektListeToolStripMenuItem.Name = "maschinenProjektListeToolStripMenuItem";
             this.maschinenProjektListeToolStripMenuItem.Size = new System.Drawing.Size(234, 22);

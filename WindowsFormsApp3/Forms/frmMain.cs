@@ -131,6 +131,11 @@ namespace TTi_NextGen
                 viewHistory.CheckState = CheckState.Checked;
             }
 
+            if (myLocalSettings.UseProjectManagement)
+            {
+                maschinenProjektListeToolStripMenuItem.Enabled = true;
+            }
+
 
             TempJobClear();
 
@@ -182,64 +187,75 @@ namespace TTi_NextGen
 
         private void ReadOrInitSettings()
         {
+
             myLocalSettings = App.InitLocalSettings();      //lese Lokale Einstellungen
             toolStripStatusLabel1.Text = ""; //status Netzlaufwerk
             toolStripStatusLabel1.Image = null;
             toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.None;
 
-
-            if (Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) != Path.GetPathRoot(Application.StartupPath)) //prüfe, ob Netzlaufwerk verwendet wird
+            try
             {
-                if (Directory.Exists(Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory)))   //prüfe, ob Pfad existiert
+
+
+
+                if (Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) != Path.GetPathRoot(Application.StartupPath)) //prüfe, ob Netzlaufwerk verwendet wird
                 {
-                    myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
-                    FileSystem.FileCopy(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile),    //Kopie der Maschinen lokal speichern, falls Netzlaufwerk später evtl. nicht verfügbar
-                                        Path.Combine(Application.StartupPath, LocalSettings.PublicSettingsFile));
-                    FileSystem.FileCopy(Path.Combine(myLocalSettings.PublicSettingsDirectory, "tool_table.template"),
-                                        Path.Combine(Application.StartupPath, "tool_table.template"));
-                    toolStripStatusLabel1.Text = Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory);
-                    toolStripStatusLabel1.Image = Properties.Resources.Network_16x;
-                    toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
+                    if (Directory.Exists(Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory)))   //prüfe, ob Pfad existiert
+                    {
+                        myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
+                        FileSystem.FileCopy(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile),    //Kopie der Maschinen lokal speichern, falls Netzlaufwerk später evtl. nicht verfügbar
+                                            Path.Combine(Application.StartupPath, LocalSettings.PublicSettingsFile));
+                        FileSystem.FileCopy(Path.Combine(myLocalSettings.PublicSettingsDirectory, "tool_table.template"),
+                                            Path.Combine(Application.StartupPath, "tool_table.template"));
+                        toolStripStatusLabel1.Text = Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory);
+                        toolStripStatusLabel1.Image = Properties.Resources.Network_16x;
+                        toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
+                    }
+                    else
+                    {
+                        myMachines = App.InitMachines(Application.StartupPath);
+                        myNetworkDriveAvailable = false;
+
+                        toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
+                        toolStripStatusLabel1.ForeColor = Color.Red;
+                        toolStripStatusLabel1.Image = Properties.Resources.ConnectionOffline_16x;
+                        toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
+
+
+                        WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' geladen werden.", HistoryMessageType.Error, FontStyle.Bold, true, false);
+                        WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird das letzte lokale Backup verwendet.", HistoryMessageType.Error, FontStyle.Bold, false, true);
+                        WriteHistory("Ohne Zugriff auf Netzlaufwerk '" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' kann die 'Maschinen-Projekt-Liste' nicht gepflegt werden.", HistoryMessageType.Error, FontStyle.Bold, true, true);
+
+                        MessageBox.Show("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.\n\nEs wird ein lokales Backup der Maschinen-Datei verwendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    myMachines = App.InitMachines(Application.StartupPath);
-                    myNetworkDriveAvailable = false;
-
-                    toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
-                    toolStripStatusLabel1.ForeColor = Color.Red;
-                    toolStripStatusLabel1.Image = Properties.Resources.ConnectionOffline_16x;
-                    toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
-
-
-                    WriteHistory("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' geladen werden.", HistoryMessageType.Error, FontStyle.Bold, true, false);
-                    WriteHistory("Netzlaufwerk evtl. nicht verfügbar! Es wird das letzte lokale Backup verwendet.", HistoryMessageType.Error, FontStyle.Bold, false, true);
-                    WriteHistory("Ohne Zugriff auf Netzlaufwerk '" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' kann die 'Maschinen-Projekt-Liste' nicht gepflegt werden.", HistoryMessageType.Error, FontStyle.Bold, true, true);
-
-                    MessageBox.Show("Die öffentlichen Eintellungen (Maschinen) konnten nicht im Netzlaufwerk '" + myLocalSettings.PublicSettingsDirectory + "' geladen werden.\n\nEs wird ein lokales Backup der Maschinen-Datei verwendet.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
                 }
-            }
-            else
-            {
-                myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
-            }
 
-            foreach (Machine _Machine in myMachines)
-            {
-                if (_Machine.Name == myLocalSettings.DefaultMachine)
+                foreach (Machine _Machine in myMachines)
                 {
-                    myMachine = _Machine;
-                    return;
+                    if (_Machine.Name == myLocalSettings.DefaultMachine)
+                    {
+                        myMachine = _Machine;
+                        return;
+                    }
                 }
+
+                WriteHistory("Standardmaschine '" + myLocalSettings.DefaultMachine + "' konnte nicht geladen werden", HistoryMessageType.Error, FontStyle.Bold);
+
+                myMachine = myMachines[0];
+                MessageBox.Show("Die Standardmaschine '" +
+                    myLocalSettings.DefaultMachine + "' konnte nicht geladen werden. Sie ist in den Einstellungen nicht definiert: \n\n" +
+                    System.IO.Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile) +
+                    "\n\nEs wurde die Maschine '" + myMachine.Name + "' geladen!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
-
-            WriteHistory("Standardmaschine '" + myLocalSettings.DefaultMachine + "' konnte nicht geladen werden", HistoryMessageType.Error, FontStyle.Bold);
-
-            myMachine = myMachines[0];
-            MessageBox.Show("Die Standardmaschine '" +
-                myLocalSettings.DefaultMachine + "' konnte nicht geladen werden. Sie ist in den Einstellungen nicht definiert: \n\n" +
-                System.IO.Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile) +
-                "\n\nEs wurde die Maschine '" + myMachine.Name + "' geladen!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 

@@ -34,6 +34,8 @@ namespace TTi_NextGen
 
         public const string PublicSettingsFile = "PublicSettings.xml";
 
+        public const string SubFolder = "Sub\\";       // @"\Sub\";
+
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Auswahl aller Maschinen anzeigen")]
         public bool ShowMachineList { get; set; }
@@ -97,14 +99,15 @@ namespace TTi_NextGen
 
 
 
-
-
-
-
         public void SerializeXML()
         {
+            if (SubFolder != "" & !Directory.Exists(SubFolder))
+            {
+                Directory.CreateDirectory(SubFolder);
+            }
+
             XmlSerializer xs = new XmlSerializer(this.GetType());
-            using (StreamWriter sw = new StreamWriter(LocalSettingsFile))
+            using (StreamWriter sw = new StreamWriter(SubFolder + LocalSettingsFile))
             {
                 xs.Serialize(sw, this);
                 sw.Flush();
@@ -116,7 +119,8 @@ namespace TTi_NextGen
         public LocalSettings DeserializeXML()
         {
             XmlSerializer xs = new XmlSerializer(this.GetType());
-            using (StreamReader sr = new StreamReader(LocalSettingsFile))
+
+            using (StreamReader sr = new StreamReader(SubFolder + LocalSettingsFile))
             {
                 return (LocalSettings)xs.Deserialize(sr);
             }
@@ -343,7 +347,7 @@ namespace TTi_NextGen
 
                 App.ExtractEmbeddedResources("TNCSync.exe", Application.StartupPath);
 
-                if (File.Exists(LocalSettings.LocalSettingsFile))
+                if (File.Exists(LocalSettings.SubFolder + LocalSettings.LocalSettingsFile))
                 {
                     myLocalSettings = myLocalSettings.DeserializeXML();
                 }
@@ -354,8 +358,9 @@ namespace TTi_NextGen
 
                 return myLocalSettings;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return null;
             }
         }
@@ -366,9 +371,9 @@ namespace TTi_NextGen
             {
                 Machines myMachines = new Machines();
 
-                App.ExtractEmbeddedResources(".template", path);
+                App.ExtractEmbeddedResources(".template", path  );
 
-                if (File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
+                if (File.Exists(Path.Combine(path  , LocalSettings.PublicSettingsFile)))
                 {
                     myMachines = myMachines.DeserializeXML(path);
                 }
@@ -401,9 +406,9 @@ namespace TTi_NextGen
 
                 return myMachines;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //throw new Exception("");
+                MessageBox.Show(ex.Message);
                 return null;
             }
         }
