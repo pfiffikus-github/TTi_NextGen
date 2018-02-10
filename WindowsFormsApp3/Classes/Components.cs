@@ -34,7 +34,9 @@ namespace TTi_NextGen
 
         public const string PublicSettingsFile = "PublicSettings.xml";
 
-        public const string SubFolder = "Sub\\";       // @"\Sub\";
+        public const string SubFolderLocals = "Locals\\";       // @"\Sub\";
+
+        public const string SubFolderPublics = "Publics\\";       // @"\Sub\";
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Auswahl aller Maschinen anzeigen")]
@@ -101,28 +103,44 @@ namespace TTi_NextGen
 
         public void SerializeXML()
         {
-            if (SubFolder != "" & !Directory.Exists(SubFolder))
+            try
             {
-                Directory.CreateDirectory(SubFolder);
-            }
+                if (SubFolderLocals != "" & !Directory.Exists(SubFolderLocals))
+                {
+                    Directory.CreateDirectory(SubFolderLocals);
+                }
 
-            XmlSerializer xs = new XmlSerializer(this.GetType());
-            using (StreamWriter sw = new StreamWriter(SubFolder + LocalSettingsFile))
+                XmlSerializer xs = new XmlSerializer(this.GetType());
+                using (StreamWriter sw = new StreamWriter(SubFolderLocals + LocalSettingsFile))
+                {
+                    xs.Serialize(sw, this);
+                    sw.Flush();
+                    sw.Dispose();
+                    sw.Close();
+                }
+            }
+            catch (Exception ex)
             {
-                xs.Serialize(sw, this);
-                sw.Flush();
-                sw.Dispose();
-                sw.Close();
+                MessageBox.Show(ex.Message, MethodInfo.GetCurrentMethod().Name);
+                throw;
             }
         }
 
         public LocalSettings DeserializeXML()
         {
-            XmlSerializer xs = new XmlSerializer(this.GetType());
-
-            using (StreamReader sr = new StreamReader(SubFolder + LocalSettingsFile))
+            try
             {
-                return (LocalSettings)xs.Deserialize(sr);
+                XmlSerializer xs = new XmlSerializer(this.GetType());
+
+                using (StreamReader sr = new StreamReader(SubFolderLocals + LocalSettingsFile))
+                {
+                    return (LocalSettings)xs.Deserialize(sr);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, MethodInfo.GetCurrentMethod().Name);
+                throw;
             }
         }
     }
@@ -212,18 +230,26 @@ namespace TTi_NextGen
                     sw.Close();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show(ex.Message, MethodInfo.GetCurrentMethod().Name);
             }
         }
 
         public Machines DeserializeXML(string path)
         {
-            XmlSerializer xs = new XmlSerializer(this.GetType());
-            using (StreamReader sr = new StreamReader(Path.Combine(path, LocalSettings.PublicSettingsFile)))
+            try
             {
-                return (Machines)xs.Deserialize(sr);
+                XmlSerializer xs = new XmlSerializer(this.GetType());
+                using (StreamReader sr = new StreamReader(Path.Combine(path, LocalSettings.PublicSettingsFile)))
+                {
+                    return (Machines)xs.Deserialize(sr);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, MethodInfo.GetCurrentMethod().Name);
+                throw;
             }
         }
 
@@ -345,9 +371,9 @@ namespace TTi_NextGen
             {
                 LocalSettings myLocalSettings = new LocalSettings();
 
-                App.ExtractEmbeddedResources("TNCSync.exe", Application.StartupPath);
+                App.ExtractEmbeddedResources("TNCSync.exe");
 
-                if (File.Exists(LocalSettings.SubFolder + LocalSettings.LocalSettingsFile))
+                if (File.Exists(LocalSettings.SubFolderLocals + LocalSettings.LocalSettingsFile))
                 {
                     myLocalSettings = myLocalSettings.DeserializeXML();
                 }
@@ -360,7 +386,7 @@ namespace TTi_NextGen
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, MethodInfo.GetCurrentMethod().Name);
                 return null;
             }
         }
@@ -371,9 +397,9 @@ namespace TTi_NextGen
             {
                 Machines myMachines = new Machines();
 
-                App.ExtractEmbeddedResources(".template", path  );
+                App.ExtractEmbeddedResources(".template", path);
 
-                if (File.Exists(Path.Combine(path  , LocalSettings.PublicSettingsFile)))
+                if (File.Exists(Path.Combine(path, LocalSettings.PublicSettingsFile)))
                 {
                     myMachines = myMachines.DeserializeXML(path);
                 }
@@ -398,8 +424,8 @@ namespace TTi_NextGen
                     if (machine.ControlVersion == Machine.TNCVersions.ab_TNC640)
                     {
                         //MessageBox.Show("Das Verwenden der Einstellung 'ab_TNC640' setzt folgendes Paket voraus:\n\n'Microsoft Visual C++ 2010 Redistributable Package (x64)'", "Informtion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        App.ExtractEmbeddedResources(".dll", Application.StartupPath);
-                        App.ExtractEmbeddedResources("TNCSyncPlus.exe", Application.StartupPath);
+                        App.ExtractEmbeddedResources(".dll");
+                        App.ExtractEmbeddedResources("TNCSyncPlus.exe");
                         break;
                     }
                 }
@@ -408,37 +434,49 @@ namespace TTi_NextGen
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, MethodInfo.GetCurrentMethod().Name);
                 return null;
             }
         }
 
-        public static void ExtractEmbeddedResources(string files, string path)
+        public static void ExtractEmbeddedResources(string files, string path = LocalSettings.SubFolderLocals)
         {
-            string[] _Resources = Assembly.GetExecutingAssembly().GetManifestResourceNames();
-            string[] _File;
-
-            foreach (var _Resource in _Resources)
+            try
             {
-                if (_Resource.Contains(files))
+                string[] _Resources = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+                string[] _File;
+
+                if (path == "") { path = Application.StartupPath; }
+
+                foreach (var _Resource in _Resources)
                 {
-                    _File = _Resource.Split('.');
-
-                    String _FileName = _File[_File.Length - 2] + Path.GetExtension(_Resource);
-
-                    using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(_Resource))
+                    if (_Resource.Contains(files))
                     {
-                        if (!File.Exists(Path.Combine(path, _FileName)))
+                        _File = _Resource.Split('.');
+
+                        String _FileName = _File[_File.Length - 2] + Path.GetExtension(_Resource);
+
+                        using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(_Resource))
                         {
-                            Directory.CreateDirectory(path);
-                            FileStream fileStream = new FileStream(Path.Combine(path, _FileName), FileMode.Create);
-                            for (int i = 0; i < stream.Length; i++)
-                                fileStream.WriteByte((byte)stream.ReadByte());
-                            fileStream.Close();
+                            if (!File.Exists(Path.Combine(path, _FileName)))
+                            {
+                                Directory.CreateDirectory(path);
+                                FileStream fileStream = new FileStream(Path.Combine(path, _FileName), FileMode.Create);
+                                for (int i = 0; i < stream.Length; i++)
+                                    fileStream.WriteByte((byte)stream.ReadByte());
+                                fileStream.Close();
+                            }
                         }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, MethodInfo.GetCurrentMethod().Name);
+                throw;
+            }
+
+
         }
 
         public static string Title()
