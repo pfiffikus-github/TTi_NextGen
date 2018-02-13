@@ -20,8 +20,8 @@ namespace TTi_NextGen
             ShowMachineList = true;
             ShowHistory = true;
             CloseAppAfterSync = false;
-            LocalSettingsDirectory = Application.StartupPath;
-            PublicSettingsDirectory = Application.StartupPath;
+            LocalSettingsDirectory = Application.StartupPath + LocalsSubFolder ;
+            PublicSettingsDirectory = Application.StartupPath + PublicsSubFolder;
             DefaultMachineBackground = new string[1];
             DefaultMachineBackground[0] = Machine.DefaultMachineName;
             DefaultMachine = Machine.DefaultMachineName;
@@ -34,9 +34,9 @@ namespace TTi_NextGen
 
         public const string PublicSettingsFile = "PublicSettings.xml";
 
-        public const string SubFolderLocals = "Locals\\";       // @"\Sub\";
+        public const string LocalsSubFolder = "\\Locals\\";
 
-        public const string SubFolderPublics = "Publics\\";       // @"\Sub\";
+        public const string PublicsSubFolder = "\\Publics\\";
 
         [CategoryAttribute("Lokale Einstellungen"),
          DescriptionAttribute("Auswahl aller Maschinen anzeigen")]
@@ -105,13 +105,8 @@ namespace TTi_NextGen
         {
             try
             {
-                if (SubFolderLocals != "" & !Directory.Exists(SubFolderLocals))
-                {
-                    Directory.CreateDirectory(SubFolderLocals);
-                }
-
                 XmlSerializer xs = new XmlSerializer(this.GetType());
-                using (StreamWriter sw = new StreamWriter(SubFolderLocals + LocalSettingsFile))
+                using (StreamWriter sw = new StreamWriter(LocalSettingsDirectory + LocalSettingsFile))  // SubFolderLocals +
                 {
                     xs.Serialize(sw, this);
                     sw.Flush();
@@ -132,7 +127,7 @@ namespace TTi_NextGen
             {
                 XmlSerializer xs = new XmlSerializer(this.GetType());
 
-                using (StreamReader sr = new StreamReader(SubFolderLocals + LocalSettingsFile))
+                using (StreamReader sr = new StreamReader(LocalSettingsDirectory + LocalSettingsFile))  //SubFolderLocals + 
                 {
                     return (LocalSettings)xs.Deserialize(sr);
                 }
@@ -371,9 +366,9 @@ namespace TTi_NextGen
             {
                 LocalSettings myLocalSettings = new LocalSettings();
 
-                App.ExtractEmbeddedResources("TNCSync.exe");
+                App.ExtractEmbeddedResources("TNCSync.exe", myLocalSettings.LocalSettingsDirectory);
 
-                if (File.Exists(LocalSettings.SubFolderLocals + LocalSettings.LocalSettingsFile))
+                if (File.Exists(myLocalSettings.LocalSettingsDirectory + LocalSettings.LocalSettingsFile))   // LocalSettings.SubFolderLocals +
                 {
                     myLocalSettings = myLocalSettings.DeserializeXML();
                 }
@@ -423,9 +418,12 @@ namespace TTi_NextGen
                 {
                     if (machine.ControlVersion == Machine.TNCVersions.ab_TNC640)
                     {
+
+                        LocalSettings myLocalSettings = new LocalSettings();
+
                         //MessageBox.Show("Das Verwenden der Einstellung 'ab_TNC640' setzt folgendes Paket voraus:\n\n'Microsoft Visual C++ 2010 Redistributable Package (x64)'", "Informtion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        App.ExtractEmbeddedResources(".dll");
-                        App.ExtractEmbeddedResources("TNCSyncPlus.exe");
+                        App.ExtractEmbeddedResources(".dll", myLocalSettings.LocalSettingsDirectory);
+                        App.ExtractEmbeddedResources("TNCSyncPlus.exe", myLocalSettings.LocalSettingsDirectory);
                         break;
                     }
                 }
@@ -439,7 +437,7 @@ namespace TTi_NextGen
             }
         }
 
-        public static void ExtractEmbeddedResources(string files, string path = LocalSettings.SubFolderLocals)
+        public static void ExtractEmbeddedResources(string files, string path)   //LocalSettings.SubFolderLocals
         {
             try
             {

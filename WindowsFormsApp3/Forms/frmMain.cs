@@ -200,13 +200,13 @@ namespace TTi_NextGen
 
                 if (Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) != Path.GetPathRoot(Application.StartupPath)) //prüfe, ob Netzlaufwerk verwendet wird
                 {
-                    if (Directory.Exists(Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory)))   //prüfe, ob Pfad existiert
+                    if (Directory.Exists(Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory)))   //prüfe, ob Pfad / Netzlaufweerk existiert
                     {
                         myMachines = App.InitMachines(myLocalSettings.PublicSettingsDirectory);
                         FileSystem.FileCopy(Path.Combine(myLocalSettings.PublicSettingsDirectory, LocalSettings.PublicSettingsFile),    //Kopie der Maschinen lokal speichern, falls Netzlaufwerk später evtl. nicht verfügbar
-                                            Path.Combine(Application.StartupPath, LocalSettings.PublicSettingsFile));
+                                            Path.Combine(Application.StartupPath + LocalSettings.PublicsSubFolder, LocalSettings.PublicSettingsFile));
                         FileSystem.FileCopy(Path.Combine(myLocalSettings.PublicSettingsDirectory, "tool_table.template"),
-                                            Path.Combine(Application.StartupPath, "tool_table.template"));
+                                            Path.Combine(Application.StartupPath + LocalSettings.PublicsSubFolder, "tool_table.template"));
                         toolStripStatusLabel1.Text = Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory);
                         toolStripStatusLabel1.Image = Properties.Resources.Network_16x;
                         toolStripStatusLabel1.BorderSides = ToolStripStatusLabelBorderSides.Left;
