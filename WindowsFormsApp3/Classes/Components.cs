@@ -20,7 +20,7 @@ namespace TTi_NextGen
             ShowMachineList = true;
             ShowHistory = true;
             CloseAppAfterSync = false;
-            LocalSettingsDirectory = Application.StartupPath + LocalsSubFolder ;
+            LocalSettingsDirectory = Application.StartupPath + LocalsSubFolder;
             PublicSettingsDirectory = Application.StartupPath + PublicsSubFolder;
             DefaultMachineBackground = new string[1];
             DefaultMachineBackground[0] = Machine.DefaultMachineName;
@@ -106,7 +106,7 @@ namespace TTi_NextGen
             try
             {
                 XmlSerializer xs = new XmlSerializer(this.GetType());
-                using (StreamWriter sw = new StreamWriter(LocalSettingsDirectory + LocalSettingsFile))  // SubFolderLocals +
+                using (StreamWriter sw = new StreamWriter(Path.Combine(LocalSettingsDirectory, LocalSettingsFile)))  // SubFolderLocals +
                 {
                     xs.Serialize(sw, this);
                     sw.Flush();
@@ -127,7 +127,7 @@ namespace TTi_NextGen
             {
                 XmlSerializer xs = new XmlSerializer(this.GetType());
 
-                using (StreamReader sr = new StreamReader(LocalSettingsDirectory + LocalSettingsFile))  //SubFolderLocals + 
+                using (StreamReader sr = new StreamReader(Path.Combine(LocalSettingsDirectory, LocalSettingsFile)))  //SubFolderLocals + 
                 {
                     return (LocalSettings)xs.Deserialize(sr);
                 }
@@ -368,7 +368,7 @@ namespace TTi_NextGen
 
                 App.ExtractEmbeddedResources("TNCSync.exe", myLocalSettings.LocalSettingsDirectory);
 
-                if (File.Exists(myLocalSettings.LocalSettingsDirectory + LocalSettings.LocalSettingsFile))   // LocalSettings.SubFolderLocals +
+                if (File.Exists(Path.Combine(myLocalSettings.LocalSettingsDirectory, LocalSettings.LocalSettingsFile)))   // LocalSettings.SubFolderLocals +
                 {
                     myLocalSettings = myLocalSettings.DeserializeXML();
                 }

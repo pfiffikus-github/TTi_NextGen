@@ -213,7 +213,7 @@ namespace TTi_NextGen
                     }
                     else
                     {
-                        myMachines = App.InitMachines(Application.StartupPath);
+                        myMachines = App.InitMachines(Application.StartupPath + LocalSettings.PublicsSubFolder);
                         myNetworkDriveAvailable = false;
 
                         toolStripStatusLabel1.Text = "'" + Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) + "' nicht verfügbar!";
