@@ -58,7 +58,30 @@ namespace TTi_NextGen
 
         private void OK_Click(object sender, EventArgs e)
         {
+            #region SaveLocalSettings
+
             myLocalSettings.SerializeXML();
+
+            if (myLocalSettings.UseProjectManagement)
+            {
+                if (MessageBox.Show("Das Verwenden der Projektliste setzt folgendes Paket voraus:\n\n'Microsoft Access Database Engine 2010 Redistributable'\n\nSoll dieses jetzt installiert werden?", "Informtion",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    App.ExtractEmbeddedResources("AccessDatabaseEngine.exe", myLocalSettings.LocalSettingsDirectory);
+                    try
+                    {
+                        Process.Start(Path.Combine(myLocalSettings.LocalSettingsDirectory, "AccessDatabaseEngine.exe"));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, MethodInfo.GetCurrentMethod().Name);  //Vorgang mit Benutzerkontensteuerung abgebrochen --> Exeption
+                    }
+                }
+            }
+
+            #endregion
+
+            #region SavePublicSettings
 
             if (myNetworkDriveAvailable == false)
             {
@@ -66,7 +89,6 @@ namespace TTi_NextGen
             }
             else
             {
-
                 foreach (var machine in myMachines)
                 {
                     if (machine.ControlVersion == Machine.TNCVersions.ab_TNC640)
@@ -92,6 +114,7 @@ namespace TTi_NextGen
 
             DialogResult = DialogResult.OK;
         }
+        #endregion
 
         private void Cancel_Click(object sender, EventArgs e)
         {
