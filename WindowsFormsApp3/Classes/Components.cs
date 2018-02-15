@@ -424,6 +424,9 @@ namespace TTi_NextGen
                         //MessageBox.Show("Das Verwenden der Einstellung 'ab_TNC640' setzt folgendes Paket voraus:\n\n'Microsoft Visual C++ 2010 Redistributable Package (x64)'", "Informtion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         App.ExtractEmbeddedResources(".dll", myLocalSettings.LocalSettingsDirectory);
                         App.ExtractEmbeddedResources("TNCSyncPlus.exe", myLocalSettings.LocalSettingsDirectory);
+
+
+
                         break;
                     }
                 }

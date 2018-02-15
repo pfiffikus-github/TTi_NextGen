@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.VisualBasic;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace TTi_NextGen
 {
@@ -69,7 +71,19 @@ namespace TTi_NextGen
                 {
                     if (machine.ControlVersion == Machine.TNCVersions.ab_TNC640)
                     {
-                        MessageBox.Show("Das Verwenden der Einstellung 'ab_TNC640' setzt folgendes Paket voraus:\n\n'Microsoft Visual C++ 2010 Redistributable Package (x64)'", "Informtion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (MessageBox.Show("Das Verwenden der Einstellung 'ab_TNC640' setzt folgendes Paket voraus:\n\n'Microsoft Visual C++ 2010 Redistributable Package (x64)'\n\nSoll dieses jetzt installiert werden?", "Informtion",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        {
+                            App.ExtractEmbeddedResources("vcredist_x64.exe", myLocalSettings.LocalSettingsDirectory);
+                            try
+                            {
+                                Process.Start(Path.Combine(myLocalSettings.LocalSettingsDirectory, "vcredist_x64.exe"));
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, MethodInfo.GetCurrentMethod().Name);  //Vorgang mit Benutzerkontensteuerung abgebrochen --> Exeption
+                            }
+                        }
                         break;
                     }
                 }
