@@ -195,9 +195,6 @@ namespace TTi_NextGen
 
             try
             {
-
-
-
                 if (Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory) != Path.GetPathRoot(Application.StartupPath)) //prüfe, ob Netzlaufwerk verwendet wird
                 {
                     if (Directory.Exists(Path.GetPathRoot(myLocalSettings.PublicSettingsDirectory)))   //prüfe, ob Pfad / Netzlaufweerk existiert

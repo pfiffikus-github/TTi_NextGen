@@ -269,6 +269,7 @@ namespace TTi_NextGen
             ControlVersion = TNCVersions.bis_iTNC530;
             BackUpDirectoryToolTable = @"TNC:\BackupToolT\";
             CreateSubFolder = false;
+            CrLf_Character = "";
         }
 
         public const string DefaultMachineName = "DefaultMachine";
@@ -345,6 +346,12 @@ namespace TTi_NextGen
         [CategoryAttribute("Einstellungen Werkzeugliste"),
          DescriptionAttribute("Backup-Pfad der Tool.t auf TNC")]
         public string BackUpDirectoryToolTable { get; set; }
+
+        [CategoryAttribute("Einstellungen CNC-Programm"),
+         DescriptionAttribute("Werkzeugnummern, die statisch niemals auf Steuerung überschrieben werden (≙ Standardwerkzeug)")]
+        public string CrLf_Character { get; set; }
+
+
 
         public enum TNCVersions
         {
@@ -940,9 +947,21 @@ namespace TTi_NextGen
     {
         public ToolCall(Match m)
         {
-            OrgToolCallString = m.Value + " ";
-            OrgToolRangeValue = System.Math.Floor(decimal.Parse(m.Groups[1].ToString()) / 1000) * 1000;
-            OrgToolCallValue = (Int32.Parse(OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")));
+
+            try
+            {
+                OrgToolCallString = m.Value + " ";
+                OrgToolRangeValue = System.Math.Floor(decimal.Parse(m.Groups[1].ToString()) / 1000) * 1000;
+                OrgToolCallValue = (Int32.Parse(OrgToolCallString.Replace(CNCProgram.ToolCallString + " ", "")));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
         }
 
         public String OrgToolCallString { get; private set; }

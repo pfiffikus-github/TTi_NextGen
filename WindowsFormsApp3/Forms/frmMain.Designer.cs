@@ -867,7 +867,7 @@
             this.toolStripSeparator15,
             this.toolStripMenuItem9});
             this.contextMachine.Name = "contextMachine";
-            this.contextMachine.Size = new System.Drawing.Size(235, 248);
+            this.contextMachine.Size = new System.Drawing.Size(235, 226);
             // 
             // viewHistory
             // 
@@ -1061,6 +1061,7 @@
             this.History_1.ContextMenuStrip = this.contextHistory;
             this.History_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.History_1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.History_1.ForeColor = System.Drawing.Color.Silver;
             this.History_1.ImageIndex = 0;
             this.History_1.ImageList = this.HistoryImages;
             this.History_1.Location = new System.Drawing.Point(0, 0);
