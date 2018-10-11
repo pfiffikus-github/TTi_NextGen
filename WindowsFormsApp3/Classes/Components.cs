@@ -261,7 +261,7 @@ namespace TTi_NextGen
             Name = DefaultMachineName;
             IP = "127.0.0.1";
             PathToolTable = @"TNC:\Tool.t";
-            InvalidToolNameCharakters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
+            InvalidToolNameCharacters = @"/\* ()[]{}+!§=?<>;:^°|²³äöü";
             ProjectDirectory = @"TNC:\Bauteile\";
             MaxToolRange = 32;
             RestrictivToolNumbers = "[0-3][4-7][8,9,10]";
@@ -302,7 +302,7 @@ namespace TTi_NextGen
 
         [CategoryAttribute("Einstellungen Werkzeugliste"),
          DescriptionAttribute("Ungültige Zeichen in Spalte 'Name'")]
-        public string InvalidToolNameCharakters { get; set; }
+        public string InvalidToolNameCharacters { get; set; }
 
         private int myMaxToolRange;
         [CategoryAttribute("Einstellungen Werkzeugliste"),
